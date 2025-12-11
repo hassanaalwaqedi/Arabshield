@@ -179,7 +179,7 @@ export default function OrderPage() {
     const [formStep, setFormStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [openFAQ, setOpenFAQ] = useState(null);
+    const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
     const [formData, setFormData] = useState({
         fullName: '',
