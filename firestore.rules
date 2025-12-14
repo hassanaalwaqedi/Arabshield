@@ -38,20 +38,33 @@ service cloud.firestore {
       return isAuthenticated() && request.auth.uid == userId;
     }
     
-    // FIX: Renamed from isAdmin() to isOwnerRole() for clarity
-    // Checks if current user has 'owner' role in their profile
+    // Get user's role from Firestore
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    
+    // Check if current user has 'owner' role
     function isOwnerRole() {
-      return isAuthenticated() && 
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'owner';
+      return isAuthenticated() && getUserRole() == 'owner';
     }
     
-    // FIX: Helper to check if user is member or owner role
+    // Check if current user has 'admin' role
+    function isAdminRole() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+    
+    // Check if current user has admin privileges (owner OR admin role)
+    function hasAdminPrivileges() {
+      return isAuthenticated() && (getUserRole() == 'owner' || getUserRole() == 'admin');
+    }
+    
+    // Helper to check if user is member or owner role
     function isMemberOrOwner() {
-      let role = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
-      return isAuthenticated() && (role == 'member' || role == 'owner');
+      let role = getUserRole();
+      return isAuthenticated() && (role == 'member' || role == 'owner' || role == 'admin');
     }
     
-    // FIX: Helper to check if user owns a specific project
+    // Helper to check if user owns a specific project
     function isProjectOwner(projectId) {
       return isVerifiedUser() && 
         get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid;
@@ -117,42 +130,43 @@ service cloud.firestore {
     
     // ==========================================
     // Tasks - Project-based access
-    // FIX #2: Complete rewrite of tasks access model
     // ==========================================
     match /tasks/{taskId} {
-      // FIX #2: Read access for:
+      // Read access:
+      // - Admin can read all tasks
       // - Assigned user can read their tasks
-      // - Project owner can read ALL tasks of their project
-      allow read: if isVerifiedUser() && (
+      // - Project owner can read their project's tasks
+      allow read: if isAuthenticated() && (
+        hasAdminPrivileges() ||
         resource.data.assignedTo == request.auth.uid ||
-        isProjectOwner(resource.data.projectId)
+        resource.data.ownerId == request.auth.uid
       );
       
-      // FIX #2: Task creation requires:
-      // - User must be member or owner role
+      // Task creation requires:
+      // - User must be authenticated
       // - projectId field must exist
-      // - Creator must own the project OR be assigned
       allow create: if isVerifiedUser() && 
-        isMemberOrOwner() &&
         request.resource.data.keys().hasAll(['projectId', 'title']) &&
         request.resource.data.projectId != null &&
         request.resource.data.projectId != '';
       
-      // FIX #2: Task update rules:
-      // - Assigned user can update (but NOT projectId or assignedTo)
-      // - Project owner can update anything
-      allow update: if isVerifiedUser() && (
-        // Assigned user: can update but not reassign
-        (resource.data.assignedTo == request.auth.uid && 
-         !request.resource.data.diff(resource.data).affectedKeys().hasAny(['projectId', 'assignedTo']))
-        ||
-        // Project owner: can update anything including reassignment
-        isProjectOwner(resource.data.projectId)
+      // Task update rules:
+      // - Admin can update anything
+      // - Assigned user can update
+      // - Owner can update
+      allow update: if isAuthenticated() && (
+        hasAdminPrivileges() ||
+        resource.data.assignedTo == request.auth.uid ||
+        resource.data.ownerId == request.auth.uid
       );
       
-      // FIX #2: Only project owner can delete tasks
-      allow delete: if isVerifiedUser() && 
-        isProjectOwner(resource.data.projectId);
+      // Task deletion:
+      // - Admin can delete
+      // - Owner can delete
+      allow delete: if isAuthenticated() && (
+        hasAdminPrivileges() ||
+        resource.data.ownerId == request.auth.uid
+      );
     }
     
     // ==========================================
@@ -302,6 +316,17 @@ service cloud.firestore {
       
       // FIX #4: Audit logs are immutable
       allow update, delete: if false;
+    }
+    
+    // ==========================================
+    // System Settings - Admin only
+    // ==========================================
+    match /system/{docId} {
+      // Only admin/owner can read system settings
+      allow read: if hasAdminPrivileges();
+      
+      // Only admin/owner can write system settings
+      allow write: if hasAdminPrivileges();
     }
     
     // ==========================================

@@ -1,22 +1,33 @@
 /**
  * Invoices Dashboard Page
- * Displays all invoices with filter and download capabilities
+ * Owner-only: Displays all invoices with filter and download capabilities
+ * UI-level protection + Firestore rules as final authority
  */
 
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useInvoices } from '@/lib/useDashboardData';
 import { useAuth } from '@/contexts/AuthContext';
 import InvoiceCard from '@/components/dashboard/InvoiceCard';
-import { Filter, Loader2, AlertCircle, Search } from 'lucide-react';
+import { Filter, Loader2, AlertCircle, Search, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function InvoicesPage() {
-    const { user } = useAuth();
+    const router = useRouter();
+    const { user, loading: authLoading, role } = useAuth();
     const { invoices, loading, error } = useInvoices(user?.uid);
     const [filter, setFilter] = useState<'all' | 'paid' | 'pending' | 'overdue'>('all');
     const [searchQuery, setSearchQuery] = useState('');
+
+    // UI-level role protection - Owner only
+    useEffect(() => {
+        if (!authLoading && role !== 'owner') {
+            router.push('/dashboard');
+        }
+    }, [authLoading, role, router]);
 
     // Filter invoices
     const filteredInvoices = invoices.filter(invoice => {

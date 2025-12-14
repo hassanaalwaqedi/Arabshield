@@ -1,6 +1,7 @@
 /**
  * Dashboard Layout Component
  * Provides the main layout structure for all dashboard pages
+ * Role-aware navigation - shows admin items only to owners
  */
 
 'use client';
@@ -18,30 +19,45 @@ import {
     Menu,
     X,
     LogOut,
-    Loader2
+    Loader2,
+    Users,
+    Shield,
+    Crown
 } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
+import { isAdminRole } from '@/lib/admin';
 
 interface DashboardLayoutProps {
     children: ReactNode;
 }
 
-const navItems = [
-    { href: '/dashboard', icon: LayoutDashboard, label: 'نظرة عامة', labelEn: 'Overview' },
-    { href: '/dashboard/projects', icon: FolderKanban, label: 'المشاريع', labelEn: 'Projects' },
-    { href: '/dashboard/invoices', icon: FileText, label: 'الفواتير', labelEn: 'Invoices' },
-    { href: '/dashboard/support', icon: MessageSquare, label: 'الدعم الفني', labelEn: 'Support' },
-    { href: '/dashboard/settings', icon: Settings, label: 'الإعدادات', labelEn: 'Settings' },
+// Navigation items visible to ALL users
+const commonNavItems = [
+    { href: '/dashboard', icon: LayoutDashboard, label: 'نظرة عامة' },
+    { href: '/dashboard/projects', icon: FolderKanban, label: 'المشاريع' },
+    { href: '/dashboard/tasks', icon: CheckSquare, label: 'المهام' },
+    { href: '/dashboard/support', icon: MessageSquare, label: 'الدعم الفني' },
+    { href: '/dashboard/settings', icon: Settings, label: 'الإعدادات' },
+];
+
+// Navigation items visible ONLY to admins (owner or admin role)
+const adminOnlyNavItems = [
+    { href: '/dashboard/invoices', icon: FileText, label: 'الفواتير' },
+    { href: '/dashboard/admin/users', icon: Users, label: 'إدارة المستخدمين' },
+    { href: '/dashboard/admin/settings', icon: Shield, label: 'إعدادات النظام' },
 ];
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
-    const { user, loading, isVerified, logout } = useAuth();
+    const { user, loading, isVerified, role, logout } = useAuth();
     const pathname = usePathname();
     const router = useRouter();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [loggingOut, setLoggingOut] = useState(false);
+
+    // Check if user has admin privileges (owner or admin role)
+    const hasAdmin = isAdminRole(role);
 
     // Redirect if not authenticated or not verified
     useEffect(() => {
@@ -65,6 +81,22 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             setLoggingOut(false);
         }
     };
+
+    // Render navigation link
+    const renderNavLink = (item: typeof commonNavItems[0], isActive: boolean) => (
+        <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setSidebarOpen(false)}
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${isActive
+                ? 'bg-blue-600 text-white'
+                : 'hover:bg-slate-100 text-slate-700'
+                }`}
+        >
+            <item.icon size={20} />
+            <span className="font-medium">{item.label}</span>
+        </Link>
+    );
 
     // Show loading while checking auth
     if (loading) {
@@ -104,82 +136,48 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         className="fixed right-0 top-0 h-screen w-64 bg-white/80 backdrop-blur-xl border-l border-slate-200 shadow-2xl z-40 lg:translate-x-0"
                     >
                         <div className="p-6">
-                            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-8">
-                                ArabShield
-                            </h2>
+                            {/* Header with Role Badge */}
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    ArabShield
+                                </h2>
+                            </div>
+
+                            {/* Role Badge */}
+                            <div className={`flex items-center gap-2 px-3 py-2 rounded-lg mb-6 ${hasAdmin
+                                ? 'bg-amber-50 border border-amber-200'
+                                : 'bg-blue-50 border border-blue-200'
+                                }`}>
+                                <Crown size={16} className={hasAdmin ? 'text-amber-600' : 'text-blue-600'} />
+                                <span className={`text-sm font-medium ${hasAdmin ? 'text-amber-700' : 'text-blue-700'
+                                    }`}>
+                                    {hasAdmin ? 'حساب المسؤول' : 'حساب العميل'}
+                                </span>
+                            </div>
 
                             <nav className="space-y-2">
-                                <Link
-                                    href="/dashboard"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <LayoutDashboard size={20} />
-                                    <span className="font-medium">الرئيسية</span>
-                                </Link>
+                                {/* Common Navigation - Visible to ALL users */}
+                                {commonNavItems.map((item) => {
+                                    const isActive = pathname === item.href ||
+                                        (item.href !== '/dashboard' && pathname.startsWith(item.href));
+                                    return renderNavLink(item, isActive);
+                                })}
 
-                                <Link
-                                    href="/dashboard/projects"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard/projects'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <FolderKanban size={20} />
-                                    <span className="font-medium">المشاريع</span>
-                                </Link>
-
-                                <Link
-                                    href="/dashboard/tasks"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard/tasks'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <CheckSquare size={20} />
-                                    <span className="font-medium">المهام</span>
-                                </Link>
-
-                                <Link
-                                    href="/dashboard/invoices"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard/invoices'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <FileText size={20} />
-                                    <span className="font-medium">الفواتير</span>
-                                </Link>
-
-                                <Link
-                                    href="/dashboard/support"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard/support'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <MessageSquare size={20} />
-                                    <span className="font-medium">الدعم الفني</span>
-                                </Link>
-
-                                <Link
-                                    href="/dashboard/settings"
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${pathname === '/dashboard/settings'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <Settings size={20} />
-                                    <span className="font-medium">الإعدادات</span>
-                                </Link>
+                                {/* Admin-Only Navigation */}
+                                {hasAdmin && (
+                                    <>
+                                        <div className="pt-4 mt-4 border-t border-slate-200">
+                                            <p className="text-xs text-slate-500 font-semibold px-4 mb-2">
+                                                إدارة النظام
+                                            </p>
+                                        </div>
+                                        {adminOnlyNavItems.map((item) => {
+                                            const isActive = pathname === item.href ||
+                                                pathname.startsWith(item.href);
+                                            return renderNavLink(item, isActive);
+                                        })}
+                                    </>
+                                )}
 
                                 {/* Logout Button */}
                                 <div className="pt-4 mt-4 border-t border-slate-200">

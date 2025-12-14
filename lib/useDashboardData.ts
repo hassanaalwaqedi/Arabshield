@@ -540,6 +540,7 @@ export function useTasks(userId: string | undefined) {
 /**
  * Custom hook to fetch tasks for a specific project
  * Returns real-time list of tasks filtered by projectId
+ * Uses Firestore where clause for proper security rule compliance
  */
 export function useProjectTasks(projectId: string) {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -553,8 +554,10 @@ export function useProjectTasks(projectId: string) {
             return;
         }
 
+        // Query tasks filtered by projectId at Firestore level
         const q = query(
             collection(db, 'tasks'),
+            where('projectId', '==', projectId),
             orderBy('createdAt', 'desc')
         );
 
@@ -563,13 +566,10 @@ export function useProjectTasks(projectId: string) {
             (snapshot) => {
                 const tasksData: Task[] = [];
                 snapshot.forEach((doc) => {
-                    const data = doc.data();
-                    if (data.projectId === projectId) {
-                        tasksData.push({
-                            id: doc.id,
-                            ...data
-                        } as Task);
-                    }
+                    tasksData.push({
+                        id: doc.id,
+                        ...doc.data()
+                    } as Task);
                 });
                 setTasks(tasksData);
                 setLoading(false);
