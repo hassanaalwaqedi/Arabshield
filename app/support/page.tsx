@@ -163,7 +163,7 @@ function ResourceCard({ icon: Icon, title, description, count }: ResourceCardPro
                 <div className="flex-1">
                     <h3 className="text-white font-semibold mb-1">{title}</h3>
                     <p className="text-slate-400 text-sm mb-2">{description}</p>
-                    <span className="text-xs text-slate-500">{count} articles</span>
+                    <span className="text-xs text-slate-500">{count} مقالة</span>
                 </div>
                 <ArrowRight className="w-5 h-5 text-slate-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
             </div>
@@ -205,54 +205,54 @@ export default function SupportPage() {
     }> = [
             {
                 icon: MessageCircle,
-                title: 'Live Chat',
-                description: 'Chat with our support team in real-time for quick assistance and instant answers.',
-                buttonText: 'Start Chat',
+                title: 'دردشة مباشرة',
+                description: 'تحدث مع فريق الدعم لدينا في الوقت الفعلي للحصول على مساعدة سريعة وإجابات فورية.',
+                buttonText: 'ابدأ الدردشة',
                 buttonVariant: 'primary',
-                badge: 'Fastest'
+                badge: 'الأسرع'
             },
             {
                 icon: FileQuestion,
-                title: 'Knowledge Base',
-                description: 'Find instant answers to common questions about our services and processes.',
-                buttonText: 'Browse Articles',
+                title: 'قاعدة المعرفة',
+                description: 'ابحث عن إجابات فورية للأسئلة الشائعة حول خدماتنا وعملياتنا.',
+                buttonText: 'تصفح المقالات',
                 buttonVariant: 'secondary'
             },
             {
                 icon: LifeBuoy,
-                title: 'Submit a Ticket',
-                description: 'For complex technical issues or project-specific inquiries that need detailed attention.',
-                buttonText: 'Contact Support',
+                title: 'إرسال تذكرة',
+                description: 'للمشاكل التقنية المعقدة أو الاستفسارات الخاصة بالمشروع التي تحتاج إلى اهتمام مفصل.',
+                buttonText: 'اتصل بالدعم',
                 buttonVariant: 'outline'
             }
         ];
 
     const resources = [
-        { icon: Book, title: 'Documentation', description: 'Technical guides and API references', count: 150 },
-        { icon: Video, title: 'Video Tutorials', description: 'Step-by-step video walkthroughs', count: 45 },
-        { icon: HelpCircle, title: 'Common Issues', description: 'Solutions to frequently reported problems', count: 80 }
+        { icon: Book, title: 'التوثيق', description: 'أدلة تقنية ومراجع API', count: 150 },
+        { icon: Video, title: 'دروس الفيديو', description: 'شروحات فيديو خطوة بخطوة', count: 45 },
+        { icon: HelpCircle, title: 'المشاكل الشائعة', description: 'حلول للمشاكل المبلغ عنها بشكل متكرر', count: 80 }
     ];
 
     const faqs = [
         {
-            question: 'What are your support hours?',
-            answer: 'Our support team is available 24/7 for critical issues. For general inquiries, our standard support hours are Sunday-Thursday, 9 AM - 6 PM GST. Premium support clients receive priority assistance at any time.'
+            question: 'ما هي ساعات الدعم الخاصة بكم؟',
+            answer: 'فريق الدعم لدينا متاح 24/7 للمشاكل الحرجة. للاستفسارات العامة، ساعات الدعم العادية لدينا هي من الأحد إلى الخميس، من 9 صباحاً إلى 6 مساءً (GST). عملاء الدعم الممتاز يحصلون على مساعدة ذات أولوية في أي وقت.'
         },
         {
-            question: 'How quickly will I receive a response?',
-            answer: 'Live chat responses are typically instant. Email support tickets receive responses within 4-6 hours during business days. Critical issues flagged by enterprise clients are addressed within 1 hour.'
+            question: 'كم بسرعة سأتلقى رداً؟',
+            answer: 'ردود الدردشة المباشرة عادة ما تكون فورية. تتلقى تذاكر الدعم عبر البريد الإلكتروني ردوداً في غضون 4-6 ساعات خلال أيام العمل. يتم معالجة المشاكل الحرجة التي يتم تمييزها من قبل عملاء المؤسسات في غضون ساعة واحدة.'
         },
         {
-            question: 'Do you offer phone support?',
-            answer: 'Yes, phone support is available for premium and enterprise clients. Contact your account manager for direct phone access. Standard plan users can schedule phone consultations through our support portal.'
+            question: 'هل تقدمون دعماً هاتفياً؟',
+            answer: 'نعم، الدعم الهاتفي متاح لعملاء الخطة الممتازة والمؤسسات. اتصل بمدير حسابك للحصول على وصول هاتفي مباشر. يمكن لمستخدمي الخطة العادية جدولة استشارات هاتفية من خلال بوابة الدعم لدينا.'
         },
         {
-            question: 'Can you help with custom development requests?',
-            answer: 'Absolutely! Our support team can assist with feature requests, custom integrations, and technical implementations. Complex development work may be quoted separately based on scope and requirements.'
+            question: 'هل يمكنكم المساعدة في طلبات التطوير المخصصة؟',
+            answer: 'بالتأكيد! يمكن لفريق الدعم لدينا المساعدة في طلبات الميزات والتكاملات المخصصة والتنفيذات التقنية. قد يتم تسعير أعمال التطوير المعقدة بشكل منفصل بناءً على نطاق العمل والمتطلبات.'
         },
         {
-            question: 'What if I need emergency support?',
-            answer: 'For urgent issues affecting production systems, use our priority escalation process. Enterprise clients have access to dedicated emergency hotlines with guaranteed response times under our SLA.'
+            question: 'ماذا لو كنت بحاجة إلى دعم طارئ؟',
+            answer: 'للمشاكل العاجلة التي تؤثر على أنظمة الإنتاج، استخدم عملية التصعيد ذات الأولوية لدينا. يتمتع عملاء المؤسسات بإمكانية الوصول إلى خطوط طوارئ مخصصة مع أوقات استجابة مضمونة بموجب اتفاقية مستوى الخدمة (SLA) الخاصة بنا.'
         }
     ];
 
@@ -267,14 +267,14 @@ export default function SupportPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-8">
                         <Headphones className="w-4 h-4 text-green-400" />
-                        <span className="text-sm text-green-300 font-medium">24/7 Support Available</span>
+                        <span className="text-sm text-green-300 font-medium">دعم متاح 24/7</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        Support Center
+                        مركز الدعم
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                        We're dedicated to your success. Access our resources or connect with our expert team for personalized assistance.
+                        نحن ملتزمون بنجاحك. الوصول إلى مواردنا أو التواصل مع فريقنا من الخبراء للحصول على مساعدة شخصية.
                     </p>
 
                     {/* Search Bar */}
@@ -282,7 +282,7 @@ export default function SupportPage() {
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
                         <input
                             type="text"
-                            placeholder="Search for help articles, guides, or common issues..."
+                            placeholder="ابحث عن مقالات المساعدة أو الأدلة أو المشاكل الشائعة..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full h-14 pl-12 pr-4 bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
@@ -294,10 +294,10 @@ export default function SupportPage() {
             {/* Stats Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 pb-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                    <StatCard icon={Clock} value="< 1h" label="Avg Response Time" />
-                    <StatCard icon={CheckCircle} value="98%" label="Resolution Rate" />
-                    <StatCard icon={Zap} value="24/7" label="Availability" />
-                    <StatCard icon={Shield} value="SOC 2" label="Certified Support" />
+                    <StatCard icon={Clock} value="< 1 ساعة" label="متوسط وقت الاستجابة" />
+                    <StatCard icon={CheckCircle} value="98%" label="معدل الحل" />
+                    <StatCard icon={Zap} value="24/7" label="التوفر" />
+                    <StatCard icon={Shield} value="SOC 2" label="دعم معتمد" />
                 </div>
 
                 {/* Support Options */}
@@ -310,8 +310,8 @@ export default function SupportPage() {
                 {/* Resources Section */}
                 <div className="mb-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Self-Service Resources</h2>
-                        <p className="text-slate-400 text-lg">Find answers on your own time</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">موارد الخدمة الذاتية</h2>
+                        <p className="text-slate-400 text-lg">ابحث عن إجابات في وقتك الخاص</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -324,8 +324,8 @@ export default function SupportPage() {
                 {/* FAQ Section */}
                 <div className="mb-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-                        <p className="text-slate-400 text-lg">Quick answers to common questions</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة الشائعة</h2>
+                        <p className="text-slate-400 text-lg">إجابات سريعة للأسئلة الشائعة</p>
                     </div>
 
                     <div className="max-w-4xl mx-auto space-y-4">
@@ -344,8 +344,8 @@ export default function SupportPage() {
                 <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="text-center md:text-left">
-                            <h2 className="text-3xl font-bold mb-3">Still need help?</h2>
-                            <p className="text-slate-400 text-lg">Our dedicated support team is standing by to assist you.</p>
+                            <h2 className="text-3xl font-bold mb-3">لا تزال بحاجة إلى مساعدة؟</h2>
+                            <p className="text-slate-400 text-lg">فريق الدعم المتخصص لدينا جاهز لمساعدتك.</p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -355,7 +355,7 @@ export default function SupportPage() {
                                 </div>
                                 <div>
                                     <span className="font-bold text-white block">support@arabshield.com</span>
-                                    <span className="text-sm text-slate-400">Replies within 24 hours</span>
+                                    <span className="text-sm text-slate-400">ردود في غضون 24 ساعة</span>
                                 </div>
                             </div>
 
@@ -365,7 +365,7 @@ export default function SupportPage() {
                                 </div>
                                 <div>
                                     <span className="font-bold text-white block">+966 5X XXX XXXX</span>
-                                    <span className="text-sm text-slate-400">Mon-Fri, 9AM-6PM</span>
+                                    <span className="text-sm text-slate-400">الإثنين-الجمعة، 9 ص-6 م</span>
                                 </div>
                             </div>
                         </div>

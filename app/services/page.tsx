@@ -31,7 +31,7 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
                 <div className="absolute -top-4 right-6">
                     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-4 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
                         <Sparkles className="w-3 h-3" />
-                        Popular
+                        الأكثر طلباً
                     </div>
                 </div>
             )}
@@ -77,7 +77,7 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
                 ? 'bg-white text-blue-600 hover:bg-blue-50'
                 : 'bg-blue-600 text-white hover:bg-blue-500'
                 }`}>
-                Get Started
+                ابدأ الآن
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
             </button>
         </div>
@@ -148,91 +148,91 @@ export default function ServicesPage() {
     const services = [
         {
             icon: Monitor,
-            title: 'Web Development',
-            description: 'Fast, responsive, and secure websites that drive traffic and convert visitors.',
+            title: 'تطوير الويب',
+            description: 'مواقع ويب سريعة ومستجيبة وآمنة تجلب الزوار وتحولهم إلى عملاء.',
             features: [
-                'Custom responsive design',
-                'Next.js & React applications',
-                'E-commerce platforms',
-                'SEO optimization',
-                'Performance tuning'
+                'تصميم مخصص مستجيب',
+                'تطبيقات Next.js و React',
+                'منصات التجارة الإلكترونية',
+                'تحسين محركات البحث',
+                'ضبط الأداء'
             ]
         },
         {
             icon: Smartphone,
-            title: 'Mobile App Development',
-            description: 'Native and cross-platform mobile apps for iOS and Android.',
+            title: 'تطوير تطبيقات الجوال',
+            description: 'تطبيقات جوال أصلية ومتعددة المنصات لـ iOS و Android.',
             features: [
-                'iOS & Android development',
-                'Flutter & React Native',
-                'App Store deployment',
-                'Push notifications',
-                'Offline functionality'
+                'تطوير iOS و Android',
+                'Flutter و React Native',
+                'النشر على متاجر التطبيقات',
+                'إشعارات فورية',
+                'وظائف دون اتصال'
             ],
             popular: true
         },
         {
             icon: Code,
-            title: 'Custom Software',
-            description: 'Tailored solutions designed for your unique business requirements.',
+            title: 'برمجيات مخصصة',
+            description: 'حلول مصممة خصيصاً لتلبية متطلبات عملك الفريدة.',
             features: [
-                'Process automation',
-                'API development',
-                'Database design',
-                'Legacy modernization',
-                'Third-party integrations'
+                'أتمتة العمليات',
+                'تطوير واجهات API',
+                'تصميم قواعد البيانات',
+                'تحديث الأنظمة القديمة',
+                'التكامل مع أطراف ثالثة'
             ]
         },
         {
             icon: Cloud,
-            title: 'Cloud Solutions',
-            description: 'Secure and scalable cloud infrastructure setup and management.',
+            title: 'الحلول السحابية',
+            description: 'إعداد وإدارة بنية تحتية سحابية آمنة وقابلة للتوسع.',
             features: [
-                'AWS, Azure, GCP expertise',
-                'Cloud migration',
-                'DevOps & CI/CD',
-                'Infrastructure as Code',
-                'Cost optimization'
+                'خبرة في AWS و Azure و GCP',
+                'الهجرة السحابية',
+                'DevOps و CI/CD',
+                'البنية ككود',
+                'تحسين التكلفة'
             ]
         },
         {
             icon: Lock,
-            title: 'Cyber Security',
-            description: 'Protect your business assets from digital threats.',
+            title: 'الأمن السيبراني',
+            description: 'احمِ أصول شركتك من التهديدات الرقمية.',
             features: [
-                'Security audits',
-                'Penetration testing',
-                'Compliance (SOC2, GDPR)',
-                'Threat monitoring',
-                'Incident response'
+                'التدقيق الأمني',
+                'اختبار الاختراق',
+                'الامتثال (SOC2, GDPR)',
+                'مراقبة التهديدات',
+                'الاستجابة للحوادث'
             ]
         },
         {
             icon: Brain,
-            title: 'AI Solutions',
-            description: 'Intelligent automation and machine learning systems.',
+            title: 'حلول الذكاء الاصطناعي',
+            description: 'أتمتة ذكية وأنظمة تعلم آلي.',
             features: [
-                'Custom AI models',
-                'Natural language processing',
-                'Computer vision',
-                'Predictive analytics',
-                'Chatbots & automation'
+                'نماذج ذكاء اصطناعي مخصصة',
+                'معالجة اللغة الطبيعية',
+                'الرؤية الحاسوبية',
+                'التحليلات التنبؤية',
+                'روبوتات محادثة وأتمتة'
             ]
         }
     ];
 
     const benefits = [
-        { icon: Users, title: 'Expert Team', description: '50+ certified professionals across all technologies' },
-        { icon: TrendingUp, title: 'Proven Results', description: '98% client satisfaction and project success rate' },
-        { icon: Shield, title: 'Secure & Compliant', description: 'Industry-leading security and compliance standards' },
-        { icon: Zap, title: 'Fast Delivery', description: 'Agile methodologies for rapid development cycles' }
+        { icon: Users, title: 'فريق محترف', description: 'أكثر من 50 محترفاً معتمداً في جميع التقنيات' },
+        { icon: TrendingUp, title: 'نتائج مثبتة', description: 'نسبة رضا ونجاح للمشاريع 98%' },
+        { icon: Shield, title: 'آمن ومتوافق', description: 'معايير أمنية وامتثال رائدة في الصناعة' },
+        { icon: Zap, title: 'تسليم سريع', description: 'منهجيات رشيقة لدورات تطوير سريعة' }
     ];
 
     const process = [
-        { number: '01', title: 'Discovery', description: 'Understanding your needs and goals' },
-        { number: '02', title: 'Planning', description: 'Strategic roadmap and timeline' },
-        { number: '03', title: 'Development', description: 'Agile sprints with regular updates' },
-        { number: '04', title: 'Launch', description: 'Deployment and ongoing support' }
+        { number: '01', title: 'الاستكشاف', description: 'فهم احتياجاتك وأهدافك' },
+        { number: '02', title: 'التخطيط', description: 'خارطة طريق استراتيجية وجدول زمني' },
+        { number: '03', title: 'التطوير', description: 'دورات رشيقة مع تحديثات منتظمة' },
+        { number: '04', title: 'الإطلاق', description: 'النشر والدعم المستمر' }
     ];
 
     return (
@@ -249,14 +249,14 @@ export default function ServicesPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Rocket className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">Comprehensive Solutions</span>
+                        <span className="text-sm text-blue-300 font-medium">حلول شاملة</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        Our Services
+                        خدماتنا
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        Comprehensive technology solutions tailored to propel your business forward in the digital age. From concept to deployment and beyond.
+                        حلول تقنية شاملة مصممة لدفع أعمالك إلى الأمام في العصر الرقمي. من الفكرة إلى النشر وما بعده.
                     </p>
                 </div>
             </div>
@@ -274,8 +274,8 @@ export default function ServicesPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">Why Choose Us</h2>
-                        <p className="text-slate-400 text-lg">We deliver excellence at every step</p>
+                        <h2 className="text-4xl font-bold mb-4">لماذا تختارنا</h2>
+                        <p className="text-slate-400 text-lg">نقدم التميز في كل خطوة</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -290,8 +290,8 @@ export default function ServicesPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">Our Process</h2>
-                        <p className="text-slate-400 text-lg">How we bring your vision to life</p>
+                        <h2 className="text-4xl font-bold mb-4">عمليتنا</h2>
+                        <p className="text-slate-400 text-lg">كيف نحوّل رؤيتك إلى واقع</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -309,8 +309,8 @@ export default function ServicesPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">Technologies We Use</h2>
-                        <p className="text-slate-400 text-lg">Cutting-edge tools and frameworks</p>
+                        <h2 className="text-4xl font-bold mb-4">التقنيات التي نستخدمها</h2>
+                        <p className="text-slate-400 text-lg">أدوات وإطارات عمل متطورة</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -330,16 +330,16 @@ export default function ServicesPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد لبدء مشروعك؟</h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                            Let's discuss how our services can transform your business and help you achieve your goals.
+                            دعنا نناقش كيف يمكن لخدماتنا تحويل عملك ومساعدتك في تحقيق أهدافك.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="primary">
-                                Get Started
+                                ابدأ الآن
                             </Button>
                             <Button variant="outline">
-                                View Portfolio
+                                عرض الأعمال
                             </Button>
                         </div>
                     </div>

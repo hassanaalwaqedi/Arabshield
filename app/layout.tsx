@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/Navbar';
+import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
+import { ClientProviders } from '@/components/ClientProviders';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -27,13 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="flex flex-col min-h-screen bg-abyss-950">
-        <Navbar />
-        <main className="flex-grow pt-20">
-          {children}
-        </main>
-        <Footer />
+    <html lang="ar" dir="rtl" className={inter.variable}>
+      <body className="flex min-h-screen bg-abyss-950 font-sans text-slate-200 selection:bg-blue-500/30">
+        <ClientProviders>
+          {/* Sidebar */}
+          <div className="flex-shrink-0">
+            <Sidebar />
+          </div>
+
+          {/* Main Content Area */}
+          <div className="flex-grow flex flex-col min-h-screen transition-all duration-300 md:mr-0 md:ml-[280px]">
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ClientProviders>
       </body>
     </html>
   );

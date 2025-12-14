@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { Shield, Target, Users, Award, Zap, TrendingUp, Globe, Heart, Code, Lightbulb, CheckCircle, ArrowRight } from 'lucide-react';
 
 // Stat Card Component
@@ -108,83 +109,83 @@ function Button({ children, variant = "primary", className = "" }: ButtonProps) 
 // Main About Page Component
 export default function AboutPage() {
     const stats = [
-        { number: '5+', label: 'Years Experience', description: 'In the industry' },
-        { number: '500+', label: 'Projects Delivered', description: 'Successfully completed' },
-        { number: '98%', label: 'Client Satisfaction', description: 'Happy customers' },
-        { number: '24/7', label: 'Support Available', description: 'Always here for you' }
+        { number: '5+', label: 'سنوات من الخبرة', description: 'في هذا المجال' },
+        { number: '500+', label: 'مشروع منجز', description: 'أُكمل بنجاح' },
+        { number: '98%', label: 'رضا العملاء', description: 'عملاء سعداء' },
+        { number: '24/7', label: 'الدعم المتاح', description: 'دائماً هنا من أجلك' }
     ];
 
     const values = [
         {
             icon: Target,
-            title: 'Our Mission',
-            description: 'To empower businesses with innovative technology solutions that drive sustainable growth, efficiency, and competitive advantage in the digital age.'
+            title: 'مهمتنا',
+            description: 'تمكين الشركات بحلول تقنية مبتكرة تحقق النمو المستدام والكفاءة والميزة التنافسية في العصر الرقمي.'
         },
         {
             icon: Shield,
-            title: 'Our Vision',
-            description: 'To be the leading technology partner in the Middle East, recognized globally for uncompromising quality, integrity, and transformative digital solutions.'
+            title: 'رؤيتنا',
+            description: 'أن نكون الشريك التقني الرائد في الشرق الأوسط، معترف به عالمياً بالجودة والنزاهة والحلول الرقمية التحويلية.'
         },
         {
             icon: Users,
-            title: 'Our Values',
-            description: 'Client-centricity, technical excellence, transparency, continuous learning, and ethical practices define who we are and guide every decision we make.'
+            title: 'قيمنا',
+            description: 'التركيز على العميل، التميز التقني، الشفافية، التعلم المستمر، والممارسات الأخلاقية تحدد هويتنا وتوجه كل قرار نتخذه.'
         }
     ];
 
     const teamValues = [
         {
             icon: Heart,
-            title: 'Passion-Driven',
-            description: 'We love what we do and it shows in every line of code and every client interaction.'
+            title: 'شغف يقودنا',
+            description: 'نحب ما نفعله ويظهر ذلك في كل سطر كود وكل تفاعل مع العميل.'
         },
         {
             icon: Code,
-            title: 'Technical Excellence',
-            description: 'We stay at the forefront of technology, continuously learning and adapting to new tools and methodologies.'
+            title: 'التميز التقني',
+            description: 'نبقى في طليعة التكنولوجيا، نتعلم ونتكيف باستمرار مع الأدوات والمنهجيات الجديدة.'
         },
         {
             icon: Lightbulb,
-            title: 'Innovation First',
-            description: 'We challenge the status quo and seek creative solutions to complex problems.'
+            title: 'الابتكار أولاً',
+            description: 'نتحدى الوضع الراهن ونسعى لحلول إبداعية للمشاكل المعقدة.'
         },
         {
             icon: CheckCircle,
-            title: 'Quality Obsessed',
-            description: 'We take pride in delivering work that exceeds expectations and stands the test of time.'
+            title: 'هوس بالجودة',
+            description: 'نفخر بتقديم عمل يتجاوز التوقعات ويصمد أمام اختبار الزمن.'
         }
     ];
 
     const timeline = [
         {
             year: '2019',
-            title: 'Company Founded',
-            description: 'ArabShield was established with a mission to bridge the technology gap in the Middle East.'
+            title: 'تأسيس الشركة',
+            description: 'تأسست ArabShield بمهمة سد الفجوة التقنية في الشرق الأوسط.'
         },
         {
             year: '2020',
-            title: 'First Major Project',
-            description: 'Delivered our first enterprise solution, setting the standard for quality and innovation.'
+            title: 'أول مشروع كبير',
+            description: 'قدمنا أول حل مؤسسي لنا، حددنا معيار الجودة والابتكار.'
         },
         {
             year: '2021',
-            title: 'Team Expansion',
-            description: 'Grew our team to 20+ specialists covering all aspects of modern software development.'
+            title: 'توسع الفريق',
+            description: 'نما فريقنا إلى أكثر من 20 متخصصاً يغطون جميع جوانب تطوير البرمجيات الحديثة.'
         },
         {
             year: '2022',
-            title: 'International Recognition',
-            description: 'Received industry awards and established partnerships with global technology leaders.'
+            title: 'اعتراف دولي',
+            description: 'حصلنا على جوائز الصناعة وأقمنا شراكات مع قادة التكنولوجيا العالميين.'
         },
         {
             year: '2023',
-            title: 'AI Integration',
-            description: 'Launched our AI and machine learning division, helping clients leverage cutting-edge technology.'
+            title: 'دمج الذكاء الاصطناعي',
+            description: 'أطلقنا قسم الذكاء الاصطناعي والتعلم الآلي، نساعد العملاء على الاستفادة من التكنولوجيا المتطورة.'
         },
         {
             year: '2024',
-            title: 'Continued Growth',
-            description: '500+ successful projects, expanding services and maintaining 98% client satisfaction rate.'
+            title: 'النمو المستمر',
+            description: 'أكثر من 500 مشروع ناجح، توسيع الخدمات والمحافظة على معدل رضا عملاء 98%.'
         }
     ];
 
@@ -198,14 +199,14 @@ export default function AboutPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Award className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">Est. 2019</span>
+                        <span className="text-sm text-blue-300 font-medium">تأسست 2019</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        About ArabShield
+                        عن ArabShield
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        We are a team of innovators, developers, and strategists dedicated to building the future of technology in the Arab world and beyond.
+                        نحن فريق من المبتكرين والمطورين والاستراتيجيين المكرسون لبناء مستقبل التكنولوجيا في العالم العربي وخارجه.
                     </p>
                 </div>
             </div>
@@ -219,23 +220,87 @@ export default function AboutPage() {
                 </div>
             </div>
 
+            {/* Founder & CEO Section */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 border border-slate-800 rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    {/* Background decoration */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+                    <div className="relative z-10">
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            {/* Profile Image */}
+                            <div className="flex-shrink-0">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                                    <Image
+                                        src="/hassan.jpg"
+                                        width={200}
+                                        height={200}
+                                        alt="Hassan CEO"
+                                        className="rounded-full shadow-2xl border-4 border-slate-800 relative z-10"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-1 text-center lg:text-right">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
+                                    <Award className="w-4 h-4 text-blue-400" />
+                                    <span className="text-sm text-blue-300 font-medium">المؤسس والرئيس التنفيذي</span>
+                                </div>
+
+                                <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                                    حسان
+                                </h2>
+
+                                <p className="text-xl text-blue-400 font-semibold mb-6">
+                                    الرئيس التنفيذي (CEO) لشركة ArabShield
+                                </p>
+
+                                <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
+                                    <p>
+                                        بصفتي مؤسس ورئيس تنفيذي لشركة ArabShield، أقود رؤية واضحة: تمكين الشركات في العالم العربي من خلال الح لول التقنية المبتكرة والمتطورة. منذ تأسيس الشركة في عام 2019، كانت مهمتنا هي سد الفجوة بين الطموحات التجارية والواقع التكنولوجي.
+                                    </p>
+                                    <p>
+                                        نؤمن بأن التحول الرقمي ليس مجرد ترف، بل ضرورة استراتيجية. من خلال فريقنا المتخصص والتزامنا بالتميز، نساعد عملاءنا على تحقيق أهدافهم الرقمية بحلول مصممة خصيصاً لتلبية احتياجاتهم الفريدة. رحلتنا مستمرة، ونحن ملتزمون بالبقاء في طليعة الابتكار التكنولوجي.
+                                    </p>
+                                </div>
+
+                                <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-end">
+                                    <div className="px-6 py-3 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                                        <span className="text-blue-400 font-semibold">رؤية استراتيجية</span>
+                                    </div>
+                                    <div className="px-6 py-3 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+                                        <span className="text-purple-400 font-semibold">قيادة تقنية</span>
+                                    </div>
+                                    <div className="px-6 py-3 bg-cyan-500/10 border border-cyan-500/20 rounded-xl">
+                                        <span className="text-cyan-400 font-semibold">ابتكار مستمر</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* Story Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
                             <Globe className="w-4 h-4 text-purple-400" />
-                            <span className="text-sm text-purple-300 font-medium">Our Journey</span>
+                            <span className="text-sm text-purple-300 font-medium">رحلتنا</span>
                         </div>
-                        <h2 className="text-4xl font-bold mb-6">Our Story</h2>
+                        <h2 className="text-4xl font-bold mb-6">قصتنا</h2>
                         <p className="text-slate-400 mb-6 leading-relaxed text-lg">
-                            Founded with a vision to bridge the gap between traditional business and modern technology, ArabShield has grown into a premier technology partner for companies across the region.
+                            تأسست برؤية لسد الفجوة بين الأعمال التقليدية والتكنولوجيا الحديثة، نمت ArabShield لتصبح شريكاً تقنياً رئيسياً للشركات في المنطقة.
                         </p>
                         <p className="text-slate-400 mb-8 leading-relaxed text-lg">
-                            We believe in the power of digital transformation to solve complex problems and create new opportunities. Our journey is defined by a relentless pursuit of excellence and a commitment to our clients' success.
+                            نؤمن بقوة التحول الرقمي لحل المشاكل المعقدة وخلق فرص جديدة. رحلتنا محددة بسعي لا هوادة فيه للتميز والتزام بنجاح عملائنا.
                         </p>
                         <Button variant="primary">
-                            Start Your Project <ArrowRight className="ml-2 w-4 h-4" />
+                            ابدأ مشروعك <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                     </div>
 
@@ -251,9 +316,9 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">What Drives Us</h2>
+                        <h2 className="text-4xl font-bold mb-4">ما يحركنا</h2>
                         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                            Our mission, vision, and values guide everything we do
+                            مهمتنا ورؤيتنا وقيمنا توجه كل ما نفعله
                         </p>
                     </div>
 
@@ -269,9 +334,9 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">Our Journey</h2>
+                        <h2 className="text-4xl font-bold mb-4">رحلتنا</h2>
                         <p className="text-slate-400 text-lg">
-                            Milestones that shaped who we are today
+                            المعالم التي شكلت هويتنا اليوم
                         </p>
                     </div>
 
@@ -291,20 +356,20 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">Why Choose ArabShield?</h2>
+                        <h2 className="text-4xl font-bold mb-4">لماذا تختار ArabShield؟</h2>
                         <p className="text-slate-400 text-lg">
-                            We combine expertise, passion, and innovation
+                            نجمع الخبرة والشغف والابتكار
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
-                            { icon: Zap, title: 'Fast Delivery', desc: 'Agile methodologies ensure quick turnaround without compromising quality' },
-                            { icon: Shield, title: 'Secure & Compliant', desc: 'Industry-leading security practices and compliance standards' },
-                            { icon: TrendingUp, title: 'Scalable Solutions', desc: 'Built to grow with your business needs' },
-                            { icon: Users, title: 'Dedicated Support', desc: '24/7 technical support and account management' },
-                            { icon: Award, title: 'Proven Track Record', desc: '500+ successful projects across various industries' },
-                            { icon: Lightbulb, title: 'Innovation Focus', desc: 'Cutting-edge technology and creative problem-solving' }
+                            { icon: Zap, title: 'تسليم سريع', desc: 'منهجيات رشيقة تضمن سرعة التسليم دون المساس بالجودة' },
+                            { icon: Shield, title: 'آمن ومتوافق', desc: 'ممارسات أمنية رائدة في الصناعة ومعايير امتثال' },
+                            { icon: TrendingUp, title: 'حلول قابلة للتوسع', desc: 'مبنية للنمو مع احتياجات عملك' },
+                            { icon: Users, title: 'دعم مخصص', desc: 'دعم تقني وإدارة حسابات 24/7' },
+                            { icon: Award, title: 'سجل مثبت', desc: 'أكثر من 500 مشروع ناجح في صناعات متنوعة' },
+                            { icon: Lightbulb, title: 'التركيز على الابتكار', desc: 'تكنولوجيا متطورة وحل إبداعي للمشاكل' }
                         ].map((item, idx) => (
                             <div key={idx} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all">
                                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-4">
@@ -322,16 +387,16 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Work Together?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للعمل معاً؟</h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                            Join hundreds of companies that trust us with their most important technology projects.
+                            انضم إلى مئات الشركات التي تثق بنا في مشاريعها التقنية الأكثر أهمية.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="primary" className="text-lg">
-                                Start a Project
+                                ابدأ مشروعاً
                             </Button>
                             <Button variant="outline" className="text-lg">
-                                Contact Us
+                                تواصل معنا
                             </Button>
                         </div>
                     </div>

@@ -14,46 +14,46 @@ import { motion } from 'framer-motion';
 const services = [
   {
     icon: Monitor,
-    title: 'Web Development',
-    description: 'Enterprise-grade web platforms built with cutting-edge technologies for maximum performance and scalability.',
+    title: 'تطوير الويب',
+    description: 'منصات ويب على مستوى المؤسسات مبنية بأحدث التقنيات لتحقيق أقصى أداء وقابلية للتوسع.',
     gradient: 'from-electric-500 to-neon-600',
-    features: ['Next.js & React', 'Cloud Architecture', 'Real-time Features']
+    features: ['Next.js & React', 'البنية السحابية', 'الميزات الفورية']
   },
   {
     icon: Smartphone,
-    title: 'Mobile Applications',
-    description: 'Native and cross-platform mobile apps that deliver exceptional user experiences on iOS and Android.',
+    title: 'تطبيقات الجوال',
+    description: 'تطبيقات جوال أصلية ومتعددة المنصات تقدم تجارب مستخدم استثنائية على iOS و Android.',
     gradient: 'from-purple-500 to-magenta-600',
     features: ['iOS & Android', 'React Native', 'Flutter']
   },
   {
     icon: Shield,
-    title: 'Cybersecurity',
-    description: 'Advanced security solutions to protect your digital assets from evolving cyber threats.',
+    title: 'الأمن السيبراني',
+    description: 'حلول أمنية متقدمة لحماية أصولك الرقمية من التهديدات السيبرانية المتطورة.',
     gradient: 'from-cyber-500 to-matrix-600',
-    features: ['Penetration Testing', 'Security Audits', '24/7 Monitoring']
+    features: ['اختبار الاختراق', 'التدقيق الأمني', 'المراقبة 24/7']
   },
   {
     icon: Brain,
-    title: 'AI Solutions',
-    description: 'Intelligent automation and AI-powered applications that transform your business operations.',
+    title: 'حلول الذكاء الاصطناعي',
+    description: 'أتمتة ذكية وتطبيقات مدعومة بالذكاء الاصطناعي تحول عمليات شركتك.',
     gradient: 'from-volt-500 to-holo-600',
-    features: ['Machine Learning', 'NLP & Vision', 'Automation']
+    features: ['التعلم الآلي', 'معالجة اللغة والرؤية', 'الأتمتة']
   }
 ];
 
 const stats = [
-  { value: '500+', label: 'Projects Delivered', icon: Rocket },
-  { value: '98%', label: 'Client Satisfaction', icon: Award },
-  { value: '24/7', label: 'Support Available', icon: Users },
-  { value: '99.9%', label: 'Uptime SLA', icon: TrendingUp },
+  { value: '500+', label: 'مشروع منجز', icon: Rocket },
+  { value: '98%', label: 'رضا العملاء', icon: Award },
+  { value: '24/7', label: 'الدعم المتاح', icon: Users },
+  { value: '99.9%', label: 'ضمان وقت التشغيل', icon: TrendingUp },
 ];
 
 const features = [
-  { icon: Zap, title: 'Lightning Fast', description: 'Optimized for speed and performance' },
-  { icon: Lock, title: 'Enterprise Security', description: 'Bank-level encryption and protection' },
-  { icon: Cpu, title: 'AI-Powered', description: 'Intelligent automation built-in' },
-  { icon: Globe, title: 'Global Scale', description: 'Deploy anywhere, scale infinitely' },
+  { icon: Zap, title: 'سرعة فائقة', description: 'محسّن للسرعة والأداء' },
+  { icon: Lock, title: 'أمان على مستوى المؤسسات', description: 'تشفير وحماية بمستوى بنكي' },
+  { icon: Cpu, title: 'مدعوم بالذكاء الاصطناعي', description: 'أتمتة ذكية مدمجة' },
+  { icon: Globe, title: 'نطاق عالمي', description: 'انشر في أي مكان، توسع بلا حدود' },
 ];
 
 export default function Home() {
@@ -80,7 +80,7 @@ export default function Home() {
           >
             <Badge variant="electric" className="mb-8 text-sm px-4 py-2 shadow-glow animate-glow-pulse">
               <Sparkles className="h-3 w-3 mr-2" />
-              Trusted by 500+ Global Enterprises
+              موثوق به من قبل أكثر من 500 شركة عالمية
             </Badge>
           </motion.div>
 
@@ -91,10 +91,10 @@ export default function Home() {
             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-electric-200 to-neon-300 bg-clip-text text-transparent animate-text-shimmer bg-300">
-              Build The Future
+              ابنِ المستقبل
             </span>
             <br />
-            <span className="text-white">With ArabShield</span>
+            <span className="text-white">مع ArabShield</span>
           </motion.h1>
 
           <motion.p
@@ -103,7 +103,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-abyss-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Enterprise-grade web & mobile development, advanced cybersecurity, and AI-powered solutions for the modern digital landscape.
+            تطوير ويب وجوال على مستوى المؤسسات، أمن سيبراني متقدم، وحلول مدعومة بالذكاء الاصطناعي للمشهد الرقمي الحديث.
           </motion.p>
 
           <motion.div
@@ -114,13 +114,13 @@ export default function Home() {
           >
             <Link href="/order">
               <Button variant="glow" size="lg" className="group">
-                Start Your Project
+                ابدأ مشروعك
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/services">
               <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40">
-                Explore Services
+                استكشف الخدمات
               </Button>
             </Link>
           </motion.div>
@@ -163,6 +163,36 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* AI Solutions Strip */}
+      <section className="relative py-20 bg-gradient-to-r from-indigo-900/50 via-purple-900/50 to-indigo-900/50 border-y border-white/10 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-sm font-medium mb-4">
+              <Brain className="w-4 h-4" />
+              <span>جديد: حلول الذكاء الاصطناعي للمؤسسات</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              أطلق العنان لقوة الذكاء الاصطناعي
+            </h2>
+            <p className="text-indigo-200 text-lg max-w-xl">
+              انشر نماذج ذكاء اصطناعي مخصصة وروبوتات محادثة وتحليلات تنبؤية لتحويل عملك.
+            </p>
+          </div>
+
+          <Link href="/ai-solutions">
+            <Button variant="glow" size="lg" className="whitespace-nowrap shadow-purple-500/30">
+              استكشف حلول الذكاء الاصطناعي
+              <Sparkles className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="relative py-32 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-electric-950/5 to-transparent"></div>
@@ -176,13 +206,13 @@ export default function Home() {
             className="text-center mb-20"
           >
             <Badge variant="outline" className="mb-6 border-electric-500/30 text-electric-400">
-              Our Expertise
+              خبرتنا
             </Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Comprehensive Tech Solutions
+              حلول تقنية شاملة
             </h2>
             <p className="text-xl text-abyss-400 max-w-2xl mx-auto">
-              From concept to deployment, we deliver excellence across the entire technology stack.
+              من الفكرة إلى النشر، نقدم التميز عبر مجموعة التقنيات بأكملها.
             </p>
           </motion.div>
 
@@ -214,7 +244,7 @@ export default function Home() {
                       ))}
                     </div>
                     <Link href="/services" className="inline-flex items-center text-electric-400 hover:text-electric-300 font-semibold group/link">
-                      Learn More
+                      اعرف المزيد
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   </CardContent>
@@ -235,10 +265,10 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Choose ArabShield?
+              لماذا تختار ArabShield؟
             </h2>
             <p className="text-xl text-abyss-400 max-w-2xl mx-auto">
-              Industry-leading technology with uncompromising quality and support.
+              تقنية رائدة في المجال مع جودة ودعم لا يتنازلان.
             </p>
           </motion.div>
 
@@ -279,21 +309,21 @@ export default function Home() {
           className="relative z-10 max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
-            Ready to Transform Your Business?
+            هل أنت مستعد لتحويل أعمالك؟
           </h2>
           <p className="text-xl text-abyss-300 mb-12 max-w-2xl mx-auto">
-            Join 500+ companies that trust ArabShield to build their digital future.
+            انضم إلى أكثر من 500 شركة تثق في ArabShield لبناء مستقبلها الرقمي.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/order">
               <Button variant="glow" size="lg" className="group">
-                Get Started Today
+                ابدأ اليوم
                 <Rocket className="ml-2 h-5 w-5 group-hover:translate-y-[-2px] transition-transform" />
               </Button>
             </Link>
             <Link href="/contact">
               <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-                Talk to an Expert
+                تحدث مع خبير
               </Button>
             </Link>
           </div>

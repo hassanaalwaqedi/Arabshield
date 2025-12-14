@@ -74,7 +74,7 @@ interface TableOfContentsProps {
 function TableOfContents({ sections, activeSection, onSectionClick }: TableOfContentsProps) {
     return (
         <div className="sticky top-24 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-            <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">Table of Contents</h3>
+            <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">جدول المحتويات</h3>
             <nav className="space-y-2">
                 {sections.map((section, idx) => (
                     <button
@@ -111,18 +111,18 @@ function ComplianceBadge({ icon: Icon, title }: ComplianceBadgeProps) {
 // Main Privacy Page Component
 export default function PrivacyPage() {
     const sections = [
-        { id: 'introduction', title: 'Introduction' },
-        { id: 'information-collection', title: 'Information We Collect' },
-        { id: 'use-of-information', title: 'How We Use Information' },
-        { id: 'data-sharing', title: 'Data Sharing and Disclosure' },
-        { id: 'data-security', title: 'Data Security' },
-        { id: 'data-retention', title: 'Data Retention' },
-        { id: 'your-rights', title: 'Your Rights' },
-        { id: 'cookies', title: 'Cookies and Tracking' },
-        { id: 'international', title: 'International Transfers' },
-        { id: 'children', title: 'Children\'s Privacy' },
-        { id: 'changes', title: 'Changes to This Policy' },
-        { id: 'contact', title: 'Contact Information' }
+        { id: 'introduction', title: 'المقدمة' },
+        { id: 'information-collection', title: 'المعلومات التي نجمعها' },
+        { id: 'use-of-information', title: 'كيف نستخدم المعلومات' },
+        { id: 'data-sharing', title: 'مشاركة البيانات والإفصاح عنها' },
+        { id: 'data-security', title: 'أمن البيانات' },
+        { id: 'data-retention', title: 'الاحتفاظ بالبيانات' },
+        { id: 'your-rights', title: 'حقوقك' },
+        { id: 'cookies', title: 'ملفات تعريف الارتباط والتتبع' },
+        { id: 'international', title: 'النقل الدولي' },
+        { id: 'children', title: 'خصوصية الأطفال' },
+        { id: 'changes', title: 'التغييرات على هذه السياسة' },
+        { id: 'contact', title: 'معلومات الاتصال' }
     ];
 
     const scrollToSection = (id: string) => {
@@ -142,31 +142,31 @@ export default function PrivacyPage() {
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
                             <Shield className="w-4 h-4 text-blue-400" />
-                            <span className="text-sm text-blue-300 font-medium">Legal Document</span>
+                            <span className="text-sm text-blue-300 font-medium">وثيقة قانونية</span>
                         </div>
 
                         <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-                            Privacy Policy
+                            سياسة الخصوصية
                         </h1>
                         <p className="text-xl text-slate-400 leading-relaxed mb-8">
-                            ArabShield is committed to protecting your privacy and ensuring the security of your personal information. This policy explains our practices regarding data collection, usage, and protection.
+                            تلتزم ArabShield بحماية خصوصيتك وضمان أمن معلوماتك الشخصية. توضح هذه السياسة ممارساتنا فيما يتعلق بجمع البيانات واستخدامها وحمايتها.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-8">
-                            <ComplianceBadge icon={CheckCircle} title="GDPR Compliant" />
+                            <ComplianceBadge icon={CheckCircle} title="متوافق مع GDPR" />
                             <ComplianceBadge icon={Shield} title="SOC 2 Type II" />
                             <ComplianceBadge icon={Lock} title="ISO 27001" />
-                            <ComplianceBadge icon={Globe} title="CCPA Ready" />
+                            <ComplianceBadge icon={Globe} title="جاهز لـ CCPA" />
                         </div>
 
                         <div className="flex items-center gap-6 text-sm text-slate-500">
                             <div className="flex items-center gap-2">
                                 <FileCheck className="w-4 h-4" />
-                                <span>Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                <span>آخر تحديث: {new Date().toLocaleDateString('ar-SA', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Bell className="w-4 h-4" />
-                                <span>Effective: January 1, 2024</span>
+                                <span>ساري المفعول: 1 يناير 2024</span>
                             </div>
                         </div>
                     </div>
@@ -190,20 +190,20 @@ export default function PrivacyPage() {
                         <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
 
                             {/* Introduction */}
-                            <Section icon={FileCheck} title="1. Introduction" id="introduction">
+                            <Section icon={FileCheck} title="1. المقدمة" id="introduction">
                                 <p>
-                                    Welcome to ArabShield's Privacy Policy. This document describes how we collect, use, store, and protect your personal information when you use our services, visit our website, or interact with our platform.
+                                    مرحباً بك في سياسة الخصوصية الخاصة بـ ArabShield. توضح هذه الوثيقة كيفية جمع واستخدام وتخزين وحماية معلوماتك الشخصية عند استخدام خدماتنا أو زيارة موقعنا الإلكتروني أو التفاعل مع منصتنا.
                                 </p>
                                 <p>
-                                    By using our services, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use our services.
+                                    باستخدام خدماتنا، فإنك توافق على جمع واستخدام المعلومات وفقاً لهذه السياسة. إذا كنت لا توافق على سياساتنا وممارساتنا، يرجى عدم استخدام خدماتنا.
                                 </p>
                                 <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-4 mt-4">
                                     <div className="flex items-start gap-3">
                                         <AlertCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                                         <div>
-                                            <p className="text-blue-200 font-semibold mb-1">Important Notice</p>
+                                            <p className="text-blue-200 font-semibold mb-1">إشعار مهم</p>
                                             <p className="text-blue-300/80 text-sm">
-                                                This policy applies to all ArabShield services, websites, and applications. We may update this policy periodically, and we will notify you of significant changes.
+                                                تنطبق هذه السياسة على جميع خدمات وموا قع وتطبيقات ArabShield. قد نقوم بتحديث هذه السياسة بشكل دوري، وسنخطرك بالتغييرات الهامة.
                                             </p>
                                         </div>
                                     </div>
@@ -211,34 +211,34 @@ export default function PrivacyPage() {
                             </Section>
 
                             {/* Information Collection */}
-                            <Section icon={Database} title="2. Information We Collect" id="information-collection">
-                                <Subsection title="2.1 Information You Provide">
-                                    <p>We collect information that you voluntarily provide when using our services:</p>
+                            <Section icon={Database} title="2. المعلومات التي نجمعها" id="information-collection">
+                                <Subsection title="2.1 المعلومات التي تقدمها">
+                                    <p>نجمع المعلومات التي تقدمها طوعاً عند استخدام خدماتنا:</p>
                                     <ul className="space-y-2 mt-3">
-                                        <ListItem>Account information (name, email, phone number, company details)</ListItem>
-                                        <ListItem>Payment information (processed securely through third-party payment processors)</ListItem>
-                                        <ListItem>Project details and specifications you submit through our forms</ListItem>
-                                        <ListItem>Communications with our support team and customer service</ListItem>
-                                        <ListItem>Feedback, reviews, and survey responses</ListItem>
+                                        <ListItem>معلومات الحساب (الاسم، البريد الإلكتروني، رقم الهاتف، تفاصيل الشركة)</ListItem>
+                                        <ListItem>معلومات الدفع (تتم معالجتها بشكل آمن من خلال معالجي الدفع الخارجيين)</ListItem>
+                                        <ListItem>تفاصيل ومواصفات المشروع التي تقدمها من خلال نماذجنا</ListItem>
+                                        <ListItem>الاتصالات مع فريق الدعم وخدمة العملاء لدينا</ListItem>
+                                        <ListItem>التعليقات والمراجعات واستجابات الاستبيان</ListItem>
                                     </ul>
                                 </Subsection>
 
-                                <Subsection title="2.2 Automatically Collected Information">
-                                    <p>We automatically collect certain information when you use our services:</p>
+                                <Subsection title="2.2 المعلومات المجمعة تلقائياً">
+                                    <p>نقوم تلقائياً بجمع معلومات معينة عند استخدام خدماتنا:</p>
                                     <ul className="space-y-2 mt-3">
-                                        <ListItem>Device information (IP address, browser type, operating system)</ListItem>
-                                        <ListItem>Usage data (pages visited, time spent, features used)</ListItem>
-                                        <ListItem>Location data (approximate location based on IP address)</ListItem>
-                                        <ListItem>Cookies and similar tracking technologies</ListItem>
+                                        <ListItem>معلومات الجهاز (عنوان IP، نوع المتصفح، نظام التشغيل)</ListItem>
+                                        <ListItem>بيانات الاستخدام (الصفحات التي تمت زيارتها، الوقت المستغرق، الميزات المستخدمة)</ListItem>
+                                        <ListItem>بيانات الموقع (الموقع التقريبي بناءً على عنوان IP)</ListItem>
+                                        <ListItem>ملفات تعريف الارتباط وتقنيات التتبع المماثلة</ListItem>
                                     </ul>
                                 </Subsection>
 
-                                <Subsection title="2.3 Information from Third Parties">
-                                    <p>We may receive information from:</p>
+                                <Subsection title="2.3 المعلومات من أطراف ثالثة">
+                                    <p>قد نتلقى معلومات من:</p>
                                     <ul className="space-y-2 mt-3">
-                                        <ListItem>Authentication services (Google, LinkedIn) if you choose to use them</ListItem>
-                                        <ListItem>Analytics providers to understand how users interact with our services</ListItem>
-                                        <ListItem>Business partners and affiliates for collaborative projects</ListItem>
+                                        <ListItem>خدمات المصادقة (Google، LinkedIn) إذا اخترت استخدامها</ListItem>
+                                        <ListItem>مزودي التحليلات لفهم كيفية تفاعل المستخدمين مع خدماتنا</ListItem>
+                                        <ListItem>شركاء الأعمال والشركات التابعة للمشاريع التعاونية</ListItem>
                                     </ul>
                                 </Subsection>
                             </Section>

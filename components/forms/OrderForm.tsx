@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Send, CheckCircle, Globe, Smartphone, Shield, Brain, Briefcase, Clock, DollarSign, FileCheck, ChevronDown, Zap, Users, Lock, TrendingUp } from 'lucide-react';
+import { Send, CheckCircle, Globe, Smartphone, Shield, Brain, Briefcase, Clock, FileCheck, ChevronDown, Zap, Users, Lock, TrendingUp } from 'lucide-react';
 
 // Service Card Component
 interface ServiceCardProps {
@@ -166,7 +166,7 @@ function Button({ children, onClick, variant = "primary", className = "", isLoad
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Processing...
+                    جارٍ المعالجة...
                 </>
             ) : children}
         </button>
@@ -176,7 +176,6 @@ function Button({ children, onClick, variant = "primary", className = "", isLoad
 // Main Order Page Component
 export default function OrderPage() {
     const [selectedService, setSelectedService] = useState('');
-    const [formStep, setFormStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -194,60 +193,60 @@ export default function OrderPage() {
         {
             id: 'web',
             icon: Globe,
-            title: 'Website Development',
-            description: 'Modern, responsive websites built with cutting-edge technologies',
-            features: ['Custom Design', 'SEO Optimized', 'Mobile First', 'Fast Performance']
+            title: 'تطوير المواقع',
+            description: 'مواقع حديثة ومتجاوبة مبنية بأحدث التقنيات',
+            features: ['تصميم مخصص', 'محسّن لمحركات البحث', 'أولوية الجوال', 'أداء سريع']
         },
         {
             id: 'app',
             icon: Smartphone,
-            title: 'Mobile App Development',
-            description: 'Native and cross-platform mobile applications',
-            features: ['iOS & Android', 'Cloud Integration', 'Real-time Features', 'Scalable Architecture']
+            title: 'تطوير تطبيقات الجوال',
+            description: 'تطبيقات جوال أصلية ومتعددة المنصات',
+            features: ['iOS و Android', 'تكامل سحابي', 'ميزات الوقت الفعلي', 'بنية قابلة للتوسع']
         },
         {
             id: 'security',
             icon: Shield,
-            title: 'Cybersecurity Protection',
-            description: 'Enterprise-grade security solutions and audits',
-            features: ['Threat Detection', 'Compliance', 'Penetration Testing', '24/7 Monitoring']
+            title: 'حماية الأمن السيبراني',
+            description: 'حلول أمنية ومراجعات على مستوى المؤسسات',
+            features: ['كشف التهديدات', 'الامتثال', 'اختبار الاختراق', 'مراقبة 24/7']
         },
         {
             id: 'ai',
             icon: Brain,
-            title: 'AI Solutions',
-            description: 'Intelligent automation and machine learning systems',
-            features: ['Custom AI Models', 'Automation', 'Data Analytics', 'Predictive Insights']
+            title: 'حلول الذكاء الاصطناعي',
+            description: 'أتمتة ذكية وأنظمة تعلم آلي',
+            features: ['نماذج ذكاء اصطناعي مخصصة', 'أتمتة', 'تحليل البيانات', 'رؤى تنبؤية']
         },
         {
             id: 'enterprise',
             icon: Briefcase,
-            title: 'Enterprise Solutions',
-            description: 'Custom software for complex business needs',
-            features: ['Tailored Solutions', 'Integration', 'Support', 'Training']
+            title: 'حلول المؤسسات',
+            description: 'برمجيات مخصصة لاحتياجات الأعمال المعقدة',
+            features: ['حلول مخصصة', 'تكامل', 'دعم', 'تدريب']
         }
     ];
 
     const faqs = [
         {
-            question: 'What is your typical project timeline?',
-            answer: 'Project timelines vary based on complexity. Simple websites take 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.'
+            question: 'ما هي الجدول الزمنية النموذجية للمشروع؟',
+            answer: 'تختلف الجداول الزمنية للمشروع بناءً على التعقيد. تستغرق المواقع البسيطة 2-4 أسابيع، بينما يمكن أن تستغرق التطبيقات المعقدة 3-6 أشهر. نقدم جداول زمنية تفصيلية خلال استشارتنا الأولية.'
         },
         {
-            question: 'How does pricing work?',
-            answer: 'We offer transparent, project-based pricing. After understanding your requirements, we provide a detailed proposal with milestones and payment terms. Typical projects range from $3,000 to $100,000+ depending on scope.'
+            question: 'كيف تعمل التسعير؟',
+            answer: 'نقدم تسعيراً شفافاً قائماً على المشروع. بعد فهم متطلباتك، نقدم عرضاً تفصيلياً مع المعالم وشروط الدفع. تتراوح المشاريع النموذجية من 3,000 دولار إلى 100,000 دولار+ حسب النطاق.'
         },
         {
-            question: 'Do you offer ongoing support?',
-            answer: 'Yes! We provide comprehensive maintenance packages including updates, security patches, performance optimization, and 24/7 technical support for critical systems.'
+            question: 'هل تقدمون دعماً مستمراً؟',
+            answer: 'نعم! نقدم حزم صيانة شاملة تشمل التحديثات وتصحيحات الأمان وتحسين الأداء والدعم الفني 24/7 للأنظمة الحرجة.'
         },
         {
-            question: 'What security measures do you implement?',
-            answer: 'We follow industry best practices including encryption, secure authentication, regular security audits, compliance with GDPR/SOC2, and continuous monitoring for threats.'
+            question: 'ما هي إجراءات الأمان التي تطبقونها؟',
+            answer: 'نتبع أفضل ممارسات الصناعة بما في ذلك التشفير والمصادقة الآمنة والمراجعات الأمنية المنتظمة والامتثال لـ GDPR/SOC2 والمراقبة المستمرة للتهديدات.'
         },
         {
-            question: 'Can you integrate with our existing systems?',
-            answer: 'Absolutely. We specialize in seamless integrations with popular platforms, APIs, and legacy systems. Our team ensures smooth data migration and system compatibility.'
+            question: 'هل يمكنكم التكامل مع أنظمتنا الحالية؟',
+            answer: 'بالتأكيد. نتخصص في التكامل السلس مع المنصات الشعبية وواجهات برمجة التطبيقات والأنظمة القديمة. يضمن فريقنا الترحيل السلس للبيانات وتوافق الأنظمة.'
         }
     ];
 
@@ -258,7 +257,7 @@ export default function OrderPage() {
 
     const handleSubmit = async () => {
         if (!formData.fullName || !formData.email || !formData.service || !formData.budget || !formData.details) {
-            alert('Please fill in all required fields');
+            alert('يرجى ملء جميع الحقول المطلوبة');
             return;
         }
 
@@ -270,7 +269,6 @@ export default function OrderPage() {
 
     const handleReset = () => {
         setSubmitted(false);
-        setFormStep(1);
         setSelectedService('');
         setFormData({
             fullName: '',
@@ -291,23 +289,23 @@ export default function OrderPage() {
                             <CheckCircle className="w-12 h-12 text-white" />
                         </div>
                         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                            Request Received Successfully
+                            تم استلام الطلب بنجاح
                         </h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-md mx-auto">
-                            Thank you for choosing ArabShield. Our enterprise team will review your requirements and contact you within 24 hours with a detailed proposal.
+                            شكراً لاختيارك ArabShield. سيقوم فريق المؤسسات لدينا بمراجعة متطلباتك والاتصال بك خلال 24 ساعة مع عرض تفصيلي.
                         </p>
                         <div className="flex items-center justify-center gap-4 mb-8">
                             <div className="flex items-center gap-2 text-slate-500 text-sm">
                                 <Clock className="w-4 h-4" />
-                                <span>Response in 24h</span>
+                                <span>رد في 24 ساعة</span>
                             </div>
                             <div className="flex items-center gap-2 text-slate-500 text-sm">
                                 <FileCheck className="w-4 h-4" />
-                                <span>Detailed Proposal</span>
+                                <span>عرض تفصيلي</span>
                             </div>
                         </div>
                         <Button onClick={handleReset} variant="secondary" className="mx-auto">
-                            Submit Another Request
+                            إرسال طلب آخر
                         </Button>
                     </div>
                 </div>
@@ -325,14 +323,14 @@ export default function OrderPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Zap className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">Enterprise Solutions</span>
+                        <span className="text-sm text-blue-300 font-medium">حلول المؤسسات</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        Request a Service
+                        طلب خدمة
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        Transform your business with cutting-edge technology solutions. From web development to AI-powered automation, we deliver enterprise-grade systems that scale.
+                        حوّل عملك بحلول تقنية متطورة. من تطوير الويب إلى الأتمتة المدعومة بالذكاء الاصطناعي، نقدم أنظمة على مستوى المؤسسات قابلة للتوسع.
                     </p>
                 </div>
             </div>
@@ -340,8 +338,8 @@ export default function OrderPage() {
             {/* Service Selection */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Service</h2>
-                    <p className="text-slate-400 text-lg">Select the service that best fits your needs</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">اختر خدمتك</h2>
+                    <p className="text-slate-400 text-lg">اختر الخدمة التي تناسب احتياجاتك بشكل أفضل</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
@@ -363,22 +361,22 @@ export default function OrderPage() {
                                 <FileCheck className="w-5 h-5 text-blue-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold">Project Details</h3>
-                                <p className="text-slate-400 text-sm">Tell us about your requirements</p>
+                                <h3 className="text-2xl font-bold">تفاصيل المشروع</h3>
+                                <p className="text-slate-400 text-sm">أخبرنا عن متطلباتك</p>
                             </div>
                         </div>
 
                         <div className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <Input
-                                    label="Full Name"
+                                    label="الاسم الكامل"
                                     required
                                     placeholder="John Doe"
                                     value={formData.fullName}
                                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                 />
                                 <Input
-                                    label="Email Address"
+                                    label="عنوان البريد الإلكتروني"
                                     type="email"
                                     required
                                     placeholder="john@company.com"
@@ -388,16 +386,16 @@ export default function OrderPage() {
                             </div>
 
                             <Input
-                                label="Company Name"
-                                placeholder="Your Company Inc. (Optional)"
+                                label="اسم الشركة"
+                                placeholder="شركتك (اختياري)"
                                 value={formData.company}
                                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                             />
 
                             <Select
-                                label="Service Type"
+                                label="نوع الخدمة"
                                 required
-                                placeholder="Select a service"
+                                placeholder="اختر خدمة"
                                 value={formData.service}
                                 onChange={(e) => {
                                     setFormData({ ...formData, service: e.target.value });
@@ -407,9 +405,9 @@ export default function OrderPage() {
                             />
 
                             <Select
-                                label="Estimated Budget"
+                                label="الميزانية التقديرية"
                                 required
-                                placeholder="Select budget range"
+                                placeholder="اختر نطاق الميزانية"
                                 value={formData.budget}
                                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                                 options={[
@@ -422,12 +420,12 @@ export default function OrderPage() {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-300">
-                                    Project Description <span className="text-blue-400">*</span>
+                                    وصف المشروع <span className="text-blue-400">*</span>
                                 </label>
                                 <textarea
                                     required
                                     rows={6}
-                                    placeholder="Describe your project goals, key features, timeline expectations, and any specific requirements..."
+                                    placeholder="اشرح أهداف مشروعك والميزات الرئيسية وتوقعات الجدول الزمني وأي متطلبات محددة..."
                                     value={formData.details}
                                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
@@ -440,7 +438,7 @@ export default function OrderPage() {
                                 className="w-full text-lg"
                                 isLoading={loading}
                             >
-                                Submit Request <Send className="ml-2 w-5 h-5" />
+                                إرسال الطلب <Send className="ml-2 w-5 h-5" />
                             </Button>
                         </div>
                     </div>
@@ -451,16 +449,16 @@ export default function OrderPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-2xl font-bold mb-4">Trusted by Teams Worldwide</h2>
-                        <p className="text-slate-400">Delivering excellence across industries</p>
+                        <h2 className="text-2xl font-bold mb-4">موثوق به من فرق حول العالم</h2>
+                        <p className="text-slate-400">نقدم التميّز عبر الصناعات</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
                         {[
-                            { icon: Users, label: '500+ Clients', desc: 'Businesses Served' },
-                            { icon: TrendingUp, label: '98% Success', desc: 'Project Completion' },
-                            { icon: Lock, label: 'SOC 2 Certified', desc: 'Security Standards' },
-                            { icon: Clock, label: '24/7 Support', desc: 'Always Available' }
+                            { icon: Users, label: '500+ عميل', desc: 'شركات مخدومة' },
+                            { icon: TrendingUp, label: 'نجاح 98%', desc: 'إنجاز المشاريع' },
+                            { icon: Lock, label: 'معتمد SOC 2', desc: 'معايير الأمان' },
+                            { icon: Clock, label: 'دعم 24/7', desc: 'متاح دائماً' }
                         ].map((stat, idx) => (
                             <div key={idx} className="text-center p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
                                 <stat.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
@@ -476,8 +474,8 @@ export default function OrderPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-                        <p className="text-slate-400 text-lg">Everything you need to know</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة المتكررة</h2>
+                        <p className="text-slate-400 text-lg">كل ما تحتاج لمعرفته</p>
                     </div>
 
                     <div className="space-y-4">
@@ -497,16 +495,16 @@ export default function OrderPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للبدء؟</h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                            Join hundreds of companies that trust us with their most critical technology projects.
+                            انضم إلى مئات الشركات التي تثق بنا في مشاريعها التقنية الأكثر أهمية.
                         </p>
                         <Button
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                             variant="primary"
                             className="text-lg"
                         >
-                            Submit Your Request
+                            أرسل طلبك
                         </Button>
                     </div>
                 </div>

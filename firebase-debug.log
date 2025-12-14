@@ -1,0 +1,42 @@
+[debug] [2025-12-13T23:29:51.531Z] ----------------------------------------------------------------------
+[debug] [2025-12-13T23:29:51.554Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hsana\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only firestore:rules firestore:indexes
+[debug] [2025-12-13T23:29:51.555Z] CLI Version:   15.0.0
+[debug] [2025-12-13T23:29:51.556Z] Platform:      win32
+[debug] [2025-12-13T23:29:51.556Z] Node Version:  v24.11.0
+[debug] [2025-12-13T23:29:51.556Z] Time:          Sun Dec 14 2025 02:29:51 GMT+0300 (GMT+03:00)
+[debug] [2025-12-13T23:29:51.556Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-12-13T23:29:55.574Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-13T23:29:55.575Z] > authorizing via signed-in user (hassanalwaqedi3@gmail.com)
+[debug] [2025-12-13T23:29:55.575Z] [iam] checking project arabshield-3d8b3 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2025-12-13T23:29:55.576Z] Checked if tokens are valid: true, expires at: 1765672013326
+[debug] [2025-12-13T23:29:55.576Z] Checked if tokens are valid: true, expires at: 1765672013326
+[debug] [2025-12-13T23:29:55.577Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield-3d8b3:testIamPermissions [none]
+[debug] [2025-12-13T23:29:55.577Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield-3d8b3:testIamPermissions x-goog-quota-user=projects/arabshield-3d8b3
+[debug] [2025-12-13T23:29:55.577Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield-3d8b3:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2025-12-13T23:29:59.338Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield-3d8b3:testIamPermissions 200
+[debug] [2025-12-13T23:29:59.338Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield-3d8b3:testIamPermissions {}
+[debug] [2025-12-13T23:29:59.338Z] [iam] error while checking permissions, command may fail: Authorization failed. This account is missing the following required permissions on project arabshield-3d8b3:
+
+  datastore.indexes.create
+  datastore.indexes.delete
+  datastore.indexes.list
+  datastore.indexes.update
+  firebase.projects.get
+[info] 
+[info] === Deploying to 'arabshield-3d8b3'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2025-12-13T23:29:59.345Z] Checked if tokens are valid: true, expires at: 1765672013326
+[debug] [2025-12-13T23:29:59.345Z] Checked if tokens are valid: true, expires at: 1765672013326
+[debug] [2025-12-13T23:29:59.345Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/arabshield-3d8b3/services/firestore.googleapis.com [none]
+[debug] [2025-12-13T23:29:59.345Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/arabshield-3d8b3/services/firestore.googleapis.com x-goog-quota-user=projects/arabshield-3d8b3
+[debug] [2025-12-13T23:30:01.215Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/arabshield-3d8b3/services/firestore.googleapis.com 403
+[debug] [2025-12-13T23:30:01.216Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/arabshield-3d8b3/services/firestore.googleapis.com [omitted]
+[debug] [2025-12-13T23:30:06.229Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\hsana\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:275:49)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7)
+[error] 
+[error] Error: An unexpected error has occurred.

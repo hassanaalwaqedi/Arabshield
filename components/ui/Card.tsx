@@ -2,11 +2,12 @@
 
 import { HTMLAttributes, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLMotionProps<"div"> {
     hover?: boolean;
     glow?: 'electric' | 'cyan' | 'purple' | 'none';
+    children?: React.ReactNode;
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(

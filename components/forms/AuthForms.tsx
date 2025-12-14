@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Shield, Mail, Lock, User, Eye, EyeOff, Check, ArrowRight, Code, Sparkles } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Shield, Mail, Lock, User, Eye, EyeOff, Check, ArrowRight, Code, Sparkles, AlertCircle } from 'lucide-react';
+import { loginWithEmail } from '@/lib/firebase/auth';
 
 // Animated Code Background Component
 function AnimatedCodeBackground() {
@@ -182,7 +184,7 @@ function Button({ children, onClick, type = "button", variant = "primary", class
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Processing...
+                    جارٍ المعالجة...
                 </>
             ) : (
                 <>
@@ -200,15 +202,34 @@ interface LoginFormProps {
 }
 
 function LoginForm({ onSwitchToRegister }: LoginFormProps) {
+    const router = useRouter();
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
         setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsLoading(false);
-        alert('Login successful! (Demo)');
+
+        try {
+            const result = await loginWithEmail(formData.email, formData.password);
+
+            if (result.success) {
+                // Check if email is verified
+                if (result.isVerified) {
+                    router.push('/dashboard');
+                } else {
+                    router.push('/verify-email');
+                }
+            } else {
+                setError(result.error || 'فشل تسجيل الدخول | Login failed');
+            }
+        } catch (err) {
+            setError('حدث خطأ غير متوقع | An unexpected error occurred');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -219,15 +240,23 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 mb-4 shadow-lg shadow-blue-500/30">
                         <Shield className="w-8 h-8 text-white" />
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
-                    <p className="text-slate-400">Sign in to access your client dashboard</p>
+                    <h2 className="text-3xl font-bold text-white mb-2">مرحباً بعودتك</h2>
+                    <p className="text-slate-400">سجل الدخول للوصول إلى لوحة التحكم</p>
                 </div>
 
                 {/* Form */}
                 <div className="space-y-5">
+                    {/* Error Display */}
+                    {error && (
+                        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-start gap-3">
+                            <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                            <p className="text-sm text-red-400">{error}</p>
+                        </div>
+                    )}
+
                     <Input
                         icon={Mail}
-                        label="Email Address"
+                        label="عنوان البريد الإلكتروني"
                         type="email"
                         placeholder="name@company.com"
                         value={formData.email}
@@ -237,9 +266,9 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
 
                     <div>
                         <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-medium text-slate-300">Password</label>
+                            <label className="text-sm font-medium text-slate-300">كلمة المرور</label>
                             <button className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
-                                Forgot password?
+                                نسيت كلمة المرور؟
                             </button>
                         </div>
                         <div className="relative">
@@ -258,7 +287,7 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     </div>
 
                     <Button onClick={handleSubmit} isLoading={isLoading}>
-                        Sign In
+                        تسجيل الدخول
                     </Button>
                 </div>
 
@@ -266,20 +295,20 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                 <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2 text-xs text-slate-400">
                         <Check className="w-4 h-4 text-green-400" />
-                        <span>Secure Login</span>
+                        <span>تسجيل دخول آمن</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-slate-400">
                         <Check className="w-4 h-4 text-green-400" />
-                        <span>Encrypted Data</span>
+                        <span>بيانات مشفرة</span>
                     </div>
                 </div>
 
                 {/* Footer */}
                 <div className="mt-8 pt-6 border-t border-slate-800 text-center">
                     <p className="text-slate-400 text-sm">
-                        Don't have an account?{' '}
+                        ليس لديك حساب؟{' '}
                         <button onClick={onSwitchToRegister} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
-                            Create one
+                            أنشئ واحداً
                         </button>
                     </p>
                 </div>
@@ -328,8 +357,8 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
                         <Sparkles className="w-8 h-8 text-white" />
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-2">Create Account</h2>
-                    <p className="text-slate-400">Start your journey with ArabShield</p>
+                    <h2 className="text-3xl font-bold text-white mb-2">إنشاء حساب</h2>
+                    <p className="text-slate-400">ابدأ رحلتك مع ArabShield</p>
                 </div>
 
                 {/* Form */}
@@ -337,7 +366,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     <div className="grid grid-cols-2 gap-4">
                         <Input
                             icon={User}
-                            label="First Name"
+                            label="الاسم الأول"
                             placeholder="John"
                             value={formData.firstName}
                             onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
@@ -345,7 +374,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                         />
                         <Input
                             icon={User}
-                            label="Last Name"
+                            label="الاسم الأخير"
                             placeholder="Doe"
                             value={formData.lastName}
                             onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
@@ -355,7 +384,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                     <Input
                         icon={Mail}
-                        label="Email Address"
+                        label="عنوان البريد الإلكتروني"
                         type="email"
                         placeholder="name@company.com"
                         value={formData.email}
@@ -365,7 +394,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                     <Input
                         icon={Lock}
-                        label="Password"
+                        label="كلمة المرور"
                         type="password"
                         placeholder="••••••••"
                         value={formData.password}
@@ -374,13 +403,13 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     />
 
                     <Button onClick={handleSubmit} isLoading={isLoading}>
-                        Create Account
+                        إنشاء حساب
                     </Button>
                 </div>
 
                 {/* Features */}
                 <div className="mt-6 space-y-2">
-                    {['No credit card required', 'Start with free tier', 'Cancel anytime'].map((feature, idx) => (
+                    {['لا حاجة لبطاقة ائتمان', 'ابدأ بالفئة المجانية', 'إلغاء في أي وقت'].map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
                             <Check className="w-4 h-4 text-green-400" />
                             <span>{feature}</span>
@@ -391,9 +420,9 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                 {/* Footer */}
                 <div className="mt-8 pt-6 border-t border-slate-800 text-center">
                     <p className="text-slate-400 text-sm">
-                        Already have an account?{' '}
+                        لديك حساب بالفعل؟{' '}
                         <button onClick={onSwitchToLogin} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
-                            Sign in
+                            سجل الدخول
                         </button>
                     </p>
                 </div>
@@ -440,7 +469,7 @@ export default function AuthPage() {
             <div className="absolute bottom-8 left-0 right-0 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 text-slate-400 text-xs">
                     <Code className="w-4 h-4 text-blue-400" />
-                    <span>Secured by enterprise-grade encryption</span>
+                    <span>محمي بتشفير على مستوى المؤسسات</span>
                 </div>
             </div>
         </div>

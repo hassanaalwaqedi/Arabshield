@@ -61,7 +61,7 @@ function Button({ children, onClick, type = "button", variant = "primary", class
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Sending...
+                    جارٍ الإرسال...
                 </>
             ) : children}
         </button>
@@ -102,7 +102,7 @@ function ContactForm() {
 
     const handleSubmit = async () => {
         if (!formData.name || !formData.email || !formData.message) {
-            alert('Please fill in all required fields');
+            alert('يرجى ملء جميع الحقول المطلوبة');
             return;
         }
 
@@ -129,12 +129,12 @@ function ContactForm() {
                     <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
                         <CheckCircle className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-3">Message Sent Successfully!</h3>
+                    <h3 className="text-3xl font-bold text-white mb-3">تم إرسال الرسالة بنجاح!</h3>
                     <p className="text-slate-400 mb-8 leading-relaxed">
-                        Thank you for reaching out. Our team will review your message and get back to you within 24 hours.
+                        شكراً لتواصلك معنا. سيقوم فريقنا بمراجعة رسالتك والرد عليك خلال 24 ساعة.
                     </p>
                     <Button onClick={handleReset} variant="secondary">
-                        Send Another Message
+                        إرسال رسالة أخرى
                     </Button>
                 </div>
             </div>
@@ -144,7 +144,7 @@ function ContactForm() {
     return (
         <div className="space-y-6">
             <Input
-                label="Your Name"
+                label="اسمك"
                 required
                 placeholder="John Doe"
                 value={formData.name}
@@ -152,7 +152,7 @@ function ContactForm() {
             />
 
             <Input
-                label="Email Address"
+                label="عنوان البريد الإلكتروني"
                 type="email"
                 required
                 placeholder="john@company.com"
@@ -161,20 +161,20 @@ function ContactForm() {
             />
 
             <Input
-                label="Subject"
-                placeholder="How can we help?"
+                label="الموضوع"
+                placeholder="كيف يمكننا المساعدة؟"
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             />
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-300">
-                    Message <span className="text-blue-400">*</span>
+                    الرسالة <span className="text-blue-400">*</span>
                 </label>
                 <textarea
                     required
                     rows={6}
-                    placeholder="Tell us about your inquiry, project, or how we can assist you..."
+                    placeholder="أخبرنا عن استفسارك أو مشروعك أو كيف يمكننا مساعدتك..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
@@ -187,7 +187,7 @@ function ContactForm() {
                 className="w-full"
                 isLoading={loading}
             >
-                Send Message <Send className="ml-2 w-5 h-5" />
+                إرسال الرسالة <Send className="ml-2 w-5 h-5" />
             </Button>
         </div>
     );
@@ -205,14 +205,14 @@ export default function ContactPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <MessageSquare className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">Get in Touch</span>
+                        <span className="text-sm text-blue-300 font-medium">تواصل معنا</span>
                     </div>
 
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        Contact Us
+                        اتصل بنا
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                        Have a question or ready to start your project? We're here to help bring your vision to life.
+                        لديك سؤال أو مستعد لبدء مشروعك؟ نحن هنا لمساعدتك في تحقيق رؤيتك.
                     </p>
                 </div>
             </div>
@@ -223,58 +223,58 @@ export default function ContactPage() {
                     {/* Contact Information */}
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">Let's Talk</h2>
+                            <h2 className="text-3xl font-bold mb-4">لنتحدث</h2>
                             <p className="text-slate-400 text-lg leading-relaxed">
-                                Whether you're looking to build a new product, enhance your existing systems, or need expert consultation, we're ready to help you succeed.
+                                سواء كنت تتطلع لبناء منتج جديد أو تحسين أنظمتك الحالية أو تحتاج إلى استشارة متخصصة، نحن مستعدون لمساعدتك على النجاح.
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <ContactInfoCard
                                 icon={Mail}
-                                title="Email Us"
+                                title="راسلنا بريدياً"
                                 info="contact@arabshield.com"
-                                subInfo="Response within 24 hours"
+                                subInfo="رد خلال 24 ساعة"
                             />
                             <ContactInfoCard
                                 icon={Phone}
-                                title="Call Us"
+                                title="اتصل بنا"
                                 info="+966 5X XXX XXXX"
-                                subInfo="Mon-Fri, 9AM-6PM"
+                                subInfo="الإثنين-الجمعة، 9ص-6م"
                             />
                             <ContactInfoCard
                                 icon={MapPin}
-                                title="Visit Us"
-                                info="Riyadh, Saudi Arabia"
-                                subInfo="King Fahd District"
+                                title="زرنا"
+                                info="الرياض، المملكة العربية السعودية"
+                                subInfo="حي الملك فهد"
                             />
                             <ContactInfoCard
                                 icon={Clock}
-                                title="Business Hours"
-                                info="Sun-Thu: 9AM-6PM"
-                                subInfo="Weekend: Closed"
+                                title="ساعات العمل"
+                                info="الأحد-الخميس: 9ص-6م"
+                                subInfo="عطلة نهاية الأسبوع"
                             />
                         </div>
 
                         {/* Additional Info */}
                         <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-2xl p-8">
-                            <h3 className="text-xl font-bold mb-4">Why Choose ArabShield?</h3>
+                            <h3 className="text-xl font-bold mb-4">لماذا تختار ArabShield؟</h3>
                             <ul className="space-y-3 text-slate-300">
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>Enterprise-grade security and compliance</span>
+                                    <span>أمن وامتثال على مستوى المؤسسات</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>24/7 dedicated support for critical systems</span>
+                                    <span>دعم مخصص 24/7 للأنظمة الحرجة</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>Proven track record with 500+ successful projects</span>
+                                    <span>سجل حافل مثبت بأكثر من 500 مشروع ناجح</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>Cutting-edge technology and best practices</span>
+                                    <span>تكنولوجيا متطورة وأفضل الممارسات</span>
                                 </li>
                             </ul>
                         </div>
@@ -287,8 +287,8 @@ export default function ContactPage() {
                                 <Send className="w-5 h-5 text-blue-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold">Send us a Message</h3>
-                                <p className="text-slate-400 text-sm">We'll respond as soon as possible</p>
+                                <h3 className="text-2xl font-bold">أرسل لنا رسالة</h3>
+                                <p className="text-slate-400 text-sm">سنرد في أقرب وقت ممكن</p>
                             </div>
                         </div>
 
@@ -303,8 +303,8 @@ export default function ContactPage() {
                     <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden h-96 flex items-center justify-center">
                         <div className="text-center">
                             <MapPin className="w-16 h-16 text-slate-700 mx-auto mb-4" />
-                            <p className="text-slate-500">Map integration placeholder</p>
-                            <p className="text-slate-600 text-sm">King Fahd District, Riyadh, Saudi Arabia</p>
+                            <p className="text-slate-500">عنصر تكامل الخريطة</p>
+                            <p className="text-slate-600 text-sm">حي الملك فهد، الرياض، المملكة العربية السعودية</p>
                         </div>
                     </div>
                 </div>
@@ -313,16 +313,16 @@ export default function ContactPage() {
             {/* CTA Section */}
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد لبدء مشروعك؟</h2>
                     <p className="text-slate-400 text-lg mb-8">
-                        Let's discuss how we can help transform your business with technology.
+                        دعنا نناقش كيف يمكننا مساعدتك في تحويل أعمالك بالتكنولوجيا.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button variant="primary" className="text-lg">
-                            Schedule a Call
+                            جدولة مكالمة
                         </Button>
                         <Button variant="secondary" className="text-lg">
-                            View Our Work
+                            عرض أعمالنا
                         </Button>
                     </div>
                 </div>

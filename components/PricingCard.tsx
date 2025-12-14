@@ -49,7 +49,7 @@ function PricingCard({ title, price, description, features, popular, recommended
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
                     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
                         <Star className="w-4 h-4 fill-current" />
-                        Most Popular
+                        الأكثر شعبية
                     </div>
                 </div>
             )}
@@ -59,7 +59,7 @@ function PricingCard({ title, price, description, features, popular, recommended
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
                     <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
                         <Sparkles className="w-4 h-4" />
-                        Recommended
+                        موصى به
                     </div>
                 </div>
             )}
@@ -88,7 +88,7 @@ function PricingCard({ title, price, description, features, popular, recommended
                     <div className="flex items-baseline gap-2">
                         {price === 'Custom' ? (
                             <span className={`text-4xl font-bold ${popular ? 'text-white' : 'text-white'}`}>
-                                Custom
+                                مخصص
                             </span>
                         ) : (
                             <>
@@ -96,14 +96,14 @@ function PricingCard({ title, price, description, features, popular, recommended
                                     {price}
                                 </span>
                                 <span className={`text-lg ${popular ? 'text-blue-200' : 'text-slate-500'}`}>
-                                    /project
+                                    /مشروع
                                 </span>
                             </>
                         )}
                     </div>
                     {price === 'Custom' && (
                         <p className={`text-sm mt-2 ${popular ? 'text-blue-200' : 'text-slate-500'}`}>
-                            Tailored to your needs
+                            مخصص وفق احتياجاتك
                         </p>
                     )}
                 </div>
@@ -130,7 +130,7 @@ function PricingCard({ title, price, description, features, popular, recommended
                     variant={popular ? 'secondary' : 'outline'}
                     className="group"
                 >
-                    Choose Plan
+                    اختر الخطة
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
             </div>
@@ -142,58 +142,58 @@ function PricingCard({ title, price, description, features, popular, recommended
 export default function PricingPage() {
     const plans = [
         {
-            title: 'Starter',
+            title: 'المبتدئين',
             price: '$3K-10K',
-            description: 'Perfect for small businesses and startups looking to establish their digital presence.',
+            description: 'مثالي للشركات الصغيرة والناشئة التي تتطلع لإنشاء تواجدها الرقمي.',
             icon: Rocket,
             features: [
-                'Custom website or landing page',
-                'Responsive mobile design',
-                'Basic SEO optimization',
-                'Contact form integration',
-                '30 days of support',
-                'Fast delivery (2-4 weeks)',
-                'Source code included',
-                '1 round of revisions'
+                'موقع مخصص أو صفحة هبوط',
+                'تصميم متجاوب للجوال',
+                'تحسين SEO أساسي',
+                'تكامل نموذج التواصل',
+                '30 يوم دعم',
+                'تسليم سريع (2-4 أسابيع)',
+                'كود المصدر مشمول',
+                'جولة مراجعة واحدة'
             ]
         },
         {
-            title: 'Professional',
+            title: 'المحترفين',
             price: '$10K-50K',
-            description: 'Ideal for growing businesses that need advanced features and scalability.',
+            description: 'مثالي للشركات النامية التي تحتاج إلى ميزات متقدمة وقابلية للتوسع.',
             icon: Zap,
             popular: true,
             features: [
-                'Everything in Starter',
-                'Advanced web application',
-                'Custom backend & API',
-                'Database integration',
-                'User authentication',
-                '90 days of support',
-                'Performance optimization',
-                'Security best practices',
-                'Analytics & monitoring',
-                '3 rounds of revisions'
+                'كل ما في المبتدئين',
+                'تطبيق ويب متقدم',
+                'خلفية ومنطق أعمال مخصص',
+                'تكامل قاعدة البيانات',
+                'مصادقة المستخدمين',
+                '90 يوم دعم',
+                'تحسين الأداء',
+                'أفضل ممارسات الأمان',
+                'تحليلات ومراقبة',
+                '3 جولات مراجعة'
             ]
         },
         {
-            title: 'Enterprise',
+            title: 'المؤسسات',
             price: 'Custom',
-            description: 'Comprehensive solutions for large organizations with complex requirements.',
+            description: 'حلول شاملة للمنظمات الكبيرة ذات المتطلبات المعقدة.',
             icon: Building2,
             recommended: true,
             features: [
-                'Everything in Professional',
-                'AI & machine learning integration',
-                'Cybersecurity audit & protection',
-                'Microservices architecture',
-                'Cloud infrastructure setup',
-                'Dedicated project manager',
-                '1 year of premium support',
-                'Training & documentation',
-                'Priority support 24/7',
-                'Unlimited revisions',
-                'SLA guarantees'
+                'كل ما في المحترفين',
+                'تكامل الذكاء الاصطناعي والتعلم الآلي',
+                'مراجعة وحماية الأمن السيبراني',
+                'بنية الخدمات المصغرة',
+                'إعداد البنية التحتية السحابية',
+                'مدير مشروع مخصص',
+                'سنة واحدة من الدعم الممتاز',
+                'تدريب وتوثيق',
+                'دعم ذو أولوية 24/7',
+                'مراجعات غير محدودة',
+                'ضمانات SLA'
             ]
         }
     ];
@@ -208,14 +208,14 @@ export default function PricingPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Shield className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">Transparent Pricing</span>
+                        <span className="text-sm text-blue-300 font-medium">تسعير شفاف</span>
                     </div>
 
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        Choose Your Plan
+                        اختر خطتك
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        Flexible pricing packages designed to match your project scope and business goals. No hidden fees, just transparent value.
+                        حزم تسعير مرنة مصممة لتتناسب مع نطاق مشروعك وأهداف عملك. لا رسوم خفية، فقط قيمة شفافة.
                     </p>
                 </div>
             </div>
@@ -233,16 +233,16 @@ export default function PricingPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">All Plans Include</h2>
-                        <p className="text-slate-400 text-lg">Core features across every package</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">جميع الخطط تشمل</h2>
+                        <p className="text-slate-400 text-lg">ميزات أساسية في كل حزمة</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { icon: Check, title: 'Clean Code', desc: 'Production-ready, maintainable code' },
-                            { icon: Shield, title: 'Secure', desc: 'Industry-standard security practices' },
-                            { icon: Zap, title: 'Fast', desc: 'Optimized for performance' },
-                            { icon: Star, title: 'Support', desc: 'Dedicated technical support' }
+                            { icon: Check, title: 'كود نظيف', desc: 'كود جاهز للإنتاج وقابل للصيانة' },
+                            { icon: Shield, title: 'آمن', desc: 'ممارسات أمان معيارية في الصناعة' },
+                            { icon: Zap, title: 'سريع', desc: 'محسّن للأداء' },
+                            { icon: Star, title: 'دعم', desc: 'دعم فني مخصص' }
                         ].map((item, idx) => (
                             <div key={idx} className="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
                                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -260,27 +260,27 @@ export default function PricingPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Pricing FAQs</h2>
-                        <p className="text-slate-400 text-lg">Common questions about our pricing</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة الشائعة عن الأسعار</h2>
+                        <p className="text-slate-400 text-lg">أسئلة شائعة حول الأسعار</p>
                     </div>
 
                     <div className="space-y-6">
                         {[
                             {
-                                q: 'Can I upgrade my plan later?',
-                                a: 'Absolutely! You can start with any plan and upgrade as your needs grow. We make the transition seamless.'
+                                q: 'هل يمكنني الترقية إلى خطة أخرى لاحقاً؟',
+                                a: 'بالتأكيد! يمكنك البدء بأي خطة والترقية مع نمو احتياجاتك. نجعل الانتقال سلساً.'
                             },
                             {
-                                q: 'What payment methods do you accept?',
-                                a: 'We accept all major credit cards, bank transfers, and can accommodate custom payment terms for enterprise clients.'
+                                q: 'ما هي طرق الدفع التي تقبلونها؟',
+                                a: 'نقبل جميع بطاقات الائتمان الرئيسية والتحويلات البنكية ويمكننا استيعاب شروط دفع مخصصة لعملاء المؤسسات.'
                             },
                             {
-                                q: 'Is there a money-back guarantee?',
-                                a: 'Yes, we offer a satisfaction guarantee. If you\'re not happy with the initial deliverables, we\'ll work with you until you are.'
+                                q: 'هل هناك ضمان لاسترجاع الأموال؟',
+                                a: 'نعم، نقدم ضمان الرضا. إذا لم تكن راضياً عن التسليمات الأولية، سنعمل معك حتى تكون راضياً.'
                             },
                             {
-                                q: 'Do you offer custom packages?',
-                                a: 'Yes! The Enterprise plan is fully customizable. Contact us to discuss your specific requirements and get a tailored quote.'
+                                q: 'هل تقدمون حزم مخصصة؟',
+                                a: 'نعم! خطة المؤسسات قابلة للتخصيص بالكامل. اتصل بنا لمناقشة متطلباتك المحددة والحصول على عرض أسعار مخصص.'
                             }
                         ].map((faq, idx) => (
                             <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
@@ -296,16 +296,16 @@ export default function PricingPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للبدء؟</h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                            Choose a plan that fits your needs or contact us for a custom enterprise solution.
+                            اختر خطة تناسب احتياجاتك أو اتصل بنا لحل مؤسسي مخصص.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="primary" className="text-lg">
-                                Start Your Project
+                                ابدأ مشروعك
                             </Button>
                             <Button variant="outline" className="text-lg">
-                                Talk to Sales
+                                تحدث إلى المبيعات
                             </Button>
                         </div>
                     </div>
