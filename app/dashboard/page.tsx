@@ -4,21 +4,28 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { LayoutDashboard, FileText, Settings, CreditCard, MessageSquare, Clock, TrendingUp, AlertCircle, CheckCircle2, Download, Bell, ChevronRight, Activity, Shield, Zap, Users, BarChart3, ArrowUpRight, Calendar, Filter } from 'lucide-react';
 import { useDashboardStats, useMonthlyStats, useRecentActivities, useProjects, formatRelativeTime, getActivityStyle } from '@/lib/useDashboardData';
+import { useNotifications, useSystemHealth } from '@/lib/useNotifications';
 import { useAuth } from '@/contexts/AuthContext';
+import { isAdminRole } from '@/lib/admin';
 
 export default function DashboardPage() {
     const router = useRouter();
     const [showDownloadTooltip, setShowDownloadTooltip] = useState(false);
     const [todayDate, setTodayDate] = useState<string>('');
 
-    // Get current user
-    const { user } = useAuth();
+    // Get current user and role
+    const { user, role } = useAuth();
+    const isAdmin = isAdminRole(role);
 
     // Fetch real-time data from Firestore
     const { stats, loading: statsLoading } = useDashboardStats(user?.uid);
     const { monthlyStats, loading: monthlyLoading } = useMonthlyStats();
     const { activities, loading: activitiesLoading } = useRecentActivities(user?.uid, 5);
     const { projects, loading: projectsLoading } = useProjects(user?.uid);
+
+    // Fetch notifications and system health from Cloud Functions data
+    const { unreadCount, loading: notificationsLoading } = useNotifications(user?.uid, 10);
+    const { systemHealth, loading: healthLoading } = useSystemHealth();
 
     // Set date on client only to prevent hydration mismatch
     useEffect(() => {
@@ -60,7 +67,12 @@ export default function DashboardPage() {
                             className="relative flex items-center gap-2 bg-white/70 hover:bg-white backdrop-blur-xl px-4 py-3 rounded-2xl border border-abyss-200/50 shadow-lg hover:shadow-xl transition-all hover:scale-105 group"
                         >
                             <Bell className="h-5 w-5 text-abyss-600 group-hover:text-electric-600 transition-colors group-hover:animate-pulse" />
-                            {/* TODO: Replace with real notification count from Firestore */}
+                            {/* Real-time notification count from Firestore */}
+                            {unreadCount > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-rose-600 text-white text-xs font-bold min-w-[20px] h-5 flex items-center justify-center rounded-full shadow-lg animate-bounce">
+                                    {unreadCount > 9 ? '9+' : unreadCount}
+                                </span>
+                            )}
                         </button>
                     </div>
                 </div>
@@ -174,18 +186,38 @@ export default function DashboardPage() {
                             </div>
                             <div className="flex items-end justify-between">
                                 <div>
-                                    <p className="text-5xl font-bold text-abyss-900 mb-2">{stats.systemHealth || 99.9}%</p>
-                                    <div className="flex items-center gap-1.5 text-green-600">
-                                        <Zap size={16} className="animate-pulse" />
-                                        <p className="text-sm font-semibold">مثالي</p>
-                                    </div>
+                                    {/* Use server-computed systemHealth from Cloud Functions */}
+                                    {healthLoading ? (
+                                        <div className="animate-pulse">
+                                            <div className="h-12 w-24 bg-abyss-200 rounded mb-2"></div>
+                                            <div className="h-4 w-16 bg-abyss-100 rounded"></div>
+                                        </div>
+                                    ) : systemHealth !== null ? (
+                                        <>
+                                            <p className="text-5xl font-bold text-abyss-900 mb-2">{systemHealth}%</p>
+                                            <div className={`flex items-center gap-1.5 ${systemHealth >= 95 ? 'text-green-600' : systemHealth >= 80 ? 'text-yellow-600' : 'text-red-600'}`}>
+                                                <Zap size={16} className="animate-pulse" />
+                                                <p className="text-sm font-semibold">{systemHealth >= 95 ? 'مثالي' : systemHealth >= 80 ? 'جيد' : 'يحتاج اهتمام'}</p>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <p className="text-4xl font-bold text-abyss-400 mb-2">N/A</p>
+                                            <div className="flex items-center gap-1.5 text-abyss-400">
+                                                <Clock size={16} />
+                                                <p className="text-sm font-semibold">غير متوفر</p>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
-                                <div className="flex flex-col items-end gap-1">
-                                    <div className="h-1.5 w-16 bg-abyss-100 rounded-full overflow-hidden">
-                                        <div className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full animate-shimmer" style={{ width: '99.9%' }}></div>
+                                {systemHealth !== null && !healthLoading && (
+                                    <div className="flex flex-col items-end gap-1">
+                                        <div className="h-1.5 w-16 bg-abyss-100 rounded-full overflow-hidden">
+                                            <div className={`h-full rounded-full transition-all duration-1000 ${systemHealth >= 95 ? 'bg-gradient-to-r from-green-500 to-emerald-500' : systemHealth >= 80 ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-red-500 to-rose-500'}`} style={{ width: `${systemHealth}%` }}></div>
+                                        </div>
+                                        <p className="text-xs text-abyss-500">وقت التشغيل</p>
                                     </div>
-                                    <p className="text-xs text-abyss-500">وقت التشغيل</p>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -200,10 +232,13 @@ export default function DashboardPage() {
                                 <p className="text-sm text-abyss-500">تابع آخر التحديثات والتغييرات</p>
                             </div>
                             <div className="flex items-center gap-2">
-                                <button className="p-2 hover:bg-abyss-100 rounded-xl transition-all">
+                                <button className="p-2 hover:bg-abyss-100 rounded-xl transition-all" title="تصفية الأنشطة">
                                     <Filter className="h-4 w-4 text-abyss-600" />
                                 </button>
-                                <button className="text-sm text-electric-600 hover:text-electric-700 font-semibold flex items-center gap-1 px-3 py-2 hover:bg-electric-50 rounded-xl transition-all">
+                                <button
+                                    onClick={() => router.push('/dashboard/notifications')}
+                                    className="text-sm text-electric-600 hover:text-electric-700 font-semibold flex items-center gap-1 px-3 py-2 hover:bg-electric-50 rounded-xl transition-all"
+                                >
                                     عرض الكل
                                     <ChevronRight size={16} />
                                 </button>
@@ -292,12 +327,20 @@ export default function DashboardPage() {
                             </div>
                         </div>
 
-                        {/* Team Activity - Using real activities from current user */}
-                        {/* TODO: Extend to show team members when team permissions are implemented */}
+                        {/* Activity Panel - Shows personal for users, team for admins */}
                         <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-abyss-200/50 p-6">
-                            <div className="flex items-center gap-2 mb-4">
-                                <Users className="h-5 w-5 text-electric-600" />
-                                <h3 className="text-lg font-bold text-abyss-900">نشاطي الأخير</h3>
+                            <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-2">
+                                    <Users className="h-5 w-5 text-electric-600" />
+                                    <h3 className="text-lg font-bold text-abyss-900">
+                                        {isAdmin ? 'نشاط الفريق' : 'نشاطي الأخير'}
+                                    </h3>
+                                </div>
+                                {isAdmin && (
+                                    <span className="text-xs bg-electric-100 text-electric-700 px-2 py-1 rounded-full font-medium">
+                                        مدير
+                                    </span>
+                                )}
                             </div>
                             <div className="space-y-3">
                                 {activitiesLoading ? (

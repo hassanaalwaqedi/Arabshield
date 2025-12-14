@@ -2,11 +2,14 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Mail, Lock, User, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import { Mail, Lock, User, AlertCircle, CheckCircle, Loader2, XCircle } from 'lucide-react';
 import { registerWithEmail, validateEmail, validatePassword, createUserProfile } from '@/lib/firebase/auth';
+import { useRegistrationEnabled } from '@/contexts/SettingsContext';
 
 export default function RegisterForm() {
     const router = useRouter();
+    const { allowed: registrationAllowed, loading: settingsLoading } = useRegistrationEnabled();
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -73,6 +76,12 @@ export default function RegisterForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // Check if registration is allowed
+        if (!registrationAllowed) {
+            setErrorMessage('التسجيل مغلق حالياً. تواصل مع الإدارة للحصول على حساب.');
+            return;
+        }
+
         if (!validateForm()) return;
 
         setLoading(true);
@@ -103,6 +112,47 @@ export default function RegisterForm() {
             setLoading(false);
         }
     };
+
+    // Loading settings state
+    if (settingsLoading) {
+        return (
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12 text-center">
+                <Loader2 className="w-8 h-8 animate-spin text-blue-600 mx-auto" />
+                <p className="text-slate-600 mt-4">جاري التحميل...</p>
+            </div>
+        );
+    }
+
+    // Registration closed state
+    if (!registrationAllowed) {
+        return (
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12 text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/50">
+                    <XCircle className="w-10 h-10 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">التسجيل مغلق حالياً</h2>
+                <p className="text-lg text-slate-600 mb-6">
+                    نعتذر، التسجيل غير متاح في الوقت الحالي.
+                </p>
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                        للحصول على حساب، يرجى التواصل مع الإدارة عبر البريد الإلكتروني:{' '}
+                        <a href="mailto:support@arabshield.com" className="font-semibold text-blue-600 hover:underline">
+                            support@arabshield.com
+                        </a>
+                    </p>
+                </div>
+                <div className="text-center pt-6 mt-6 border-t border-slate-200">
+                    <p className="text-sm text-slate-600">
+                        لديك حساب بالفعل؟{' '}
+                        <a href="/login" className="text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                            تسجيل الدخول | Log In
+                        </a>
+                    </p>
+                </div>
+            </div>
+        );
+    }
 
     // Success state
     if (success) {

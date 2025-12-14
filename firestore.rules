@@ -100,6 +100,29 @@ service cloud.firestore {
       // FIX #1: Users can delete their OWN account
       // FIX #1: Owner role can delete ANY user account
       allow delete: if isOwner(userId) || isOwnerRole();
+      
+      // ==========================================
+      // User Settings Subcollection
+      // Owner only - no admin override for privacy
+      // ==========================================
+      match /settings/{settingId} {
+        // Users can read only their own settings
+        allow read: if isOwner(userId);
+        
+        // Users can create/update their own settings
+        allow create, update: if isOwner(userId);
+        
+        // Users can delete their own settings
+        allow delete: if isOwner(userId);
+      }
+      
+      // ==========================================
+      // FCM Tokens Subcollection
+      // For push notifications
+      // ==========================================
+      match /fcmTokens/{tokenId} {
+        allow read, write: if isOwner(userId);
+      }
     }
     
     // ==========================================
@@ -278,17 +301,31 @@ service cloud.firestore {
     
     // ==========================================
     // Messages (Project Chat)
+    // SECURITY: Only project participants can access
     // ==========================================
     match /messages/{projectId}/messages/{messageId} {
-      // Verified users can read messages
-      allow read: if isVerifiedUser();
+      // Helper: check if user is project participant
+      function isProjectParticipant() {
+        let projectDoc = get(/databases/$(database)/documents/projects/$(projectId)).data;
+        return projectDoc.ownerId == request.auth.uid || 
+               projectDoc.clientId == request.auth.uid ||
+               hasAdminPrivileges();
+      }
       
-      // Users can create messages with their ID
+      // Only project participants can read messages
+      allow read: if isVerifiedUser() && isProjectParticipant();
+      
+      // Only project participants can send messages with their ID
       allow create: if isVerifiedUser() && 
+        isProjectParticipant() &&
         request.resource.data.senderId == request.auth.uid;
       
-      // Messages are immutable (no edit/delete)
-      allow update, delete: if false;
+      // Only sender can delete their own messages
+      allow delete: if isVerifiedUser() && 
+        resource.data.senderId == request.auth.uid;
+      
+      // Messages are immutable (no edits)
+      allow update: if false;
     }
     
     // ==========================================
@@ -316,6 +353,41 @@ service cloud.firestore {
       
       // FIX #4: Audit logs are immutable
       allow update, delete: if false;
+    }
+    
+    // ==========================================
+    // Notifications - User can only read their own
+    // Created by Cloud Functions
+    // ==========================================
+    match /notifications/{userId}/items/{notificationId} {
+      // User can read their own notifications
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      
+      // User can update their notifications (mark as read)
+      allow update: if isAuthenticated() && 
+        request.auth.uid == userId &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+      
+      // Only Cloud Functions can create (server-side)
+      allow create: if false;
+      
+      // User can delete their notifications
+      allow delete: if isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // ==========================================
+    // Statistics - Server-computed, users can read
+    // ==========================================
+    match /statistics/{docId} {
+      // User can read their own stats or system stats
+      allow read: if isAuthenticated() && (
+        docId == 'system' ||
+        docId == 'monthly_stats' ||
+        docId == 'user_' + request.auth.uid
+      );
+      
+      // Only Cloud Functions can write (server-side via Admin SDK)
+      allow write: if false;
     }
     
     // ==========================================

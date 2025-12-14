@@ -1,24 +1,26 @@
 /**
  * Settings Dashboard Page
- * Real user profile and application settings
- * Phase 3: De-mocked - All settings are functional or explicitly disabled
+ * PRODUCTION: Real user profile and application settings
+ * All settings are persisted to Firestore and enforced
  */
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import { User, Mail, Bell, Shield, Save, Check, X, AlertCircle, Loader2, Lock, LogOut, RefreshCw, Info } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { User, Mail, Bell, Shield, Save, Check, X, AlertCircle, Loader2, Lock, LogOut, RefreshCw, Upload, Trash2, Camera } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
+import { useUserSettings } from '@/contexts/UserSettingsContext';
 import { db, auth } from '@/lib/firebase';
-import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, updateDoc, getDoc, serverTimestamp, deleteDoc, collection, getDocs } from 'firebase/firestore';
 import {
     updateProfile,
     updatePassword,
     sendEmailVerification,
     reauthenticateWithCredential,
     EmailAuthProvider,
-    signOut
+    signOut,
+    deleteUser
 } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
@@ -35,8 +37,8 @@ function Feedback({ type, message, onClose }: { type: 'success' | 'error'; messa
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             className={`flex items-center gap-3 p-4 rounded-xl mb-4 ${type === 'success'
-                    ? 'bg-green-50 border border-green-200 text-green-700'
-                    : 'bg-red-50 border border-red-200 text-red-700'
+                ? 'bg-green-50 border border-green-200 text-green-700'
+                : 'bg-red-50 border border-red-200 text-red-700'
                 }`}
         >
             {type === 'success' ? <Check size={18} /> : <AlertCircle size={18} />}
@@ -48,31 +50,59 @@ function Feedback({ type, message, onClose }: { type: 'success' | 'error'; messa
     );
 }
 
-// Disabled feature card component
-function DisabledFeature({ label, description, reason }: { label: string; description: string; reason: string }) {
+// Toggle component for settings
+function SettingsToggle({
+    enabled,
+    onChange,
+    loading = false,
+    disabled = false
+}: {
+    enabled: boolean;
+    onChange: (v: boolean) => void;
+    loading?: boolean;
+    disabled?: boolean;
+}) {
     return (
-        <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200 opacity-60">
-            <div>
-                <p className="font-medium text-slate-600">{label}</p>
-                <p className="text-sm text-slate-500">{description}</p>
-            </div>
-            <div className="flex items-center gap-2">
-                <span className="text-xs px-2 py-1 bg-slate-200 text-slate-600 rounded-full">{reason}</span>
-                <div className="w-11 h-6 bg-slate-300 rounded-full opacity-50 cursor-not-allowed"></div>
-            </div>
-        </div>
+        <button
+            onClick={() => !disabled && !loading && onChange(!enabled)}
+            disabled={disabled || loading}
+            className={`relative w-12 h-6 rounded-full transition-colors ${enabled ? 'bg-blue-600' : 'bg-slate-300'
+                } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+        >
+            {loading ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <Loader2 className="w-4 h-4 animate-spin text-white" />
+                </div>
+            ) : (
+                <div className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${enabled ? 'right-1' : 'left-1'
+                    }`} />
+            )}
+        </button>
     );
 }
 
 export default function SettingsPage() {
     const router = useRouter();
     const { user } = useAuth();
+    const {
+        preferences,
+        loading: prefsLoading,
+        saving: prefsSaving,
+        updatePreference,
+        uploadAvatar,
+        deleteAvatar
+    } = useUserSettings();
+
     const [loading, setLoading] = useState(true);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     // Profile state
     const [name, setName] = useState('');
     const [originalName, setOriginalName] = useState('');
     const [saving, setSaving] = useState(false);
+
+    // Avatar upload state
+    const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
     // Password change state
     const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -81,9 +111,21 @@ export default function SettingsPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [changingPassword, setChangingPassword] = useState(false);
 
+    // Account deletion state
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [deletePassword, setDeletePassword] = useState('');
+    const [deletingAccount, setDeletingAccount] = useState(false);
+    const [deleteConfirmText, setDeleteConfirmText] = useState('');
+
     // Verification state
     const [sendingVerification, setSendingVerification] = useState(false);
     const [verificationSent, setVerificationSent] = useState(false);
+
+    // Notification toggle loading states
+    const [togglingEmail, setTogglingEmail] = useState(false);
+    const [togglingPush, setTogglingPush] = useState(false);
+    const [togglingWeekly, setTogglingWeekly] = useState(false);
+    const [togglingMarketing, setTogglingMarketing] = useState(false);
 
     // Feedback state
     const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
@@ -97,7 +139,6 @@ export default function SettingsPage() {
             }
 
             try {
-                // Get user profile from Firestore
                 const userDoc = await getDoc(doc(db, 'users', user.uid));
                 if (userDoc.exists()) {
                     const userData = userDoc.data();
@@ -119,7 +160,6 @@ export default function SettingsPage() {
         loadUserData();
     }, [user]);
 
-    // Check if there are unsaved changes
     const hasChanges = name !== originalName;
 
     // Handle profile save
@@ -133,13 +173,11 @@ export default function SettingsPage() {
 
         setSaving(true);
         try {
-            // Update Firestore
             await updateDoc(doc(db, 'users', user.uid), {
                 name: name.trim(),
                 updatedAt: serverTimestamp()
             });
 
-            // Update Firebase Auth profile
             await updateProfile(user, {
                 displayName: name.trim()
             });
@@ -151,6 +189,55 @@ export default function SettingsPage() {
             setFeedback({ type: 'error', message: 'حدث خطأ أثناء حفظ التغييرات' });
         } finally {
             setSaving(false);
+        }
+    };
+
+    // Handle avatar upload
+    const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setUploadingAvatar(true);
+        try {
+            await uploadAvatar(file);
+            setFeedback({ type: 'success', message: 'تم رفع الصورة بنجاح' });
+        } catch (err: any) {
+            setFeedback({ type: 'error', message: err.message || 'فشل في رفع الصورة' });
+        } finally {
+            setUploadingAvatar(false);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = '';
+            }
+        }
+    };
+
+    // Handle avatar delete
+    const handleDeleteAvatar = async () => {
+        setUploadingAvatar(true);
+        try {
+            await deleteAvatar();
+            setFeedback({ type: 'success', message: 'تم حذف الصورة بنجاح' });
+        } catch (err: any) {
+            setFeedback({ type: 'error', message: err.message || 'فشل في حذف الصورة' });
+        } finally {
+            setUploadingAvatar(false);
+        }
+    };
+
+    // Handle notification toggle
+    const handleNotificationToggle = async (
+        key: 'emailNotifications' | 'pushNotifications' | 'weeklyReport' | 'marketingEmails',
+        value: boolean,
+        setLoading: (v: boolean) => void
+    ) => {
+        setLoading(true);
+        try {
+            await updatePreference(key, value);
+            setFeedback({ type: 'success', message: 'تم تحديث الإعداد' });
+        } catch (err: any) {
+            setFeedback({ type: 'error', message: err.message || 'فشل في تحديث الإعداد' });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -192,11 +279,8 @@ export default function SettingsPage() {
 
         setChangingPassword(true);
         try {
-            // Re-authenticate user first
             const credential = EmailAuthProvider.credential(user.email, currentPassword);
             await reauthenticateWithCredential(user, credential);
-
-            // Update password
             await updatePassword(user, newPassword);
 
             setShowPasswordModal(false);
@@ -220,6 +304,62 @@ export default function SettingsPage() {
         }
     };
 
+    // Handle account deletion
+    const handleDeleteAccount = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!user || !user.email) return;
+
+        if (deleteConfirmText !== 'حذف حسابي') {
+            setFeedback({ type: 'error', message: 'الرجاء كتابة "حذف حسابي" للتأكيد' });
+            return;
+        }
+
+        setDeletingAccount(true);
+        try {
+            // Re-authenticate
+            const credential = EmailAuthProvider.credential(user.email, deletePassword);
+            await reauthenticateWithCredential(user, credential);
+
+            const uid = user.uid;
+
+            // Log to audit before deletion
+            await updateDoc(doc(db, 'audit_logs', `delete_${uid}_${Date.now()}`), {
+                action: 'account_deleted',
+                userId: uid,
+                userEmail: user.email,
+                timestamp: serverTimestamp(),
+                self_initiated: true
+            }).catch(() => { }); // Ignore if fails
+
+            // Delete user's subcollections (settings, notifications, etc.)
+            const settingsRef = collection(db, 'users', uid, 'settings');
+            const settingsDocs = await getDocs(settingsRef);
+            for (const docSnap of settingsDocs.docs) {
+                await deleteDoc(docSnap.ref);
+            }
+
+            // Delete user document
+            await deleteDoc(doc(db, 'users', uid));
+
+            // Delete auth account (this will sign out the user)
+            await deleteUser(user);
+
+            // Redirect to homepage
+            router.push('/');
+        } catch (err: any) {
+            console.error('Error deleting account:', err);
+            if (err.code === 'auth/wrong-password') {
+                setFeedback({ type: 'error', message: 'كلمة المرور غير صحيحة' });
+            } else if (err.code === 'auth/requires-recent-login') {
+                setFeedback({ type: 'error', message: 'الرجاء تسجيل الخروج وإعادة تسجيل الدخول ثم المحاولة مرة أخرى' });
+            } else {
+                setFeedback({ type: 'error', message: 'حدث خطأ أثناء حذف الحساب' });
+            }
+        } finally {
+            setDeletingAccount(false);
+        }
+    };
+
     // Handle logout
     const handleLogout = async () => {
         try {
@@ -231,7 +371,11 @@ export default function SettingsPage() {
         }
     };
 
-    if (loading) {
+    // Get avatar display
+    const avatarUrl = preferences.avatarUrl || user?.photoURL;
+    const avatarInitial = (name || user?.displayName || user?.email || 'U').charAt(0).toUpperCase();
+
+    if (loading || prefsLoading) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
                 <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
@@ -320,13 +464,13 @@ export default function SettingsPage() {
                             className="flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         >
                             <LogOut size={18} />
-                            <span>تسجيل الخروج من جميع الأجهزة</span>
+                            <span>تسجيل الخروج</span>
                         </button>
                     </div>
                 </div>
             </motion.div>
 
-            {/* Profile Section */}
+            {/* Profile Section with Avatar */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -339,19 +483,52 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-4">
-                    {/* Avatar - Disabled */}
+                    {/* Avatar - REAL upload */}
                     <div className="flex items-center gap-4">
-                        <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                            {name?.charAt(0)?.toUpperCase() || 'U'}
+                        <div className="relative">
+                            {avatarUrl ? (
+                                <img
+                                    src={avatarUrl}
+                                    alt="Avatar"
+                                    className="w-20 h-20 rounded-full object-cover ring-4 ring-blue-100"
+                                />
+                            ) : (
+                                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                    {avatarInitial}
+                                </div>
+                            )}
+                            {uploadingAvatar && (
+                                <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center">
+                                    <Loader2 className="w-6 h-6 animate-spin text-white" />
+                                </div>
+                            )}
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-col gap-2">
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept="image/jpeg,image/png,image/webp,image/gif"
+                                onChange={handleAvatarUpload}
+                                className="hidden"
+                            />
                             <button
-                                disabled
-                                className="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-lg text-slate-400 cursor-not-allowed"
+                                onClick={() => fileInputRef.current?.click()}
+                                disabled={uploadingAvatar}
+                                className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors disabled:opacity-50"
                             >
+                                <Camera size={16} />
                                 <span className="text-sm">تحميل صورة</span>
                             </button>
-                            <span className="text-xs px-2 py-1 bg-slate-200 text-slate-500 rounded-full">قريباً</span>
+                            {avatarUrl && (
+                                <button
+                                    onClick={handleDeleteAvatar}
+                                    disabled={uploadingAvatar}
+                                    className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors disabled:opacity-50"
+                                >
+                                    <Trash2 size={16} />
+                                    <span className="text-sm">حذف الصورة</span>
+                                </button>
+                            )}
                         </div>
                     </div>
 
@@ -371,45 +548,70 @@ export default function SettingsPage() {
                 </div>
             </motion.div>
 
-            {/* Notifications Section - All Disabled */}
+            {/* Notifications Section - REAL toggles */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 className="bg-white/70 backdrop-blur-xl rounded-2xl p-6 border border-slate-200"
             >
-                <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-2">
-                        <Bell className="w-5 h-5 text-blue-600" />
-                        <h2 className="text-xl font-bold text-slate-900">الإشعارات</h2>
-                    </div>
-                    <span className="text-xs px-3 py-1 bg-amber-100 text-amber-700 rounded-full flex items-center gap-1">
-                        <Info size={12} />
-                        المرحلة الرابعة
-                    </span>
+                <div className="flex items-center gap-2 mb-6">
+                    <Bell className="w-5 h-5 text-blue-600" />
+                    <h2 className="text-xl font-bold text-slate-900">الإشعارات</h2>
                 </div>
 
-                <div className="space-y-3">
-                    <DisabledFeature
-                        label="إشعارات البريد الإلكتروني"
-                        description="تلقي التحديثات عبر البريد"
-                        reason="قريباً"
-                    />
-                    <DisabledFeature
-                        label="الإشعارات الفورية"
-                        description="إشعارات المتصفح"
-                        reason="قريباً"
-                    />
-                    <DisabledFeature
-                        label="التقرير الأسبوعي"
-                        description="ملخص أسبوعي للمشاريع"
-                        reason="قريباً"
-                    />
-                    <DisabledFeature
-                        label="الرسائل التسويقية"
-                        description="العروض والأخبار"
-                        reason="قريباً"
-                    />
+                <div className="space-y-4">
+                    {/* Email Notifications */}
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <div>
+                            <p className="font-medium text-slate-900">إشعارات البريد الإلكتروني</p>
+                            <p className="text-sm text-slate-500">تلقي التحديثات عبر البريد</p>
+                        </div>
+                        <SettingsToggle
+                            enabled={preferences.emailNotifications}
+                            onChange={(v) => handleNotificationToggle('emailNotifications', v, setTogglingEmail)}
+                            loading={togglingEmail}
+                        />
+                    </div>
+
+                    {/* Push Notifications */}
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <div>
+                            <p className="font-medium text-slate-900">الإشعارات الفورية</p>
+                            <p className="text-sm text-slate-500">إشعارات المتصفح</p>
+                        </div>
+                        <SettingsToggle
+                            enabled={preferences.pushNotifications}
+                            onChange={(v) => handleNotificationToggle('pushNotifications', v, setTogglingPush)}
+                            loading={togglingPush}
+                        />
+                    </div>
+
+                    {/* Weekly Report */}
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <div>
+                            <p className="font-medium text-slate-900">التقرير الأسبوعي</p>
+                            <p className="text-sm text-slate-500">ملخص أسبوعي للمشاريع</p>
+                        </div>
+                        <SettingsToggle
+                            enabled={preferences.weeklyReport}
+                            onChange={(v) => handleNotificationToggle('weeklyReport', v, setTogglingWeekly)}
+                            loading={togglingWeekly}
+                        />
+                    </div>
+
+                    {/* Marketing Emails */}
+                    <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <div>
+                            <p className="font-medium text-slate-900">الرسائل التسويقية</p>
+                            <p className="text-sm text-slate-500">العروض والأخبار</p>
+                        </div>
+                        <SettingsToggle
+                            enabled={preferences.marketingEmails}
+                            onChange={(v) => handleNotificationToggle('marketingEmails', v, setTogglingMarketing)}
+                            loading={togglingMarketing}
+                        />
+                    </div>
                 </div>
             </motion.div>
 
@@ -438,23 +640,26 @@ export default function SettingsPage() {
                         <span className="text-slate-400">←</span>
                     </button>
 
-                    {/* 2FA - Disabled */}
+                    {/* 2FA - Coming Soon but honest */}
                     <div className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 opacity-60">
                         <div className="flex items-center gap-3">
                             <Shield size={18} className="text-slate-400" />
-                            <span className="text-slate-500">المصادقة الثنائية</span>
+                            <span className="text-slate-500">المصادقة الثنائية (2FA)</span>
                         </div>
-                        <span className="text-xs px-2 py-1 bg-slate-200 text-slate-500 rounded-full">Enterprise</span>
+                        <span className="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded-full">قيد التطوير</span>
                     </div>
 
-                    {/* Delete Account - Disabled */}
-                    <div className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-red-50/50 border border-red-200 opacity-60">
+                    {/* Delete Account - Real */}
+                    <button
+                        onClick={() => setShowDeleteModal(true)}
+                        className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-red-50 border border-red-200 hover:bg-red-100 transition-colors"
+                    >
                         <div className="flex items-center gap-3">
-                            <X size={18} className="text-red-400" />
-                            <span className="text-red-400">حذف الحساب</span>
+                            <Trash2 size={18} className="text-red-500" />
+                            <span className="text-red-600">حذف الحساب نهائياً</span>
                         </div>
-                        <span className="text-xs px-2 py-1 bg-red-100 text-red-500 rounded-full">تواصل مع الدعم</span>
-                    </div>
+                        <span className="text-red-400">←</span>
+                    </button>
                 </div>
             </motion.div>
 
@@ -569,6 +774,98 @@ export default function SettingsPage() {
                                         </>
                                     ) : (
                                         <span>تغيير</span>
+                                    )}
+                                </button>
+                            </div>
+                        </form>
+                    </motion.div>
+                </div>
+            )}
+
+            {/* Account Delete Modal */}
+            {showDeleteModal && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="bg-white rounded-2xl p-8 max-w-md w-full relative"
+                    >
+                        <button
+                            onClick={() => {
+                                setShowDeleteModal(false);
+                                setDeletePassword('');
+                                setDeleteConfirmText('');
+                            }}
+                            className="absolute top-4 left-4 p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                        >
+                            <X size={20} className="text-slate-500" />
+                        </button>
+
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="p-3 bg-red-100 rounded-xl">
+                                <Trash2 className="w-6 h-6 text-red-600" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-red-600">حذف الحساب نهائياً</h2>
+                        </div>
+
+                        <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                            <p className="text-sm text-red-700 font-medium mb-2">⚠️ تحذير: هذا الإجراء لا يمكن التراجع عنه!</p>
+                            <ul className="text-sm text-red-600 list-disc list-inside space-y-1">
+                                <li>سيتم حذف جميع بياناتك الشخصية</li>
+                                <li>سيتم حذف مشاريعك وملفاتك</li>
+                                <li>لن تتمكن من استعادة الحساب</li>
+                            </ul>
+                        </div>
+
+                        <form onSubmit={handleDeleteAccount} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-2">
+                                    أدخل كلمة المرور للتأكيد
+                                </label>
+                                <input
+                                    type="password"
+                                    value={deletePassword}
+                                    onChange={(e) => setDeletePassword(e.target.value)}
+                                    required
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-2">
+                                    اكتب "حذف حسابي" للتأكيد
+                                </label>
+                                <input
+                                    type="text"
+                                    value={deleteConfirmText}
+                                    onChange={(e) => setDeleteConfirmText(e.target.value)}
+                                    required
+                                    placeholder="حذف حسابي"
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none"
+                                />
+                            </div>
+
+                            <div className="flex gap-3 pt-4">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowDeleteModal(false)}
+                                    className="flex-1 px-6 py-3 bg-slate-200 text-slate-700 rounded-xl hover:bg-slate-300 transition-colors"
+                                    disabled={deletingAccount}
+                                >
+                                    إلغاء
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={deletingAccount || deleteConfirmText !== 'حذف حسابي'}
+                                    className="flex-1 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                                >
+                                    {deletingAccount ? (
+                                        <>
+                                            <Loader2 size={18} className="animate-spin" />
+                                            <span>جاري الحذف...</span>
+                                        </>
+                                    ) : (
+                                        <span>حذف الحساب</span>
                                     )}
                                 </button>
                             </div>

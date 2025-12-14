@@ -13,7 +13,7 @@ interface DashboardStats {
     pendingInvoices: number;
     openTickets: number;
     resolvedTickets: number;
-    systemHealth: number;
+    systemHealth: number | null; // null = not available, computed server-side
 }
 
 interface Activity {
@@ -45,7 +45,7 @@ export function useDashboardStats(userId: string | undefined) {
         pendingInvoices: 0,
         openTickets: 0,
         resolvedTickets: 0,
-        systemHealth: 99.9
+        systemHealth: null // From server-side aggregation, null until available
     });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -188,7 +188,7 @@ export function useMonthlyStats() {
                     setMonthlyStats({
                         newOrders: data.newOrders || 0,
                         completedOrders: data.completedOrders || 0,
-                        meetings: data.meetings || 8 // Default if not in Firestore
+                        meetings: data.meetings || 0 // No fake defaults
                     });
                 }
                 setLoading(false);

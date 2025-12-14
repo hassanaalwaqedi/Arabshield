@@ -2,6 +2,8 @@
 
 import { ReactNode } from 'react';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { SettingsProvider } from '@/contexts/SettingsContext';
+import { UserSettingsProvider } from '@/contexts/UserSettingsContext';
 
 /**
  * Client-side providers wrapper
@@ -10,7 +12,11 @@ import { AuthProvider } from '@/contexts/AuthContext';
 export function ClientProviders({ children }: { children: ReactNode }) {
     return (
         <AuthProvider>
-            {children}
+            <SettingsProvider>
+                <UserSettingsProvider>
+                    {children}
+                </UserSettingsProvider>
+            </SettingsProvider>
         </AuthProvider>
     );
 }
