@@ -9,6 +9,7 @@ import { ToastProvider } from '@/contexts/ToastContext';
 import { ChatProvider } from '@/contexts/ChatContext';
 import { WelcomeCard } from '@/components/WelcomeCard';
 import { ChatWidget } from '@/components/ChatWidget';
+import { DefaultStructuredData } from '@/components/StructuredData';
 
 /**
  * Client-side providers wrapper
@@ -22,6 +23,7 @@ export function ClientProviders({ children }: { children: ReactNode }) {
                     <SidebarProvider>
                         <ToastProvider>
                             <ChatProvider>
+                                <DefaultStructuredData />
                                 {children}
                                 <WelcomeCard />
                                 <ChatWidget />
