@@ -101,10 +101,10 @@ export function Sidebar() {
 
     return (
         <>
-            {/* Mobile Toggle Button */}
+            {/* Mobile Toggle Button - Left side for RTL */}
             <button
                 onClick={toggleMobile}
-                className="md:hidden fixed top-4 right-4 z-50 p-2.5 rounded-xl bg-abyss-900/95 backdrop-blur-sm border border-slate-700/50 text-white shadow-lg hover:bg-abyss-800 transition-colors"
+                className="md:hidden fixed top-4 left-4 z-50 p-2.5 rounded-xl bg-abyss-900/95 backdrop-blur-sm border border-slate-700/50 text-white shadow-lg hover:bg-abyss-800 transition-colors"
                 aria-label="Toggle menu"
             >
                 {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -124,16 +124,16 @@ export function Sidebar() {
                 )}
             </AnimatePresence>
 
-            {/* Sidebar */}
+            {/* Sidebar - RIGHT side for RTL */}
             <aside
                 style={{ width: sidebarWidth }}
                 className={`
-                    fixed top-0 left-0 h-screen z-50
+                    fixed top-0 right-0 h-screen z-50
                     bg-abyss-950/95 backdrop-blur-xl
-                    border-r border-slate-800/50
+                    border-l border-slate-800/50
                     flex flex-col
                     transition-all duration-300 ease-out
-                    ${isMobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+                    ${isMobileOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
                 `}
             >
                 {/* Logo Area */}

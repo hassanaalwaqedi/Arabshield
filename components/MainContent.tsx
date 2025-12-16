@@ -2,33 +2,38 @@
 
 import { ReactNode } from 'react';
 import { useSidebar } from '@/contexts/SidebarContext';
-import { SIDEBAR_WIDTH_OPEN, SIDEBAR_WIDTH_COLLAPSED } from '@/components/Sidebar';
 
 interface MainContentProps {
     children: ReactNode;
 }
 
+// Sidebar widths
+const SIDEBAR_WIDTH_OPEN = 240;
+const SIDEBAR_WIDTH_COLLAPSED = 64;
+
 /**
  * MainContent wrapper that adjusts margin based on sidebar state
- * Provides smooth transition when sidebar collapses/expands
+ * RTL: Sidebar is on RIGHT, so we use margin-right
+ * Mobile: Sidebar is overlay, no margin needed
  */
 export function MainContent({ children }: MainContentProps) {
     const { isCollapsed } = useSidebar();
 
-    const marginLeft = isCollapsed ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH_OPEN;
+    const sidebarWidth = isCollapsed ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH_OPEN;
 
     return (
         <div
-            className="flex-grow flex flex-col min-h-screen transition-all duration-300 ease-out"
+            className="flex-grow flex flex-col min-h-screen w-full transition-all duration-300 ease-out md:me-0"
             style={{
-                marginLeft: `${marginLeft}px`,
-                // On mobile, no margin (sidebar is overlay)
+                // RTL: margin-inline-end = margin-right in RTL
+                marginInlineEnd: `${sidebarWidth}px`,
             }}
         >
+            {/* Mobile: Remove sidebar margin */}
             <style jsx>{`
                 @media (max-width: 767px) {
                     div {
-                        margin-left: 0 !important;
+                        margin-inline-end: 0 !important;
                     }
                 }
             `}</style>
