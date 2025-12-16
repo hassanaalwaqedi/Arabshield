@@ -450,6 +450,35 @@ service cloud.firestore {
     }
     
     // ==========================================
+    // Careers Jobs Collection
+    // PUBLIC READ: Anyone can view open jobs
+    // ADMIN ONLY: Create, update, delete
+    // ==========================================
+    match /careers_jobs/{jobId} {
+      // Anyone can read open jobs (public careers page)
+      allow read: if true;
+      
+      // Only admin can create/update/delete jobs
+      allow create, update, delete: if hasAdminPrivileges();
+    }
+    
+    // ==========================================
+    // Job Applications Collection
+    // PUBLIC CREATE: Anyone can apply for a job
+    // ADMIN READ: Admin can view all applications
+    // ==========================================
+    match /job_applications/{applicationId} {
+      // Anyone can submit a job application
+      allow create: if true;
+      
+      // Only admin can read applications
+      allow read: if hasAdminPrivileges();
+      
+      // Only admin can update/delete
+      allow update, delete: if hasAdminPrivileges();
+    }
+    
+    // ==========================================
     // Catch-all: Deny everything else
     // ==========================================
     match /{document=**} {

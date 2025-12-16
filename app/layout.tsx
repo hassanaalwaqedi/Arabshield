@@ -5,6 +5,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
 import { ClientProviders } from '@/components/ClientProviders';
 import { MainContent } from '@/components/MainContent';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -43,8 +44,8 @@ export default function RootLayout({
             <Footer />
           </MainContent>
         </ClientProviders>
+        <SpeedInsights />
       </body>
     </html>
   );
 }
-
