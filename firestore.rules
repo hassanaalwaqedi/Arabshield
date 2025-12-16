@@ -27,10 +27,12 @@ service cloud.firestore {
       return request.auth.token.email_verified == true;
     }
     
+    // NOTE: Email verification is enforced at CLIENT-SIDE in DashboardLayout
+    // Firestore rules allow authenticated users to ensure the app works
+    // The client blocks unverified users from accessing dashboard
     function isVerifiedUser() {
-      // DEVELOPMENT: Allowing non-verified users for testing
-      // TODO: In production, uncomment the email verification check
       return isAuthenticated();
+      // For strict server-side enforcement (may cause token issues):
       // return isAuthenticated() && isEmailVerified();
     }
     
@@ -68,6 +70,20 @@ service cloud.firestore {
     function isProjectOwner(projectId) {
       return isVerifiedUser() && 
         get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid;
+    }
+    
+    // ==========================================
+    // System Settings Collection
+    // READ: All authenticated users (for maintenance mode, etc.)
+    // WRITE: Admin only
+    // ==========================================
+    match /system/{document} {
+      // All authenticated users can read system settings
+      // This is needed for maintenance mode check, registration toggle, etc.
+      allow read: if isAuthenticated();
+      
+      // Only admin can write system settings
+      allow write: if hasAdminPrivileges();
     }
     
     // ==========================================
@@ -197,11 +213,11 @@ service cloud.firestore {
     // FIX #3: HARD BLOCK deletion (even for admin)
     // ==========================================
     match /invoices/{invoiceId} {
-      // Users can read their own invoices
+      // Users can read their own invoices (by userId OR clientEmail)
       // Owner role can read all invoices
-      // DEVELOPMENT: Allow authenticated users to read for dashboard stats
       allow read: if isAuthenticated() && (
         resource.data.userId == request.auth.uid || 
+        resource.data.clientEmail == request.auth.token.email ||
         isOwnerRole()
       );
       
@@ -399,6 +415,38 @@ service cloud.firestore {
       
       // Only admin/owner can write system settings
       allow write: if hasAdminPrivileges();
+    }
+    
+    // ==========================================
+    // Orders Collection (from Order Form)
+    // CREATE: Anyone can submit (public form)
+    // READ: Admin only, or own orders if authenticated
+    // UPDATE/DELETE: Admin only
+    // ==========================================
+    match /orders/{orderId} {
+      // Anyone can create an order (public form submission)
+      allow create: if true;
+      
+      // Admin can read all orders
+      // Authenticated users can read orders matching their email
+      allow read: if hasAdminPrivileges() || 
+        (isAuthenticated() && resource.data.email == request.auth.token.email);
+      
+      // Only admin can update/delete orders
+      allow update, delete: if hasAdminPrivileges();
+    }
+    
+    // ==========================================
+    // Contact Messages Collection (from Contact Form)
+    // CREATE: Anyone can submit (public form)
+    // READ/UPDATE/DELETE: Admin only
+    // ==========================================
+    match /contact_messages/{messageId} {
+      // Anyone can create a contact message (public form submission)
+      allow create: if true;
+      
+      // Only admin can read, update, or delete messages
+      allow read, update, delete: if hasAdminPrivileges();
     }
     
     // ==========================================

@@ -4,38 +4,71 @@ import {
     sendEmailVerification,
     User,
     updateProfile,
-    AuthError
+    AuthError,
+    signOut,
+    deleteUser
 } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 /**
  * Register a new user with email and password
+ * SECURITY: Does NOT create Firestore profile until email is verified
+ * SECURITY: Signs out user immediately after sending verification email
+ * 
  * @param name - User's display name
  * @param email - User's email address
  * @param password - User's password
- * @returns User object if successful
+ * @returns Result object with success status
  */
 export async function registerWithEmail(name: string, email: string, password: string) {
+    let createdUser: User | null = null;
+
     try {
         // Create user account
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        createdUser = userCredential.user;
 
         // Update user profile with display name
-        await updateProfile(user, {
+        await updateProfile(createdUser, {
             displayName: name
         });
 
-        // Send verification email
-        await sendVerificationEmail(user);
+        // CRITICAL: Send verification email BEFORE anything else
+        // If this fails, we abort the entire registration
+        try {
+            await sendVerificationEmail(createdUser);
+        } catch (emailError) {
+            console.error('CRITICAL: Failed to send verification email:', emailError);
+            // Delete the created user since they can't verify
+            try {
+                await deleteUser(createdUser);
+            } catch (deleteError) {
+                console.error('Failed to delete user after email error:', deleteError);
+            }
+            return {
+                success: false,
+                error: 'فشل في إرسال رابط التحقق. حاول مرة أخرى. | Failed to send verification email. Please try again.'
+            };
+        }
+
+        // CRITICAL: Sign out immediately - user must verify email before accessing system
+        await signOut(auth);
 
         return {
             success: true,
-            user,
-            message: 'تم إنشاء الحساب. تم إرسال رابط التحقق إلى بريدك الإلكتروني.'
+            needsVerification: true,
+            message: 'تم إنشاء الحساب. تم إرسال رابط التحقق إلى بريدك الإلكتروني. الرجاء تفعيل حسابك قبل تسجيل الدخول.'
         };
     } catch (error) {
+        // If user was created but something failed, try to clean up
+        if (createdUser) {
+            try {
+                await deleteUser(createdUser);
+            } catch (deleteError) {
+                console.error('Failed to delete user after registration error:', deleteError);
+            }
+        }
         return {
             success: false,
             error: getAuthErrorMessage(error as AuthError)
@@ -99,67 +132,25 @@ export async function loginWithEmail(email: string, password: string) {
 }
 
 /**
- * Send custom verification email using Cloud Function
- * @param user - Firebase user object
- */
-export async function sendCustomVerificationEmail(user: User) {
-    try {
-        // Import Firebase Functions
-        const { getFunctions, httpsCallable } = await import('firebase/functions');
-        const functions = getFunctions();
-
-        // Call Cloud Function to send custom HTML email
-        const sendEmail = httpsCallable(functions, 'sendCustomVerificationEmail');
-
-        // Generate verification link using Cloud Function
-        const generateLink = httpsCallable(functions, 'generateVerificationLink');
-        const linkResult = await generateLink({ email: user.email });
-
-        if (linkResult.data && typeof linkResult.data === 'object' && 'verificationLink' in linkResult.data) {
-            const verificationLink = linkResult.data.verificationLink as string;
-
-            // Send custom email with the verification link
-            await sendEmail({
-                email: user.email,
-                displayName: user.displayName || 'عزيزي المستخدم',
-                verificationLink
-            });
-
-            return {
-                success: true,
-                message: 'تم إرسال رابط التحقق إلى بريدك الإلكتروني.'
-            };
-        } else {
-            throw new Error('Failed to generate verification link');
-        }
-    } catch (error: any) {
-        console.error('Error sending custom verification email:', error);
-        // Fall back to default Firebase email if Cloud Function fails
-        try {
-            await sendEmailVerification(user, {
-                url: `${window.location.origin}/verify-success`,
-                handleCodeInApp: false
-            });
-            return {
-                success: true,
-                message: 'تم إرسال رابط التحقق إلى بريدك الإلكتروني.'
-            };
-        } catch (fallbackError) {
-            return {
-                success: false,
-                error: getAuthErrorMessage(fallbackError as AuthError)
-            };
-        }
-    }
-}
-
-/**
- * Send email verification to user (uses custom Cloud Function if available)
+ * Send email verification to user
+ * Uses basic Firebase sendEmailVerification which always works
  * @param user - Firebase user object
  */
 export async function sendVerificationEmail(user: User) {
-    // Use custom Cloud Function for HTML emails
-    return await sendCustomVerificationEmail(user);
+    try {
+        // Use basic Firebase email verification (most reliable)
+        await sendEmailVerification(user);
+        return {
+            success: true,
+            message: 'تم إرسال رابط التحقق إلى بريدك الإلكتروني.'
+        };
+    } catch (error: any) {
+        console.error('Error sending verification email:', error);
+        return {
+            success: false,
+            error: getAuthErrorMessage(error as AuthError)
+        };
+    }
 }
 
 /**

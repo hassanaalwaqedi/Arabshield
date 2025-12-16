@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
 
 // Blog Categories
 type Category = 'All' | 'AI' | 'WebDev' | 'Security' | 'TechNews';
@@ -31,6 +32,7 @@ const categories: { id: Category; label: string; icon: any }[] = [
 const articles = [
     {
         id: 1,
+        slug: "future-of-generative-ai-2026",
         title: "مستقبل الذكاء الاصطناعي التوليدي في 2026",
         excerpt: "استكشاف كيف سيغير الذكاء الاصطناعي التوليدي طريقة عملنا وإبداعنا في السنوات القادمة، مع التركيز على النماذج اللغوية الكبيرة.",
         date: "12 ديسمبر 2025",
@@ -41,6 +43,7 @@ const articles = [
     },
     {
         id: 2,
+        slug: "cybersecurity-cloud-computing",
         title: "أهمية الأمن السيبراني في عصر الحوسبة السحابية",
         excerpt: "دليل شامل حول أفضل الممارسات لحماية البيانات والأنظمة في البيئات السحابية المتزايدة التعقيد.",
         date: "10 ديسمبر 2025",
@@ -51,6 +54,7 @@ const articles = [
     },
     {
         id: 3,
+        slug: "nextjs-16-trends",
         title: "أحدث اتجاهات تطوير الويب: Next.js 16 وما بعده",
         excerpt: "نظرة متعمقة على الميزات الجديدة في Next.js وكيف تساعد المطورين على بناء تطبيقات أسرع وأكثر كفاءة.",
         date: "8 ديسمبر 2025",
@@ -61,6 +65,7 @@ const articles = [
     },
     {
         id: 4,
+        slug: "ransomware-protection",
         title: "كيف تحمي شركتك من هجمات الفدية؟",
         excerpt: "خطوات عملية واستراتيجيات فعالة لتقليل مخاطر التعرض لهجمات الفدية وحماية أصول الشركة الرقمية.",
         date: "5 ديسمبر 2025",
@@ -71,6 +76,7 @@ const articles = [
     },
     {
         id: 5,
+        slug: "5g-iot-impact",
         title: "تأثير الجيل الخامس 5G على تطبيقات إنترنت الأشياء",
         excerpt: "كيف تفتح تقنية 5G آفاقاً جديدة لتطبيقات إنترنت الأشياء والمدن الذكية والصناعة 4.0.",
         date: "1 ديسمبر 2025",
@@ -81,6 +87,7 @@ const articles = [
     },
     {
         id: 6,
+        slug: "javascript-frameworks-comparison",
         title: "مقارنة بين أطر عمل JavaScript في 2025",
         excerpt: "مقارنة تفصيلية بين React و Vue و Svelte لمساعدتك في اختيار الإطار الأنسب لمشروعك القادم.",
         date: "28 نوفمبر 2025",
@@ -134,8 +141,8 @@ export default function BlogPage() {
                                     key={cat.id}
                                     onClick={() => setActiveCategory(cat.id)}
                                     className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${activeCategory === cat.id
-                                            ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/25'
-                                            : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white hover:bg-slate-800'
+                                        ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/25'
+                                        : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white hover:bg-slate-800'
                                         }`}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -201,14 +208,16 @@ export default function BlogPage() {
                                             <span className="text-xs text-slate-500 font-medium">
                                                 بقلم: {article.author}
                                             </span>
-                                            <Button
-                                                variant="ghost"
-                                                size="sm"
-                                                className="text-blue-400 hover:text-blue-300 p-0 hover:bg-transparent group/btn"
-                                            >
-                                                اقرأ المزيد
-                                                <ArrowLeft className="w-4 h-4 mr-1 transition-transform group-hover/btn:-translate-x-1" />
-                                            </Button>
+                                            <Link href={`/blog/${article.slug}`}>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    className="text-blue-400 hover:text-blue-300 p-0 hover:bg-transparent group/btn"
+                                                >
+                                                    اقرأ المزيد
+                                                    <ArrowLeft className="w-4 h-4 mr-1 transition-transform group-hover/btn:-translate-x-1" />
+                                                </Button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </Card>

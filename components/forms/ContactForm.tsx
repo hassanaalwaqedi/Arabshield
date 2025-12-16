@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Send, CheckCircle, Mail, User, MessageSquare, MapPin, Phone, Clock } from 'lucide-react';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 // Input Component
 interface InputProps {
@@ -93,6 +95,7 @@ function ContactInfoCard({ icon: Icon, title, info, subInfo }: ContactInfoCardPr
 function ContactForm() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -102,18 +105,36 @@ function ContactForm() {
 
     const handleSubmit = async () => {
         if (!formData.name || !formData.email || !formData.message) {
-            alert('يرجى ملء جميع الحقول المطلوبة');
+            setError('يرجى ملء جميع الحقول المطلوبة');
             return;
         }
 
         setLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setLoading(false);
-        setSubmitted(true);
+        setError(null);
+
+        try {
+            // Save to Firestore
+            await addDoc(collection(db, 'contact_messages'), {
+                name: formData.name,
+                email: formData.email,
+                subject: formData.subject || null,
+                message: formData.message,
+                status: 'unread',
+                createdAt: serverTimestamp(),
+            });
+
+            setSubmitted(true);
+        } catch (err) {
+            console.error('Error submitting contact form:', err);
+            setError('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleReset = () => {
         setSubmitted(false);
+        setError(null);
         setFormData({
             name: '',
             email: '',
@@ -180,6 +201,13 @@ function ContactForm() {
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                 />
             </div>
+
+            {/* Error Message */}
+            {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
+                    {error}
+                </div>
+            )}
 
             <Button
                 onClick={handleSubmit}

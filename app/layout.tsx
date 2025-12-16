@@ -4,6 +4,7 @@ import './globals.css';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
 import { ClientProviders } from '@/components/ClientProviders';
+import { MainContent } from '@/components/MainContent';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -32,19 +33,18 @@ export default function RootLayout({
       <body className="flex min-h-screen bg-abyss-950 font-sans text-slate-200 selection:bg-blue-500/30">
         <ClientProviders>
           {/* Sidebar */}
-          <div className="flex-shrink-0">
-            <Sidebar />
-          </div>
+          <Sidebar />
 
-          {/* Main Content Area */}
-          <div className="flex-grow flex flex-col min-h-screen transition-all duration-300 md:mr-0 md:ml-[280px]">
+          {/* Main Content Area - adjusts based on sidebar state */}
+          <MainContent>
             <main className="flex-grow">
               {children}
             </main>
             <Footer />
-          </div>
+          </MainContent>
         </ClientProviders>
       </body>
     </html>
   );
 }
+

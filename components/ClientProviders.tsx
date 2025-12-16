@@ -4,6 +4,11 @@ import { ReactNode } from 'react';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { SettingsProvider } from '@/contexts/SettingsContext';
 import { UserSettingsProvider } from '@/contexts/UserSettingsContext';
+import { SidebarProvider } from '@/contexts/SidebarContext';
+import { ToastProvider } from '@/contexts/ToastContext';
+import { ChatProvider } from '@/contexts/ChatContext';
+import { WelcomeCard } from '@/components/WelcomeCard';
+import { ChatWidget } from '@/components/ChatWidget';
 
 /**
  * Client-side providers wrapper
@@ -14,9 +19,19 @@ export function ClientProviders({ children }: { children: ReactNode }) {
         <AuthProvider>
             <SettingsProvider>
                 <UserSettingsProvider>
-                    {children}
+                    <SidebarProvider>
+                        <ToastProvider>
+                            <ChatProvider>
+                                {children}
+                                <WelcomeCard />
+                                <ChatWidget />
+                            </ChatProvider>
+                        </ToastProvider>
+                    </SidebarProvider>
                 </UserSettingsProvider>
             </SettingsProvider>
         </AuthProvider>
     );
 }
+
+

@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import Link from 'next/link';
 
 // Mock Data for Case Studies
 const caseStudies = [
@@ -171,13 +172,15 @@ export default function CaseStudiesPage() {
                                     </div>
 
                                     {/* Action Button */}
-                                    <Button
-                                        variant="ghost"
-                                        className="w-full justify-between hover:bg-slate-800 text-slate-300 group-hover:text-white group/btn"
-                                    >
-                                        <span className="ml-2">اقرأ المزيد</span>
-                                        <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1" />
-                                    </Button>
+                                    <Link href={`/case-studies/${study.id}`}>
+                                        <Button
+                                            variant="ghost"
+                                            className="w-full justify-between hover:bg-slate-800 text-slate-300 group-hover:text-white group/btn"
+                                        >
+                                            <span className="ml-2">اقرأ المزيد</span>
+                                            <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1" />
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

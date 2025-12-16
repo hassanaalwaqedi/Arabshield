@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, User, AlertCircle, CheckCircle, Loader2, XCircle } from 'lucide-react';
-import { registerWithEmail, validateEmail, validatePassword, createUserProfile } from '@/lib/firebase/auth';
+import { registerWithEmail, validateEmail, validatePassword } from '@/lib/firebase/auth';
 import { useRegistrationEnabled } from '@/contexts/SettingsContext';
 
 export default function RegisterForm() {
@@ -94,19 +94,19 @@ export default function RegisterForm() {
                 formData.password
             );
 
-            if (result.success && result.user) {
-                // Create user profile in Firestore
-                await createUserProfile(result.user);
-
+            if (result.success) {
+                // SECURITY: Do NOT create Firestore profile here
+                // Profile will be created on FIRST VERIFIED LOGIN
                 setSuccess(true);
-                // Redirect to verification page after 3 seconds
+                // Redirect to verification page after 2 seconds
                 setTimeout(() => {
                     router.push('/verify-email');
-                }, 3000);
+                }, 2000);
             } else {
                 setErrorMessage(result.error || 'حدث خطأ أثناء التسجيل');
             }
         } catch (error) {
+            console.error('Registration error:', error);
             setErrorMessage('حدث خطأ غير متوقع. حاول مرة أخرى.');
         } finally {
             setLoading(false);

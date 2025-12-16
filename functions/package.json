@@ -4,7 +4,7 @@
     "description": "Firebase Cloud Functions for ArabShield",
     "main": "index.js",
     "engines": {
-        "node": "18"
+        "node": "20"
     },
     "scripts": {
         "serve": "firebase emulators:start --only functions",

@@ -109,9 +109,9 @@ function Button({ children, variant = "primary", className = "" }: ButtonProps) 
 // Main About Page Component
 export default function AboutPage() {
     const stats = [
-        { number: '5+', label: 'سنوات من الخبرة', description: 'في هذا المجال' },
-        { number: '500+', label: 'مشروع منجز', description: 'أُكمل بنجاح' },
-        { number: '98%', label: 'رضا العملاء', description: 'عملاء سعداء' },
+        { number: '2+', label: 'سنوات من الخبرة', description: 'في هذا المجال' },
+        { number: '100+', label: 'مشروع منجز', description: 'أُكمل بنجاح' },
+        { number: '96%', label: 'رضا العملاء', description: 'عملاء سعداء' },
         { number: '24/7', label: 'الدعم المتاح', description: 'دائماً هنا من أجلك' }
     ];
 
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Award className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">تأسست 2019</span>
+                        <span className="text-sm text-blue-300 font-medium">تأسست 2023</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
@@ -234,7 +234,7 @@ export default function AboutPage() {
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                                     <Image
-                                        src="/hassan.jpg"
+                                        src= "/Arabshield/public/hassan.jpeg"
                                         width={200}
                                         height={200}
                                         alt="Hassan CEO"
@@ -368,7 +368,7 @@ export default function AboutPage() {
                             { icon: Shield, title: 'آمن ومتوافق', desc: 'ممارسات أمنية رائدة في الصناعة ومعايير امتثال' },
                             { icon: TrendingUp, title: 'حلول قابلة للتوسع', desc: 'مبنية للنمو مع احتياجات عملك' },
                             { icon: Users, title: 'دعم مخصص', desc: 'دعم تقني وإدارة حسابات 24/7' },
-                            { icon: Award, title: 'سجل مثبت', desc: 'أكثر من 500 مشروع ناجح في صناعات متنوعة' },
+                            { icon: Award, title: 'سجل مثبت', desc: 'أكثر من 100 مشروع ناجح في صناعات متنوعة' },
                             { icon: Lightbulb, title: 'التركيز على الابتكار', desc: 'تكنولوجيا متطورة وحل إبداعي للمشاكل' }
                         ].map((item, idx) => (
                             <div key={idx} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all">

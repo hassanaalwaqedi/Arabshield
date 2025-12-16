@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Send, CheckCircle, Globe, Smartphone, Shield, Brain, Briefcase, Clock, FileCheck, ChevronDown, Zap, Users, Lock, TrendingUp } from 'lucide-react';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 // Service Card Component
 interface ServiceCardProps {
@@ -178,6 +180,7 @@ export default function OrderPage() {
     const [selectedService, setSelectedService] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
     const [formData, setFormData] = useState({
@@ -257,14 +260,33 @@ export default function OrderPage() {
 
     const handleSubmit = async () => {
         if (!formData.fullName || !formData.email || !formData.service || !formData.budget || !formData.details) {
-            alert('يرجى ملء جميع الحقول المطلوبة');
+            setError('يرجى ملء جميع الحقول المطلوبة');
             return;
         }
 
         setLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setLoading(false);
-        setSubmitted(true);
+        setError(null);
+
+        try {
+            // Save to Firestore
+            await addDoc(collection(db, 'orders'), {
+                fullName: formData.fullName,
+                email: formData.email,
+                company: formData.company || null,
+                service: formData.service,
+                budget: formData.budget,
+                details: formData.details,
+                status: 'pending',
+                createdAt: serverTimestamp(),
+            });
+
+            setSubmitted(true);
+        } catch (err) {
+            console.error('Error submitting order:', err);
+            setError('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleReset = () => {
@@ -431,6 +453,13 @@ export default function OrderPage() {
                                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                                 />
                             </div>
+
+                            {/* Error Message */}
+                            {error && (
+                                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
+                                    {error}
+                                </div>
+                            )}
 
                             <Button
                                 onClick={handleSubmit}

@@ -260,7 +260,7 @@ export default function DashboardPage() {
                                                 CheckCircle2;
 
                                     return (
-                                        <div key={activity.id} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-gradient-to-r hover:from-abyss-50/50 hover:to-electric-50/30 transition-all duration-300 group cursor-pointer border border-transparent hover:border-abyss-200/50 hover:shadow-lg">
+                                        <div key={activity.id} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-gradient-to-r hover:from-slate-50/50 hover:to-electric-50/30 transition-all duration-300 group cursor-pointer border border-transparent hover:border-abyss-200/50 hover:shadow-lg">
                                             <div className={`bg-gradient-to-br ${style.gradient} p-3 rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                                                 <IconComponent className="h-5 w-5 text-white" />
                                             </div>
@@ -376,7 +376,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* Project Progress - Using real projects from Firestore */}
-                        <div className="bg-gradient-to-br from-abyss-900 via-abyss-800 to-electric-900 rounded-3xl shadow-2xl p-6 text-white relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-slate-900 via-abyss-800 to-electric-900 rounded-3xl shadow-2xl p-6 text-white relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-electric-500/20 rounded-full blur-3xl animate-pulse"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl"></div>
                             <div className="relative z-10">
@@ -416,7 +416,7 @@ export default function DashboardPage() {
                                             );
                                         })
                                     ) : (
-                                        <div className="text-center py-6 text-abyss-300">
+                                        <div className="text-center py-6 text-abyss-500">
                                             <p className="text-sm">لا توجد مشاريع</p>
                                         </div>
                                     )}
@@ -424,8 +424,8 @@ export default function DashboardPage() {
                             </div>
                         </div>
                     </div>
-                </div >
-            </main >
-        </div >
+                </div>
+            </main>
+        </div>
     );
 }

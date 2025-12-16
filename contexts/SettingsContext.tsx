@@ -29,7 +29,15 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     const [error, setError] = useState<string | null>(null);
 
     // Real-time listener for system settings
+    // Only subscribe when user is authenticated (rules require auth)
     useEffect(() => {
+        // If not authenticated, use defaults silently
+        if (!user) {
+            setSettings(DEFAULT_SYSTEM_SETTINGS);
+            setLoading(false);
+            return;
+        }
+
         const unsubscribe = onSnapshot(
             doc(db, 'system', 'settings'),
             (snapshot) => {
@@ -45,16 +53,23 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
                 setLoading(false);
                 setError(null);
             },
-            (err) => {
-                console.error('Error fetching system settings:', err);
-                setError('فشل في تحميل إعدادات النظام');
-                setSettings(DEFAULT_SYSTEM_SETTINGS);
+            (err: any) => {
+                // Handle permission errors silently - use defaults
+                if (err?.code === 'permission-denied' || err?.message?.includes('permission')) {
+                    console.warn('System settings permission denied - using defaults');
+                    setSettings(DEFAULT_SYSTEM_SETTINGS);
+                    setError(null);
+                } else {
+                    console.error('Error fetching system settings:', err);
+                    setError('فشل في تحميل إعدادات النظام');
+                    setSettings(DEFAULT_SYSTEM_SETTINGS);
+                }
                 setLoading(false);
             }
         );
 
         return () => unsubscribe();
-    }, []);
+    }, [user]);
 
     // Update a single setting (admin only)
     const updateSetting = async <K extends keyof SystemSettings>(
