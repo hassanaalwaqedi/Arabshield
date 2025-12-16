@@ -302,9 +302,27 @@ export default function SupportPage() {
 
                 {/* Support Options */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-                    {supportOptions.map((option, idx) => (
-                        <SupportCard key={idx} {...option} onClick={() => alert(`${option.title} clicked (Demo)`)} />
-                    ))}
+                    <SupportCard
+                        {...supportOptions[0]}
+                        onClick={() => {
+                            // Trigger the chatbot by dispatching a custom event
+                            window.dispatchEvent(new CustomEvent('openChatWidget'));
+                        }}
+                    />
+                    <SupportCard
+                        {...supportOptions[1]}
+                        onClick={() => {
+                            // Scroll to FAQ section
+                            document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                    />
+                    <SupportCard
+                        {...supportOptions[2]}
+                        onClick={() => {
+                            // Navigate to dashboard support to create ticket
+                            window.location.href = '/dashboard/support';
+                        }}
+                    />
                 </div>
 
                 {/* Resources Section */}
@@ -322,7 +340,7 @@ export default function SupportPage() {
                 </div>
 
                 {/* FAQ Section */}
-                <div className="mb-20">
+                <div id="faq-section" className="mb-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة الشائعة</h2>
                         <p className="text-slate-400 text-lg">إجابات سريعة للأسئلة الشائعة</p>
@@ -354,7 +372,7 @@ export default function SupportPage() {
                                     <Mail className="w-6 h-6 text-blue-400" />
                                 </div>
                                 <div>
-                                    <span className="font-bold text-white block">support@arabshield.com</span>
+                                    <span className="font-bold text-white block">hassanalwaqedi3@gmail.com</span>
                                     <span className="text-sm text-slate-400">ردود في غضون 24 ساعة</span>
                                 </div>
                             </div>
@@ -364,7 +382,7 @@ export default function SupportPage() {
                                     <Phone className="w-6 h-6 text-green-400" />
                                 </div>
                                 <div>
-                                    <span className="font-bold text-white block">+966 5X XXX XXXX</span>
+                                    <span className="font-bold text-white block">+90 537 280 71 33</span>
                                     <span className="text-sm text-slate-400">الإثنين-الجمعة، 9 ص-6 م</span>
                                 </div>
                             </div>

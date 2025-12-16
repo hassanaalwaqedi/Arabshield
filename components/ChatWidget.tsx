@@ -50,6 +50,17 @@ export function ChatWidget() {
         }
     }, [isOpen]);
 
+    // Listen for external open event
+    useEffect(() => {
+        const handleOpenChat = () => {
+            if (!isOpen) {
+                toggleChat();
+            }
+        };
+        window.addEventListener('openChatWidget', handleOpenChat);
+        return () => window.removeEventListener('openChatWidget', handleOpenChat);
+    }, [isOpen, toggleChat]);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (input.trim()) {
@@ -142,8 +153,8 @@ export function ChatWidget() {
                                         <div className={`flex gap-2 max-w-[85%] ${message.type === 'user' ? 'flex-row' : 'flex-row-reverse'}`}>
                                             {/* Avatar */}
                                             <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${message.type === 'user'
-                                                    ? 'bg-blue-600'
-                                                    : 'bg-gradient-to-br from-purple-500 to-blue-500'
+                                                ? 'bg-blue-600'
+                                                : 'bg-gradient-to-br from-purple-500 to-blue-500'
                                                 }`}>
                                                 {message.type === 'user'
                                                     ? <User className="w-4 h-4 text-white" />
@@ -153,8 +164,8 @@ export function ChatWidget() {
 
                                             {/* Message Bubble */}
                                             <div className={`rounded-2xl px-4 py-3 ${message.type === 'user'
-                                                    ? 'bg-blue-600 text-white rounded-br-md'
-                                                    : 'bg-slate-800 text-slate-200 rounded-bl-md'
+                                                ? 'bg-blue-600 text-white rounded-br-md'
+                                                : 'bg-slate-800 text-slate-200 rounded-bl-md'
                                                 }`}>
                                                 <p className="text-sm whitespace-pre-line leading-relaxed">
                                                     {message.text}

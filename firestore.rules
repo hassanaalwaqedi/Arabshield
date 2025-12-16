@@ -238,11 +238,10 @@ service cloud.firestore {
     // ==========================================
     match /tickets/{ticketId} {
       // Users can read their own tickets
-      // Owner role can read all tickets
-      // DEVELOPMENT: Allow authenticated users to read for dashboard stats
+      // Admin/Owner can read all tickets
       allow read: if isAuthenticated() && (
         resource.data.authorId == request.auth.uid || 
-        isOwnerRole()
+        hasAdminPrivileges()
       );
       
       // Users can create tickets with themselves as author
@@ -250,12 +249,12 @@ service cloud.firestore {
         request.resource.data.authorId == request.auth.uid;
       
       // Users can update their own tickets
-      // Owner role can update any ticket
+      // Admin/Owner can update any ticket
       allow update: if (isVerifiedUser() && resource.data.authorId == request.auth.uid) 
-        || isOwnerRole();
+        || hasAdminPrivileges();
       
-      // Only owner role can delete tickets
-      allow delete: if isOwnerRole();
+      // Only admin/owner can delete tickets
+      allow delete: if hasAdminPrivileges();
     }
     
     // ==========================================
