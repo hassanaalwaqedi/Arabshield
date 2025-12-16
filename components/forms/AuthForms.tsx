@@ -85,17 +85,36 @@ function AnimatedCodeBackground() {
 
 // Floating Particles Component
 function FloatingParticles() {
+    const [particles, setParticles] = useState<Array<{
+        id: number;
+        left: number;
+        top: number;
+        duration: number;
+        delay: number;
+    }>>([]);
+
+    useEffect(() => {
+        const newParticles = Array.from({ length: 30 }, (_, i) => ({
+            id: i,
+            left: Math.random() * 100,
+            top: Math.random() * 100,
+            duration: 5 + Math.random() * 10,
+            delay: Math.random() * 5,
+        }));
+        setParticles(newParticles);
+    }, []);
+
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {Array.from({ length: 30 }).map((_, i) => (
+            {particles.map((particle) => (
                 <div
-                    key={i}
+                    key={particle.id}
                     className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
                     style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animation: `particle ${5 + Math.random() * 10}s linear infinite`,
-                        animationDelay: `${Math.random() * 5}s`,
+                        left: `${particle.left}%`,
+                        top: `${particle.top}%`,
+                        animation: `particle ${particle.duration}s linear infinite`,
+                        animationDelay: `${particle.delay}s`,
                     }}
                 />
             ))}
@@ -104,7 +123,7 @@ function FloatingParticles() {
           0% { transform: translate(0, 0); opacity: 0; }
           10% { opacity: 1; }
           90% { opacity: 1; }
-          100% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px); opacity: 0; }
+          100% { transform: translate(50px, -50px); opacity: 0; }
         }
       `}</style>
         </div>
@@ -216,7 +235,6 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             const result = await loginWithEmail(formData.email, formData.password);
 
             if (result.success) {
-                // Check if email is verified
                 if (result.isVerified) {
                     router.push('/dashboard');
                 } else {
@@ -235,7 +253,6 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
     return (
         <div className="w-full max-w-md animate-fade-in">
             <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
-                {/* Header */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 mb-4 shadow-lg shadow-blue-500/30">
                         <Shield className="w-8 h-8 text-white" />
@@ -244,9 +261,7 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     <p className="text-slate-400">سجل الدخول للوصول إلى لوحة التحكم</p>
                 </div>
 
-                {/* Form */}
                 <div className="space-y-5">
-                    {/* Error Display */}
                     {error && (
                         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-start gap-3">
                             <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
@@ -291,7 +306,6 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     </Button>
                 </div>
 
-                {/* Features */}
                 <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2 text-xs text-slate-400">
                         <Check className="w-4 h-4 text-green-400" />
@@ -303,7 +317,6 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="mt-8 pt-6 border-t border-slate-800 text-center">
                     <p className="text-slate-400 text-sm">
                         ليس لديك حساب؟{' '}
@@ -333,6 +346,7 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -340,19 +354,45 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
         password: ''
     });
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
+
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+            setError('يرجى ملء جميع الحقول المطلوبة');
+            return;
+        }
+
+        if (formData.password.length < 6) {
+            setError('كلمة المرور يجب أن تكون 6 أحرف على الأقل');
+            return;
+        }
+
         setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsLoading(false);
-        alert('Account created successfully! (Demo)');
+
+        try {
+            const { registerWithEmail } = await import('@/lib/firebase/auth');
+            const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+            const result = await registerWithEmail(fullName, formData.email, formData.password);
+
+            if (result.success) {
+                router.push('/verify-email');
+            } else {
+                setError(result.error || 'حدث خطأ أثناء التسجيل');
+            }
+        } catch (err) {
+            console.error('Registration error:', err);
+            setError('حدث خطأ غير متوقع. حاول مرة أخرى.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
         <div className="w-full max-w-md animate-fade-in">
             <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
-                {/* Header */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
                         <Sparkles className="w-8 h-8 text-white" />
@@ -361,13 +401,19 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     <p className="text-slate-400">ابدأ رحلتك مع ArabShield</p>
                 </div>
 
-                {/* Form */}
+                {error && (
+                    <div className="mb-6 bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                        <p className="text-sm text-red-400">{error}</p>
+                    </div>
+                )}
+
                 <div className="space-y-5">
                     <div className="grid grid-cols-2 gap-4">
                         <Input
                             icon={User}
                             label="الاسم الأول"
-                            placeholder="John"
+                            placeholder="أحمد"
                             value={formData.firstName}
                             onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                             required
@@ -375,7 +421,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                         <Input
                             icon={User}
                             label="الاسم الأخير"
-                            placeholder="Doe"
+                            placeholder="محمد"
                             value={formData.lastName}
                             onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                             required
@@ -402,12 +448,15 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                         required
                     />
 
+                    <p className="text-xs text-slate-500">
+                        كلمة المرور يجب أن تكون 6 أحرف على الأقل
+                    </p>
+
                     <Button onClick={handleSubmit} isLoading={isLoading}>
                         إنشاء حساب
                     </Button>
                 </div>
 
-                {/* Features */}
                 <div className="mt-6 space-y-2">
                     {['لا حاجة لبطاقة ائتمان', 'ابدأ بالفئة المجانية', 'إلغاء في أي وقت'].map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
@@ -417,7 +466,6 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     ))}
                 </div>
 
-                {/* Footer */}
                 <div className="mt-8 pt-6 border-t border-slate-800 text-center">
                     <p className="text-slate-400 text-sm">
                         لديك حساب بالفعل؟{' '}
@@ -443,20 +491,17 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
 // Main Auth Page Component
 export default function AuthPage() {
-    const [activeForm, setActiveForm] = useState('login'); // 'login' or 'register'
+    const [activeForm, setActiveForm] = useState('login');
 
     return (
         <div className="min-h-screen bg-slate-950 relative overflow-hidden flex items-center justify-center p-4">
-            {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
             <AnimatedCodeBackground />
             <FloatingParticles />
 
-            {/* Gradient Orbs */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-            {/* Content */}
             <div className="relative z-10 w-full max-w-md">
                 {activeForm === 'login' ? (
                     <LoginForm onSwitchToRegister={() => setActiveForm('register')} />
@@ -465,7 +510,6 @@ export default function AuthPage() {
                 )}
             </div>
 
-            {/* Bottom Info */}
             <div className="absolute bottom-8 left-0 right-0 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 text-slate-400 text-xs">
                     <Code className="w-4 h-4 text-blue-400" />

@@ -1,18 +1,17 @@
 /**
  * Dashboard Layout Component
- * Provides the main layout structure for all dashboard pages
- * Role-aware navigation - shows admin items only to owners
+ * REFACTORED: Flexbox-based layout with sidebar and content as siblings
  * 
- * MOBILE-FIRST SIDEBAR:
- * - Hidden by default on mobile (<lg)
- * - Opens as overlay drawer (max 80% width)
- * - Closes on: outside click, route change, X button, ESC key
- * - Desktop: fixed sidebar, no overlay
+ * ARCHITECTURE:
+ * - Flex container: sidebar + main content side by side
+ * - Desktop: Sidebar always visible, content fills remaining space
+ * - Mobile: Sidebar is overlay drawer, content is full width
+ * - RTL-safe: Uses logical properties (start/end)
  */
 
 'use client';
 
-import { ReactNode, useEffect, useCallback } from 'react';
+import { ReactNode, useEffect, useCallback, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
@@ -28,9 +27,9 @@ import {
     Loader2,
     Users,
     Shield,
-    Crown
+    Crown,
+    Briefcase
 } from 'lucide-react';
-import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { isAdminRole } from '@/lib/admin';
 
@@ -38,18 +37,23 @@ interface DashboardLayoutProps {
     children: ReactNode;
 }
 
+// Sidebar width constants
+const SIDEBAR_WIDTH = 256; // 16rem = 256px (w-64)
+
 // Navigation items visible to ALL users
 const commonNavItems = [
     { href: '/dashboard', icon: LayoutDashboard, label: 'نظرة عامة' },
     { href: '/dashboard/projects', icon: FolderKanban, label: 'المشاريع' },
     { href: '/dashboard/tasks', icon: CheckSquare, label: 'المهام' },
     { href: '/dashboard/invoices', icon: FileText, label: 'الفواتير' },
+    { href: '/careers', icon: Briefcase, label: 'الوظائف المتاحة' },
     { href: '/dashboard/support', icon: MessageSquare, label: 'الدعم الفني' },
     { href: '/dashboard/settings', icon: Settings, label: 'الإعدادات' },
 ];
 
 // Navigation items visible ONLY to admins (owner or admin role)
 const adminOnlyNavItems = [
+    { href: '/dashboard/careers', icon: Briefcase, label: 'إدارة الوظائف' },
     { href: '/dashboard/admin/invoices', icon: FileText, label: 'إدارة الفواتير' },
     { href: '/dashboard/admin/users', icon: Users, label: 'إدارة المستخدمين' },
     { href: '/dashboard/admin/settings', icon: Shield, label: 'إعدادات النظام' },
@@ -152,13 +156,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
+        <div className="flex min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
             {/* Mobile Menu Button - Only visible on mobile */}
             <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
                 aria-expanded={sidebarOpen}
                 aria-label={sidebarOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
-                className="lg:hidden fixed top-4 right-4 z-50 p-2.5 bg-white rounded-xl shadow-lg border border-slate-200 hover:bg-slate-50 transition-colors"
+                className="lg:hidden fixed top-4 end-4 z-50 p-2.5 bg-white rounded-xl shadow-lg border border-slate-200 hover:bg-slate-50 transition-colors"
             >
                 {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -172,22 +176,24 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 />
             )}
 
-            {/* Sidebar */}
+            {/* Sidebar - Fixed on desktop, drawer on mobile */}
             <aside
                 className={`
-                    fixed right-0 top-0 h-screen w-[80%] max-w-[280px] lg:w-64
-                    bg-white/95 backdrop-blur-xl border-l border-slate-200 shadow-2xl
-                    z-50 lg:z-30
-                    transform transition-transform duration-300 ease-out
-                    ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}
-                    lg:translate-x-0
+                    fixed lg:sticky top-0 h-screen
+                    w-64 flex-shrink-0
+                    bg-white/95 backdrop-blur-xl border-s border-slate-200 shadow-xl lg:shadow-none
+                    z-50 lg:z-auto
+                    transition-transform duration-300 ease-out
+                    ${sidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}
+                    end-0 lg:end-auto
                 `}
+                style={{ width: SIDEBAR_WIDTH }}
             >
                 <div className="p-6 h-full overflow-y-auto">
                     {/* Close button - Mobile only */}
                     <button
                         onClick={() => setSidebarOpen(false)}
-                        className="lg:hidden absolute top-4 left-4 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                        className="lg:hidden absolute top-4 start-4 p-2 rounded-lg hover:bg-slate-100 transition-colors"
                         aria-label="إغلاق القائمة"
                     >
                         <X size={20} className="text-slate-600" />
@@ -198,52 +204,38 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                             ArabShield
                         </h2>
+                        {hasAdmin && (
+                            <span className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 text-xs font-medium rounded-full border border-amber-200">
+                                <Crown size={12} />
+                                {role === 'owner' ? 'مالك' : 'مدير'}
+                            </span>
+                        )}
                     </div>
 
-                    {/* Role Badge */}
-                    <div className={`flex items-center gap-2 px-3 py-2 rounded-lg mb-6 ${hasAdmin
-                        ? 'bg-amber-50 border border-amber-200'
-                        : 'bg-blue-50 border border-blue-200'
-                        }`}>
-                        <Crown size={16} className={hasAdmin ? 'text-amber-600' : 'text-blue-600'} />
-                        <span className={`text-sm font-medium ${hasAdmin ? 'text-amber-700' : 'text-blue-700'
-                            }`}>
-                            {hasAdmin ? 'حساب المسؤول' : 'حساب العميل'}
-                        </span>
+                    {/* User Info */}
+                    <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-slate-100">
+                        <p className="text-slate-900 font-medium">{user?.displayName || user?.email}</p>
+                        <p className="text-sm text-slate-500 mt-1 truncate">{user?.email}</p>
                     </div>
 
+                    {/* Navigation */}
                     <nav className="space-y-2">
-                        {/* Common Navigation - Visible to ALL users */}
+                        {/* Common navigation items - visible to all users */}
                         {commonNavItems.map((item) => {
-                            const isActive = pathname === item.href ||
-                                (item.href !== '/dashboard' && pathname.startsWith(item.href));
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${isActive
-                                        ? 'bg-blue-600 text-white'
-                                        : 'hover:bg-slate-100 text-slate-700'
-                                        }`}
-                                >
-                                    <item.icon size={20} />
-                                    <span className="font-medium">{item.label}</span>
-                                </Link>
-                            );
+                            const isActive = pathname === item.href;
+                            return renderNavLink(item, isActive);
                         })}
 
-                        {/* Admin-Only Navigation */}
+                        {/* Admin-only navigation items */}
                         {hasAdmin && (
                             <>
-                                <div className="pt-4 mt-4 border-t border-slate-200">
-                                    <p className="text-xs text-slate-500 font-semibold px-4 mb-2">
+                                <div className="my-4 pt-4 border-t border-slate-200">
+                                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-4">
                                         إدارة النظام
                                     </p>
                                 </div>
                                 {adminOnlyNavItems.map((item) => {
-                                    const isActive = pathname === item.href ||
-                                        pathname.startsWith(item.href);
+                                    const isActive = pathname === item.href;
                                     return (
                                         <Link
                                             key={item.href}
@@ -281,11 +273,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 </div>
             </aside>
 
-            {/* Main Content - Full width on mobile, offset on desktop */}
-            <main className="w-full lg:mr-64 min-h-screen p-4 lg:p-8">
+            {/* Main Content - Flex-1 to fill remaining space */}
+            <main className="flex-1 min-h-screen w-full max-w-full overflow-x-hidden p-4 lg:p-8">
                 {children}
             </main>
         </div>
     );
 }
-

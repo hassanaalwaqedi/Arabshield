@@ -141,7 +141,7 @@ export function Footer() {
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6"
                                 >
                                     <Sparkles className="w-4 h-4 text-blue-400" />
-                                    <span className="text-sm font-medium text-blue-400">انضم لأكثر من 10,000 مشترك</span>
+                                    <span className="text-sm font-medium text-blue-400">انضم لأكثر من 1,000 مشترك</span>
                                 </motion.div>
 
                                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -239,7 +239,7 @@ export function Footer() {
                         {/* Stats */}
                         <div className="grid grid-cols-3 gap-4 pt-2">
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
-                                <div className="text-2xl font-bold text-white">500+</div>
+                                <div className="text-2xl font-bold text-white">100+</div>
                                 <div className="text-xs text-slate-400">مشاريع</div>
                             </div>
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
@@ -404,7 +404,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="text-xs text-slate-500 mb-1">موقع المكتب</div>
-                                    <div className="text-sm text-slate-300">حي التقنية 123، شارع الابتكار، الرياض 11564، المملكة العربية السعودية</div>
+                                    <div className="text-sm text-slate-300">Burhaniye, General Kazım Sk., 81010 Düzce</div>
                                 </div>
                             </motion.a>
 
@@ -418,7 +418,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="text-xs text-slate-500 mb-1">راسلنا عبر البريد الإلكتروني</div>
-                                    <div className="text-sm text-slate-300">hello@arabshield.com</div>
+                                    <div className="text-sm text-slate-300">Arabshieldd@gmail.com</div>
                                 </div>
                             </motion.a>
 
@@ -431,7 +431,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="text-xs text-slate-500 mb-1">اتصل بنا</div>
-                                    <div className="text-sm text-slate-300">+90 537 280 71 33</div>
+                                    <div className="text-sm text-slate-300">90 537 280 71 33</div>
                                 </div>
                             </motion.div>
                         </div>
@@ -449,7 +449,7 @@ export function Footer() {
                             </p>
                             <div className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
                                 <Globe className="w-3 h-3 text-blue-400" />
-                                <span className="text-xs">صنع بحب ❤️ في المملكة العربية السعودية</span>
+                                <span className="text-xs">Turkey </span>
                             </div>
                         </div>
 

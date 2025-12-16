@@ -1,0 +1,99 @@
+[debug] [2025-12-16T19:59:50.140Z] ----------------------------------------------------------------------
+[debug] [2025-12-16T19:59:50.154Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hsana\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only firestore:indexes
+[debug] [2025-12-16T19:59:50.154Z] CLI Version:   15.0.0
+[debug] [2025-12-16T19:59:50.154Z] Platform:      win32
+[debug] [2025-12-16T19:59:50.154Z] Node Version:  v24.11.0
+[debug] [2025-12-16T19:59:50.154Z] Time:          Tue Dec 16 2025 22:59:50 GMT+0300 (GMT+03:00)
+[debug] [2025-12-16T19:59:50.155Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-12-16T19:59:53.975Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-16T19:59:53.975Z] > authorizing via signed-in user (hassanalwaqedi3@gmail.com)
+[debug] [2025-12-16T19:59:53.975Z] [iam] checking project arabshield for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2025-12-16T19:59:53.977Z] Checked if tokens are valid: false, expires at: 1765898492772
+[debug] [2025-12-16T19:59:53.977Z] Checked if tokens are valid: false, expires at: 1765898492772
+[debug] [2025-12-16T19:59:53.977Z] > refreshing access token with scopes: []
+[debug] [2025-12-16T19:59:53.979Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-12-16T19:59:53.979Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-16T20:00:00.106Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-12-16T20:00:00.107Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-12-16T20:00:00.117Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield:testIamPermissions [none]
+[debug] [2025-12-16T20:00:00.117Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield:testIamPermissions x-goog-quota-user=projects/arabshield
+[debug] [2025-12-16T20:00:00.118Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2025-12-16T20:00:02.327Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield:testIamPermissions 200
+[debug] [2025-12-16T20:00:02.327Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/arabshield:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'arabshield'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2025-12-16T20:00:02.333Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:02.333Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:02.333Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) [none]
+[debug] [2025-12-16T20:00:11.265Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) 200
+[debug] [2025-12-16T20:00:11.265Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) {"name":"projects/arabshield/databases/(default)","uid":"fa2ab18f-35b5-49ba-866e-84329537e3a0","createTime":"2025-12-12T02:34:01.702356Z","updateTime":"2025-12-12T02:34:01.702356Z","locationId":"nam5","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2025-12-16T19:00:11.240478Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"s","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IISk+ubywpEDMJemsciauJED"}
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2025-12-16T20:00:11.268Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:11.268Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:11.268Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/arabshield:test [none]
+[debug] [2025-12-16T20:00:11.269Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/arabshield:test [omitted]
+[debug] [2025-12-16T20:00:14.762Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/arabshield:test 200
+[debug] [2025-12-16T20:00:14.762Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/arabshield:test {"issues":[{"sourcePosition":{"fileName":"firestore.rules","line":26,"column":14,"currentOffset":736,"endOffset":750},"description":"Unused function: isEmailVerified.","severity":"WARNING"},{"sourcePosition":{"fileName":"firestore.rules","line":27,"column":14,"currentOffset":770,"endOffset":776},"description":"Invalid variable name: request.","severity":"WARNING"},{"sourcePosition":{"fileName":"firestore.rules","line":54,"column":14,"currentOffset":1745,"endOffset":1755},"description":"Unused function: isAdminRole.","severity":"WARNING"},{"sourcePosition":{"fileName":"firestore.rules","line":64,"column":14,"currentOffset":2119,"endOffset":2133},"description":"Unused function: isMemberOrOwner.","severity":"WARNING"}]}
+[warn] !  [W] 26:14 - Unused function: isEmailVerified. 
+[warn] !  [W] 27:14 - Invalid variable name: request. 
+[warn] !  [W] 54:14 - Unused function: isAdminRole. 
+[warn] !  [W] 64:14 - Unused function: isMemberOrOwner. 
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[info] i  firestore: deploying indexes... 
+[debug] [2025-12-16T20:00:14.765Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:14.765Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:14.765Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2025-12-16T20:00:15.216Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2025-12-16T20:00:15.216Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/indexes {"indexes":[{"name":"projects/arabshield/databases/(default)/collectionGroups/tickets/indexes/CICAgJim14AK","queryScope":"COLLECTION","fields":[{"fieldPath":"authorId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/projects/indexes/CICAgOjXh4EK","queryScope":"COLLECTION","fields":[{"fieldPath":"ownerId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/ratings/indexes/CICAgNiroIEK","queryScope":"COLLECTION","fields":[{"fieldPath":"companyId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/tasks/indexes/CICAgJj7z4EK","queryScope":"COLLECTION","fields":[{"fieldPath":"assignedTo","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/tasks/indexes/CICAgNjpgYIK","queryScope":"COLLECTION","fields":[{"fieldPath":"projectId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/activities/indexes/CICAgJjF9oIK","queryScope":"COLLECTION","fields":[{"fieldPath":"userId","order":"ASCENDING"},{"fieldPath":"timestamp","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/documents/indexes/CICAgLiIkYMK","queryScope":"COLLECTION","fields":[{"fieldPath":"projectId","order":"ASCENDING"},{"fieldPath":"uploadedAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"},{"name":"projects/arabshield/databases/(default)/collectionGroups/invoices/indexes/CICAgJiUpoMK","queryScope":"COLLECTION","fields":[{"fieldPath":"userId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"READY","density":"SPARSE_ALL"}]}
+[debug] [2025-12-16T20:00:15.216Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:15.216Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:15.217Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2025-12-16T20:00:17.561Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2025-12-16T20:00:17.562Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/arabshield/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[debug] [2025-12-16T20:00:17.562Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:17.562Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:00:17.562Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) [none]
+[debug] [2025-12-16T20:00:17.956Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) 200
+[debug] [2025-12-16T20:00:17.957Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/arabshield/databases/(default) {"name":"projects/arabshield/databases/(default)","uid":"fa2ab18f-35b5-49ba-866e-84329537e3a0","createTime":"2025-12-12T02:34:01.702356Z","updateTime":"2025-12-12T02:34:01.702356Z","locationId":"nam5","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2025-12-16T19:00:17.928147Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"s","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IPG6kurywpEDMJemsciauJED"}
+[info] i  firestore: The following indexes are defined in your project but are not present in your firestore indexes file:
+	(ratings) -- (companyId,ASCENDING) (createdAt,DESCENDING)  -- Density:SPARSE_ALL 
+	(tasks) -- (projectId,ASCENDING) (createdAt,DESCENDING)  -- Density:SPARSE_ALL 
+	(documents) -- (projectId,ASCENDING) (uploadedAt,DESCENDING)  -- Density:SPARSE_ALL  
+[debug] [2025-12-16T20:03:46.226Z] Skipping existing index: {"collectionGroup":"activities","queryScope":"COLLECTION","fields":[{"fieldPath":"userId","order":"ASCENDING"},{"fieldPath":"timestamp","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}]}
+[debug] [2025-12-16T20:03:46.226Z] Skipping existing index: {"collectionGroup":"projects","queryScope":"COLLECTION","fields":[{"fieldPath":"ownerId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}]}
+[debug] [2025-12-16T20:03:46.226Z] Skipping existing index: {"collectionGroup":"invoices","queryScope":"COLLECTION","fields":[{"fieldPath":"userId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}]}
+[debug] [2025-12-16T20:03:46.227Z] Skipping existing index: {"collectionGroup":"tickets","queryScope":"COLLECTION","fields":[{"fieldPath":"authorId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}]}
+[debug] [2025-12-16T20:03:46.227Z] Skipping existing index: {"collectionGroup":"tasks","queryScope":"COLLECTION","fields":[{"fieldPath":"assignedTo","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}]}
+[info] i  firestore: Deleting 3 indexes... 
+[debug] [2025-12-16T20:03:46.227Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:46.227Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:46.227Z] >>> [apiv2][query] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/ratings/indexes/CICAgNiroIEK [none]
+[debug] [2025-12-16T20:03:50.884Z] <<< [apiv2][status] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/ratings/indexes/CICAgNiroIEK 200
+[debug] [2025-12-16T20:03:50.884Z] <<< [apiv2][body] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/ratings/indexes/CICAgNiroIEK {}
+[debug] [2025-12-16T20:03:50.884Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:50.884Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:50.884Z] >>> [apiv2][query] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/tasks/indexes/CICAgNjpgYIK [none]
+[debug] [2025-12-16T20:03:52.924Z] <<< [apiv2][status] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/tasks/indexes/CICAgNjpgYIK 200
+[debug] [2025-12-16T20:03:52.924Z] <<< [apiv2][body] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/tasks/indexes/CICAgNjpgYIK {}
+[debug] [2025-12-16T20:03:52.924Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:52.924Z] Checked if tokens are valid: true, expires at: 1765918799107
+[debug] [2025-12-16T20:03:52.925Z] >>> [apiv2][query] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/documents/indexes/CICAgLiIkYMK [none]
+[debug] [2025-12-16T20:03:54.083Z] <<< [apiv2][status] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/documents/indexes/CICAgLiIkYMK 200
+[debug] [2025-12-16T20:03:54.083Z] <<< [apiv2][body] DELETE https://firestore.googleapis.com/v1/projects/arabshield/databases/(default)/collectionGroups/documents/indexes/CICAgLiIkYMK {}
+[info] +  firestore: deployed indexes in firestore.indexes.json successfully for (default) database 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/arabshield/overview
+[debug] [2025-12-16T20:03:59.443Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\hsana\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:275:49)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7)
+[error] 
+[error] Error: An unexpected error has occurred.

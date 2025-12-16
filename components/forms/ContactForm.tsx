@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { Send, CheckCircle, Mail, User, MessageSquare, MapPin, Phone, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { Send, CheckCircle, Mail, MessageSquare, MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
@@ -256,31 +257,30 @@ export default function ContactPage() {
                                 سواء كنت تتطلع لبناء منتج جديد أو تحسين أنظمتك الحالية أو تحتاج إلى استشارة متخصصة، نحن مستعدون لمساعدتك على النجاح.
                             </p>
                         </div>
-
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <ContactInfoCard
                                 icon={Mail}
                                 title="راسلنا بريدياً"
-                                info="contact@arabshield.com"
+                                info="hello@arabshield.com"
                                 subInfo="رد خلال 24 ساعة"
                             />
                             <ContactInfoCard
                                 icon={Phone}
                                 title="اتصل بنا"
-                                info="+966 5X XXX XXXX"
-                                subInfo="الإثنين-الجمعة، 9ص-6م"
+                                info="+90 537 280 71 33"
+                                subInfo="الأحد-الخميس، 9ص-6م"
                             />
                             <ContactInfoCard
                                 icon={MapPin}
                                 title="زرنا"
                                 info="الرياض، المملكة العربية السعودية"
-                                subInfo="حي الملك فهد"
+                                subInfo="حي التقنية، شارع الابتكار"
                             />
                             <ContactInfoCard
                                 icon={Clock}
                                 title="ساعات العمل"
                                 info="الأحد-الخميس: 9ص-6م"
-                                subInfo="عطلة نهاية الأسبوع"
+                                subInfo="الجمعة-السبت: مغلق"
                             />
                         </div>
 
@@ -298,7 +298,7 @@ export default function ContactPage() {
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>سجل حافل مثبت بأكثر من 500 مشروع ناجح</span>
+                                    <span>سجل حافل مثبت بأكثر من 100 مشروع ناجح</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -325,15 +325,24 @@ export default function ContactPage() {
                 </div>
             </div>
 
-            {/* Map Section (Optional) */}
+            {/* Map Section */}
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                    <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden h-96 flex items-center justify-center">
-                        <div className="text-center">
-                            <MapPin className="w-16 h-16 text-slate-700 mx-auto mb-4" />
-                            <p className="text-slate-500">عنصر تكامل الخريطة</p>
-                            <p className="text-slate-600 text-sm">حي الملك فهد، الرياض، المملكة العربية السعودية</p>
-                        </div>
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl font-bold mb-2">موقعنا</h2>
+                        <p className="text-slate-400">الرياض، المملكة العربية السعودية</p>
+                    </div>
+                    <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden h-96">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.7392665913313!2d46.6752957!3d24.7135517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1702743000000!5m2!1sen!2s"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="ArabShield Location"
+                        />
                     </div>
                 </div>
             </div>
@@ -346,12 +355,19 @@ export default function ContactPage() {
                         دعنا نناقش كيف يمكننا مساعدتك في تحويل أعمالك بالتكنولوجيا.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button variant="primary" className="text-lg">
-                            جدولة مكالمة
-                        </Button>
-                        <Button variant="secondary" className="text-lg">
+                        <Link
+                            href="/order"
+                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/30 transition-all"
+                        >
+                            ابدأ مشروعك
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <Link
+                            href="/portfolio"
+                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-slate-700 hover:bg-slate-600 text-white transition-all"
+                        >
                             عرض أعمالنا
-                        </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
