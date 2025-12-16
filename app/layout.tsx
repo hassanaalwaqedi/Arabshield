@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: 'NovaArabia provides top-tier web development, mobile apps, and custom software solutions for the modern enterprise.',
   keywords: ['Web Development', 'App Development', 'Software Company', 'Saudi Arabia', 'Tech Solutions', 'ArabShield', 'NovaArabia'],
   authors: [{ name: 'NovaArabia Team' }],
+  verification: {
+    google: 'yqrR58XbsqkXoPAQKIr2G61ep3-Hri3HKLYcp9kWyJo',
+  },
 };
 
 export const viewport = {
