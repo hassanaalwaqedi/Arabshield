@@ -27,7 +27,10 @@ import {
     Settings,
     Receipt,
     Crown,
-    HelpCircle
+    HelpCircle,
+    Play,
+    AlertCircle,
+    BookOpen
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useSidebar } from '@/contexts/SidebarContext';
@@ -58,6 +61,9 @@ const menuItems: MenuItem[] = [
     { name: 'المدونة', icon: FileText, path: '/blog' },
     { name: 'الشركاء', icon: Users, path: '/partners' },
     { name: 'الأسئلة الشائعة', icon: HelpCircle, path: '/faq' },
+    { name: 'التوثيق', icon: BookOpen, path: '/docs' },
+    { name: 'دروس الفيديو', icon: Play, path: '/tutorials' },
+    { name: 'المشاكل الشائعة', icon: AlertCircle, path: '/issues' },
     { name: 'لوحة التحكم', icon: LayoutDashboard, path: '/dashboard' },
     { name: 'الفواتير', icon: Receipt, path: '/dashboard/invoices' },
     { name: 'طلب خدمة', icon: ShoppingCart, path: '/order' },
