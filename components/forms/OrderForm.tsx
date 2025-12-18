@@ -484,7 +484,7 @@ export default function OrderPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
                         {[
-                            { icon: Users, label: '500+ عميل', desc: 'شركات مخدومة' },
+                            { icon: Users, label: '15 عميل', desc: 'شركات مخدومة' },
                             { icon: TrendingUp, label: 'نجاح 98%', desc: 'إنجاز المشاريع' },
                             { icon: Lock, label: 'معتمد SOC 2', desc: 'معايير الأمان' },
                             { icon: Clock, label: 'دعم 24/7', desc: 'متاح دائماً' }

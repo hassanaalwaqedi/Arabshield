@@ -160,7 +160,7 @@ export default function AboutPage() {
         {
             year: '2019',
             title: 'تأسيس الشركة',
-            description: 'تأسست ArabShield بمهمة سد الفجوة التقنية في الشرق الأوسط.'
+            description: 'تأسست NovaArab بمهمة سد الفجوة التقنية في الشرق الأوسط.'
         },
         {
             year: '2020',
@@ -203,7 +203,7 @@ export default function AboutPage() {
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        عن ArabShield
+                        عن NovaArab
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
                         نحن فريق من المبتكرين والمطورين والاستراتيجيين المكرسون لبناء مستقبل التكنولوجيا في العالم العربي وخارجه.
@@ -234,7 +234,7 @@ export default function AboutPage() {
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                                     <Image
-                                        src= "/Arabshield/public/hassan.jpeg"
+                                        src="/Arabshield/public/hassan.jpeg"
                                         width={200}
                                         height={200}
                                         alt="Hassan CEO"
@@ -255,12 +255,12 @@ export default function AboutPage() {
                                 </h2>
 
                                 <p className="text-xl text-blue-400 font-semibold mb-6">
-                                    الرئيس التنفيذي (CEO) لشركة ArabShield
+                                    الرئيس التنفيذي (CEO) لشركة NovaArab
                                 </p>
 
                                 <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
                                     <p>
-                                        بصفتي مؤسس ورئيس تنفيذي لشركة ArabShield، أقود رؤية واضحة: تمكين الشركات في العالم العربي من خلال الح لول التقنية المبتكرة والمتطورة. منذ تأسيس الشركة في عام 2019، كانت مهمتنا هي سد الفجوة بين الطموحات التجارية والواقع التكنولوجي.
+                                        بصفتي مؤسس ورئيس تنفيذي لشركة NovaArab، أقود رؤية واضحة: تمكين الشركات في العالم العربي من خلال الح لول التقنية المبتكرة والمتطورة. منذ تأسيس الشركة في عام 2019، كانت مهمتنا هي سد الفجوة بين الطموحات التجارية والواقع التكنولوجي.
                                     </p>
                                     <p>
                                         نؤمن بأن التحول الرقمي ليس مجرد ترف، بل ضرورة استراتيجية. من خلال فريقنا المتخصص والتزامنا بالتميز، نساعد عملاءنا على تحقيق أهدافهم الرقمية بحلول مصممة خصيصاً لتلبية احتياجاتهم الفريدة. رحلتنا مستمرة، ونحن ملتزمون بالبقاء في طليعة الابتكار التكنولوجي.
@@ -294,7 +294,7 @@ export default function AboutPage() {
                         </div>
                         <h2 className="text-4xl font-bold mb-6">قصتنا</h2>
                         <p className="text-slate-400 mb-6 leading-relaxed text-lg">
-                            تأسست برؤية لسد الفجوة بين الأعمال التقليدية والتكنولوجيا الحديثة، نمت ArabShield لتصبح شريكاً تقنياً رئيسياً للشركات في المنطقة.
+                            تأسست برؤية لسد الفجوة بين الأعمال التقليدية والتكنولوجيا الحديثة، نمت NovaArab لتصبح شريكاً تقنياً رئيسياً للشركات في المنطقة.
                         </p>
                         <p className="text-slate-400 mb-8 leading-relaxed text-lg">
                             نؤمن بقوة التحول الرقمي لحل المشاكل المعقدة وخلق فرص جديدة. رحلتنا محددة بسعي لا هوادة فيه للتميز والتزام بنجاح عملائنا.
@@ -356,7 +356,7 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">لماذا تختار ArabShield؟</h2>
+                        <h2 className="text-4xl font-bold mb-4">لماذا تختار NovaArab؟</h2>
                         <p className="text-slate-400 text-lg">
                             نجمع الخبرة والشغف والابتكار
                         </p>

@@ -28,7 +28,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
                 transition={{ duration: 0.5 }}
                 whileHover={hover ? { y: -4, transition: { duration: 0.2 } } : {}}
                 className={cn(
-                    'rounded-2xl border bg-white p-6 shadow-lg transition-all duration-300',
+                    'rounded-2xl border border-border bg-card p-6 shadow-lg transition-all duration-300',
                     hover && 'hover:shadow-2xl',
                     glowClasses[glow],
                     className
@@ -57,7 +57,7 @@ const CardTitle = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLHeadingEle
     ({ className, ...props }, ref) => (
         <h3
             ref={ref}
-            className={cn('text-2xl font-bold leading-none tracking-tight text-abyss-950', className)}
+            className={cn('text-2xl font-bold leading-none tracking-tight text-card-foreground', className)}
             {...props}
         />
     )
@@ -68,7 +68,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLPara
     ({ className, ...props }, ref) => (
         <p
             ref={ref}
-            className={cn('text-sm text-abyss-600', className)}
+            className={cn('text-sm text-muted-foreground', className)}
             {...props}
         />
     )

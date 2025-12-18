@@ -43,7 +43,7 @@ const services = [
 ];
 
 const stats = [
-  { value: '500+', label: 'مشروع منجز', icon: Rocket },
+  { value: '100+', label: 'مشروع منجز', icon: Rocket },
   { value: '98%', label: 'رضا العملاء', icon: Award },
   { value: '24/7', label: 'الدعم المتاح', icon: Users },
   { value: '99.9%', label: 'ضمان وقت التشغيل', icon: TrendingUp },
@@ -312,7 +312,7 @@ export default function Home() {
             هل أنت مستعد لتحويل أعمالك؟
           </h2>
           <p className="text-xl text-abyss-300 mb-12 max-w-2xl mx-auto">
-            انضم إلى أكثر من 500 شركة تثق في ArabShield لبناء مستقبلها الرقمي.
+            انضم إلى أكثر من 20 شركة تثق في ArabShield لبناء مستقبلها الرقمي.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/order">

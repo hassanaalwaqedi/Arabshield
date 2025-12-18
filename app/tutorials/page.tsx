@@ -134,7 +134,7 @@ export default function TutorialsPage() {
                     <h2 className="text-3xl font-bold mb-4">هل تريد المزيد؟</h2>
                     <p className="text-slate-400 mb-8">اشترك في قناتنا للحصول على أحدث الدروس</p>
                     <a
-                        href="https://www.youtube.com/@arabshield"
+                        href="https://youtube.com/@hassanalwaqedi-d6c?si=jjhW3k6kAnNW7m-y"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-500 transition-all"

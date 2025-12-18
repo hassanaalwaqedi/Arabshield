@@ -228,7 +228,7 @@ export function Footer() {
                                 </div>
                             </div>
                             <span className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                                ArabShield
+                                NovaArab
                             </span>
                         </Link>
 

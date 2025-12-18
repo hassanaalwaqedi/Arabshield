@@ -143,7 +143,7 @@ export default function PricingPage() {
     const plans = [
         {
             title: 'المبتدئين',
-            price: '$3K-10K',
+            price: '$10-79',
             description: 'مثالي للشركات الصغيرة والناشئة التي تتطلع لإنشاء تواجدها الرقمي.',
             icon: Rocket,
             features: [
@@ -159,7 +159,7 @@ export default function PricingPage() {
         },
         {
             title: 'المحترفين',
-            price: '$10K-50K',
+            price: '$100-500',
             description: 'مثالي للشركات النامية التي تحتاج إلى ميزات متقدمة وقابلية للتوسع.',
             icon: Zap,
             popular: true,

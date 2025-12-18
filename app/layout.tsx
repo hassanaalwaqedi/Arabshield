@@ -11,12 +11,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   title: {
-    default: 'ArabShield | NovaArabia Technology',
-    template: '%s | ArabShield',
+    default: 'NovaArab | تقنية المستقبل',
+    template: '%s | NovaArab',
   },
-  description: 'NovaArabia provides top-tier web development, mobile apps, and custom software solutions for the modern enterprise.',
-  keywords: ['Web Development', 'App Development', 'Software Company', 'Saudi Arabia', 'Tech Solutions', 'ArabShield', 'NovaArabia'],
-  authors: [{ name: 'NovaArabia Team' }],
+  description: 'NovaArab توفر حلول تطوير الويب والتطبيقات والبرمجيات المخصصة للمؤسسات الحديثة.',
+  keywords: ['Web Development', 'App Development', 'Software Company', 'Saudi Arabia', 'Tech Solutions', 'NovaArab', 'تطوير الويب'],
+  authors: [{ name: 'NovaArab Team' }],
   verification: {
     google: 'yqrR58XbsqkXoPAQKIr2G61ep3-Hri3HKLYcp9kWyJo',
   },
@@ -33,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className={inter.variable}>
-      <body className="flex min-h-screen bg-abyss-950 font-sans text-slate-200 selection:bg-blue-500/30">
+    <html lang="ar" dir="rtl" className={inter.variable} suppressHydrationWarning>
+      <body className="flex min-h-screen bg-background font-sans text-foreground selection:bg-blue-500/30">
         <ClientProviders>
           {/* Sidebar */}
           <Sidebar />

@@ -17,8 +17,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const variants = {
             primary: 'bg-gradient-to-r from-electric-600 to-electric-500 text-white hover:from-electric-700 hover:to-electric-600 shadow-lg shadow-electric-500/30 hover:shadow-xl hover:shadow-electric-500/40',
             secondary: 'bg-gradient-to-r from-cyan-600 to-cyan-500 text-white hover:from-cyan-700 hover:to-cyan-600 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40',
-            outline: 'border-2 border-electric-500 text-electric-600 hover:bg-electric-50 hover:border-electric-600',
-            ghost: 'text-abyss-700 hover:bg-abyss-100 hover:text-electric-600',
+            outline: 'border-2 border-electric-500 text-electric-600 dark:text-electric-400 hover:bg-electric-50 dark:hover:bg-electric-900/20 hover:border-electric-600',
+            ghost: 'text-foreground hover:bg-accent hover:text-accent-foreground',
             glow: 'bg-gradient-to-r from-electric-600 via-cyan-500 to-purple-600 text-white shadow-2xl hover:shadow-electric-500/50 glow-electric',
         };
 

@@ -21,7 +21,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
-            className="bg-white/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all"
+            className="bg-card/70 backdrop-blur-xl rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all"
         >
             {/* Service Image */}
             <div className="relative h-48 bg-gradient-to-br from-blue-600 to-purple-600">
@@ -41,18 +41,18 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                         مميز
                     </div>
                 )}
-                <div className="absolute bottom-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-sm font-bold">
+                <div className="absolute bottom-4 right-4 px-3 py-1 bg-card/90 backdrop-blur-sm rounded-lg text-sm font-bold text-foreground">
                     {service.category}
                 </div>
             </div>
 
             {/* Service Content */}
             <div className="p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{service.title}</h3>
-                <p className="text-sm text-slate-600 line-clamp-2 mb-4">{service.description}</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{service.description}</p>
 
                 {/* Company */}
-                <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <Building2 size={16} />
                     <span>{service.companyName}</span>
                 </div>
@@ -63,7 +63,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                         {service.tags.slice(0, 3).map((tag, index) => (
                             <span
                                 key={index}
-                                className="flex items-center gap-1 px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-lg"
+                                className="flex items-center gap-1 px-2 py-1 bg-muted text-muted-foreground text-xs rounded-lg"
                             >
                                 <Tag size={12} />
                                 {tag}
@@ -73,9 +73,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                 )}
 
                 {/* Price and Action */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+                <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div>
-                        <div className="text-2xl font-bold text-slate-900">
+                        <div className="text-2xl font-bold text-foreground">
                             {formatPrice(service.price, service.currency)}
                         </div>
                     </div>
@@ -91,3 +91,4 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         </motion.div>
     );
 }
+

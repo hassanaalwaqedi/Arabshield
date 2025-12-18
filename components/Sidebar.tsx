@@ -36,6 +36,7 @@ import { Button } from '@/components/ui/Button';
 import { useSidebar } from '@/contexts/SidebarContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { isAdminRole } from '@/lib/admin';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 // Types for menu items with role restrictions
 interface MenuItem {
@@ -153,7 +154,7 @@ export function Sidebar() {
                         </div>
                         {!isCollapsed && (
                             <span className="font-bold text-lg text-white tracking-tight whitespace-nowrap">
-                                ArabShield
+                                NovaArab
                             </span>
                         )}
                     </Link>
@@ -366,6 +367,18 @@ export function Sidebar() {
                         </>
                     )}
                 </nav>
+
+                {/* Theme Toggle */}
+                <div className="px-3 py-2 border-t border-slate-800/50">
+                    <ThemeToggle
+                        compact={isCollapsed}
+                        showLabel={!isCollapsed}
+                        className={`
+                            w-full justify-center
+                            ${isCollapsed ? 'p-2.5' : 'px-3 py-2.5 gap-3'}
+                        `}
+                    />
+                </div>
 
                 {/* Bottom CTA */}
                 <div className="p-3 border-t border-slate-800/50">
