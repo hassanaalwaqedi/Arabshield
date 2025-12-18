@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import { useTranslations, useLocale } from 'next-intl';
 import { Shield, Target, Users, Award, Zap, TrendingUp, Globe, Heart, Code, Lightbulb, CheckCircle, ArrowRight } from 'lucide-react';
 
 // Stat Card Component
@@ -68,15 +69,16 @@ interface TimelineItemProps {
     title: string;
     description: string;
     isLast?: boolean;
+    isRTL: boolean;
 }
 
-function TimelineItem({ year, title, description, isLast }: TimelineItemProps) {
+function TimelineItem({ year, title, description, isLast, isRTL }: TimelineItemProps) {
     return (
-        <div className="relative pl-8 pb-12">
+        <div className={`relative ${isRTL ? 'pr-8 border-r-2 border-slate-800' : 'pl-8 border-l-2 border-slate-800'} pb-12 ${isLast ? 'border-transparent' : ''}`}>
             {!isLast && (
-                <div className="absolute left-[11px] top-6 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-transparent"></div>
+                <div className={`absolute ${isRTL ? '-right-[1px]' : '-left-[1px]'} top-6 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-transparent`}></div>
             )}
-            <div className="absolute left-0 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-slate-950 shadow-lg shadow-blue-500/50"></div>
+            <div className={`absolute ${isRTL ? '-right-[13px]' : '-left-[13px]'} top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-slate-950 shadow-lg shadow-blue-500/50`}></div>
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all">
                 <div className="text-blue-400 font-bold text-sm mb-2">{year}</div>
                 <h4 className="text-white font-bold text-lg mb-2">{title}</h4>
@@ -108,85 +110,100 @@ function Button({ children, variant = "primary", className = "" }: ButtonProps) 
 
 // Main About Page Component
 export default function AboutPage() {
+    const t = useTranslations('about');
+    const tCommon = useTranslations('common');
+    const tWhy = useTranslations('whyUs');
+    const locale = useLocale();
+    const isRTL = locale === 'ar';
+
     const stats = [
-        { number: '2+', label: 'سنوات من الخبرة', description: 'في هذا المجال' },
-        { number: '100+', label: 'مشروع منجز', description: 'أُكمل بنجاح' },
-        { number: '96%', label: 'رضا العملاء', description: 'عملاء سعداء' },
-        { number: '24/7', label: 'الدعم المتاح', description: 'دائماً هنا من أجلك' }
+        { number: '2+', label: t('stats.experience'), description: t('stats.experienceDesc') },
+        { number: '100+', label: t('stats.projects'), description: t('stats.projectsDesc') },
+        { number: '96%', label: t('stats.clients'), description: t('stats.clientsDesc') },
+        { number: '24/7', label: t('stats.support'), description: t('stats.supportDesc') }
     ];
 
     const values = [
         {
             icon: Target,
-            title: 'مهمتنا',
-            description: 'تمكين الشركات بحلول تقنية مبتكرة تحقق النمو المستدام والكفاءة والميزة التنافسية في العصر الرقمي.'
+            title: t('values.mission.title'),
+            description: t('values.mission.description')
         },
         {
             icon: Shield,
-            title: 'رؤيتنا',
-            description: 'أن نكون الشريك التقني الرائد في الشرق الأوسط، معترف به عالمياً بالجودة والنزاهة والحلول الرقمية التحويلية.'
+            title: t('values.vision.title'),
+            description: t('values.vision.description')
         },
         {
             icon: Users,
-            title: 'قيمنا',
-            description: 'التركيز على العميل، التميز التقني، الشفافية، التعلم المستمر، والممارسات الأخلاقية تحدد هويتنا وتوجه كل قرار نتخذه.'
+            title: t('values.core.title'),
+            description: t('values.core.description')
         }
     ];
 
     const teamValues = [
         {
             icon: Heart,
-            title: 'شغف يقودنا',
-            description: 'نحب ما نفعله ويظهر ذلك في كل سطر كود وكل تفاعل مع العميل.'
+            title: t('teamValues.passion.title'),
+            description: t('teamValues.passion.description')
         },
         {
             icon: Code,
-            title: 'التميز التقني',
-            description: 'نبقى في طليعة التكنولوجيا، نتعلم ونتكيف باستمرار مع الأدوات والمنهجيات الجديدة.'
+            title: t('teamValues.excellence.title'),
+            description: t('teamValues.excellence.description')
         },
         {
             icon: Lightbulb,
-            title: 'الابتكار أولاً',
-            description: 'نتحدى الوضع الراهن ونسعى لحلول إبداعية للمشاكل المعقدة.'
+            title: t('teamValues.innovation.title'),
+            description: t('teamValues.innovation.description')
         },
         {
             icon: CheckCircle,
-            title: 'هوس بالجودة',
-            description: 'نفخر بتقديم عمل يتجاوز التوقعات ويصمد أمام اختبار الزمن.'
+            title: t('teamValues.quality.title'),
+            description: t('teamValues.quality.description')
         }
     ];
 
     const timeline = [
         {
             year: '2019',
-            title: 'تأسيس الشركة',
-            description: 'تأسست NovaArab بمهمة سد الفجوة التقنية في الشرق الأوسط.'
+            title: t('timeline.y2019.title'),
+            description: t('timeline.y2019.desc')
         },
         {
             year: '2020',
-            title: 'أول مشروع كبير',
-            description: 'قدمنا أول حل مؤسسي لنا، حددنا معيار الجودة والابتكار.'
+            title: t('timeline.y2020.title'),
+            description: t('timeline.y2020.desc')
         },
         {
             year: '2021',
-            title: 'توسع الفريق',
-            description: 'نما فريقنا إلى أكثر من 20 متخصصاً يغطون جميع جوانب تطوير البرمجيات الحديثة.'
+            title: t('timeline.y2021.title'),
+            description: t('timeline.y2021.desc')
         },
         {
             year: '2022',
-            title: 'اعتراف دولي',
-            description: 'حصلنا على جوائز الصناعة وأقمنا شراكات مع قادة التكنولوجيا العالميين.'
+            title: t('timeline.y2022.title'),
+            description: t('timeline.y2022.desc')
         },
         {
             year: '2023',
-            title: 'دمج الذكاء الاصطناعي',
-            description: 'أطلقنا قسم الذكاء الاصطناعي والتعلم الآلي، نساعد العملاء على الاستفادة من التكنولوجيا المتطورة.'
+            title: t('timeline.y2023.title'),
+            description: t('timeline.y2023.desc')
         },
         {
             year: '2024',
-            title: 'النمو المستمر',
-            description: 'أكثر من 500 مشروع ناجح، توسيع الخدمات والمحافظة على معدل رضا عملاء 98%.'
+            title: t('timeline.y2024.title'),
+            description: t('timeline.y2024.desc')
         }
+    ];
+
+    const whyChoose = [
+        { icon: Zap, title: tWhy('speed.title'), desc: tWhy('speed.description') },
+        { icon: Shield, title: tWhy('security.title'), desc: tWhy('security.description') },
+        { icon: TrendingUp, title: tWhy('global.title'), desc: tWhy('global.description') }, // Using global for scalable/trending up context
+        { icon: Users, title: t('stats.support'), desc: t('stats.supportDesc') }, // Reusing support
+        { icon: Award, title: t('stats.projects'), desc: t('stats.projectsDesc') }, // Reusing track record
+        { icon: Lightbulb, title: t('teamValues.innovation.title'), desc: t('teamValues.innovation.description') } // Reusing innovation
     ];
 
     return (
@@ -199,14 +216,14 @@ export default function AboutPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <Award className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">تأسست 2023</span>
+                        <span className="text-sm text-blue-300 font-medium">{t('hero.badge')}</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        عن NovaArab
+                        {t('hero.title')}
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                        نحن فريق من المبتكرين والمطورين والاستراتيجيين المكرسون لبناء مستقبل التكنولوجيا في العالم العربي وخارجه.
+                        {t('hero.subtitle')}
                     </p>
                 </div>
             </div>
@@ -224,8 +241,8 @@ export default function AboutPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950/30 border border-slate-800 rounded-3xl p-12 md:p-16 relative overflow-hidden">
                     {/* Background decoration */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+                    <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-64 h-64 bg-blue-500/10 rounded-full blur-3xl`}></div>
+                    <div className={`absolute bottom-0 ${isRTL ? 'left-0' : 'right-0'} w-64 h-64 bg-purple-500/10 rounded-full blur-3xl`}></div>
 
                     <div className="relative z-10">
                         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -237,45 +254,41 @@ export default function AboutPage() {
                                         src="/NovaArab/public/hassan.jpeg"
                                         width={200}
                                         height={200}
-                                        alt="Hassan CEO"
+                                        alt={t('founder.name')}
                                         className="rounded-full shadow-2xl border-4 border-slate-800 relative z-10"
                                     />
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="flex-1 text-center lg:text-right">
+                            <div className={`flex-1 text-center lg:${isRTL ? 'text-right' : 'text-left'}`}>
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
                                     <Award className="w-4 h-4 text-blue-400" />
-                                    <span className="text-sm text-blue-300 font-medium">المؤسس والرئيس التنفيذي</span>
+                                    <span className="text-sm text-blue-300 font-medium">{t('founder.role')}</span>
                                 </div>
 
                                 <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                                    حسان
+                                    {t('founder.name')}
                                 </h2>
 
                                 <p className="text-xl text-blue-400 font-semibold mb-6">
-                                    الرئيس التنفيذي (CEO) لشركة NovaArab
+                                    {t('founder.title')}
                                 </p>
 
                                 <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
-                                    <p>
-                                        بصفتي مؤسس ورئيس تنفيذي لشركة NovaArab، أقود رؤية واضحة: تمكين الشركات في العالم العربي من خلال الح لول التقنية المبتكرة والمتطورة. منذ تأسيس الشركة في عام 2019، كانت مهمتنا هي سد الفجوة بين الطموحات التجارية والواقع التكنولوجي.
-                                    </p>
-                                    <p>
-                                        نؤمن بأن التحول الرقمي ليس مجرد ترف، بل ضرورة استراتيجية. من خلال فريقنا المتخصص والتزامنا بالتميز، نساعد عملاءنا على تحقيق أهدافهم الرقمية بحلول مصممة خصيصاً لتلبية احتياجاتهم الفريدة. رحلتنا مستمرة، ونحن ملتزمون بالبقاء في طليعة الابتكار التكنولوجي.
-                                    </p>
+                                    <p>{t('founder.bio1')}</p>
+                                    <p>{t('founder.bio2')}</p>
                                 </div>
 
-                                <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-end">
+                                <div className={`mt-8 flex flex-wrap gap-4 justify-center lg:${isRTL ? 'justify-end' : 'justify-start'}`}>
                                     <div className="px-6 py-3 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                                        <span className="text-blue-400 font-semibold">رؤية استراتيجية</span>
+                                        <span className="text-blue-400 font-semibold">{t('founder.values.strategy')}</span>
                                     </div>
                                     <div className="px-6 py-3 bg-purple-500/10 border border-purple-500/20 rounded-xl">
-                                        <span className="text-purple-400 font-semibold">قيادة تقنية</span>
+                                        <span className="text-purple-400 font-semibold">{t('founder.values.leadership')}</span>
                                     </div>
                                     <div className="px-6 py-3 bg-cyan-500/10 border border-cyan-500/20 rounded-xl">
-                                        <span className="text-cyan-400 font-semibold">ابتكار مستمر</span>
+                                        <span className="text-cyan-400 font-semibold">{t('founder.values.innovation')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -290,17 +303,17 @@ export default function AboutPage() {
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
                             <Globe className="w-4 h-4 text-purple-400" />
-                            <span className="text-sm text-purple-300 font-medium">رحلتنا</span>
+                            <span className="text-sm text-purple-300 font-medium">{t('story.badge')}</span>
                         </div>
-                        <h2 className="text-4xl font-bold mb-6">قصتنا</h2>
+                        <h2 className="text-4xl font-bold mb-6">{t('story.title')}</h2>
                         <p className="text-slate-400 mb-6 leading-relaxed text-lg">
-                            تأسست برؤية لسد الفجوة بين الأعمال التقليدية والتكنولوجيا الحديثة، نمت NovaArab لتصبح شريكاً تقنياً رئيسياً للشركات في المنطقة.
+                            {t('story.p1')}
                         </p>
                         <p className="text-slate-400 mb-8 leading-relaxed text-lg">
-                            نؤمن بقوة التحول الرقمي لحل المشاكل المعقدة وخلق فرص جديدة. رحلتنا محددة بسعي لا هوادة فيه للتميز والتزام بنجاح عملائنا.
+                            {t('story.p2')}
                         </p>
                         <Button variant="primary">
-                            ابدأ مشروعك <ArrowRight className="ml-2 w-4 h-4" />
+                            {tCommon('startProject')} <ArrowRight className={`${isRTL ? 'mr-2' : 'ml-2'} w-4 h-4`} />
                         </Button>
                     </div>
 
@@ -316,9 +329,9 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">ما يحركنا</h2>
+                        <h2 className="text-4xl font-bold mb-4">{t('values.title')}</h2>
                         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                            مهمتنا ورؤيتنا وقيمنا توجه كل ما نفعله
+                            {t('values.subtitle')}
                         </p>
                     </div>
 
@@ -334,9 +347,9 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">رحلتنا</h2>
+                        <h2 className="text-4xl font-bold mb-4">{t('timeline.title')}</h2>
                         <p className="text-slate-400 text-lg">
-                            المعالم التي شكلت هويتنا اليوم
+                            {t('timeline.subtitle')}
                         </p>
                     </div>
 
@@ -346,6 +359,7 @@ export default function AboutPage() {
                                 key={idx}
                                 {...item}
                                 isLast={idx === timeline.length - 1}
+                                isRTL={isRTL}
                             />
                         ))}
                     </div>
@@ -356,21 +370,14 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold mb-4">لماذا تختار NovaArab؟</h2>
+                        <h2 className="text-4xl font-bold mb-4">{tCommon('brand')}?</h2>
                         <p className="text-slate-400 text-lg">
-                            نجمع الخبرة والشغف والابتكار
+                            {t('values.core.description')}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            { icon: Zap, title: 'تسليم سريع', desc: 'منهجيات رشيقة تضمن سرعة التسليم دون المساس بالجودة' },
-                            { icon: Shield, title: 'آمن ومتوافق', desc: 'ممارسات أمنية رائدة في الصناعة ومعايير امتثال' },
-                            { icon: TrendingUp, title: 'حلول قابلة للتوسع', desc: 'مبنية للنمو مع احتياجات عملك' },
-                            { icon: Users, title: 'دعم مخصص', desc: 'دعم تقني وإدارة حسابات 24/7' },
-                            { icon: Award, title: 'سجل مثبت', desc: 'أكثر من 100 مشروع ناجح في صناعات متنوعة' },
-                            { icon: Lightbulb, title: 'التركيز على الابتكار', desc: 'تكنولوجيا متطورة وحل إبداعي للمشاكل' }
-                        ].map((item, idx) => (
+                        {whyChoose.map((item, idx) => (
                             <div key={idx} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all">
                                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-4">
                                     <item.icon className="w-6 h-6 text-blue-400" />
@@ -387,16 +394,16 @@ export default function AboutPage() {
             <div className="border-t border-slate-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للعمل معاً؟</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('cta.title')}</h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-                            انضم إلى مئات الشركات التي تثق بنا في مشاريعها التقنية الأكثر أهمية.
+                            {t('cta.description')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button variant="primary" className="text-lg">
-                                ابدأ مشروعاً
+                                {tCommon('startProject')}
                             </Button>
                             <Button variant="outline" className="text-lg">
-                                تواصل معنا
+                                {tCommon('contactUs')}
                             </Button>
                         </div>
                     </div>

@@ -96,6 +96,107 @@
             "description": "Deploy anywhere, scale without limits"
         }
     },
+    "about": {
+        "hero": {
+            "title": "About NovaArab",
+            "subtitle": "We are a team of innovators, developers, and strategists dedicated to building the future of technology in the Arab world and beyond.",
+            "badge": "Established 2023"
+        },
+        "stats": {
+            "experience": "Years Experience",
+            "projects": "Projects Completed",
+            "clients": "Client Satisfaction",
+            "support": "Available Support",
+            "experienceDesc": "In the Industry",
+            "projectsDesc": "Successfully Delivered",
+            "clientsDesc": "Happy Clients",
+            "supportDesc": "Always Here For You"
+        },
+        "founder": {
+            "name": "Hassan",
+            "role": "Founder & CEO",
+            "title": "CEO at NovaArab",
+            "bio1": "As Founder and CEO of NovaArab, I lead a clear vision: empowering businesses in the Arab world through innovative and advanced technical solutions.",
+            "bio2": "We believe digital transformation is not just a luxury, but a strategic necessity. Through our dedicated team and commitment to excellence, we help our clients achieve their digital goals.",
+            "values": {
+                "strategy": "Strategic Vision",
+                "leadership": "Tech Leadership",
+                "innovation": "Continuous Innovation"
+            }
+        },
+        "story": {
+            "badge": "Our Journey",
+            "title": "Our Story",
+            "p1": "Founded with a vision to bridge the gap between traditional business and modern technology, NovaArab has grown to become a key technology partner for companies in the region.",
+            "p2": "We believe in the power of digital transformation to solve complex problems and create new opportunities. Our journey is defined by a relentless pursuit of excellence and commitment to client success."
+        },
+        "values": {
+            "title": "What Drives Us",
+            "subtitle": "Our mission, vision, and values guide everything we do",
+            "mission": {
+                "title": "Our Mission",
+                "description": "To empower businesses with innovative tech solutions that drive sustainable growth, efficiency, and competitive advantage in the digital age."
+            },
+            "vision": {
+                "title": "Our Vision",
+                "description": "To be the leading technology partner in the Middle East, globally recognized for quality, integrity, and transformative digital solutions."
+            },
+            "core": {
+                "title": "Our Values",
+                "description": "Customer focus, technical excellence, transparency, continuous learning, and ethical practices define who we are and guide every decision."
+            }
+        },
+        "teamValues": {
+            "passion": {
+                "title": "Passion Drives Us",
+                "description": "We love what we do and it shows in every line of code and every client interaction."
+            },
+            "excellence": {
+                "title": "Tech Excellence",
+                "description": "We stay at the forefront of technology, constantly learning and adapting to new tools and methodologies."
+            },
+            "innovation": {
+                "title": "Innovation First",
+                "description": "We challenge the status quo and seek creative solutions to complex problems."
+            },
+            "quality": {
+                "title": "Quality Obsession",
+                "description": "We take pride in delivering work that exceeds expectations and stands the test of time."
+            }
+        },
+        "timeline": {
+            "title": "Our Path",
+            "subtitle": "Milestones that shaped who we are today",
+            "y2019": {
+                "title": "Company Founded",
+                "desc": "NovaArab founded with a mission to bridge the tech gap in the Middle East."
+            },
+            "y2020": {
+                "title": "First Major Project",
+                "desc": "Delivered our first enterprise solution, setting our standard for quality and innovation."
+            },
+            "y2021": {
+                "title": "Team Expansion",
+                "desc": "Team grew to over 20 specialists covering all aspects of modern software development."
+            },
+            "y2022": {
+                "title": "International Recognition",
+                "desc": "Received industry awards and established partnerships with global tech leaders."
+            },
+            "y2023": {
+                "title": "AI Integration",
+                "desc": "Launched AI & ML division, helping clients leverage cutting-edge technology."
+            },
+            "y2024": {
+                "title": "Continued Growth",
+                "desc": "500+ successful projects, expanding services and maintaining 98% client satisfaction."
+            }
+        },
+        "cta": {
+            "title": "Ready to Work Together?",
+            "description": "Join hundreds of companies trusting us with their most critical tech projects."
+        }
+    },
     "cta": {
         "title": "Ready to Transform Your Business?",
         "description": "Join 20+ companies trusting NovaArab to build their digital future.",
