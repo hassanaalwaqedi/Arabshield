@@ -1,0 +1,236 @@
+{
+    "common": {
+        "brand": "NovaArab",
+        "tagline": "Geleceğin Teknolojisi",
+        "orderService": "Hizmet Sipariş Et",
+        "learnMore": "Daha Fazla Bilgi",
+        "contactUs": "Bize Ulaşın",
+        "startProject": "Projenize Başlayın",
+        "viewServices": "Hizmetleri İncele",
+        "home": "Ana Sayfa",
+        "about": "Hakkımızda",
+        "services": "Hizmetler",
+        "portfolio": "Portföy",
+        "blog": "Blog",
+        "contact": "İletişim",
+        "pricing": "Fiyatlandırma",
+        "faq": "SSS",
+        "login": "Giriş Yap",
+        "register": "Kayıt Ol",
+        "dashboard": "Panel",
+        "support": "Destek",
+        "careers": "Kariyer",
+        "partners": "Ortaklar",
+        "marketplace": "Pazar Yeri",
+        "privacyPolicy": "Gizlilik Politikası",
+        "terms": "Şartlar ve Koşullar"
+    },
+    "navigation": {
+        "home": "Ana Sayfa",
+        "services": "Hizmetler",
+        "about": "Hakkımızda",
+        "portfolio": "Portföy",
+        "caseStudies": "Vaka Çalışmaları",
+        "blog": "Blog",
+        "aiSolutions": "Yapay Zeka Çözümleri",
+        "aiDocs": "AI Dokümanları",
+        "tutorials": "Dersler",
+        "partners": "Ortaklar",
+        "pricing": "Fiyatlandırma",
+        "contact": "İletişim",
+        "order": "Hizmet Sipariş Et",
+        "faq": "SSS",
+        "marketplace": "Pazar Yeri",
+        "careers": "Kariyer",
+        "issues": "Yaygın Sorunlar",
+        "invoices": "Faturalar",
+        "docs": "Dokümantasyon"
+    },
+    "admin": {
+        "title": "Yönetici Alanı",
+        "orders": "Gelen Siparişler",
+        "messages": "Mesajlar",
+        "invoices": "Fatura Yönetimi",
+        "users": "Kullanıcı Yönetimi",
+        "settings": "Sistem Ayarları"
+    },
+    "hero": {
+        "title": "Geleceği İnşa Et",
+        "titleHighlight": "NovaArab ile",
+        "description": "Modern dijital ortam için kurumsal düzeyde web ve mobil geliştirme, gelişmiş siber güvenlik ve yapay zeka destekli çözümler.",
+        "trustedBy": "500+ küresel şirket tarafından güveniliyor",
+        "startProject": "Projenize Başlayın",
+        "exploreServices": "Hizmetleri İncele"
+    },
+    "stats": {
+        "projects": "Tamamlanan Projeler",
+        "satisfaction": "Müşteri Memnuniyeti",
+        "support": "Mevcut Destek",
+        "uptime": "Çalışma Süresi Garantisi"
+    },
+    "services": {
+        "title": "Kapsamlı Teknoloji Çözümleri",
+        "subtitle": "Konseptten kuruluma kadar, tüm teknoloji yığını genelinde mükemmellik sunuyoruz.",
+        "webDev": {
+            "title": "Web Geliştirme",
+            "description": "Maksimum performans ve ölçeklenebilirlik için en son teknolojiyle oluşturulmuş kurumsal web platformları."
+        },
+        "mobileDev": {
+            "title": "Mobil Uygulamalar",
+            "description": "iOS ve Android'de olağanüstü kullanıcı deneyimleri sunan yerel ve çapraz platform mobil uygulamalar."
+        },
+        "security": {
+            "title": "Siber Güvenlik",
+            "description": "Dijital varlıklarınızı gelişen siber tehditlerden korumak için gelişmiş güvenlik çözümleri."
+        },
+        "ai": {
+            "title": "Yapay Zeka Çözümleri",
+            "description": "İş operasyonlarınızı dönüştüren akıllı otomasyon ve yapay zeka destekli uygulamalar."
+        }
+    },
+    "whyUs": {
+        "title": "Neden NovaArab?",
+        "subtitle": "Ödün vermeyen kalite ve destek ile endüstri lideri teknoloji.",
+        "speed": {
+            "title": "Yüksek Hız",
+            "description": "Hız ve performans için optimize edildi"
+        },
+        "security": {
+            "title": "Kurumsal Güvenlik",
+            "description": "Banka düzeyinde şifreleme ve koruma"
+        },
+        "ai": {
+            "title": "Yapay Zeka Destekli",
+            "description": "Dahili akıllı otomasyon"
+        },
+        "global": {
+            "title": "Küresel Ölçek",
+            "description": "Her yerde yayınla, sınırsız ölçekle"
+        }
+    },
+    "about": {
+        "hero": {
+            "title": "NovaArab Hakkında",
+            "subtitle": "Biz, Arap dünyasında ve ötesinde teknolojinin geleceğini inşa etmeye adanmış yenilikçiler, geliştiriciler ve stratejistler ekibiyiz.",
+            "badge": "2023'te Kuruldu"
+        },
+        "stats": {
+            "experience": "Yıllık Deneyim",
+            "projects": "Tamamlanan Projeler",
+            "clients": "Müşteri Memnuniyeti",
+            "support": "Mevcut Destek",
+            "experienceDesc": "Sektörde",
+            "projectsDesc": "Başarıyla Teslim Edildi",
+            "clientsDesc": "Mutlu Müşteriler",
+            "supportDesc": "Her Zaman Yanınızda"
+        },
+        "founder": {
+            "name": "Hassan",
+            "role": "Kurucu ve CEO",
+            "title": "NovaArab CEO'su",
+            "bio1": "NovaArab'ın Kurucusu ve CEO'su olarak net bir vizyona liderlik ediyorum: Arap dünyasındaki işletmeleri yenilikçi ve gelişmiş teknik çözümlerle güçlendirmek.",
+            "bio2": "Dijital dönüşümün sadece bir lüks değil, stratejik bir zorunluluk olduğuna inanıyoruz. Uzman ekibimiz ve mükemmelliğe olan bağlılığımızla, müşterilerimizin dijital hedeflerine ulaşmalarına yardımcı oluyoruz.",
+            "values": {
+                "strategy": "Stratejik Vizyon",
+                "leadership": "Teknoloji Liderliği",
+                "innovation": "Sürekli İnovasyon"
+            }
+        },
+        "story": {
+            "badge": "Yolculuğumuz",
+            "title": "Hikayemiz",
+            "p1": "Geleneksel iş dünyası ile modern teknoloji arasındaki boşluğu doldurma vizyonuyla kurulan NovaArab, bölgedeki şirketler için anahtar bir teknoloji ortağı haline geldi.",
+            "p2": "Karmaşık sorunları çözmek ve yeni fırsatlar yaratmak için dijital dönüşümün gücüne inanıyoruz. Yolculuğumuz, amansız bir mükemmellik arayışı ve müşteri başarısına olan bağlılıkla tanımlanır."
+        },
+        "values": {
+            "title": "Bizi Ne Yönlendirir",
+            "subtitle": "Misyonumuz, vizyonumuz ve değerlerimiz yaptığımız her şeye rehberlik eder",
+            "mission": {
+                "title": "Misyonumuz",
+                "description": "İşletmeleri, dijital çağda sürdürülebilir büyüme, verimlilik ve rekabet avantajı sağlayan yenilikçi teknoloji çözümleriyle güçlendirmek."
+            },
+            "vision": {
+                "title": "Vizyonumuz",
+                "description": "Kalite, bütünlük ve dönüştürücü dijital çözümlerle küresel olarak tanınan Orta Doğu'nun lider teknoloji ortağı olmak."
+            },
+            "core": {
+                "title": "Değerlerimiz",
+                "description": "Müşteri odaklılık, teknik mükemmellik, şeffaflık, sürekli öğrenme ve etik uygulamalar kim olduğumuzu tanımlar ve her kararımıza rehberlik eder."
+            }
+        },
+        "teamValues": {
+            "passion": {
+                "title": "Tutku Bizi Yönlendirir",
+                "description": "Yaptığımız işi seviyoruz ve bu her kod satırında ve her müşteri etkileşiminde kendini gösteriyor."
+            },
+            "excellence": {
+                "title": "Teknik Mükemmellik",
+                "description": "Teknolojinin ön saflarında yer alıyor, sürekli öğreniyor ve yeni araçlara ve metodolojilere uyum sağlıyoruz."
+            },
+            "innovation": {
+                "title": "Önce İnovasyon",
+                "description": "Statükoya meydan okuyor ve karmaşık sorunlara yaratıcı çözümler arıyoruz."
+            },
+            "quality": {
+                "title": "Kalite Takıntısı",
+                "description": "Beklentileri aşan ve zamana meydan okuyan işler sunmaktan gurur duyuyoruz."
+            }
+        },
+        "timeline": {
+            "title": "Yolumuz",
+            "subtitle": "Bugün kim olduğumuzu şekillendiren kilometre taşları",
+            "y2019": {
+                "title": "Şirket Kuruldu",
+                "desc": "NovaArab, Orta Doğu'daki teknoloji boşluğunu doldurma misyonuyla kuruldu."
+            },
+            "y2020": {
+                "title": "İlk Büyük Proje",
+                "desc": "Kalite ve yenilik standardımızı belirleyen ilk kurumsal çözümümüzü teslim ettik."
+            },
+            "y2021": {
+                "title": "Ekip Genişlemesi",
+                "desc": "Ekibimiz, modern yazılım geliştirmenin tüm yönlerini kapsayan 20'den fazla uzmana ulaştı."
+            },
+            "y2022": {
+                "title": "Uluslararası Tanınma",
+                "desc": "Endüstri ödülleri aldık ve küresel teknoloji liderleriyle ortaklıklar kurduk."
+            },
+            "y2023": {
+                "title": "Yapay Zeka Entegrasyonu",
+                "desc": "Müşterilerin en son teknolojiden yararlanmasına yardımcı olan AI ve ML bölümünü başlattık."
+            },
+            "y2024": {
+                "title": "Sürekli Büyüme",
+                "desc": "500+ başarılı proje, hizmetleri genişletme ve %98 müşteri memnuniyet oranını koruma."
+            }
+        },
+        "cta": {
+            "title": "Birlikte Çalışmaya Hazır mısınız?",
+            "description": "En kritik teknoloji projeleri için bize güvenen yüzlerce şirkete katılın."
+        }
+    },
+    "cta": {
+        "title": "İşinizi Dönüştürmeye Hazır mısınız?",
+        "description": "Dijital geleceklerini inşa etmek için NovaArab'a güvenen 20+ şirkete katılın.",
+        "startToday": "Bugün Başlayın",
+        "talkToExpert": "Bir Uzmanla Konuşun"
+    },
+    "footer": {
+        "description": "İşletmeleri en son dijital çözümlerle güçlendiriyoruz. Özel yazılımlardan mobil uygulamalara kadar, Arap dünyasında teknolojinin geleceğini inşa ediyoruz.",
+        "quickLinks": "Hızlı Bağlantılar",
+        "services": "Hizmetlerimiz",
+        "support": "Destek",
+        "legal": "Yasal",
+        "newsletter": "Bülten",
+        "newsletterDesc": "En son haberler ve teklifler için abone olun",
+        "subscribe": "Abone Ol",
+        "emailPlaceholder": "E-postanız",
+        "copyright": "© 2024 NovaArab. Tüm hakları saklıdır."
+    },
+    "language": {
+        "ar": "العربية",
+        "en": "English",
+        "tr": "Türkçe",
+        "switch": "Dili Değiştir"
+    }
+}

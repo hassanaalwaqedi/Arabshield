@@ -2,7 +2,7 @@ import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
 
 // Supported locales
-export const locales = ['ar', 'en'] as const;
+export const locales = ['ar', 'en', 'tr'] as const;
 export type Locale = (typeof locales)[number];
 
 // Default locale
@@ -19,6 +19,11 @@ export const localeConfig = {
         name: 'English',
         dir: 'ltr' as const,
         flag: '🇺🇸',
+    },
+    tr: {
+        name: 'Türkçe',
+        dir: 'ltr' as const,
+        flag: '🇹🇷',
     },
 } as const;
 

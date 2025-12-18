@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
 import { Sidebar } from '@/components/Sidebar';
+import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ClientProviders } from '@/components/ClientProviders';
 import { MainContent } from '@/components/MainContent';
@@ -87,6 +88,7 @@ export default async function LocaleLayout({
 
                         {/* Main Content Area - adjusts based on sidebar state */}
                         <MainContent>
+                            <Header />
                             <main className="flex-grow">
                                 {children}
                             </main>
