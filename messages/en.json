@@ -33,6 +33,7 @@
         "caseStudies": "Case Studies",
         "blog": "Blog",
         "aiSolutions": "AI Solutions",
+        "aiDocs": "AI Docs",
         "tutorials": "Tutorials",
         "partners": "Partners",
         "pricing": "Pricing",
@@ -40,7 +41,18 @@
         "order": "Order Service",
         "faq": "FAQ",
         "marketplace": "Marketplace",
-        "careers": "Careers"
+        "careers": "Careers",
+        "issues": "Common Issues",
+        "invoices": "Invoices",
+        "docs": "Documentation"
+    },
+    "admin": {
+        "title": "Admin Area",
+        "orders": "Incoming Orders",
+        "messages": "Messages",
+        "invoices": "Invoice Management",
+        "users": "User Management",
+        "settings": "System Settings"
     },
     "hero": {
         "title": "Build the Future",

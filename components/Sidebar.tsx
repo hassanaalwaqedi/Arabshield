@@ -1,8 +1,9 @@
 "use client";
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import {
     Home,
     Briefcase,
@@ -37,6 +38,7 @@ import { useSidebar } from '@/contexts/SidebarContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { isAdminRole } from '@/lib/admin';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 // Types for menu items with role restrictions
 interface MenuItem {
@@ -50,46 +52,49 @@ interface MenuItem {
 const SIDEBAR_WIDTH_OPEN = 240;
 const SIDEBAR_WIDTH_COLLAPSED = 64;
 
-const menuItems: MenuItem[] = [
-    { name: 'الرئيسية', icon: Home, path: '/' },
-    { name: 'من نحن', icon: Info, path: '/about' },
-    { name: 'الخدمات', icon: Sparkles, path: '/services' },
-    { name: 'الأسعار', icon: DollarSign, path: '/pricing' },
-    { name: 'دراسات الحالة', icon: Briefcase, path: '/case-studies' },
-    { name: 'معرض الأعمال', icon: Layers, path: '/portfolio' },
-    { name: 'الحلول الذكية', icon: Bot, path: '/ai-solutions' },
-    { name: 'توثيق AI', icon: Book, path: '/ai-docs' },
-    { name: 'المدونة', icon: FileText, path: '/blog' },
-    { name: 'الشركاء', icon: Users, path: '/partners' },
-    { name: 'الأسئلة الشائعة', icon: HelpCircle, path: '/faq' },
-    { name: 'التوثيق', icon: BookOpen, path: '/docs' },
-    { name: 'دروس الفيديو', icon: Play, path: '/tutorials' },
-    { name: 'المشاكل الشائعة', icon: AlertCircle, path: '/issues' },
-    { name: 'لوحة التحكم', icon: LayoutDashboard, path: '/dashboard' },
-    { name: 'الفواتير', icon: Receipt, path: '/dashboard/invoices' },
-    { name: 'طلب خدمة', icon: ShoppingCart, path: '/order' },
-    { name: 'تواصل معنا', icon: Mail, path: '/contact' },
-];
-
-const additionalPages: MenuItem[] = [
-    { name: 'سياسة الخصوصية', icon: Shield, path: '/privacy-policy' },
-    { name: 'التسجيل', icon: UserPlus, path: '/register' },
-    { name: 'الشروط والأحكام', icon: FileCheck, path: '/terms' },
-];
-
-// Admin-only menu items
-const adminItems: MenuItem[] = [
-    { name: 'الطلبات الواردة', icon: ShoppingCart, path: '/dashboard/admin/orders', requiresRole: ['owner', 'admin'] },
-    { name: 'الرسائل', icon: Mail, path: '/dashboard/admin/messages', requiresRole: ['owner', 'admin'] },
-    { name: 'إدارة الفواتير', icon: Receipt, path: '/dashboard/admin/invoices', requiresRole: ['owner', 'admin'] },
-    { name: 'إدارة المستخدمين', icon: Users, path: '/dashboard/admin/users', requiresRole: ['owner', 'admin'] },
-    { name: 'إعدادات النظام', icon: Settings, path: '/dashboard/admin/settings', requiresRole: ['owner', 'admin'] },
-];
-
 export function Sidebar() {
     const pathname = usePathname();
     const { isCollapsed, isMobileOpen, toggleCollapse, toggleMobile, closeMobile } = useSidebar();
     const { role } = useAuth();
+    const t = useTranslations('navigation');
+    const tCommon = useTranslations('common');
+    const tAdmin = useTranslations('admin');
+
+    const menuItems: MenuItem[] = [
+        { name: t('home'), icon: Home, path: '/' },
+        { name: t('about'), icon: Info, path: '/about' },
+        { name: t('services'), icon: Sparkles, path: '/services' },
+        { name: t('pricing'), icon: DollarSign, path: '/pricing' },
+        { name: t('caseStudies'), icon: Briefcase, path: '/case-studies' },
+        { name: t('portfolio'), icon: Layers, path: '/portfolio' },
+        { name: t('aiSolutions'), icon: Bot, path: '/ai-solutions' },
+        { name: t('aiDocs'), icon: Book, path: '/ai-docs' },
+        { name: t('blog'), icon: FileText, path: '/blog' },
+        { name: t('partners'), icon: Users, path: '/partners' },
+        { name: t('faq'), icon: HelpCircle, path: '/faq' },
+        { name: t('docs'), icon: BookOpen, path: '/docs' },
+        { name: t('tutorials'), icon: Play, path: '/tutorials' },
+        { name: t('issues'), icon: AlertCircle, path: '/issues' },
+        { name: tCommon('dashboard'), icon: LayoutDashboard, path: '/dashboard' },
+        { name: t('invoices'), icon: Receipt, path: '/dashboard/invoices' },
+        { name: t('order'), icon: ShoppingCart, path: '/order' },
+        { name: t('contact'), icon: Mail, path: '/contact' },
+    ];
+
+    const additionalPages: MenuItem[] = [
+        { name: tCommon('privacyPolicy'), icon: Shield, path: '/privacy-policy' },
+        { name: tCommon('register'), icon: UserPlus, path: '/register' },
+        { name: tCommon('terms'), icon: FileCheck, path: '/terms' },
+    ];
+
+    // Admin-only menu items
+    const adminItems: MenuItem[] = [
+        { name: tAdmin('orders'), icon: ShoppingCart, path: '/dashboard/admin/orders', requiresRole: ['owner', 'admin'] },
+        { name: tAdmin('messages'), icon: Mail, path: '/dashboard/admin/messages', requiresRole: ['owner', 'admin'] },
+        { name: tAdmin('invoices'), icon: Receipt, path: '/dashboard/admin/invoices', requiresRole: ['owner', 'admin'] },
+        { name: tAdmin('users'), icon: Users, path: '/dashboard/admin/users', requiresRole: ['owner', 'admin'] },
+        { name: tAdmin('settings'), icon: Settings, path: '/dashboard/admin/settings', requiresRole: ['owner', 'admin'] },
+    ];
 
     const sidebarWidth = isCollapsed ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH_OPEN;
 
@@ -244,7 +249,7 @@ export function Sidebar() {
                     <div className="my-4 mx-2">
                         <div className="border-t border-slate-800/50" />
                         {!isCollapsed && (
-                            <p className="text-xs text-slate-600 mt-3 px-1 font-medium">صفحات إضافية</p>
+                            <p className="text-xs text-slate-600 mt-3 px-1 font-medium">{tCommon('brand')}</p>
                         )}
                     </div>
 
@@ -301,12 +306,12 @@ export function Sidebar() {
                             {/* Divider */}
                             <div className="my-4 mx-2">
                                 <div className="border-t border-amber-500/30" />
-                                {!isCollapsed && (
-                                    <div className="flex items-center gap-2 mt-3 px-1">
-                                        <Crown className="w-3.5 h-3.5 text-amber-500" />
-                                        <p className="text-xs text-amber-500 font-medium">منطقة الإدارة</p>
-                                    </div>
-                                )}
+                                !isCollapsed && (
+                                <div className="flex items-center gap-2 mt-3 px-1">
+                                    <Crown className="w-3.5 h-3.5 text-amber-500" />
+                                    <p className="text-xs text-amber-500 font-medium">{tAdmin('title')}</p>
+                                </div>
+                                )
                             </div>
 
                             {/* Admin Menu Items */}
@@ -368,8 +373,12 @@ export function Sidebar() {
                     )}
                 </nav>
 
-                {/* Theme Toggle */}
-                <div className="px-3 py-2 border-t border-slate-800/50">
+                {/* Language Switcher & Theme Toggle */}
+                <div className="px-3 py-2 border-t border-slate-800/50 space-y-2">
+                    <LanguageSwitcher
+                        compact={isCollapsed}
+                        showLabel={!isCollapsed}
+                    />
                     <ThemeToggle
                         compact={isCollapsed}
                         showLabel={!isCollapsed}
@@ -392,7 +401,7 @@ export function Sidebar() {
                             `}
                         >
                             <ShoppingCart className="w-4 h-4" />
-                            {!isCollapsed && <span>اطلب خدمة</span>}
+                            {!isCollapsed && <span>{t('order')}</span>}
                         </Button>
                     </Link>
                 </div>
