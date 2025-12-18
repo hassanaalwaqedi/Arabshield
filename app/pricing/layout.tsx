@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'الأسعار | باقات وخطط الأسعار',
-    description: 'اكتشف باقات وخطط الأسعار المرنة لخدمات ArabShield. من المشاريع الصغيرة إلى الحلول المؤسسية الكاملة.',
+    description: 'اكتشف باقات وخطط الأسعار المرنة لخدمات NovaArab. من المشاريع الصغيرة إلى الحلول المؤسسية الكاملة.',
     keywords: ['أسعار', 'باقات', 'خطط الأسعار', 'تكلفة تطوير مواقع', 'عروض برمجة'],
     openGraph: {
-        title: 'الأسعار | ArabShield',
+        title: 'الأسعار | NovaArab',
         description: 'باقات مرنة تناسب جميع احتياجاتك',
-        url: 'https://arabshield.vercel.app/pricing',
+        url: 'https://NovaArab.vercel.app/pricing',
     },
 };
 

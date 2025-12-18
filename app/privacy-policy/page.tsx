@@ -149,7 +149,7 @@ export default function PrivacyPage() {
                             سياسة الخصوصية
                         </h1>
                         <p className="text-xl text-slate-400 leading-relaxed mb-8">
-                            تلتزم ArabShield بحماية خصوصيتك وضمان أمن معلوماتك الشخصية. توضح هذه السياسة ممارساتنا فيما يتعلق بجمع البيانات واستخدامها وحمايتها.
+                            تلتزم NovaArab بحماية خصوصيتك وضمان أمن معلوماتك الشخصية. توضح هذه السياسة ممارساتنا فيما يتعلق بجمع البيانات واستخدامها وحمايتها.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-8">
@@ -192,7 +192,7 @@ export default function PrivacyPage() {
                             {/* Introduction */}
                             <Section icon={FileCheck} title="1. المقدمة" id="introduction">
                                 <p>
-                                    مرحباً بك في سياسة الخصوصية الخاصة بـ ArabShield. توضح هذه الوثيقة كيفية جمع واستخدام وتخزين وحماية معلوماتك الشخصية عند استخدام خدماتنا أو زيارة موقعنا الإلكتروني أو التفاعل مع منصتنا.
+                                    مرحباً بك في سياسة الخصوصية الخاصة بـ NovaArab. توضح هذه الوثيقة كيفية جمع واستخدام وتخزين وحماية معلوماتك الشخصية عند استخدام خدماتنا أو زيارة موقعنا الإلكتروني أو التفاعل مع منصتنا.
                                 </p>
                                 <p>
                                     باستخدام خدماتنا، فإنك توافق على جمع واستخدام المعلومات وفقاً لهذه السياسة. إذا كنت لا توافق على سياساتنا وممارساتنا، يرجى عدم استخدام خدماتنا.
@@ -203,7 +203,7 @@ export default function PrivacyPage() {
                                         <div>
                                             <p className="text-blue-200 font-semibold mb-1">إشعار مهم</p>
                                             <p className="text-blue-300/80 text-sm">
-                                                تنطبق هذه السياسة على جميع خدمات وموا قع وتطبيقات ArabShield. قد نقوم بتحديث هذه السياسة بشكل دوري، وسنخطرك بالتغييرات الهامة.
+                                                تنطبق هذه السياسة على جميع خدمات وموا قع وتطبيقات NovaArab. قد نقوم بتحديث هذه السياسة بشكل دوري، وسنخطرك بالتغييرات الهامة.
                                             </p>
                                         </div>
                                     </div>
@@ -377,7 +377,7 @@ export default function PrivacyPage() {
                                     </ListItem>
                                 </ul>
                                 <p className="mt-4">
-                                    To exercise these rights, please contact our Data Protection Officer at privacy@arabshield.com. We will respond to your request within 30 days.
+                                    To exercise these rights, please contact our Data Protection Officer at privacy@NovaArab.com. We will respond to your request within 30 days.
                                 </p>
                             </Section>
 
@@ -445,8 +445,8 @@ export default function PrivacyPage() {
                                             <h4 className="font-semibold text-white">Email</h4>
                                         </div>
                                         <p className="text-slate-400 text-sm mb-2">Data Protection Officer</p>
-                                        <a href="mailto:privacy@arabshield.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                                            privacy@arabshield.com
+                                        <a href="mailto:privacy@NovaArab.com" className="text-blue-400 hover:text-blue-300 transition-colors">
+                                            privacy@NovaArab.com
                                         </a>
                                     </div>
 
@@ -456,7 +456,7 @@ export default function PrivacyPage() {
                                             <h4 className="font-semibold text-white">Mailing Address</h4>
                                         </div>
                                         <p className="text-slate-400 text-sm">
-                                            ArabShield Technologies<br />
+                                            NovaArab Technologies<br />
                                             King Fahd District<br />
                                             Riyadh, Saudi Arabia
                                         </p>

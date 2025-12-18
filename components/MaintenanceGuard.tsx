@@ -87,7 +87,7 @@ function MaintenanceScreen() {
 
                 {/* Contact */}
                 <p className="text-sm text-abyss-400 mt-6">
-                    للطوارئ: <a href="mailto:support@arabshield.com" className="text-electric-600 hover:underline">support@arabshield.com</a>
+                    للطوارئ: <a href="mailto:support@NovaArab.com" className="text-electric-600 hover:underline">support@NovaArab.com</a>
                 </p>
             </motion.div>
         </div>

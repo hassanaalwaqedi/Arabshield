@@ -198,7 +198,7 @@ export default function TermsPage() {
                             شروط الخدمة
                         </h1>
                         <p className="text-xl text-slate-400 leading-relaxed mb-8">
-                            تشكل شروط الخدمة هذه ("الشروط") اتفاقية ملزمة قانونياً بينك وبين ArabShield Technologies (فيما يلي "ArabShield" أو "نحن"). يرجى قراءة هذه الشروط بعناية قبل استخدام خدماتنا.
+                            تشكل شروط الخدمة هذه ("الشروط") اتفاقية ملزمة قانونياً بينك وبين NovaArab Technologies (فيما يلي "NovaArab" أو "نحن"). يرجى قراءة هذه الشروط بعناية قبل استخدام خدماتنا.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-8">
@@ -235,7 +235,7 @@ export default function TermsPage() {
 
                             {/* All 16 sections from the document */}
                             <Section icon={FileText} number="1" title="قبول الشروط">
-                                <p>من خلال الوصول إلى موقع ArabShield أو تطبيقات الجوال أو تصفحها أو استخدامها، أو أي من خدماتنا (يشار إليها مجتمعة بـ "الخدمات")، فإنك تقر بأنك قد قرأت وفهمت ووافقت على الالتزام بشروط الخدمة هذه وسياسة الخصوصية الخاصة بنا.</p>
+                                <p>من خلال الوصول إلى موقع NovaArab أو تطبيقات الجوال أو تصفحها أو استخدامها، أو أي من خدماتنا (يشار إليها مجتمعة بـ "الخدمات")، فإنك تقر بأنك قد قرأت وفهمت ووافقت على الالتزام بشروط الخدمة هذه وسياسة الخصوصية الخاصة بنا.</p>
                                 <p>إذا كنت لا توافق على هذه الشروط، يجب عليك عدم الوصول إلى خدماتنا أو استخدامها. استمرارك في استخدام الخدمات بعد نشر أي تغييرات على هذه الشروط يشكل قبولاً لتلك التغييرات.</p>
                                 <NoticeBox type="warning" title="إشعار قانوني مهم">
                                     <p>تحتوي هذه الشروط على أحكام تحد من مسؤوليتنا تجاهك وتتطلب منك حل النزاعات معنا من خلال التحكيم الملزم على أساس فردي، وليس كجزء من أي دعوى جماعية أو تمثيلية.</p>
@@ -246,16 +246,16 @@ export default function TermsPage() {
                                 <p>لأغراض هذه الشروط، تطبق التعريفات التالية:</p>
                                 <ul className="space-y-3 mt-4">
                                     <ListItem><strong>"العميل"</strong> أو <strong>"أنت"</strong> يشير إلى الفرد أو الكيان الذي يستخدم خدماتنا.</ListItem>
-                                    <ListItem><strong>"الخدمات"</strong> تعني جميع المنتجات والخدمات والمخرجات التي تقدمها ArabShield.</ListItem>
+                                    <ListItem><strong>"الخدمات"</strong> تعني جميع المنتجات والخدمات والمخرجات التي تقدمها NovaArab.</ListItem>
                                     <ListItem><strong>"المشروع"</strong> يشير إلى أي مشاركة محددة أو مهمة عمل مشمولة ببيان عمل منفصل أو اتفاقية مشروع.</ListItem>
-                                    <ListItem><strong>"المخرجات"</strong> تعني جميع المواد أو الأكواد أو التصاميم أو منتجات العمل التي أنشأتها ArabShield للعميل.</ListItem>
+                                    <ListItem><strong>"المخرجات"</strong> تعني جميع المواد أو الأكواد أو التصاميم أو منتجات العمل التي أنشأتها NovaArab للعميل.</ListItem>
                                     <ListItem><strong>"الاتفاقية"</strong> تعني هذه الشروط مع أي اتفاقيات مشروع أو بيانات عمل معمول بها.</ListItem>
                                 </ul>
                             </Section>
 
                             <Section icon={Code} number="3" title="الخدمات المقدمة">
                                 <Subsection number="3.1" title="نطاق الخدمات">
-                                    <p>تقدم ArabShield خدمات تقنية شاملة تشمل، على سبيل المثال لا الحصر:</p>
+                                    <p>تقدم NovaArab خدمات تقنية شاملة تشمل، على سبيل المثال لا الحصر:</p>
                                     <ul className="space-y-2 mt-3">
                                         <ListItem>تطوير وتصميم تطبيقات الويب</ListItem>
                                         <ListItem>تطوير تطبيقات الجوال (iOS و Android)</ListItem>
@@ -321,8 +321,8 @@ export default function TermsPage() {
                                         <ListItem>الوثائق الخاصة بالمشروع</ListItem>
                                     </ul>
                                 </Subsection>
-                                <Subsection number="6.2" title="الحقوق المحتفظ بها لـ ArabShield">
-                                    <p>تحتفظ ArabShield بالملكية وجميع الحقوق في:</p>
+                                <Subsection number="6.2" title="الحقوق المحتفظ بها لـ NovaArab">
+                                    <p>تحتفظ NovaArab بالملكية وجميع الحقوق في:</p>
                                     <ul className="space-y-2 mt-3">
                                         <ListItem>مكتبات الأكواد الموجودة مسبقاً والأطر والأدوات</ListItem>
                                         <ListItem>المكونات العامة والوحدات القابلة لإعادة الاستخدام</ListItem>
@@ -384,7 +384,7 @@ export default function TermsPage() {
                             <Section icon={AlertCircle} number="9" title="تحديد المسؤولية">
                                 <p className="font-semibold text-white mb-4">إلى أقصى حد يسمح به القانون المعمول به:</p>
                                 <Subsection number="9.1" title="استبعاد الأضرار">
-                                    <p>لن تكون ArabShield مسؤولة بأي حال عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية، بما في ذلك على سبيل المثال لا الحصر:</p>
+                                    <p>لن تكون NovaArab مسؤولة بأي حال عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية، بما في ذلك على سبيل المثال لا الحصر:</p>
                                     <ul className="space-y-2 mt-3">
                                         <ListItem type="x">الأرباح أو الإيرادات المفقودة</ListItem>
                                         <ListItem type="x">فقدان البيانات أو انقطاع الأعمال</ListItem>
@@ -393,7 +393,7 @@ export default function TermsPage() {
                                     </ul>
                                 </Subsection>
                                 <Subsection number="9.2" title="حد المسؤولية">
-                                    <p>لن تتجاوز مسؤوليتنا الإجمالية عن أي مطالبات ناشئة عن أو متعلقة بهذه الشروط أو الخدمات المبلغ الإجمالي المدفوع من قبلك إلى ArabShield في الـ 12 شهراً السابقة للمطالبة، أو 1,000 دولار أمريكي، أيهما أكبر.</p>
+                                    <p>لن تتجاوز مسؤوليتنا الإجمالية عن أي مطالبات ناشئة عن أو متعلقة بهذه الشروط أو الخدمات المبلغ الإجمالي المدفوع من قبلك إلى NovaArab في الـ 12 شهراً السابقة للمطالبة، أو 1,000 دولار أمريكي، أيهما أكبر.</p>
                                 </Subsection>
                                 <Subsection number="9.3" title="الاستثناءات">
                                     <p>هذه القيود لا تنطبق على المسؤولية عن:</p>
@@ -410,7 +410,7 @@ export default function TermsPage() {
                             </Section>
 
                             <Section icon={Shield} number="10" title="التعويض">
-                                <p>توافق على تعويض ودافع وعدم تحميل ArabShield ومسؤوليها ومديريها وموظفيها ووكلائها والشركات التابعة لها من وضد أي وجميع المطالبات والالتزامات والأضرار والخسائر والتكاليف والنفقات أو الرسوم (بما في ذلك أتعاب المحاماة المعقولة) الناشئة عن:</p>
+                                <p>توافق على تعويض ودافع وعدم تحميل NovaArab ومسؤوليها ومديريها وموظفيها ووكلائها والشركات التابعة لها من وضد أي وجميع المطالبات والالتزامات والأضرار والخسائر والتكاليف والنفقات أو الرسوم (بما في ذلك أتعاب المحاماة المعقولة) الناشئة عن:</p>
                                 <ul className="space-y-3 mt-4">
                                     <ListItem>استخدامك أو إساءة استخدامك للخدمات</ListItem>
                                     <ListItem>انتهاكك لهذه الشروط</ListItem>
@@ -501,8 +501,8 @@ export default function TermsPage() {
                                             <h4 className="font-semibold text-white">البريد الإلكتروني</h4>
                                         </div>
                                         <p className="text-slate-400 text-sm mb-2">القسم القانوني</p>
-                                        <a href="mailto:legal@arabshield.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                                            legal@arabshield.com
+                                        <a href="mailto:legal@NovaArab.com" className="text-blue-400 hover:text-blue-300 transition-colors">
+                                            legal@NovaArab.com
                                         </a>
                                     </div>
                                     <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
@@ -511,7 +511,7 @@ export default function TermsPage() {
                                             <h4 className="font-semibold text-white">العنوان البريدي</h4>
                                         </div>
                                         <p className="text-slate-400 text-sm">
-                                            ArabShield Technologies<br />
+                                            NovaArab Technologies<br />
                                             حي الملك فهد<br />
                                             الرياض، المملكة العربية السعودية
                                         </p>
@@ -531,7 +531,7 @@ export default function TermsPage() {
             <footer className="border-t border-slate-800 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="text-center text-slate-500 text-sm">
-                        <p className="mb-2">© {new Date().getFullYear()} ArabShield Technologies. جميع الحقوق محفوظة.</p>
+                        <p className="mb-2">© {new Date().getFullYear()} NovaArab Technologies. جميع الحقوق محفوظة.</p>
                         <p>هذه وثيقة ملزمة قانونياً. يرجى المراجعة بعناية واستشارة مستشار قانوني إذا لزم الأمر.</p>
                     </div>
                 </div>

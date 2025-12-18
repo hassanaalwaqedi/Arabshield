@@ -314,7 +314,7 @@ export default function OrderPage() {
                             تم استلام الطلب بنجاح
                         </h2>
                         <p className="text-slate-400 text-lg mb-8 max-w-md mx-auto">
-                            شكراً لاختيارك ArabShield. سيقوم فريق المؤسسات لدينا بمراجعة متطلباتك والاتصال بك خلال 24 ساعة مع عرض تفصيلي.
+                            شكراً لاختيارك NovaArab. سيقوم فريق المؤسسات لدينا بمراجعة متطلباتك والاتصال بك خلال 24 ساعة مع عرض تفصيلي.
                         </p>
                         <div className="flex items-center justify-center gap-4 mb-8">
                             <div className="flex items-center gap-2 text-slate-500 text-sm">

@@ -26,7 +26,7 @@ firebase init
 
 # Select:
 # - Functions
-# - Use existing project (select your arabshield project)
+# - Use existing project (select your novaarab project)
 # - JavaScript
 # - No to ESLint (optional)
 # - Yes to install dependencies
@@ -56,7 +56,7 @@ npm install firebase-admin firebase-functions @sendgrid/mail resend
    - Copy the API key (you won't see it again!)
 3. **Verify Sender Email**:
    - Go to Settings → Sender Authentication
-   - Verify your sender email (e.g., noreply@arabshield.com)
+   - Verify your sender email (e.g., noreply@novaarab.com)
 
 ### Option B: Resend
 
@@ -67,7 +67,7 @@ npm install firebase-admin firebase-functions @sendgrid/mail resend
    - Copy the API key
 3. **Add Domain**:
    - Go to Domains
-   - Add your domain (arabshield.com)
+   - Add your domain (novaarab.com)
    - Verify DNS records
 
 ---
@@ -79,10 +79,10 @@ npm install firebase-admin firebase-functions @sendgrid/mail resend
 firebase functions:config:set email.service="sendgrid"
 
 # Set sender email
-firebase functions:config:set email.from="noreply@arabshield.com"
+firebase functions:config:set email.from="noreply@novaarab.com"
 
 # Set app URL for verification redirects
-firebase functions:config:set app.url="https://arabshield.com"
+firebase functions:config:set app.url="https://novaarab.com"
 
 # For SendGrid:
 firebase functions:config:set sendgrid.api_key="YOUR_SENDGRID_API_KEY_HERE"

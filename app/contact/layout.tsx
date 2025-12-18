@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'تواصل معنا | ArabShield',
-    description: 'تواصل مع فريق ArabShield. نحن هنا للإجابة على استفساراتك ومساعدتك في بدء مشروعك التقني.',
+    title: 'تواصل معنا | NovaArab',
+    description: 'تواصل مع فريق NovaArab. نحن هنا للإجابة على استفساراتك ومساعدتك في بدء مشروعك التقني.',
     keywords: ['تواصل', 'اتصل بنا', 'دعم', 'استفسارات', 'عروض أسعار'],
     openGraph: {
-        title: 'تواصل معنا | ArabShield',
+        title: 'تواصل معنا | NovaArab',
         description: 'نحن هنا لمساعدتك',
-        url: 'https://arabshield.vercel.app/contact',
+        url: 'https://NovaArab.vercel.app/contact',
     },
 };
 

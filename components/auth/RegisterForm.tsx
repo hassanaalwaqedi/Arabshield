@@ -137,8 +137,8 @@ export default function RegisterForm() {
                 <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
                     <p className="text-sm text-slate-700 leading-relaxed">
                         للحصول على حساب، يرجى التواصل مع الإدارة عبر البريد الإلكتروني:{' '}
-                        <a href="mailto:support@arabshield.com" className="font-semibold text-blue-600 hover:underline">
-                            support@arabshield.com
+                        <a href="mailto:support@NovaArab.com" className="font-semibold text-blue-600 hover:underline">
+                            support@NovaArab.com
                         </a>
                     </p>
                 </div>

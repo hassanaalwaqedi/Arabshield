@@ -1,7 +1,7 @@
 {
-    "name": "arabshield-functions",
+    "name": "novaarab-functions",
     "version": "1.0.0",
-    "description": "Firebase Cloud Functions for ArabShield",
+    "description": "Firebase Cloud Functions for NovaArab",
     "main": "index.js",
     "engines": {
         "node": "20"

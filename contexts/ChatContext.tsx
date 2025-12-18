@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Chat Context for ArabShield Chatbot
+ * Chat Context for NovaArab Chatbot
  * Manages chat state, message history, and response generation
  */
 
@@ -42,7 +42,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
             setMessages([{
                 id: 'welcome',
                 type: 'bot',
-                text: `أهلاً وسهلاً! 👋\nأنا مساعد ArabShield، كيف يمكنني مساعدتك اليوم?`,
+                text: `أهلاً وسهلاً! 👋\nأنا مساعد NovaArab، كيف يمكنني مساعدتك اليوم?`,
                 timestamp: new Date()
             }]);
         }
@@ -91,7 +91,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         setMessages([{
             id: 'welcome',
             type: 'bot',
-            text: `أهلاً وسهلاً! 👋\nأنا مساعد ArabShield، كيف يمكنني مساعدتك اليوم?`,
+            text: `أهلاً وسهلاً! 👋\nأنا مساعد NovaArab، كيف يمكنني مساعدتك اليوم?`,
             timestamp: new Date()
         }]);
     }, []);

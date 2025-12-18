@@ -261,7 +261,7 @@ export default function ContactPage() {
                             <ContactInfoCard
                                 icon={Mail}
                                 title="راسلنا بريدياً"
-                                info="hello@arabshield.com"
+                                info="hello@NovaArab.com"
                                 subInfo="رد خلال 24 ساعة"
                             />
                             <ContactInfoCard
@@ -286,7 +286,7 @@ export default function ContactPage() {
 
                         {/* Additional Info */}
                         <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-2xl p-8">
-                            <h3 className="text-xl font-bold mb-4">لماذا تختار ArabShield؟</h3>
+                            <h3 className="text-xl font-bold mb-4">لماذا تختار NovaArab؟</h3>
                             <ul className="space-y-3 text-slate-300">
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -341,7 +341,7 @@ export default function ContactPage() {
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="ArabShield Location"
+                            title="NovaArab Location"
                         />
                     </div>
                 </div>

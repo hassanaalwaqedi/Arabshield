@@ -8,14 +8,14 @@ interface StructuredDataProps {
 }
 
 export function StructuredData({ type, data }: StructuredDataProps) {
-    const baseUrl = 'https://arabshield.vercel.app';
+    const baseUrl = 'https://NovaArab.vercel.app';
 
     const schemas = {
         Organization: {
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'ArabShield',
-            alternateName: 'ArabShield Technologies',
+            name: 'NovaArab',
+            alternateName: 'NovaArab Technologies',
             url: baseUrl,
             logo: `${baseUrl}/logo.png`,
             description: 'شريكك التقني الموثوق. تطوير مواقع، تطبيقات، أمن سيبراني، وذكاء اصطناعي.',
@@ -31,15 +31,15 @@ export function StructuredData({ type, data }: StructuredDataProps) {
                 availableLanguage: ['Arabic', 'English', 'Turkish'],
             },
             sameAs: [
-                'https://twitter.com/arabshield',
-                'https://linkedin.com/company/arabshield',
-                'https://facebook.com/arabshield',
+                'https://twitter.com/NovaArab',
+                'https://linkedin.com/company/NovaArab',
+                'https://facebook.com/NovaArab',
             ],
         },
         Website: {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'ArabShield',
+            name: 'NovaArab',
             url: baseUrl,
             potentialAction: {
                 '@type': 'SearchAction',
@@ -52,7 +52,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
             '@type': 'Service',
             provider: {
                 '@type': 'Organization',
-                name: 'ArabShield',
+                name: 'NovaArab',
             },
             serviceType: 'Software Development',
             areaServed: ['Turkey', 'Saudi Arabia', 'UAE', 'Middle East'],
@@ -67,7 +67,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
             '@type': 'Article',
             publisher: {
                 '@type': 'Organization',
-                name: 'ArabShield',
+                name: 'NovaArab',
                 logo: {
                     '@type': 'ImageObject',
                     url: `${baseUrl}/logo.png`,

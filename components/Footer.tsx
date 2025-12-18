@@ -409,7 +409,7 @@ export function Footer() {
                             </motion.a>
 
                             <motion.a
-                                href="mailto:hello@arabshield.com"
+                                href="mailto:hello@NovaArab.com"
                                 whileHover={{ x: 4 }}
                                 className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group"
                             >
@@ -418,7 +418,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="text-xs text-slate-500 mb-1">راسلنا عبر البريد الإلكتروني</div>
-                                    <div className="text-sm text-slate-300">Arabshieldd@gmail.com</div>
+                                    <div className="text-sm text-slate-300">NovaArabd@gmail.com</div>
                                 </div>
                             </motion.a>
 
@@ -443,7 +443,7 @@ export function Footer() {
                     <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
                         <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-slate-500">
                             <p className="flex items-center gap-2">
-                                <span>&copy; {new Date().getFullYear()} ArabShield Technologies.</span>
+                                <span>&copy; {new Date().getFullYear()} NovaArab Technologies.</span>
                                 <span className="hidden sm:inline">•</span>
                                 <span>جميع الحقوق محفوظة.</span>
                             </p>

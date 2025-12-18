@@ -398,7 +398,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                         <Sparkles className="w-8 h-8 text-white" />
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-2">إنشاء حساب</h2>
-                    <p className="text-slate-400">ابدأ رحلتك مع ArabShield</p>
+                    <p className="text-slate-400">ابدأ رحلتك مع NovaArab</p>
                 </div>
 
                 {error && (

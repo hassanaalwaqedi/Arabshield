@@ -339,7 +339,7 @@ export default function AdminMessagesPage() {
 
                             <div className="pt-4 border-t border-slate-800">
                                 <a
-                                    href={`mailto:${selectedMessage.email}?subject=Re: ${selectedMessage.subject || 'رسالتك في ArabShield'}`}
+                                    href={`mailto:${selectedMessage.email}?subject=Re: ${selectedMessage.subject || 'رسالتك في NovaArab'}`}
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
                                 >
                                     <Reply className="w-4 h-4" />

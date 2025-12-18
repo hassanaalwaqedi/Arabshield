@@ -1,7 +1,7 @@
 # Firestore Collections Schema
 
 ## Overview
-This document describes the Firestore database structure for the ArabShield dashboard.
+This document describes the Firestore database structure for the NovaArab dashboard.
 
 ---
 

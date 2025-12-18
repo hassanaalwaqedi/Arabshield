@@ -204,7 +204,7 @@ export function generateInvoiceEmailBody(invoice: Invoice): string {
     return `
 مرحباً ${invoice.clientName}،
 
-تم إصدار فاتورة جديدة لكم من ArabShield.
+تم إصدار فاتورة جديدة لكم من NovaArab.
 
 رقم الفاتورة: ${invoice.invoiceNumber}
 المبلغ: ${formatCurrency(invoice.amount, invoice.currency)}
@@ -216,7 +216,7 @@ ${invoice.notes ? `ملاحظات: ${invoice.notes}` : ''}
 يمكنكم عرض الفاتورة كاملة من خلال لوحة التحكم.
 
 مع أطيب التحيات،
-فريق ArabShield
+فريق NovaArab
     `.trim();
 }
 
@@ -224,7 +224,7 @@ ${invoice.notes ? `ملاحظات: ${invoice.notes}` : ''}
  * Open email client with invoice details
  */
 export function openInvoiceEmail(invoice: Invoice): void {
-    const subject = encodeURIComponent(`فاتورة ${invoice.invoiceNumber} من ArabShield`);
+    const subject = encodeURIComponent(`فاتورة ${invoice.invoiceNumber} من NovaArab`);
     const body = encodeURIComponent(generateInvoiceEmailBody(invoice));
 
     window.open(`mailto:${invoice.clientEmail}?subject=${subject}&body=${body}`, '_blank');

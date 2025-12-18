@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'من نحن | تعرف على فريق ArabShield',
-    description: 'تعرف على قصة ArabShield ورؤيتنا ومهمتنا. فريق متخصص من المطورين والمبتكرين نخدم الشركات في تركيا والعالم العربي.',
-    keywords: ['من نحن', 'فريق ArabShield', 'شركة برمجيات', 'تركيا', 'تطوير مواقع'],
+    title: 'من نحن | تعرف على فريق NovaArab',
+    description: 'تعرف على قصة NovaArab ورؤيتنا ومهمتنا. فريق متخصص من المطورين والمبتكرين نخدم الشركات في تركيا والعالم العربي.',
+    keywords: ['من نحن', 'فريق NovaArab', 'شركة برمجيات', 'تركيا', 'تطوير مواقع'],
     openGraph: {
-        title: 'من نحن | ArabShield',
-        description: 'تعرف على قصة ArabShield وفريقنا المتخصص',
-        url: 'https://arabshield.vercel.app/about',
+        title: 'من نحن | NovaArab',
+        description: 'تعرف على قصة NovaArab وفريقنا المتخصص',
+        url: 'https://NovaArab.vercel.app/about',
     },
 };
 

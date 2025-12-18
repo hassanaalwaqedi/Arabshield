@@ -1,7 +1,7 @@
 /**
  * Client Invoices Dashboard Page
  * Displays invoices for authenticated users
- * Dark theme - ArabShield design system
+ * Dark theme - NovaArab design system
  */
 
 'use client';

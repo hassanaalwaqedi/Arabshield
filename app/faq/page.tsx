@@ -3,7 +3,7 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { HelpCircle, MessageCircle, Mail, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'الأسئلة الشائعة | ArabShield',
+    title: 'الأسئلة الشائعة | NovaArab',
     description: 'اعثر على إجابات للأسئلة الشائعة حول خدماتنا وعملياتنا وأسعارنا.',
 };
 

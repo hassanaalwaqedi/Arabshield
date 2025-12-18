@@ -5,9 +5,9 @@ export const metadata: Metadata = {
     description: 'نقدم خدمات تطوير مواقع احترافية، تطبيقات الجوال، حلول الأمن السيبراني، والذكاء الاصطناعي للأعمال. حلول تقنية متكاملة للشركات.',
     keywords: ['تطوير مواقع', 'تطبيقات الجوال', 'أمن سيبراني', 'ذكاء اصطناعي', 'خدمات برمجية'],
     openGraph: {
-        title: 'خدماتنا | ArabShield',
+        title: 'خدماتنا | NovaArab',
         description: 'تطوير مواقع، تطبيقات، أمن سيبراني، وذكاء اصطناعي',
-        url: 'https://arabshield.vercel.app/services',
+        url: 'https://NovaArab.vercel.app/services',
     },
 };
 

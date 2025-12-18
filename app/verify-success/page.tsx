@@ -67,7 +67,7 @@ export default function VerifySuccessPage() {
                             <Shield className="w-8 h-8 text-white" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                            ArabShield
+                            NovaArab
                         </h1>
                     </div>
 
@@ -98,10 +98,10 @@ export default function VerifySuccessPage() {
                                 تم تفعيل حسابك
                             </h3>
                             <p className="text-slate-700 leading-relaxed">
-                                يمكنك الآن الوصول إلى جميع خدمات ArabShield والبدء في استخدام لوحة التحكم.
+                                يمكنك الآن الوصول إلى جميع خدمات NovaArab والبدء في استخدام لوحة التحكم.
                                 <br />
                                 <span className="text-sm text-slate-600">
-                                    You can now access all ArabShield services and start using your dashboard.
+                                    You can now access all NovaArab services and start using your dashboard.
                                 </span>
                             </p>
                         </div>

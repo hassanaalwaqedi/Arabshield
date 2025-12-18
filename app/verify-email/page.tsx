@@ -100,7 +100,7 @@ export default function VerifyEmailPage() {
                             <Shield className="w-8 h-8 text-white" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                            ArabShield
+                            NovaArab
                         </h1>
                     </div>
 
@@ -135,7 +135,7 @@ export default function VerifyEmailPage() {
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="font-bold text-blue-600">2.</span>
-                                    <span>ابحث عن رسالة من ArabShield (تحقق من البريد المزعج إذا لم تجدها)</span>
+                                    <span>ابحث عن رسالة من NovaArab (تحقق من البريد المزعج إذا لم تجدها)</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="font-bold text-blue-600">3.</span>

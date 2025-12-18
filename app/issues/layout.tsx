@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'المشاكل الشائعة | حلول سريعة',
-    description: 'حلول للمشاكل الشائعة في ArabShield. ابحث عن مشكلتك واحصل على الحل فوراً. 80+ مشكلة موثقة مع حلولها.',
-    keywords: ['مشاكل شائعة', 'حلول', 'دعم فني', 'استكشاف الأخطاء', 'ArabShield'],
+    description: 'حلول للمشاكل الشائعة في NovaArab. ابحث عن مشكلتك واحصل على الحل فوراً. 80+ مشكلة موثقة مع حلولها.',
+    keywords: ['مشاكل شائعة', 'حلول', 'دعم فني', 'استكشاف الأخطاء', 'NovaArab'],
     openGraph: {
-        title: 'المشاكل الشائعة | ArabShield',
+        title: 'المشاكل الشائعة | NovaArab',
         description: 'حلول سريعة للمشاكل المتكررة',
-        url: 'https://arabshield.vercel.app/issues',
+        url: 'https://NovaArab.vercel.app/issues',
     },
 };
 

@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Knowledge Base for ArabShield Chatbot
+ * Knowledge Base for NovaArab Chatbot
  * Contains all website content structured for easy retrieval
  * The chatbot ONLY uses this data - no external sources
  */
@@ -188,7 +188,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         keywords: ['ايميل', 'بريد', 'email', 'راسل'],
         patterns: ['البريد الإلكتروني', 'كيف أراسلكم', 'الإيميل'],
         answer: `راسلنا عبر البريد الإلكتروني:
-📧 hello@arabshield.com
+📧 hello@novaarab.com
 
 نرد على جميع الرسائل خلال 24 ساعة!`,
         links: [{ text: 'تواصل معنا', url: '/contact' }]
@@ -211,8 +211,8 @@ export const knowledgeBase: KnowledgeEntry[] = [
         id: 'company-about',
         category: 'company',
         keywords: ['من', 'نحن', 'شركة', 'about', 'company', 'عن'],
-        patterns: ['من أنتم', 'عن الشركة', 'ما هي arabshield'],
-        answer: `ArabShield هي شركة تقنية رائدة تُمكّن الشركات بحلول رقمية متطورة.
+        patterns: ['من أنتم', 'عن الشركة', 'ما هي novaarab'],
+        answer: `NovaArab هي شركة تقنية رائدة تُمكّن الشركات بحلول رقمية متطورة.
 
 📊 إنجازاتنا:
 • 500+ مشروع منجز
@@ -226,8 +226,8 @@ export const knowledgeBase: KnowledgeEntry[] = [
         id: 'company-why',
         category: 'company',
         keywords: ['لماذا', 'مميزات', 'أفضل', 'why', 'choose'],
-        patterns: ['لماذا نختاركم', 'ما يميزكم', 'لماذا arabshield'],
-        answer: `لماذا تختار ArabShield؟
+        patterns: ['لماذا نختاركم', 'ما يميزكم', 'لماذا novaarab'],
+        answer: `لماذا تختار NovaArab؟
 
 ✅ فريق محترف: +50 خبير معتمد
 ✅ نتائج مثبتة: 98% نسبة نجاح
@@ -258,7 +258,7 @@ export const knowledgeBase: KnowledgeEntry[] = [
         keywords: ['مرحبا', 'السلام', 'أهلا', 'hello', 'hi', 'هلا'],
         patterns: ['مرحبا', 'السلام عليكم', 'أهلاً'],
         answer: `أهلاً وسهلاً! 👋
-أنا مساعد ArabShield الذكي، كيف يمكنني مساعدتك اليوم؟
+أنا مساعد NovaArab الذكي، كيف يمكنني مساعدتك اليوم؟
 
 يمكنني الإجابة عن:
 • خدماتنا (ويب، تطبيقات، AI...)

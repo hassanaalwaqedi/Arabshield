@@ -3,8 +3,8 @@ import RegisterForm from '@/components/auth/RegisterForm';
 import { Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'إنشاء حساب | ArabShield',
-    description: 'إنشاء حساب جديد في ArabShield للوصول إلى خدمات البرمجة والذكاء الاصطناعي',
+    title: 'إنشاء حساب | NovaArab',
+    description: 'إنشاء حساب جديد في NovaArab للوصول إلى خدمات البرمجة والذكاء الاصطناعي',
 };
 
 export default function RegisterPage() {
@@ -23,7 +23,7 @@ export default function RegisterPage() {
                             <Shield className="w-8 h-8 text-white" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                            ArabShield
+                            NovaArab
                         </h1>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mt-4">
                             <Sparkles className="w-4 h-4 text-blue-400" />

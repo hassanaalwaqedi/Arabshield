@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Chat Widget Component for ArabShield
+ * Chat Widget Component for NovaArab
  * Floating chat bubble with full chat interface
  * RTL Arabic support, animations, and link handling
  */
@@ -114,7 +114,7 @@ export function ChatWidget() {
                                     <Bot className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold">مساعد ArabShield</h3>
+                                    <h3 className="text-white font-bold">مساعد NovaArab</h3>
                                     <div className="flex items-center gap-1.5">
                                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                                         <span className="text-white/80 text-xs">متصل الآن</span>

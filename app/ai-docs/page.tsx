@@ -128,7 +128,7 @@ export default function AIDocsPage() {
                             <Badge variant="electric" className="mb-4">v2.0.0</Badge>
                             <h1 className="text-4xl font-bold text-white mb-4">توثيق أنظمة الذكاء الاصطناعي</h1>
                             <p className="text-lg text-slate-400 leading-relaxed">
-                                مرحبًا بك في وثائق ArabShield AI. توفر هذه المنصة مجموعة شاملة من الأدوات وواجهات برمجة التطبيقات (APIs) التي تمكّنك من دمج قدرات الذكاء الاصطناعي المتقدمة في تطبيقاتك ومشاريعك بسهولة.
+                                مرحبًا بك في وثائق NovaArab AI. توفر هذه المنصة مجموعة شاملة من الأدوات وواجهات برمجة التطبيقات (APIs) التي تمكّنك من دمج قدرات الذكاء الاصطناعي المتقدمة في تطبيقاتك ومشاريعك بسهولة.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -156,11 +156,11 @@ export default function AIDocsPage() {
                         <div className="space-y-4">
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-900 border border-slate-800">
                                 <span className="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs font-mono font-bold">GET</span>
-                                <code className="text-sm font-mono text-slate-300">https://api.arabshield.com/v1/models</code>
+                                <code className="text-sm font-mono text-slate-300">https://api.NovaArab.com/v1/models</code>
                             </div>
                             <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-900 border border-slate-800">
                                 <span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400 text-xs font-mono font-bold">POST</span>
-                                <code className="text-sm font-mono text-slate-300">https://api.arabshield.com/v1/chat/completions</code>
+                                <code className="text-sm font-mono text-slate-300">https://api.NovaArab.com/v1/chat/completions</code>
                             </div>
                         </div>
                     </section>
@@ -174,7 +174,7 @@ export default function AIDocsPage() {
 
                         <div className="mb-8">
                             <h3 className="text-lg font-semibold text-white mb-4">cURL Request</h3>
-                            <CodeBlock language="bash" code={`curl https://api.arabshield.com/v1/chat/completions \\
+                            <CodeBlock language="bash" code={`curl https://api.NovaArab.com/v1/chat/completions \\
   -H "Content-Type: application/json" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -d '{
@@ -192,7 +192,7 @@ export default function AIDocsPage() {
 
 const client = new OpenAI({
   apiKey: process.env['AS_API_KEY'], // This is the default and can be omitted
-  baseURL: 'https://api.arabshield.com/v1',
+  baseURL: 'https://api.NovaArab.com/v1',
 });
 
 async function main() {

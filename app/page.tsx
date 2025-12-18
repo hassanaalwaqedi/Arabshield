@@ -94,7 +94,7 @@ export default function Home() {
               ابنِ المستقبل
             </span>
             <br />
-            <span className="text-white">مع ArabShield</span>
+            <span className="text-white">مع NovaArab</span>
           </motion.h1>
 
           <motion.p
@@ -265,7 +265,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              لماذا تختار ArabShield؟
+              لماذا تختار NovaArab؟
             </h2>
             <p className="text-xl text-abyss-400 max-w-2xl mx-auto">
               تقنية رائدة في المجال مع جودة ودعم لا يتنازلان.
@@ -312,7 +312,7 @@ export default function Home() {
             هل أنت مستعد لتحويل أعمالك؟
           </h2>
           <p className="text-xl text-abyss-300 mb-12 max-w-2xl mx-auto">
-            انضم إلى أكثر من 20 شركة تثق في ArabShield لبناء مستقبلها الرقمي.
+            انضم إلى أكثر من 20 شركة تثق في NovaArab لبناء مستقبلها الرقمي.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/order">

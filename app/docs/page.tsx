@@ -46,7 +46,7 @@ export default function DocsPage() {
                         التوثيق
                     </h1>
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                        كل ما تحتاج معرفته لبناء تطبيقات احترافية مع ArabShield. أدلة شاملة ومراجع API ومواضيع متقدمة.
+                        كل ما تحتاج معرفته لبناء تطبيقات احترافية مع NovaArab. أدلة شاملة ومراجع API ومواضيع متقدمة.
                     </p>
 
                     {/* Search Bar */}
@@ -96,7 +96,7 @@ export default function DocsPage() {
                         <FileText className="w-5 h-5 text-yellow-400" />
                         <span>المشاكل الشائعة</span>
                     </Link>
-                    <a href="https://github.com/arabshield" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 border border-slate-800 rounded-xl hover:border-blue-500/50 transition-colors">
+                    <a href="https://github.com/NovaArab" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 border border-slate-800 rounded-xl hover:border-blue-500/50 transition-colors">
                         <ExternalLink className="w-5 h-5 text-slate-400" />
                         <span>GitHub</span>
                     </a>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Shield, Sparkles } from 'lucide-react';
 
-const WELCOME_STORAGE_KEY = 'arabshield_welcome_shown';
+const WELCOME_STORAGE_KEY = 'NovaArab_welcome_shown';
 
 export function WelcomeCard() {
     const [isVisible, setIsVisible] = useState(false);
@@ -106,7 +106,7 @@ export function WelcomeCard() {
                                     >
                                         مرحبًا بك في{' '}
                                         <span className="bg-gradient-to-r from-electric-400 to-neon-400 bg-clip-text text-transparent">
-                                            ArabShield
+                                            NovaArab
                                         </span>
                                     </motion.h2>
 

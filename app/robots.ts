@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ['/dashboard/', '/api/', '/admin/'],
             },
         ],
-        sitemap: 'https://arabshield.vercel.app/sitemap.xml',
+        sitemap: 'https://NovaArab.vercel.app/sitemap.xml',
     };
 }

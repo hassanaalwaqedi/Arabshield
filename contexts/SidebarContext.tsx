@@ -12,7 +12,7 @@ interface SidebarContextType {
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
-const SIDEBAR_COLLAPSED_KEY = 'arabshield_sidebar_collapsed';
+const SIDEBAR_COLLAPSED_KEY = 'NovaArab_sidebar_collapsed';
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
