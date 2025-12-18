@@ -1,0 +1,122 @@
+{
+    "common": {
+        "brand": "NovaArab",
+        "tagline": "Future Technology",
+        "orderService": "Order Service",
+        "learnMore": "Learn More",
+        "contactUs": "Contact Us",
+        "startProject": "Start Your Project",
+        "viewServices": "Explore Services",
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "contact": "Contact",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "login": "Login",
+        "register": "Register",
+        "dashboard": "Dashboard",
+        "support": "Support",
+        "careers": "Careers",
+        "partners": "Partners",
+        "marketplace": "Marketplace",
+        "privacyPolicy": "Privacy Policy",
+        "terms": "Terms & Conditions"
+    },
+    "navigation": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About Us",
+        "portfolio": "Portfolio",
+        "caseStudies": "Case Studies",
+        "blog": "Blog",
+        "aiSolutions": "AI Solutions",
+        "tutorials": "Tutorials",
+        "partners": "Partners",
+        "pricing": "Pricing",
+        "contact": "Contact",
+        "order": "Order Service",
+        "faq": "FAQ",
+        "marketplace": "Marketplace",
+        "careers": "Careers"
+    },
+    "hero": {
+        "title": "Build the Future",
+        "titleHighlight": "with NovaArab",
+        "description": "Enterprise-grade web and mobile development, advanced cybersecurity, and AI-powered solutions for the modern digital landscape.",
+        "trustedBy": "Trusted by 500+ global companies",
+        "startProject": "Start Your Project",
+        "exploreServices": "Explore Services"
+    },
+    "stats": {
+        "projects": "Projects Completed",
+        "satisfaction": "Client Satisfaction",
+        "support": "Available Support",
+        "uptime": "Uptime Guarantee"
+    },
+    "services": {
+        "title": "Comprehensive Tech Solutions",
+        "subtitle": "From concept to deployment, we deliver excellence across the entire tech stack.",
+        "webDev": {
+            "title": "Web Development",
+            "description": "Enterprise-grade web platforms built with cutting-edge technology for maximum performance and scalability."
+        },
+        "mobileDev": {
+            "title": "Mobile Apps",
+            "description": "Native and cross-platform mobile applications delivering exceptional user experiences on iOS and Android."
+        },
+        "security": {
+            "title": "Cybersecurity",
+            "description": "Advanced security solutions to protect your digital assets from evolving cyber threats."
+        },
+        "ai": {
+            "title": "AI Solutions",
+            "description": "Intelligent automation and AI-powered applications that transform your business operations."
+        }
+    },
+    "whyUs": {
+        "title": "Why Choose NovaArab?",
+        "subtitle": "Industry-leading technology with uncompromising quality and support.",
+        "speed": {
+            "title": "Blazing Fast",
+            "description": "Optimized for speed and performance"
+        },
+        "security": {
+            "title": "Enterprise Security",
+            "description": "Bank-level encryption and protection"
+        },
+        "ai": {
+            "title": "AI-Powered",
+            "description": "Built-in intelligent automation"
+        },
+        "global": {
+            "title": "Global Scale",
+            "description": "Deploy anywhere, scale without limits"
+        }
+    },
+    "cta": {
+        "title": "Ready to Transform Your Business?",
+        "description": "Join 20+ companies trusting NovaArab to build their digital future.",
+        "startToday": "Start Today",
+        "talkToExpert": "Talk to an Expert"
+    },
+    "footer": {
+        "description": "Empowering businesses with cutting-edge digital solutions. From custom software to mobile apps, we're building the future of technology in the Arab world.",
+        "quickLinks": "Quick Links",
+        "services": "Our Services",
+        "support": "Support",
+        "legal": "Legal",
+        "newsletter": "Newsletter",
+        "newsletterDesc": "Subscribe for the latest news and offers",
+        "subscribe": "Subscribe",
+        "emailPlaceholder": "Your email",
+        "copyright": "© 2024 NovaArab. All rights reserved."
+    },
+    "language": {
+        "ar": "العربية",
+        "en": "English",
+        "switch": "Switch Language"
+    }
+}
