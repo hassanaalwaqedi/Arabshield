@@ -24,8 +24,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
 
     const isArabic = locale === 'ar';
+    const siteUrl = 'https://arabshield.vercel.app';
 
     return {
+        metadataBase: new URL(siteUrl),
         title: {
             default: isArabic ? 'NovaArab | تقنية المستقبل' : 'NovaArab | Future Technology',
             template: '%s | NovaArab',
@@ -37,6 +39,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             ? ['تطوير الويب', 'تطوير التطبيقات', 'شركة برمجيات', 'السعودية', 'حلول تقنية', 'NovaArab']
             : ['Web Development', 'App Development', 'Software Company', 'Saudi Arabia', 'Tech Solutions', 'NovaArab'],
         authors: [{ name: 'NovaArab Team' }],
+        icons: {
+            icon: '/favicon.ico',
+            shortcut: '/favicon.ico',
+            apple: '/favicon.ico',
+        },
+        openGraph: {
+            type: 'website',
+            siteName: 'NovaArab',
+            title: isArabic ? 'NovaArab | تقنية المستقبل' : 'NovaArab | Future Technology',
+            description: isArabic
+                ? 'NovaArab توفر حلول تطوير الويب والتطبيقات والبرمجيات المخصصة للمؤسسات الحديثة.'
+                : 'NovaArab provides top-tier web development, mobile apps, and custom software solutions for the modern enterprise.',
+            url: siteUrl,
+            images: [
+                {
+                    url: '/og-image.png',
+                    width: 1200,
+                    height: 630,
+                    alt: 'NovaArab',
+                },
+            ],
+            locale: locale === 'ar' ? 'ar_SA' : locale === 'tr' ? 'tr_TR' : 'en_US',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: isArabic ? 'NovaArab | تقنية المستقبل' : 'NovaArab | Future Technology',
+            description: isArabic
+                ? 'NovaArab توفر حلول تطوير الويب والتطبيقات والبرمجيات المخصصة للمؤسسات الحديثة.'
+                : 'NovaArab provides top-tier web development, mobile apps, and custom software solutions for the modern enterprise.',
+            images: ['/og-image.png'],
+        },
         alternates: {
             languages: {
                 'ar': '/',
