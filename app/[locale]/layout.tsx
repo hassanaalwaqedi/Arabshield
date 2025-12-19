@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             url: siteUrl,
             images: [
                 {
-                    url: '/og-image.png',
+                    url: `${siteUrl}/og-image.png`,
                     width: 1200,
                     height: 630,
                     alt: 'NovaArab',
@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             description: isArabic
                 ? 'NovaArab توفر حلول تطوير الويب والتطبيقات والبرمجيات المخصصة للمؤسسات الحديثة.'
                 : 'NovaArab provides top-tier web development, mobile apps, and custom software solutions for the modern enterprise.',
-            images: ['/og-image.png'],
+            images: [`${siteUrl}/og-image.png`],
         },
         alternates: {
             languages: {
