@@ -116,16 +116,16 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} dir={dir} className={inter.variable} suppressHydrationWarning>
-            <body className="flex min-h-screen bg-background font-sans text-foreground selection:bg-blue-500/30">
+            <body className="flex flex-col md:flex-row-reverse min-h-screen bg-background font-sans text-foreground selection:bg-blue-500/30">
                 <NextIntlClientProvider messages={messages} locale={locale}>
                     <ClientProviders>
-                        {/* Sidebar */}
+                        {/* Sidebar - Left on desktop (via row-reverse), stacked on mobile */}
                         <Sidebar />
 
                         {/* Main Content Area - adjusts based on sidebar state */}
                         <MainContent>
                             <Header />
-                            <main className="flex-grow">
+                            <main className="flex-grow max-w-full px-0">
                                 {children}
                             </main>
                             <Footer />
