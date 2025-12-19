@@ -396,5 +396,290 @@
             "and": "ve",
             "privacyPolicy": "Gizlilik Politikası"
         }
+    },
+    "footer": {
+        "newsletter": {
+            "subscribers": "1.000'den fazla aboneye katılın",
+            "stayAhead": "Öne Geçin",
+            "description": "Özel içgörüler, pazar trendleri ve yenilikçi çözümleri doğrudan e-postanıza alın.",
+            "placeholder": "E-posta adresinizi girin",
+            "subscribe": "Abone Ol",
+            "success": "Başarıyla abone oldunuz! E-postanızı kontrol edin.",
+            "consent": "Abone olarak gizlilik politikamızı kabul ediyor ve güncellemeler almayı onaylıyorsunuz."
+        },
+        "company": {
+            "title": "Şirket",
+            "about": "Hakkımızda",
+            "services": "Hizmetlerimiz",
+            "pricing": "Fiyatlandırma",
+            "careers": "Kariyer",
+            "hiring": "İşe Alıyoruz"
+        },
+        "resources": {
+            "title": "Kaynaklar",
+            "support": "Destek Merkezi",
+            "faq": "SSS",
+            "privacy": "Gizlilik Politikası",
+            "terms": "Hizmet Şartları"
+        },
+        "contact": {
+            "title": "Bize Ulaşın",
+            "office": "Ofis Konumu",
+            "email": "E-posta Gönderin",
+            "call": "Bizi Arayın"
+        },
+        "description": "En son dijital çözümlerle işletmeleri güçlendiriyoruz. Özel yazılımdan mobil uygulamalara, Arap dünyasında teknolojinin geleceğini inşa ediyoruz.",
+        "stats": {
+            "projects": "Projeler",
+            "satisfaction": "Memnuniyet",
+            "support": "Destek"
+        },
+        "followUs": "Bizi Takip Edin",
+        "copyright": "Tüm hakları saklıdır.",
+        "privacy": "Gizlilik",
+        "terms": "Şartlar",
+        "sitemap": "Site Haritası",
+        "badges": {
+            "ssl": "SSL Korumalı",
+            "gdpr": "GDPR Uyumlu",
+            "iso": "ISO 27001 Sertifikalı"
+        }
+    },
+    "services": {
+        "badge": "Kapsamlı Çözümler",
+        "title": "Hizmetlerimiz",
+        "subtitle": "Dijital çağda işinizi ileriye taşımak için tasarlanmış kapsamlı teknoloji çözümleri. Konseptten dağıtıma ve ötesine.",
+        "startNow": "Şimdi Başla",
+        "mostPopular": "En Çok Talep Edilen",
+        "webDev": {
+            "title": "Web Geliştirme",
+            "description": "Ziyaretçileri çeken ve müşteriye dönüştüren hızlı, duyarlı ve güvenli web siteleri.",
+            "features": [
+                "Özel Duyarlı Tasarım",
+                "Next.js ve React Uygulamaları",
+                "E-ticaret Platformları",
+                "SEO Optimizasyonu",
+                "Performans Ayarları"
+            ]
+        },
+        "mobileDev": {
+            "title": "Mobil Uygulama Geliştirme",
+            "description": "iOS ve Android için yerel ve çapraz platform mobil uygulamalar.",
+            "features": [
+                "iOS ve Android Geliştirme",
+                "Flutter ve React Native",
+                "Uygulama Mağazası Dağıtımı",
+                "Push Bildirimleri",
+                "Çevrimdışı İşlevsellik"
+            ]
+        },
+        "customSoftware": {
+            "title": "Özel Yazılım",
+            "description": "Benzersiz iş gereksinimleriniz için özel olarak tasarlanmış çözümler.",
+            "features": [
+                "Süreç Otomasyonu",
+                "API Geliştirme",
+                "Veritabanı Tasarımı",
+                "Eski Sistem Modernizasyonu",
+                "Üçüncü Taraf Entegrasyonu"
+            ]
+        },
+        "cloudSolutions": {
+            "title": "Bulut Çözümleri",
+            "description": "Güvenli ve ölçeklenebilir bulut altyapısı kurulumu ve yönetimi.",
+            "features": [
+                "AWS, Azure ve GCP Uzmanlığı",
+                "Bulut Migrasyon",
+                "DevOps ve CI/CD",
+                "Kod Olarak Altyapı",
+                "Maliyet Optimizasyonu"
+            ]
+        },
+        "cybersecurity": {
+            "title": "Siber Güvenlik",
+            "description": "Şirket varlıklarınızı dijital tehditlerden koruyun.",
+            "features": [
+                "Güvenlik Denetimleri",
+                "Penetrasyon Testleri",
+                "Uyumluluk (SOC2, GDPR)",
+                "Tehdit İzleme",
+                "Olay Müdahalesi"
+            ]
+        },
+        "aiSolutions": {
+            "title": "Yapay Zeka Çözümleri",
+            "description": "Akıllı otomasyon ve makine öğrenimi sistemleri.",
+            "features": [
+                "Özel AI Modelleri",
+                "Doğal Dil İşleme",
+                "Bilgisayar Görüşü",
+                "Tahmine Dayalı Analitik",
+                "Chatbot ve Otomasyon"
+            ]
+        },
+        "whyChooseUs": {
+            "title": "Neden Bizi Seçmelisiniz",
+            "subtitle": "Her adımda mükemmellik sunuyoruz",
+            "expertTeam": {
+                "title": "Uzman Ekip",
+                "description": "Tüm teknolojilerde 50'den fazla sertifikalı profesyonel"
+            },
+            "provenResults": {
+                "title": "Kanıtlanmış Sonuçlar",
+                "description": "%98 müşteri memnuniyeti ve proje başarı oranı"
+            },
+            "secureCompliant": {
+                "title": "Güvenli ve Uyumlu",
+                "description": "Sektör lideri güvenlik ve uyumluluk standartları"
+            },
+            "fastDelivery": {
+                "title": "Hızlı Teslimat",
+                "description": "Hızlı geliştirme döngüleri için çevik metodolojiler"
+            }
+        },
+        "process": {
+            "title": "Sürecimiz",
+            "subtitle": "Vizyonunuzu gerçeğe nasıl dönüştürüyoruz",
+            "discovery": {
+                "title": "Keşif",
+                "description": "İhtiyaçlarınızı ve hedeflerinizi anlama"
+            },
+            "planning": {
+                "title": "Planlama",
+                "description": "Stratejik yol haritası ve zaman çizelgesi"
+            },
+            "development": {
+                "title": "Geliştirme",
+                "description": "Düzenli güncellemelerle çevik sprintler"
+            },
+            "launch": {
+                "title": "Lansman",
+                "description": "Dağıtım ve sürekli destek"
+            }
+        },
+        "technologies": {
+            "title": "Kullandığımız Teknolojiler",
+            "subtitle": "En son araçlar ve çerçeveler"
+        },
+        "cta": {
+            "title": "Projenize Başlamaya Hazır mısınız?",
+            "description": "Hizmetlerimizin işinizi nasıl dönüştürebileceğini ve hedeflerinize ulaşmanıza nasıl yardımcı olabileceğini tartışalım.",
+            "startNow": "Şimdi Başla",
+            "viewPortfolio": "Portföyü Görüntüle"
+        }
+    },
+    "caseStudies": {
+        "badge": "Seçkin Çalışmalarımız",
+        "title": "Vaka Çalışmaları ve Başarı Projeleri",
+        "subtitle": "Ortaklarımıza yenilikçi teknoloji çözümleri sunmaktan gurur duyuyoruz. En son teknolojileri kullanarak iddialı fikirleri somut dijital gerçekliğe nasıl dönüştürdüğümüzü keşfedin.",
+        "readMore": "Daha Fazla Oku",
+        "studies": {
+            "ecommerce": {
+                "title": "Akıllı E-ticaret Platformu",
+                "description": "Kişiselleştirilmiş öneriler ve sorunsuz kullanıcı deneyimi sunmak için AI destekli entegre e-ticaret platformu geliştirme, satışlarda %40 artış sağladı.",
+                "category": "Web Geliştirme"
+            },
+            "erp": {
+                "title": "Kurumsal Kaynak Yönetimi (ERP)",
+                "description": "Büyük şirketlerin dahili operasyonlarını yönetmek için kapsamlı bulut çözümü, İK, satış ve muhasebeyi birleşik bir panoda birleştiriyor.",
+                "category": "Kurumsal Sistemler"
+            },
+            "logistics": {
+                "title": "Lojistik ve Gönderi Takip Uygulaması",
+                "description": "Coğrafi konum teknolojilerini kullanarak gerçek zamanlı gönderi takibi için akıllı uygulama, teslimat rotalarını optimize eden algoritmalarla.",
+                "category": "Mobil Uygulamalar"
+            },
+            "education": {
+                "title": "İnteraktif Dijital Eğitim Portalı",
+                "description": "100.000'den fazla eşzamanlı öğrenciyi barındırmak için tasarlanmış, canlı sanal sınıfları ve interaktif içeriği destekleyen eğitim platformu.",
+                "category": "Eğitim Teknolojisi"
+            },
+            "banking": {
+                "title": "Bankacılık Siber Güvenlik Sistemi",
+                "description": "Tehditleri ve siber saldırıları proaktif olarak tespit etmek için makine öğrenimine dayanan bankacılık altyapısı için gelişmiş koruma katmanı geliştirme.",
+                "category": "Siber Güvenlik"
+            },
+            "finance": {
+                "title": "AI Finansal Analiz Platformu",
+                "description": "Finansal analistler için büyük veri işleme ve yüksek doğruluk ve hızla piyasa tahminleri çıkarmayı sağlayan gelişmiş araç.",
+                "category": "Yapay Zeka"
+            }
+        }
+    },
+    "aiSolutions": {
+        "badge": "Gelecek Nesil Teknoloji",
+        "title": "Kurumlar için Yapay Zeka Çözümleri",
+        "subtitle": "Kurumları verimliliği artırmak, maliyetleri düşürmek ve olağanüstü müşteri deneyimleri yaratmak için AI'ın gücünden yararlanmaları için güçlendiriyoruz. Basit otomasyondan karmaşık modellere, akıllı dönüşüm yolculuğunda ortağınızız.",
+        "lookingForCustom": "Özel bir çözüm mü arıyorsunuz?",
+        "customDescription": "Özel modelinizi oluşturmaya hazır bir AI mühendisleri ekibimiz var.",
+        "contactUs": "Bize Ulaşın",
+        "ctaTitle": "İşinizi Geleceğe Taşımaya Hazır mısınız?",
+        "ctaDescription": "AI'ın hedeflerinize nasıl hizmet edebileceğini tartışmak için uzmanlarımızla ücretsiz danışmanlık randevusu alın.",
+        "ctaButton": "AI Danışmanlığı Talep Et",
+        "services": {
+            "chatbots": {
+                "title": "Akıllı Chatbot Sistemleri",
+                "description": "Yerel lehçeleri anlama yeteneği yüksek, 7/24 anlık ve akıllı müşteri desteği sağlamak için LLaMA ve GPT modelleriyle desteklenen gelişmiş chatbotlar.",
+                "features": [
+                    "Çok Dilli Destek",
+                    "CRM Entegrasyonu",
+                    "Sürekli Öğrenme"
+                ]
+            },
+            "dataAnalysis": {
+                "title": "Veri Analizi ve Tahmin",
+                "description": "Büyük veriyi eyleme dönüştürülebilir içgörülere dönüştürmek için gelişmiş algoritmalar, doğru gerçeklere dayalı stratejik kararlar almaya yardımcı olur.",
+                "features": [
+                    "Satış Tahminleri",
+                    "Müşteri Davranış Analizi",
+                    "İnteraktif Panolar"
+                ]
+            },
+            "contentGen": {
+                "title": "Yaratıcı İçerik Üretimi",
+                "description": "Marka kimliğinize uyacak ve hedef kitlenizi çekecek şekilde tasarlanmış yüksek kaliteli pazarlama metinleri, görseller ve videolar oluşturmak için akıllı araçlar.",
+                "features": [
+                    "Makale Yazımı",
+                    "Grafik Tasarım",
+                    "Yayın Otomasyonu"
+                ]
+            },
+            "recommendations": {
+                "title": "Kişiselleştirilmiş Öneri Sistemleri",
+                "description": "Dönüşüm oranlarını artıran, her kullanıcı için tercihlerine ve geçmiş davranışlarına göre uygun ürün ve içerik öneren akıllı öneri motorları.",
+                "features": [
+                    "Artan Satışlar",
+                    "Geliştirilmiş UX",
+                    "Kişiselleştirilmiş Teklifler"
+                ]
+            },
+            "vision": {
+                "title": "Bilgisayar Görüşü",
+                "description": "Yüz tanıma, kalite kontrolü ve güvenlik izleme için yüksek doğrulukla ve otomatik olarak görüntü ve video analiz etme yeteneğine sahip çözümler.",
+                "features": [
+                    "Yüz Tanıma",
+                    "Kalite İzleme",
+                    "Duygu Analizi"
+                ]
+            }
+        }
+    },
+    "admin": {
+        "users": {
+            "title": "Kullanıcı Yönetimi",
+            "searchPlaceholder": "Kullanıcı ara...",
+            "addUser": "Kullanıcı Ekle",
+            "name": "Ad",
+            "email": "E-posta",
+            "role": "Rol",
+            "status": "Durum",
+            "actions": "İşlemler",
+            "active": "Aktif",
+            "inactive": "Pasif",
+            "edit": "Düzenle",
+            "delete": "Sil",
+            "noUsers": "Kullanıcı bulunamadı",
+            "loading": "Kullanıcılar yükleniyor..."
+        }
     }
 }

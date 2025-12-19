@@ -395,5 +395,290 @@
             "and": "and",
             "privacyPolicy": "Privacy Policy"
         }
+    },
+    "footer": {
+        "newsletter": {
+            "subscribers": "Join over 1,000 subscribers",
+            "stayAhead": "Stay Ahead",
+            "description": "Get exclusive insights, market trends, and innovative solutions directly to your inbox.",
+            "placeholder": "Enter your email",
+            "subscribe": "Subscribe",
+            "success": "Subscribed successfully! Check your email.",
+            "consent": "By subscribing, you agree to our privacy policy and consent to receive updates."
+        },
+        "company": {
+            "title": "Company",
+            "about": "About Us",
+            "services": "Our Services",
+            "pricing": "Pricing Plans",
+            "careers": "Careers",
+            "hiring": "Hiring"
+        },
+        "resources": {
+            "title": "Resources",
+            "support": "Support Center",
+            "faq": "FAQs",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        },
+        "contact": {
+            "title": "Contact Us",
+            "office": "Office Location",
+            "email": "Email Us",
+            "call": "Call Us"
+        },
+        "description": "Empowering businesses with cutting-edge digital solutions. From custom software to mobile apps, we build the future of technology in the Arab world.",
+        "stats": {
+            "projects": "Projects",
+            "satisfaction": "Satisfaction",
+            "support": "Support"
+        },
+        "followUs": "Follow Us",
+        "copyright": "All rights reserved.",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "sitemap": "Sitemap",
+        "badges": {
+            "ssl": "SSL Protected",
+            "gdpr": "GDPR Compliant",
+            "iso": "ISO 27001 Certified"
+        }
+    },
+    "services": {
+        "badge": "Complete Solutions",
+        "title": "Our Services",
+        "subtitle": "Comprehensive tech solutions designed to propel your business forward in the digital age. From concept to deployment and beyond.",
+        "startNow": "Start Now",
+        "mostPopular": "Most Requested",
+        "webDev": {
+            "title": "Web Development",
+            "description": "Fast, responsive, and secure websites that attract visitors and convert them into customers.",
+            "features": [
+                "Custom Responsive Design",
+                "Next.js & React Apps",
+                "E-commerce Platforms",
+                "SEO Optimization",
+                "Performance Tuning"
+            ]
+        },
+        "mobileDev": {
+            "title": "Mobile App Development",
+            "description": "Native and cross-platform mobile apps for iOS and Android.",
+            "features": [
+                "iOS & Android Development",
+                "Flutter & React Native",
+                "App Store Deployment",
+                "Push Notifications",
+                "Offline Functionality"
+            ]
+        },
+        "customSoftware": {
+            "title": "Custom Software",
+            "description": "Tailored solutions designed specifically for your unique business requirements.",
+            "features": [
+                "Process Automation",
+                "API Development",
+                "Database Design",
+                "Legacy System Modernization",
+                "Third-party Integration"
+            ]
+        },
+        "cloudSolutions": {
+            "title": "Cloud Solutions",
+            "description": "Secure and scalable cloud infrastructure setup and management.",
+            "features": [
+                "AWS, Azure & GCP Expertise",
+                "Cloud Migration",
+                "DevOps & CI/CD",
+                "Infrastructure as Code",
+                "Cost Optimization"
+            ]
+        },
+        "cybersecurity": {
+            "title": "Cybersecurity",
+            "description": "Protect your company assets from digital threats.",
+            "features": [
+                "Security Audits",
+                "Penetration Testing",
+                "Compliance (SOC2, GDPR)",
+                "Threat Monitoring",
+                "Incident Response"
+            ]
+        },
+        "aiSolutions": {
+            "title": "AI Solutions",
+            "description": "Intelligent automation and machine learning systems.",
+            "features": [
+                "Custom AI Models",
+                "Natural Language Processing",
+                "Computer Vision",
+                "Predictive Analytics",
+                "Chatbots & Automation"
+            ]
+        },
+        "whyChooseUs": {
+            "title": "Why Choose Us",
+            "subtitle": "We deliver excellence at every step",
+            "expertTeam": {
+                "title": "Expert Team",
+                "description": "50+ certified professionals across all technologies"
+            },
+            "provenResults": {
+                "title": "Proven Results",
+                "description": "98% client satisfaction and project success rate"
+            },
+            "secureCompliant": {
+                "title": "Secure & Compliant",
+                "description": "Industry-leading security and compliance standards"
+            },
+            "fastDelivery": {
+                "title": "Fast Delivery",
+                "description": "Agile methodologies for rapid development cycles"
+            }
+        },
+        "process": {
+            "title": "Our Process",
+            "subtitle": "How we transform your vision into reality",
+            "discovery": {
+                "title": "Discovery",
+                "description": "Understanding your needs and goals"
+            },
+            "planning": {
+                "title": "Planning",
+                "description": "Strategic roadmap and timeline"
+            },
+            "development": {
+                "title": "Development",
+                "description": "Agile sprints with regular updates"
+            },
+            "launch": {
+                "title": "Launch",
+                "description": "Deployment and ongoing support"
+            }
+        },
+        "technologies": {
+            "title": "Technologies We Use",
+            "subtitle": "Cutting-edge tools and frameworks"
+        },
+        "cta": {
+            "title": "Ready to Start Your Project?",
+            "description": "Let's discuss how our services can transform your business and help you achieve your goals.",
+            "startNow": "Start Now",
+            "viewPortfolio": "View Portfolio"
+        }
+    },
+    "caseStudies": {
+        "badge": "Our Distinguished Work",
+        "title": "Case Studies & Success Projects",
+        "subtitle": "We take pride in delivering innovative tech solutions to our partners. Explore how we transformed ambitious ideas into tangible digital reality using cutting-edge technologies.",
+        "readMore": "Read More",
+        "studies": {
+            "ecommerce": {
+                "title": "Smart E-commerce Platform",
+                "description": "Development of an integrated e-commerce platform supported by AI to deliver personalized recommendations and a seamless user experience, resulting in a 40% increase in sales.",
+                "category": "Web Development"
+            },
+            "erp": {
+                "title": "Enterprise Resource Management (ERP)",
+                "description": "Comprehensive cloud solution for managing internal operations of large companies, linking HR, sales, and accounting in a unified dashboard.",
+                "category": "Enterprise Systems"
+            },
+            "logistics": {
+                "title": "Logistics & Shipment Tracking App",
+                "description": "Smart app for real-time shipment tracking using geolocation technologies, with algorithms to optimize delivery routes.",
+                "category": "Mobile Apps"
+            },
+            "education": {
+                "title": "Interactive Digital Education Portal",
+                "description": "Educational platform supporting live virtual classrooms and interactive content, designed to accommodate over 100,000 concurrent students.",
+                "category": "EdTech"
+            },
+            "banking": {
+                "title": "Banking Cybersecurity System",
+                "description": "Development of an advanced protection layer for banking infrastructure, relying on machine learning to proactively detect threats and cyber attacks.",
+                "category": "Cybersecurity"
+            },
+            "finance": {
+                "title": "AI Financial Analysis Platform",
+                "description": "Advanced tool for financial analysts enabling large data processing and extracting market predictions with high accuracy and speed.",
+                "category": "Artificial Intelligence"
+            }
+        }
+    },
+    "aiSolutions": {
+        "badge": "Next Generation Technology",
+        "title": "AI Solutions for Enterprises",
+        "subtitle": "We empower enterprises to harness the power of AI to improve efficiency, reduce costs, and create exceptional customer experiences. From simple automation to complex models, we are your partner in the intelligent transformation journey.",
+        "lookingForCustom": "Looking for a custom solution?",
+        "customDescription": "We have a team of AI engineers ready to build your custom model.",
+        "contactUs": "Contact Us",
+        "ctaTitle": "Ready to Take Your Business to the Future?",
+        "ctaDescription": "Book a free consultation with our experts to discuss how AI can serve your goals.",
+        "ctaButton": "Request AI Consultation",
+        "services": {
+            "chatbots": {
+                "title": "Intelligent Chatbot Systems",
+                "description": "Advanced chatbots powered by LLaMA and GPT models to provide instant, intelligent customer support around the clock, with high capability to understand local dialects.",
+                "features": [
+                    "Multi-language Support",
+                    "CRM Integration",
+                    "Continuous Learning"
+                ]
+            },
+            "dataAnalysis": {
+                "title": "Data Analysis & Prediction",
+                "description": "Advanced algorithms to transform big data into actionable insights, helping make strategic decisions based on accurate facts.",
+                "features": [
+                    "Sales Forecasting",
+                    "Customer Behavior Analysis",
+                    "Interactive Dashboards"
+                ]
+            },
+            "contentGen": {
+                "title": "Creative Content Generation",
+                "description": "Smart tools to create high-quality marketing texts, images, and videos, designed to match your brand identity and attract your target audience.",
+                "features": [
+                    "Article Writing",
+                    "Graphic Design",
+                    "Publishing Automation"
+                ]
+            },
+            "recommendations": {
+                "title": "Personalized Recommendation Systems",
+                "description": "Smart recommendation engines that suggest suitable products and content for each user based on their preferences and past behavior, increasing conversion rates.",
+                "features": [
+                    "Increased Sales",
+                    "Improved UX",
+                    "Personalized Offers"
+                ]
+            },
+            "vision": {
+                "title": "Computer Vision",
+                "description": "Solutions capable of analyzing images and videos for facial recognition, quality inspection, and security monitoring with high accuracy and automatically.",
+                "features": [
+                    "Face Recognition",
+                    "Quality Monitoring",
+                    "Emotion Analysis"
+                ]
+            }
+        }
+    },
+    "admin": {
+        "users": {
+            "title": "User Management",
+            "searchPlaceholder": "Search users...",
+            "addUser": "Add User",
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "status": "Status",
+            "actions": "Actions",
+            "active": "Active",
+            "inactive": "Inactive",
+            "edit": "Edit",
+            "delete": "Delete",
+            "noUsers": "No users found",
+            "loading": "Loading users..."
+        }
     }
 }
