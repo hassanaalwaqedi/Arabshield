@@ -40,9 +40,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             : ['Web Development', 'App Development', 'Software Company', 'Saudi Arabia', 'Tech Solutions', 'NovaArab'],
         authors: [{ name: 'NovaArab Team' }],
         icons: {
-            icon: '/favicon.ico',
+            icon: [
+                { url: '/favicon.ico', sizes: 'any' },
+                { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+            ],
             shortcut: '/favicon.ico',
-            apple: '/favicon.ico',
+            apple: '/icon.png',
         },
         openGraph: {
             type: 'website',
