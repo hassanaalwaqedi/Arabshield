@@ -29,6 +29,21 @@ service firebase.storage {
       allow delete: if request.auth != null && request.auth.uid == userId;
     }
     
+    // ==========================================
+    // CV/Resume Uploads for Job Applications
+    // READ: Any authenticated user or admin
+    // WRITE: Public (for job applications)
+    // ==========================================
+    match /cvs/{fileName} {
+      // Allow read for authenticated users (admins reviewing applications)
+      allow read: if request.auth != null;
+      
+      // Allow public upload of PDFs (for job applications)
+      // Max 5MB, PDF files only
+      allow write: if request.resource.size < 5 * 1024 * 1024 &&
+                   request.resource.contentType == 'application/pdf';
+    }
+    
     // Default - deny all
     match /{allPaths=**} {
       allow read, write: if false;
