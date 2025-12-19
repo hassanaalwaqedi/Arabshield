@@ -332,5 +332,68 @@
         "hr": "Human Resources",
         "finance": "Finance",
         "operations": "Operations"
+    },
+    "auth": {
+        "welcomeBack": "Welcome Back",
+        "loginSubtitle": "Sign in to access your dashboard",
+        "createAccount": "Create Account",
+        "registerSubtitle": "Start your journey with NovaArab",
+        "joinToday": "Join us today",
+        "email": "Email Address",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "fullName": "Full Name",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "forgotPassword": "Forgot password?",
+        "login": "Sign In",
+        "register": "Create Account",
+        "processing": "Processing...",
+        "creatingAccount": "Creating account...",
+        "noAccount": "Don't have an account?",
+        "createOne": "Create one",
+        "haveAccount": "Already have an account?",
+        "signIn": "Sign in",
+        "secureLogin": "Secure login",
+        "encryptedData": "Encrypted data",
+        "noCreditCard": "No credit card required",
+        "startFree": "Start with free tier",
+        "cancelAnytime": "Cancel anytime",
+        "enterpriseEncryption": "Protected by enterprise-grade encryption",
+        "passwordMinLength": "Password must be at least 6 characters",
+        "errors": {
+            "fillAllFields": "Please fill all required fields",
+            "invalidEmail": "Invalid email format",
+            "passwordTooShort": "Password must be at least 6 characters",
+            "loginFailed": "Login failed",
+            "registerFailed": "Registration failed",
+            "unexpectedError": "An unexpected error occurred",
+            "nameRequired": "Name is required",
+            "emailRequired": "Email is required",
+            "passwordRequired": "Password is required"
+        },
+        "verification": {
+            "title": "Verify Your Email",
+            "subtitle": "We sent a verification link to your email",
+            "checkEmail": "Please check your email",
+            "clickLink": "and click the link to activate your account",
+            "resendEmail": "Resend verification email",
+            "redirecting": "Redirecting to verification page..."
+        },
+        "success": {
+            "accountCreated": "Account created successfully!",
+            "verificationSent": "Verification link sent to your email"
+        },
+        "registrationClosed": {
+            "title": "Registration is Closed",
+            "subtitle": "Sorry, registration is not available at this time.",
+            "contactAdmin": "To get an account, please contact admin at:"
+        },
+        "terms": {
+            "byRegistering": "By registering, you agree to our",
+            "termsOfService": "Terms of Service",
+            "and": "and",
+            "privacyPolicy": "Privacy Policy"
+        }
     }
 }

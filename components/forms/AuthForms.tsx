@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Shield, Mail, Lock, User, Eye, EyeOff, Check, ArrowRight, Code, Sparkles, AlertCircle } from 'lucide-react';
 import { loginWithEmail } from '@/lib/firebase/auth';
 
@@ -31,13 +32,6 @@ function AnimatedCodeBackground() {
             'if (user.isAuthenticated) {',
             '  grantAccess(user.permissions);',
             '}',
-            'async function validateSession() {',
-            '  const valid = await checkToken();',
-            '  return valid ? proceed() : deny();',
-            '}',
-            'const hashPassword = (pwd) => {',
-            '  return bcrypt.hash(pwd, 10);',
-            '};',
         ];
 
         const newLines = Array.from({ length: 20 }, (_, i) => ({
@@ -182,9 +176,10 @@ interface ButtonProps {
     variant?: "primary" | "secondary";
     className?: string;
     isLoading?: boolean;
+    loadingText?: string;
 }
 
-function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false }: ButtonProps) {
+function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false, loadingText = "Processing..." }: ButtonProps) {
     const variants = {
         primary: "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-foreground shadow-lg shadow-blue-600/30",
         secondary: "bg-slate-700 hover:bg-slate-600 text-foreground"
@@ -203,7 +198,7 @@ function Button({ children, onClick, type = "button", variant = "primary", class
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    جارٍ المعالجة...
+                    {loadingText}
                 </>
             ) : (
                 <>
@@ -222,6 +217,7 @@ interface LoginFormProps {
 
 function LoginForm({ onSwitchToRegister }: LoginFormProps) {
     const router = useRouter();
+    const t = useTranslations('auth');
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -241,10 +237,10 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     router.push('/verify-email');
                 }
             } else {
-                setError(result.error || 'فشل تسجيل الدخول | Login failed');
+                setError(result.error || t('errors.loginFailed'));
             }
         } catch (err) {
-            setError('حدث خطأ غير متوقع | An unexpected error occurred');
+            setError(t('errors.unexpectedError'));
         } finally {
             setIsLoading(false);
         }
@@ -257,8 +253,8 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 mb-4 shadow-lg shadow-blue-500/30">
                         <Shield className="w-8 h-8 text-foreground" />
                     </div>
-                    <h2 className="text-3xl font-bold text-foreground mb-2">مرحباً بعودتك</h2>
-                    <p className="text-muted-foreground">سجل الدخول للوصول إلى لوحة التحكم</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">{t('welcomeBack')}</h2>
+                    <p className="text-muted-foreground">{t('loginSubtitle')}</p>
                 </div>
 
                 <div className="space-y-5">
@@ -271,7 +267,7 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
 
                     <Input
                         icon={Mail}
-                        label="عنوان البريد الإلكتروني"
+                        label={t('email')}
                         type="email"
                         placeholder="name@company.com"
                         value={formData.email}
@@ -281,9 +277,9 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
 
                     <div>
                         <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-medium text-slate-300">كلمة المرور</label>
+                            <label className="text-sm font-medium text-slate-300">{t('password')}</label>
                             <button className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
-                                نسيت كلمة المرور؟
+                                {t('forgotPassword')}
                             </button>
                         </div>
                         <div className="relative">
@@ -301,27 +297,27 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                         </div>
                     </div>
 
-                    <Button onClick={handleSubmit} isLoading={isLoading}>
-                        تسجيل الدخول
+                    <Button onClick={handleSubmit} isLoading={isLoading} loadingText={t('processing')}>
+                        {t('login')}
                     </Button>
                 </div>
 
                 <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check className="w-4 h-4 text-green-400" />
-                        <span>تسجيل دخول آمن</span>
+                        <span>{t('secureLogin')}</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check className="w-4 h-4 text-green-400" />
-                        <span>بيانات مشفرة</span>
+                        <span>{t('encryptedData')}</span>
                     </div>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-border text-center">
                     <p className="text-muted-foreground text-sm">
-                        ليس لديك حساب؟{' '}
+                        {t('noAccount')}{' '}
                         <button onClick={onSwitchToRegister} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
-                            أنشئ واحداً
+                            {t('createOne')}
                         </button>
                     </p>
                 </div>
@@ -347,6 +343,7 @@ interface RegisterFormProps {
 
 function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
     const router = useRouter();
+    const t = useTranslations('auth');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -361,12 +358,12 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
         setError('');
 
         if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
-            setError('يرجى ملء جميع الحقول المطلوبة');
+            setError(t('errors.fillAllFields'));
             return;
         }
 
         if (formData.password.length < 6) {
-            setError('كلمة المرور يجب أن تكون 6 أحرف على الأقل');
+            setError(t('errors.passwordTooShort'));
             return;
         }
 
@@ -380,11 +377,11 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
             if (result.success) {
                 router.push('/verify-email');
             } else {
-                setError(result.error || 'حدث خطأ أثناء التسجيل');
+                setError(result.error || t('errors.registerFailed'));
             }
         } catch (err) {
             console.error('Registration error:', err);
-            setError('حدث خطأ غير متوقع. حاول مرة أخرى.');
+            setError(t('errors.unexpectedError'));
         } finally {
             setIsLoading(false);
         }
@@ -397,8 +394,8 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
                         <Sparkles className="w-8 h-8 text-foreground" />
                     </div>
-                    <h2 className="text-3xl font-bold text-foreground mb-2">إنشاء حساب</h2>
-                    <p className="text-muted-foreground">ابدأ رحلتك مع NovaArab</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">{t('createAccount')}</h2>
+                    <p className="text-muted-foreground">{t('registerSubtitle')}</p>
                 </div>
 
                 {error && (
@@ -412,16 +409,16 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     <div className="grid grid-cols-2 gap-4">
                         <Input
                             icon={User}
-                            label="الاسم الأول"
-                            placeholder="أحمد"
+                            label={t('firstName')}
+                            placeholder="John"
                             value={formData.firstName}
                             onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                             required
                         />
                         <Input
                             icon={User}
-                            label="الاسم الأخير"
-                            placeholder="محمد"
+                            label={t('lastName')}
+                            placeholder="Doe"
                             value={formData.lastName}
                             onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                             required
@@ -430,7 +427,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                     <Input
                         icon={Mail}
-                        label="عنوان البريد الإلكتروني"
+                        label={t('email')}
                         type="email"
                         placeholder="name@company.com"
                         value={formData.email}
@@ -440,7 +437,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                     <Input
                         icon={Lock}
-                        label="كلمة المرور"
+                        label={t('password')}
                         type="password"
                         placeholder="••••••••"
                         value={formData.password}
@@ -449,16 +446,16 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                     />
 
                     <p className="text-xs text-muted-foreground">
-                        كلمة المرور يجب أن تكون 6 أحرف على الأقل
+                        {t('passwordMinLength')}
                     </p>
 
-                    <Button onClick={handleSubmit} isLoading={isLoading}>
-                        إنشاء حساب
+                    <Button onClick={handleSubmit} isLoading={isLoading} loadingText={t('creatingAccount')}>
+                        {t('register')}
                     </Button>
                 </div>
 
                 <div className="mt-6 space-y-2">
-                    {['لا حاجة لبطاقة ائتمان', 'ابدأ بالفئة المجانية', 'إلغاء في أي وقت'].map((feature, idx) => (
+                    {[t('noCreditCard'), t('startFree'), t('cancelAnytime')].map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
                             <Check className="w-4 h-4 text-green-400" />
                             <span>{feature}</span>
@@ -468,9 +465,9 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                 <div className="mt-8 pt-6 border-t border-border text-center">
                     <p className="text-muted-foreground text-sm">
-                        لديك حساب بالفعل؟{' '}
+                        {t('haveAccount')}{' '}
                         <button onClick={onSwitchToLogin} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
-                            سجل الدخول
+                            {t('signIn')}
                         </button>
                     </p>
                 </div>
@@ -491,6 +488,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
 // Main Auth Page Component
 export default function AuthPage() {
+    const t = useTranslations('auth');
     const [activeForm, setActiveForm] = useState('login');
 
     return (
@@ -513,7 +511,7 @@ export default function AuthPage() {
             <div className="absolute bottom-8 left-0 right-0 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground text-xs">
                     <Code className="w-4 h-4 text-blue-400" />
-                    <span>محمي بتشفير على مستوى المؤسسات</span>
+                    <span>{t('enterpriseEncryption')}</span>
                 </div>
             </div>
         </div>

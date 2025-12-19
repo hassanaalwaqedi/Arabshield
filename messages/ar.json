@@ -332,5 +332,68 @@
         "hr": "الموارد البشرية",
         "finance": "المالية",
         "operations": "العمليات"
+    },
+    "auth": {
+        "welcomeBack": "مرحباً بعودتك",
+        "loginSubtitle": "سجل الدخول للوصول إلى لوحة التحكم",
+        "createAccount": "إنشاء حساب",
+        "registerSubtitle": "ابدأ رحلتك مع NovaArab",
+        "joinToday": "انضم إلينا اليوم",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "fullName": "الاسم الكامل",
+        "firstName": "الاسم الأول",
+        "lastName": "الاسم الأخير",
+        "forgotPassword": "نسيت كلمة المرور؟",
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب",
+        "processing": "جارٍ المعالجة...",
+        "creatingAccount": "جاري إنشاء الحساب...",
+        "noAccount": "ليس لديك حساب؟",
+        "createOne": "أنشئ واحداً",
+        "haveAccount": "لديك حساب بالفعل؟",
+        "signIn": "سجل الدخول",
+        "secureLogin": "تسجيل دخول آمن",
+        "encryptedData": "بيانات مشفرة",
+        "noCreditCard": "لا حاجة لبطاقة ائتمان",
+        "startFree": "ابدأ بالفئة المجانية",
+        "cancelAnytime": "إلغاء في أي وقت",
+        "enterpriseEncryption": "محمي بتشفير على مستوى المؤسسات",
+        "passwordMinLength": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+        "errors": {
+            "fillAllFields": "يرجى ملء جميع الحقول المطلوبة",
+            "invalidEmail": "البريد الإلكتروني غير صالح",
+            "passwordTooShort": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+            "loginFailed": "فشل تسجيل الدخول",
+            "registerFailed": "حدث خطأ أثناء التسجيل",
+            "unexpectedError": "حدث خطأ غير متوقع",
+            "nameRequired": "الاسم مطلوب",
+            "emailRequired": "البريد الإلكتروني مطلوب",
+            "passwordRequired": "كلمة المرور مطلوبة"
+        },
+        "verification": {
+            "title": "تحقق من بريدك الإلكتروني",
+            "subtitle": "أرسلنا رابط التحقق إلى بريدك الإلكتروني",
+            "checkEmail": "الرجاء التحقق من بريدك الإلكتروني",
+            "clickLink": "وانقر على الرابط لتفعيل حسابك",
+            "resendEmail": "إعادة إرسال رابط التحقق",
+            "redirecting": "جاري التحويل إلى صفحة التحقق..."
+        },
+        "success": {
+            "accountCreated": "تم إنشاء الحساب بنجاح!",
+            "verificationSent": "تم إرسال رابط التحقق إلى بريدك الإلكتروني"
+        },
+        "registrationClosed": {
+            "title": "التسجيل مغلق حالياً",
+            "subtitle": "نعتذر، التسجيل غير متاح في الوقت الحالي.",
+            "contactAdmin": "للحصول على حساب، يرجى التواصل مع الإدارة عبر:"
+        },
+        "terms": {
+            "byRegistering": "بالتسجيل، أنت توافق على",
+            "termsOfService": "شروط الاستخدام",
+            "and": "و",
+            "privacyPolicy": "سياسة الخصوصية"
+        }
     }
 }

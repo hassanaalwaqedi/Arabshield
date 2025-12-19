@@ -333,5 +333,68 @@
         "hr": "İnsan Kaynakları",
         "finance": "Finans",
         "operations": "Operasyonlar"
+    },
+    "auth": {
+        "welcomeBack": "Tekrar Hoşgeldiniz",
+        "loginSubtitle": "Kontrol panelinize erişmek için giriş yapın",
+        "createAccount": "Hesap Oluştur",
+        "registerSubtitle": "NovaArab ile yolculuğunuza başlayın",
+        "joinToday": "Bize bugün katılın",
+        "email": "E-posta Adresi",
+        "password": "Şifre",
+        "confirmPassword": "Şifreyi Onayla",
+        "fullName": "Tam Ad",
+        "firstName": "Ad",
+        "lastName": "Soyad",
+        "forgotPassword": "Şifrenizi mi unuttunuz?",
+        "login": "Giriş Yap",
+        "register": "Hesap Oluştur",
+        "processing": "İşleniyor...",
+        "creatingAccount": "Hesap oluşturuluyor...",
+        "noAccount": "Hesabınız yok mu?",
+        "createOne": "Hesap oluşturun",
+        "haveAccount": "Zaten hesabınız var mı?",
+        "signIn": "Giriş yapın",
+        "secureLogin": "Güvenli giriş",
+        "encryptedData": "Şifreli veri",
+        "noCreditCard": "Kredi kartı gerekmez",
+        "startFree": "Ücretsiz başlayın",
+        "cancelAnytime": "İstediğiniz zaman iptal edin",
+        "enterpriseEncryption": "Kurumsal düzeyde şifreleme ile korunan",
+        "passwordMinLength": "Şifre en az 6 karakter olmalıdır",
+        "errors": {
+            "fillAllFields": "Lütfen tüm gerekli alanları doldurun",
+            "invalidEmail": "Geçersiz e-posta formatı",
+            "passwordTooShort": "Şifre en az 6 karakter olmalıdır",
+            "loginFailed": "Giriş başarısız",
+            "registerFailed": "Kayıt başarısız",
+            "unexpectedError": "Beklenmeyen bir hata oluştu",
+            "nameRequired": "Ad gereklidir",
+            "emailRequired": "E-posta gereklidir",
+            "passwordRequired": "Şifre gereklidir"
+        },
+        "verification": {
+            "title": "E-postanızı Doğrulayın",
+            "subtitle": "E-postanıza doğrulama bağlantısı gönderdik",
+            "checkEmail": "Lütfen e-postanızı kontrol edin",
+            "clickLink": "ve hesabınızı etkinleştirmek için bağlantıya tıklayın",
+            "resendEmail": "Doğrulama e-postasını yeniden gönder",
+            "redirecting": "Doğrulama sayfasına yönlendiriliyor..."
+        },
+        "success": {
+            "accountCreated": "Hesap başarıyla oluşturuldu!",
+            "verificationSent": "E-postanıza doğrulama bağlantısı gönderildi"
+        },
+        "registrationClosed": {
+            "title": "Kayıt Kapalı",
+            "subtitle": "Üzgünüz, kayıt şu anda mevcut değil.",
+            "contactAdmin": "Hesap almak için lütfen yönetici ile iletişime geçin:"
+        },
+        "terms": {
+            "byRegistering": "Kayıt olarak, kabul etmiş olursunuz",
+            "termsOfService": "Kullanım Şartları",
+            "and": "ve",
+            "privacyPolicy": "Gizlilik Politikası"
+        }
     }
 }
