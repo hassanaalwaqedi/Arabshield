@@ -84,7 +84,7 @@ export default function ProjectDetailPage() {
                 <p className="text-lg text-red-600 mb-4">المشروع غير موجود</p>
                 <Link
                     href="/dashboard/projects"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-foreground rounded-lg hover:bg-blue-700 transition-colors"
                 >
                     العودة للمشاريع
                 </Link>
@@ -132,7 +132,7 @@ export default function ProjectDetailPage() {
                             <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
                                 {getStatusLabel(project.status)}
                             </span>
-                            <span className="flex items-center gap-1 text-sm text-slate-500">
+                            <span className="flex items-center gap-1 text-sm text-muted-foreground">
                                 <Calendar size={14} />
                                 {new Date(project.createdAt).toLocaleDateString('ar-SA')}
                             </span>

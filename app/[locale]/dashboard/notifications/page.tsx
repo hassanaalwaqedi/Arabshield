@@ -106,7 +106,7 @@ export default function NotificationsPage() {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="bg-gradient-to-br from-electric-500 to-cyan-600 p-3 rounded-2xl shadow-lg">
-                                <Bell className="h-6 w-6 text-white" />
+                                <Bell className="h-6 w-6 text-foreground" />
                             </div>
                             <div>
                                 <h1 className="text-3xl font-bold text-abyss-900">الإشعارات</h1>
@@ -183,7 +183,7 @@ export default function NotificationsPage() {
                                         }`}
                                 >
                                     <div className="flex items-start gap-4">
-                                        <div className={`bg-gradient-to-br ${getNotificationColor(notification.type)} p-3 rounded-xl text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                                        <div className={`bg-gradient-to-br ${getNotificationColor(notification.type)} p-3 rounded-xl text-foreground shadow-lg group-hover:scale-110 transition-transform`}>
                                             {getNotificationIcon(notification.type)}
                                         </div>
                                         <div className="flex-1 min-w-0">

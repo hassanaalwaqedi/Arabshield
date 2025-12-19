@@ -29,7 +29,7 @@ export default function CareersPage() {
     });
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -44,28 +44,28 @@ export default function CareersPage() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         الوظائف المتاحة
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
                         نبحث عن مواهب استثنائية للانضمام إلى فريقنا. اكتشف الفرص المتاحة وابدأ مسيرتك المهنية معنا.
                     </p>
 
                     {/* Search and Filter */}
                     <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4">
                         <div className="relative flex-1">
-                            <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                            <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                             <input
                                 type="text"
                                 placeholder="ابحث عن وظيفة..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full h-14 pr-12 pl-4 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                                className="w-full h-14 pr-12 pl-4 bg-card/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                             />
                         </div>
                         <div className="relative">
-                            <Filter className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                            <Filter className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                             <select
                                 value={filterType}
                                 onChange={(e) => setFilterType(e.target.value)}
-                                className="h-14 pr-12 pl-6 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all appearance-none cursor-pointer min-w-[180px]"
+                                className="h-14 pr-12 pl-6 bg-card/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all appearance-none cursor-pointer min-w-[180px]"
                             >
                                 <option value="all">جميع الأنواع</option>
                                 <option value="full-time">دوام كامل</option>
@@ -86,11 +86,11 @@ export default function CareersPage() {
                     </div>
                 ) : filteredJobs.length === 0 ? (
                     <div className="text-center py-20">
-                        <div className="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                             <Briefcase className="w-12 h-12 text-slate-600" />
                         </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">لا توجد وظائف حالياً</h3>
-                        <p className="text-slate-400 mb-8">
+                        <h3 className="text-2xl font-bold text-foreground mb-2">لا توجد وظائف حالياً</h3>
+                        <p className="text-muted-foreground mb-8">
                             {searchTerm || filterType !== 'all'
                                 ? 'لم نجد وظائف تطابق بحثك. جرب تغيير معايير البحث.'
                                 : 'لا توجد وظائف متاحة في الوقت الحالي. تابعنا للحصول على أحدث الفرص.'}
@@ -121,11 +121,11 @@ export default function CareersPage() {
             </div>
 
             {/* Why Join Us Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">لماذا تنضم إلى NovaArab؟</h2>
-                        <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                             نوفر بيئة عمل محفزة ومميزات تنافسية لمساعدتك على النمو والتطور.
                         </p>
                     </div>
@@ -139,11 +139,11 @@ export default function CareersPage() {
                         ].map((benefit, idx) => (
                             <div
                                 key={idx}
-                                className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors"
+                                className="bg-card/50 border border-border rounded-2xl p-6 text-center hover:border-border transition-colors"
                             >
                                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                                <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                                <p className="text-slate-400 text-sm">{benefit.desc}</p>
+                                <h3 className="text-lg font-bold text-foreground mb-2">{benefit.title}</h3>
+                                <p className="text-muted-foreground text-sm">{benefit.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -157,7 +157,7 @@ export default function CareersPage() {
 function JobCard({ job }: { job: Job }) {
     return (
         <Link href={`/careers/${job.id}`}>
-            <div className="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-blue-500/50 hover:bg-slate-900 transition-all duration-300 cursor-pointer h-full">
+            <div className="group bg-card/50 border border-border rounded-2xl p-6 hover:border-blue-500/50 hover:bg-card transition-all duration-300 cursor-pointer h-full">
                 <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
                         <Briefcase className="w-6 h-6 text-blue-400" />
@@ -170,26 +170,26 @@ function JobCard({ job }: { job: Job }) {
                     </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-blue-400 transition-colors">
                     {job.title}
                 </h3>
 
                 <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-slate-400 text-sm">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
                         <Building2 className="w-4 h-4" />
                         <span>{departmentLabels[job.department] || job.department}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400 text-sm">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
                         <MapPin className="w-4 h-4" />
                         <span>{job.location}</span>
                     </div>
                 </div>
 
-                <p className="text-slate-500 text-sm line-clamp-2 mb-4">
+                <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
                     {job.description}
                 </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                <div className="flex items-center justify-between pt-4 border-t border-border">
                     <span className="text-blue-400 text-sm font-medium group-hover:underline">
                         عرض التفاصيل
                     </span>

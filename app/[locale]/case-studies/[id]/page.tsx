@@ -197,10 +197,10 @@ export default function CaseStudyDetailPage() {
 
     if (!study) {
         return (
-            <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+            <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">دراسة الحالة غير موجودة</h1>
-                    <p className="text-slate-400 mb-8">عذراً، لم نتمكن من العثور على دراسة الحالة المطلوبة.</p>
+                    <p className="text-muted-foreground mb-8">عذراً، لم نتمكن من العثور على دراسة الحالة المطلوبة.</p>
                     <Link href="/case-studies">
                         <Button variant="glow">
                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -215,10 +215,10 @@ export default function CaseStudyDetailPage() {
     const Icon = study.icon;
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
             {/* Hero Section */}
             <div className={`relative pt-24 pb-16 bg-gradient-to-br ${study.gradient}`}>
-                <div className="absolute inset-0 bg-slate-950/70" />
+                <div className="absolute inset-0 bg-background/70" />
                 <div className="container mx-auto px-4 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -226,19 +226,19 @@ export default function CaseStudyDetailPage() {
                         transition={{ duration: 0.6 }}
                     >
                         {/* Back Button */}
-                        <Link href="/case-studies" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors">
+                        <Link href="/case-studies" className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground mb-8 transition-colors">
                             <ChevronLeft className="w-4 h-4" />
                             العودة لدراسات الحالة
                         </Link>
 
                         <div className="flex items-start gap-6 mb-6">
                             <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${study.gradient} p-0.5 flex-shrink-0`}>
-                                <div className="w-full h-full bg-slate-950/80 rounded-2xl flex items-center justify-center">
-                                    <Icon className="w-10 h-10 text-white" />
+                                <div className="w-full h-full bg-background/80 rounded-2xl flex items-center justify-center">
+                                    <Icon className="w-10 h-10 text-foreground" />
                                 </div>
                             </div>
                             <div>
-                                <Badge className="mb-3 bg-white/20 backdrop-blur border-white/30 text-white">
+                                <Badge className="mb-3 bg-white/20 backdrop-blur border-white/30 text-foreground">
                                     {study.category}
                                 </Badge>
                                 <h1 className="text-3xl md:text-5xl font-bold leading-tight">
@@ -247,12 +247,12 @@ export default function CaseStudyDetailPage() {
                             </div>
                         </div>
 
-                        <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                        <p className="text-lg text-foreground/80 mb-8 max-w-3xl">
                             {study.description}
                         </p>
 
                         {/* Meta Info */}
-                        <div className="flex flex-wrap gap-6 text-sm text-white/70">
+                        <div className="flex flex-wrap gap-6 text-sm text-foreground/70">
                             <div className="flex items-center gap-2">
                                 <Users className="w-4 h-4" />
                                 <span>العميل: {study.client}</span>
@@ -290,11 +290,11 @@ export default function CaseStudyDetailPage() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
-                                    className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors"
+                                    className="bg-card/50 border border-border rounded-2xl p-6 text-center hover:border-border transition-colors"
                                 >
                                     <ResultIcon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                                    <div className="text-3xl font-bold text-white mb-2">{result.value}</div>
-                                    <div className="text-sm text-slate-400">{result.label}</div>
+                                    <div className="text-3xl font-bold text-foreground mb-2">{result.value}</div>
+                                    <div className="text-sm text-muted-foreground">{result.label}</div>
                                 </motion.div>
                             );
                         })}
@@ -307,7 +307,7 @@ export default function CaseStudyDetailPage() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4, duration: 0.6 }}
-                        className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8"
+                        className="bg-card/50 border border-border rounded-2xl p-8"
                     >
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                             <Target className="w-5 h-5 text-orange-500" />
@@ -322,7 +322,7 @@ export default function CaseStudyDetailPage() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
-                        className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8"
+                        className="bg-card/50 border border-border rounded-2xl p-8"
                     >
                         <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500" />
@@ -349,7 +349,7 @@ export default function CaseStudyDetailPage() {
                         {study.features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="flex items-center gap-3 bg-slate-900/30 border border-slate-800/50 rounded-xl p-4"
+                                className="flex items-center gap-3 bg-card/30 border border-border/50 rounded-xl p-4"
                             >
                                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
                                 <span className="text-slate-300">{feature}</span>
@@ -371,7 +371,7 @@ export default function CaseStudyDetailPage() {
                             <Badge
                                 key={index}
                                 variant="outline"
-                                className="px-4 py-2 text-sm bg-slate-900/50"
+                                className="px-4 py-2 text-sm bg-card/50"
                             >
                                 {tech}
                             </Badge>
@@ -389,7 +389,7 @@ export default function CaseStudyDetailPage() {
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">
                         هل لديك مشروع مماثل؟
                     </h2>
-                    <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+                    <p className="text-foreground/80 mb-8 max-w-2xl mx-auto">
                         نحن مستعدون لمساعدتك في تحويل فكرتك إلى واقع. تواصل معنا اليوم للبدء.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -399,7 +399,7 @@ export default function CaseStudyDetailPage() {
                             </Button>
                         </Link>
                         <Link href="/order">
-                            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                            <Button variant="outline" size="lg" className="border-white/30 text-foreground hover:bg-white/10">
                                 اطلب خدمة
                             </Button>
                         </Link>
@@ -407,7 +407,7 @@ export default function CaseStudyDetailPage() {
                 </motion.div>
 
                 {/* Navigation */}
-                <div className="mt-12 pt-8 border-t border-slate-800">
+                <div className="mt-12 pt-8 border-t border-border">
                     <Link href="/case-studies">
                         <Button variant="outline" className="gap-2">
                             <ArrowRight className="w-4 h-4" />

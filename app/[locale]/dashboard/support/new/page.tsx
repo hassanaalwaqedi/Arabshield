@@ -66,7 +66,7 @@ export default function NewSupportTicketPage() {
                     </button>
                     <div className="flex items-center gap-3">
                         <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-3 rounded-2xl shadow-lg">
-                            <MessageSquare className="h-6 w-6 text-white" />
+                            <MessageSquare className="h-6 w-6 text-foreground" />
                         </div>
                         <div>
                             <h1 className="text-3xl font-bold text-abyss-900">تذكرة دعم جديدة</h1>
@@ -145,7 +145,7 @@ export default function NewSupportTicketPage() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-gradient-to-r from-electric-500 via-electric-600 to-cyan-600 text-white py-4 rounded-2xl font-semibold shadow-xl shadow-electric-500/30 hover:shadow-2xl hover:shadow-electric-500/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full bg-gradient-to-r from-electric-500 via-electric-600 to-cyan-600 text-foreground py-4 rounded-2xl font-semibold shadow-xl shadow-electric-500/30 hover:shadow-2xl hover:shadow-electric-500/40 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {loading ? 'جاري الإرسال...' : 'إرسال التذكرة'}
                         </button>

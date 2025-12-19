@@ -259,10 +259,10 @@ export default function BlogArticlePage() {
 
     if (!article) {
         return (
-            <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+            <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">المقال غير موجود</h1>
-                    <p className="text-slate-400 mb-8">عذراً، لم نتمكن من العثور على المقال المطلوب.</p>
+                    <p className="text-muted-foreground mb-8">عذراً، لم نتمكن من العثور على المقال المطلوب.</p>
                     <Link href="/blog">
                         <Button variant="glow">
                             <ArrowRight className="w-4 h-4 ml-2" />
@@ -275,10 +275,10 @@ export default function BlogArticlePage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
             {/* Hero Section */}
             <div className={`relative pt-24 pb-16 bg-gradient-to-br ${article.imageGradient}`}>
-                <div className="absolute inset-0 bg-slate-950/60" />
+                <div className="absolute inset-0 bg-background/60" />
                 <div className="container mx-auto px-4 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -286,12 +286,12 @@ export default function BlogArticlePage() {
                         transition={{ duration: 0.6 }}
                     >
                         {/* Back Button */}
-                        <Link href="/blog" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors">
+                        <Link href="/blog" className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground mb-8 transition-colors">
                             <ChevronLeft className="w-4 h-4" />
                             العودة للمدونة
                         </Link>
 
-                        <Badge className="mb-4 bg-white/20 backdrop-blur border-white/30 text-white">
+                        <Badge className="mb-4 bg-white/20 backdrop-blur border-white/30 text-foreground">
                             {article.categoryLabel}
                         </Badge>
 
@@ -299,11 +299,11 @@ export default function BlogArticlePage() {
                             {article.title}
                         </h1>
 
-                        <p className="text-lg text-white/80 mb-8 max-w-3xl">
+                        <p className="text-lg text-foreground/80 mb-8 max-w-3xl">
                             {article.excerpt}
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-6 text-sm text-white/70">
+                        <div className="flex flex-wrap items-center gap-6 text-sm text-foreground/70">
                             <div className="flex items-center gap-2">
                                 <User className="w-4 h-4" />
                                 <span>{article.author}</span>
@@ -325,7 +325,7 @@ export default function BlogArticlePage() {
             <div className="container mx-auto px-4 py-16">
                 <div className="max-w-3xl mx-auto">
                     {/* Share & Bookmark Actions */}
-                    <div className="flex items-center gap-4 mb-12 pb-8 border-b border-slate-800">
+                    <div className="flex items-center gap-4 mb-12 pb-8 border-b border-border">
                         <Button variant="outline" size="sm" className="gap-2">
                             <Share2 className="w-4 h-4" />
                             مشاركة
@@ -342,12 +342,12 @@ export default function BlogArticlePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.6 }}
                         className="prose prose-invert prose-lg max-w-none
-                            prose-headings:font-bold prose-headings:text-white
+                            prose-headings:font-bold prose-headings:text-foreground
                             prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
                             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
                             prose-p:text-slate-300 prose-p:leading-relaxed
                             prose-li:text-slate-300
-                            prose-strong:text-white
+                            prose-strong:text-foreground
                             prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
                         "
                     >
@@ -355,20 +355,20 @@ export default function BlogArticlePage() {
                     </motion.article>
 
                     {/* Author Card */}
-                    <div className="mt-16 p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <div className="mt-16 p-6 bg-card/50 border border-border rounded-2xl">
                         <div className="flex items-center gap-4">
                             <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${article.imageGradient} flex items-center justify-center`}>
-                                <User className="w-8 h-8 text-white" />
+                                <User className="w-8 h-8 text-foreground" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white">{article.author}</h4>
-                                <p className="text-slate-400 text-sm">{article.authorRole}</p>
+                                <h4 className="font-bold text-foreground">{article.author}</h4>
+                                <p className="text-muted-foreground text-sm">{article.authorRole}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Navigation */}
-                    <div className="mt-12 pt-8 border-t border-slate-800">
+                    <div className="mt-12 pt-8 border-t border-border">
                         <Link href="/blog">
                             <Button variant="outline" className="gap-2">
                                 <ArrowRight className="w-4 h-4" />

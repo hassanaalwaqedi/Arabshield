@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Enhanced Hero Section */}
             <div className="relative overflow-hidden">
                 {/* Animated Background */}
@@ -35,19 +35,19 @@ export default function FAQPage() {
                         الأسئلة الشائعة
                     </h1>
 
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
                         لديك أسئلة؟ لدينا الإجابات. إذا لم تجد ما تبحث عنه، لا تتردد في الاتصال بنا.
                     </p>
 
                     {/* Quick Action Cards */}
                     <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-                        <a href="/support" className="group flex items-center gap-2 px-5 py-3 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/20 backdrop-blur-sm">
+                        <a href="/support" className="group flex items-center gap-2 px-5 py-3 bg-card/80 border border-border rounded-2xl hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-500/20 backdrop-blur-sm">
                             <MessageCircle className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
-                            <span className="text-sm font-semibold text-slate-300 group-hover:text-white">دردشة مباشرة</span>
+                            <span className="text-sm font-semibold text-slate-300 group-hover:text-foreground">دردشة مباشرة</span>
                         </a>
-                        <a href="/contact" className="group flex items-center gap-2 px-5 py-3 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 backdrop-blur-sm">
+                        <a href="/contact" className="group flex items-center gap-2 px-5 py-3 bg-card/80 border border-border rounded-2xl hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 backdrop-blur-sm">
                             <Mail className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                            <span className="text-sm font-semibold text-slate-300 group-hover:text-white">اتصل بنا</span>
+                            <span className="text-sm font-semibold text-slate-300 group-hover:text-foreground">اتصل بنا</span>
                         </a>
                     </div>
                 </div>
@@ -64,20 +64,20 @@ export default function FAQPage() {
                 </div>
 
                 {/* FAQ Accordion with Enhanced Container */}
-                <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
+                <div className="bg-card/50 backdrop-blur-xl border border-border rounded-3xl p-8 shadow-2xl">
                     <FAQAccordion />
                 </div>
 
                 {/* Still Have Questions CTA */}
                 <div className="mt-16 bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12 text-center backdrop-blur-sm">
                     <h3 className="text-3xl font-bold mb-4">لا تزال لديك أسئلة؟</h3>
-                    <p className="text-slate-400 text-lg mb-8">فريق الدعم لدينا متاح على مدار الساعة لمساعدتك</p>
+                    <p className="text-muted-foreground text-lg mb-8">فريق الدعم لدينا متاح على مدار الساعة لمساعدتك</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="/support" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-2xl font-semibold hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg shadow-blue-600/30 hover:shadow-2xl hover:shadow-blue-600/40">
+                        <a href="/support" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-foreground rounded-2xl font-semibold hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg shadow-blue-600/30 hover:shadow-2xl hover:shadow-blue-600/40">
                             <MessageCircle className="w-5 h-5" />
                             <span>ابدأ محادثة</span>
                         </a>
-                        <a href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-800 border-2 border-slate-700 text-white rounded-2xl font-semibold hover:bg-slate-700 hover:border-slate-600 transition-all">
+                        <a href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-muted border-2 border-border text-foreground rounded-2xl font-semibold hover:bg-slate-700 hover:border-slate-600 transition-all">
                             <Mail className="w-5 h-5" />
                             <span>أرسل لنا رسالة</span>
                         </a>

@@ -46,7 +46,7 @@ export default function VerifySuccessPage() {
     }, [router]);
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 via-emerald-600/5 to-slate-950"></div>
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-600/20 via-slate-950 to-slate-950"></div>
@@ -64,7 +64,7 @@ export default function VerifySuccessPage() {
                     {/* Logo */}
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg shadow-blue-600/50 mb-4">
-                            <Shield className="w-8 h-8 text-white" />
+                            <Shield className="w-8 h-8 text-foreground" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                             NovaArab
@@ -77,7 +77,7 @@ export default function VerifySuccessPage() {
                         <div className="relative inline-block mb-8">
                             <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full blur-2xl opacity-50 animate-pulse"></div>
                             <div className="relative w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/50">
-                                <CheckCircle className="w-12 h-12 text-white animate-bounce" style={{ animationDuration: '2s' }} />
+                                <CheckCircle className="w-12 h-12 text-foreground animate-bounce" style={{ animationDuration: '2s' }} />
                             </div>
                             <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse">
                                 <Sparkles className="w-4 h-4 text-yellow-900" />
@@ -128,14 +128,14 @@ export default function VerifySuccessPage() {
                         {/* CTA Button */}
                         <button
                             onClick={() => router.push('/dashboard')}
-                            className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-2xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 group"
+                            className="w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-foreground rounded-2xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 group"
                         >
                             <span>الانتقال إلى لوحة التحكم | Go to Dashboard</span>
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
 
                         {/* Auto Redirect Message */}
-                        <p className="mt-6 text-sm text-slate-500">
+                        <p className="mt-6 text-sm text-muted-foreground">
                             سيتم التحويل تلقائياً خلال {countdown} ثواني...
                             <br />
                             <span className="text-xs">Auto-redirecting in {countdown} seconds...</span>
@@ -144,7 +144,7 @@ export default function VerifySuccessPage() {
 
                     {/* Help Link */}
                     <div className="text-center mt-8">
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-muted-foreground">
                             تحتاج إلى مساعدة؟{' '}
                             <a href="/support" className="text-blue-400 hover:text-blue-300 transition-colors font-semibold">
                                 اتصل بالدعم | Contact Support

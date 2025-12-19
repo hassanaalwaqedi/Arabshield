@@ -98,7 +98,7 @@ const itemVariants: Variants = {
 
 export default function CaseStudiesPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
 
             {/* Hero Section */}
             <div className="relative pt-32 pb-20 overflow-hidden">
@@ -118,7 +118,7 @@ export default function CaseStudiesPage() {
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-l from-white via-slate-200 to-slate-400 bg-clip-text text-transparent leading-tight">
                             دراسات الحالة ومشاريع النجاح
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                             نفتخر بتقديم حلول تقنية مبتكرة لشركائنا. استكشف كيف ساهمنا في تحويل الأفكار الطموحة إلى واقع رقمي ملموس باستخدام أحدث التقنيات.
                         </p>
                     </motion.div>
@@ -137,15 +137,15 @@ export default function CaseStudiesPage() {
                         <motion.div
                             key={study.id}
                             variants={itemVariants}
-                            className="group relative bg-slate-900/50 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 flex flex-col"
+                            className="group relative bg-card/50 hover:bg-card border border-border hover:border-border rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 flex flex-col"
                         >
                             {/* Card Header / Visual */}
                             <div className={`h-2 bg-gradient-to-r ${study.gradient}`} />
                             <div className="p-8 flex-1 flex flex-col">
                                 <div className="flex justify-between items-start mb-6">
                                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${study.gradient} p-0.5`}>
-                                        <div className="w-full h-full bg-slate-950 rounded-2xl flex items-center justify-center">
-                                            <study.icon className="w-7 h-7 text-white" />
+                                        <div className="w-full h-full bg-background rounded-2xl flex items-center justify-center">
+                                            <study.icon className="w-7 h-7 text-foreground" />
                                         </div>
                                     </div>
                                     <Badge variant="outline" className="text-xs">
@@ -153,11 +153,11 @@ export default function CaseStudiesPage() {
                                     </Badge>
                                 </div>
 
-                                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
+                                <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-blue-400 transition-colors">
                                     {study.title}
                                 </h3>
 
-                                <p className="text-slate-400 mb-6 leading-relaxed text-sm flex-1">
+                                <p className="text-muted-foreground mb-6 leading-relaxed text-sm flex-1">
                                     {study.description}
                                 </p>
 
@@ -165,7 +165,7 @@ export default function CaseStudiesPage() {
                                     {/* Tech Stack */}
                                     <div className="flex flex-wrap gap-2">
                                         {study.tech.map((tech) => (
-                                            <div key={tech} className="bg-slate-800/50 border border-slate-700/50 px-2.5 py-1 rounded-md text-xs text-slate-300">
+                                            <div key={tech} className="bg-muted/50 border border-border/50 px-2.5 py-1 rounded-md text-xs text-slate-300">
                                                 {tech}
                                             </div>
                                         ))}
@@ -175,7 +175,7 @@ export default function CaseStudiesPage() {
                                     <Link href={`/case-studies/${study.id}`}>
                                         <Button
                                             variant="ghost"
-                                            className="w-full justify-between hover:bg-slate-800 text-slate-300 group-hover:text-white group/btn"
+                                            className="w-full justify-between hover:bg-muted text-slate-300 group-hover:text-foreground group/btn"
                                         >
                                             <span className="ml-2">اقرأ المزيد</span>
                                             <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1" />

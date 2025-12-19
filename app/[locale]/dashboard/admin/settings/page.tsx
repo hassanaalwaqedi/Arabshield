@@ -156,7 +156,7 @@ export default function AdminSettingsPage() {
             >
                 <div className="flex items-center gap-4">
                     <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl">
-                        <Settings className="w-6 h-6 text-white" />
+                        <Settings className="w-6 h-6 text-foreground" />
                     </div>
                     <div>
                         <h1 className="text-3xl font-bold text-slate-900">إعدادات النظام</h1>
@@ -331,7 +331,7 @@ export default function AdminSettingsPage() {
                 <button
                     onClick={saveSettings}
                     disabled={saving || !hasChanges}
-                    className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {saving ? (
                         <Loader2 size={20} className="animate-spin" />

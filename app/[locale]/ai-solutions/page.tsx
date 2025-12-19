@@ -83,7 +83,7 @@ const itemVariants: Variants = {
 
 export default function AISolutionsPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
 
             {/* Hero Section */}
             <div className="relative pt-32 pb-20 overflow-hidden">
@@ -98,7 +98,7 @@ export default function AISolutionsPage() {
                         transition={{ duration: 0.7 }}
                     >
                         <div className="flex justify-center mb-6">
-                            <div className="p-3 rounded-2xl bg-slate-900/50 border border-slate-800 backdrop-blur-sm">
+                            <div className="p-3 rounded-2xl bg-card/50 border border-border backdrop-blur-sm">
                                 <BrainCircuit className="w-10 h-10 text-blue-500" />
                             </div>
                         </div>
@@ -111,7 +111,7 @@ export default function AISolutionsPage() {
                             حلول الذكاء الاصطناعي للمؤسسات
                         </h1>
 
-                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                             نمكن المؤسسات من استغلال قوة الذكاء الاصطناعي لتحسين الكفاءة، تقليل التكاليف، وابتكار تجارب عملاء استثنائية.
                             من الأتمتة البسيطة إلى النماذج المعقدة، نحن شريكك في رحلة التحول الذكي.
                         </p>
@@ -143,28 +143,28 @@ export default function AISolutionsPage() {
                             variants={itemVariants}
                             className="h-full"
                         >
-                            <Card className="h-full bg-slate-900/40 border-slate-800 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-900/10 transition-all duration-300 group overflow-hidden relative">
+                            <Card className="h-full bg-card/40 border-border hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-900/10 transition-all duration-300 group overflow-hidden relative">
                                 {/* Gradient Background on Hover */}
                                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                                 <div className="p-8 flex flex-col h-full relative z-10">
                                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                        <div className="w-full h-full bg-slate-950 rounded-2xl flex items-center justify-center">
-                                            <service.icon className="w-7 h-7 text-white" />
+                                        <div className="w-full h-full bg-background rounded-2xl flex items-center justify-center">
+                                            <service.icon className="w-7 h-7 text-foreground" />
                                         </div>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-purple-300 transition-colors">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-1">
                                         {service.description}
                                     </p>
 
                                     <ul className="space-y-2 mb-6">
                                         {service.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-center text-xs text-slate-500">
+                                            <li key={idx} className="flex items-center text-xs text-muted-foreground">
                                                 <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} ml-2`} />
                                                 {feature}
                                             </li>
@@ -178,12 +178,12 @@ export default function AISolutionsPage() {
                     {/* CTA Card as the last item if needed, or separate section */}
                     <motion.div
                         variants={itemVariants}
-                        className="h-full flex flex-col justify-center items-center p-8 border-2 border-dashed border-slate-800 rounded-2xl bg-slate-900/20 text-center"
+                        className="h-full flex flex-col justify-center items-center p-8 border-2 border-dashed border-border rounded-2xl bg-card/20 text-center"
                     >
-                        <h3 className="text-xl font-bold text-white mb-4">
+                        <h3 className="text-xl font-bold text-foreground mb-4">
                             هل تبحث عن حل مخصص؟
                         </h3>
-                        <p className="text-slate-400 text-sm mb-6">
+                        <p className="text-muted-foreground text-sm mb-6">
                             لدينا فريق من مهندسي الذكاء الاصطناعي الجاهز لبناء نموذجك الخاص.
                         </p>
                         <Button variant="glow" className="w-full">
@@ -195,13 +195,13 @@ export default function AISolutionsPage() {
             </div>
 
             {/* Bottom CTA Section */}
-            <div className="border-t border-slate-800 relative overflow-hidden">
+            <div className="border-t border-border relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-950 pointer-events-none" />
                 <div className="container mx-auto px-4 py-20 text-center relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                         جاهز لنقل عملك إلى المستقبل؟
                     </h2>
-                    <p className="text-slate-400 max-w-xl mx-auto mb-8 text-lg">
+                    <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
                         احجز جلسة استشارية مجانية مع خبرائنا لمناقشة كيف يمكن للذكاء الاصطناعي أن يخدم أهدافك.
                     </p>
                     <div className="flex justify-center">

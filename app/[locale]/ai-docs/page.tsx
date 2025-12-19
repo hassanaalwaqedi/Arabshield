@@ -26,12 +26,12 @@ const CodeBlock = ({ language, code }: { language: string, code: string }) => {
     };
 
     return (
-        <div className="relative rounded-lg overflow-hidden bg-slate-900 border border-slate-800 my-4 group">
-            <div className="flex items-center justify-between px-4 py-2 bg-slate-800/50 border-b border-slate-800">
-                <span className="text-xs text-slate-400 font-mono">{language}</span>
+        <div className="relative rounded-lg overflow-hidden bg-card border border-border my-4 group">
+            <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border-b border-border">
+                <span className="text-xs text-muted-foreground font-mono">{language}</span>
                 <button
                     onClick={handleCopy}
-                    className="text-slate-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                     {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
@@ -83,13 +83,13 @@ export default function AIDocsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-200" dir="rtl">
+        <div className="min-h-screen bg-background text-slate-200" dir="rtl">
             <div className="container mx-auto px-4 py-24 md:flex gap-12">
 
                 {/* Sidebar Navigation */}
                 <aside className="hidden md:block w-64 flex-shrink-0">
                     <div className="sticky top-24">
-                        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
                             <Book className="w-5 h-5 text-blue-500" />
                             التوثيق
                         </h3>
@@ -100,18 +100,18 @@ export default function AIDocsPage() {
                                     onClick={() => scrollToSection(section.id)}
                                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${activeSection === section.id
                                             ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                                            : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+                                            : 'text-muted-foreground hover:bg-card hover:text-foreground'
                                         }`}
                                 >
-                                    <section.icon className={`w-4 h-4 ${activeSection === section.id ? 'text-blue-500' : 'text-slate-500'}`} />
+                                    <section.icon className={`w-4 h-4 ${activeSection === section.id ? 'text-blue-500' : 'text-muted-foreground'}`} />
                                     {section.title}
                                     {activeSection === section.id && <ChevronRight className="w-4 h-4 mr-auto" />}
                                 </button>
                             ))}
                         </nav>
 
-                        <div className="mt-8 p-4 rounded-xl bg-gradient-to-br from-slate-900 to-slate-900 border border-slate-800">
-                            <p className="text-xs text-slate-400 mb-3">هل تحتاج لمساعدة تقنية؟</p>
+                        <div className="mt-8 p-4 rounded-xl bg-gradient-to-br from-slate-900 to-slate-900 border border-border">
+                            <p className="text-xs text-muted-foreground mb-3">هل تحتاج لمساعدة تقنية؟</p>
                             <Button variant="outline" size="sm" className="w-full text-xs">
                                 تواصل مع الدعم
                             </Button>
@@ -126,39 +126,39 @@ export default function AIDocsPage() {
                     <section id="intro" className="mb-20 scroll-mt-24">
                         <div className="mb-6">
                             <Badge variant="electric" className="mb-4">v2.0.0</Badge>
-                            <h1 className="text-4xl font-bold text-white mb-4">توثيق أنظمة الذكاء الاصطناعي</h1>
-                            <p className="text-lg text-slate-400 leading-relaxed">
+                            <h1 className="text-4xl font-bold text-foreground mb-4">توثيق أنظمة الذكاء الاصطناعي</h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
                                 مرحبًا بك في وثائق NovaArab AI. توفر هذه المنصة مجموعة شاملة من الأدوات وواجهات برمجة التطبيقات (APIs) التي تمكّنك من دمج قدرات الذكاء الاصطناعي المتقدمة في تطبيقاتك ومشاريعك بسهولة.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                            <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-                                <h3 className="text-lg font-semibold text-white mb-2">السرعة والأداء</h3>
-                                <p className="text-slate-400 text-sm">استجابات فائقة السرعة معززة بشبكة CDN عالمية.</p>
+                            <div className="p-6 rounded-2xl bg-card/50 border border-border">
+                                <h3 className="text-lg font-semibold text-foreground mb-2">السرعة والأداء</h3>
+                                <p className="text-muted-foreground text-sm">استجابات فائقة السرعة معززة بشبكة CDN عالمية.</p>
                             </div>
-                            <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-                                <h3 className="text-lg font-semibold text-white mb-2">الأمان والخصوصية</h3>
-                                <p className="text-slate-400 text-sm">تشفير كامل للبيانات متوافق مع معايير SOC2.</p>
+                            <div className="p-6 rounded-2xl bg-card/50 border border-border">
+                                <h3 className="text-lg font-semibold text-foreground mb-2">الأمان والخصوصية</h3>
+                                <p className="text-muted-foreground text-sm">تشفير كامل للبيانات متوافق مع معايير SOC2.</p>
                             </div>
                         </div>
                     </section>
 
                     {/* API Usage */}
-                    <section id="api" className="mb-20 scroll-mt-24 pt-10 border-t border-slate-800">
-                        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <section id="api" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
+                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Code className="w-6 h-6 text-purple-500" />
                             كيفية استخدام واجهات API
                         </h2>
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-muted-foreground mb-6">
                             تعتمد جميع واجهات API الخاصة بنا على بروتوكول HTTP REST وتدعم تنسيق JSON في الطلبات والاستجابات. يجب إدراج مفتاح API الخاص بك في ترويسة الطلب `Authorization`.
                         </p>
 
                         <div className="space-y-4">
-                            <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-900 border border-slate-800">
+                            <div className="flex items-center gap-4 p-4 rounded-lg bg-card border border-border">
                                 <span className="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs font-mono font-bold">GET</span>
                                 <code className="text-sm font-mono text-slate-300">https://api.NovaArab.com/v1/models</code>
                             </div>
-                            <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-900 border border-slate-800">
+                            <div className="flex items-center gap-4 p-4 rounded-lg bg-card border border-border">
                                 <span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400 text-xs font-mono font-bold">POST</span>
                                 <code className="text-sm font-mono text-slate-300">https://api.NovaArab.com/v1/chat/completions</code>
                             </div>
@@ -166,14 +166,14 @@ export default function AIDocsPage() {
                     </section>
 
                     {/* Examples */}
-                    <section id="examples" className="mb-20 scroll-mt-24 pt-10 border-t border-slate-800">
-                        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <section id="examples" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
+                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Terminal className="w-6 h-6 text-green-500" />
                             أمثلة طلبات الذكاء الاصطناعي
                         </h2>
 
                         <div className="mb-8">
-                            <h3 className="text-lg font-semibold text-white mb-4">cURL Request</h3>
+                            <h3 className="text-lg font-semibold text-foreground mb-4">cURL Request</h3>
                             <CodeBlock language="bash" code={`curl https://api.NovaArab.com/v1/chat/completions \\
   -H "Content-Type: application/json" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
@@ -187,7 +187,7 @@ export default function AIDocsPage() {
                         </div>
 
                         <div>
-                            <h3 className="text-lg font-semibold text-white mb-4">Node.js Example</h3>
+                            <h3 className="text-lg font-semibold text-foreground mb-4">Node.js Example</h3>
                             <CodeBlock language="javascript" code={`import OpenAI from 'openai';
 
 const client = new OpenAI({
@@ -207,39 +207,39 @@ main();`} />
                     </section>
 
                     {/* Model Setup */}
-                    <section id="setup" className="mb-20 scroll-mt-24 pt-10 border-t border-slate-800">
-                        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <section id="setup" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
+                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Settings className="w-6 h-6 text-orange-500" />
                             إعداد النماذج Model Setup
                         </h2>
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-muted-foreground mb-6">
                             يمكنك تخصيص معلمات النموذج للتحكم في الإبداع وطول الاستجابة. هذه الإعدادات اختيارية ولكنها مفيدة لتحسين النتائج.
                         </p>
 
-                        <div className="overflow-hidden rounded-xl border border-slate-800">
+                        <div className="overflow-hidden rounded-xl border border-border">
                             <table className="w-full text-right">
-                                <thead className="bg-slate-900 text-slate-300">
+                                <thead className="bg-card text-slate-300">
                                     <tr>
                                         <th className="px-6 py-4 font-semibold text-sm">المعلمة (Parameter)</th>
                                         <th className="px-6 py-4 font-semibold text-sm">الوصف</th>
                                         <th className="px-6 py-4 font-semibold text-sm">القيمة الافتراضية</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-800 bg-slate-900/30">
+                                <tbody className="divide-y divide-slate-800 bg-card/30">
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">temperature</td>
-                                        <td className="px-6 py-4 text-sm text-slate-400">يتحكم في العشوائية. القيم الأعلى تجعل الناتج أكثر تنوعًا.</td>
-                                        <td className="px-6 py-4 text-sm font-mono text-slate-500">0.7</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">يتحكم في العشوائية. القيم الأعلى تجعل الناتج أكثر تنوعًا.</td>
+                                        <td className="px-6 py-4 text-sm font-mono text-muted-foreground">0.7</td>
                                     </tr>
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">max_tokens</td>
-                                        <td className="px-6 py-4 text-sm text-slate-400">الحد الأقصى لعدد الرموز المميزة التي سيتم إنشاؤها.</td>
-                                        <td className="px-6 py-4 text-sm font-mono text-slate-500">inf</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">الحد الأقصى لعدد الرموز المميزة التي سيتم إنشاؤها.</td>
+                                        <td className="px-6 py-4 text-sm font-mono text-muted-foreground">inf</td>
                                     </tr>
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">top_p</td>
-                                        <td className="px-6 py-4 text-sm text-slate-400">بديل لـ Temperature، يقتصر على الرموز ذات الاحتمالية الأعلى.</td>
-                                        <td className="px-6 py-4 text-sm font-mono text-slate-500">1.0</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">بديل لـ Temperature، يقتصر على الرموز ذات الاحتمالية الأعلى.</td>
+                                        <td className="px-6 py-4 text-sm font-mono text-muted-foreground">1.0</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -247,12 +247,12 @@ main();`} />
                     </section>
 
                     {/* Debugging */}
-                    <section id="debug" className="mb-20 scroll-mt-24 pt-10 border-t border-slate-800">
-                        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <section id="debug" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
+                        <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Bug className="w-6 h-6 text-red-500" />
                             التصحيح Debugging
                         </h2>
-                        <p className="text-slate-400 mb-6">
+                        <p className="text-muted-foreground mb-6">
                             في حال واجهت أخطاء، ستعيد واجهة برمجة التطبيقات كائن خطأ JSON قياسيًا يحتوي على رمز الخطأ ورسالة وصفية.
                         </p>
 

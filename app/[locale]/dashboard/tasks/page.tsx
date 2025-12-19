@@ -88,7 +88,7 @@ export default function TasksPage() {
                 <p className="text-lg text-red-600 mb-4">{error}</p>
                 <button
                     onClick={() => window.location.reload()}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-foreground rounded-lg hover:bg-blue-700 transition-colors"
                 >
                     إعادة المحاولة
                 </button>
@@ -111,7 +111,7 @@ export default function TasksPage() {
 
                 <button
                     onClick={() => setShowForm(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all"
                 >
                     <Plus size={20} />
                     <span>مهمة جديدة</span>
@@ -228,7 +228,7 @@ export default function TasksPage() {
                             </button>
                             <button
                                 onClick={() => handleDeleteTask(deleteConfirm)}
-                                className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors"
+                                className="flex-1 px-4 py-2.5 bg-red-600 text-foreground rounded-xl font-medium hover:bg-red-700 transition-colors"
                             >
                                 حذف
                             </button>

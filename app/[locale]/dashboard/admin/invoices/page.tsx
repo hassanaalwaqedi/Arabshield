@@ -301,7 +301,7 @@ export default function AdminInvoicesPage() {
     // Loading state
     if (loading || authLoading) {
         return (
-            <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div className="min-h-screen bg-background flex items-center justify-center">
                 <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
             </div>
         );
@@ -310,7 +310,7 @@ export default function AdminInvoicesPage() {
     // Access denied
     if (!isAdminRole(role)) {
         return (
-            <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white">
+            <div className="min-h-screen bg-background flex flex-col items-center justify-center text-foreground">
                 <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
                 <p className="text-lg">ليس لديك صلاحية الوصول لهذه الصفحة</p>
             </div>
@@ -318,18 +318,18 @@ export default function AdminInvoicesPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
             {/* Header */}
-            <div className="border-b border-slate-800 bg-slate-900/50">
+            <div className="border-b border-border bg-card/50">
                 <div className="max-w-7xl mx-auto px-4 py-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center">
-                                <Receipt className="w-6 h-6 text-white" />
+                                <Receipt className="w-6 h-6 text-foreground" />
                             </div>
                             <div>
                                 <h1 className="text-2xl font-bold">إدارة الفواتير</h1>
-                                <p className="text-slate-400 text-sm">{invoices.length} فاتورة</p>
+                                <p className="text-muted-foreground text-sm">{invoices.length} فاتورة</p>
                             </div>
                         </div>
                         <Button
@@ -353,8 +353,8 @@ export default function AdminInvoicesPage() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-                    <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                        <p className="text-sm text-slate-400 mb-2">إجمالي الفواتير</p>
+                    <div className="bg-card/50 border border-border rounded-xl p-6">
+                        <p className="text-sm text-muted-foreground mb-2">إجمالي الفواتير</p>
                         <p className="text-2xl font-bold">{formatCurrency(totals.total, 'SAR')}</p>
                     </div>
                     <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-6">
@@ -374,13 +374,13 @@ export default function AdminInvoicesPage() {
                 {/* Filters */}
                 <div className="flex flex-col md:flex-row gap-4 mb-6">
                     <div className="relative flex-1">
-                        <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" size={20} />
+                        <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
                         <input
                             type="text"
                             placeholder="بحث برقم الفاتورة أو اسم العميل..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pr-12 pl-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500"
+                            className="w-full pr-12 pl-4 py-3 bg-card/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-500"
                         />
                     </div>
                     <div className="flex gap-2">
@@ -389,8 +389,8 @@ export default function AdminInvoicesPage() {
                                 key={status}
                                 onClick={() => setFilter(status)}
                                 className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${filter === status
-                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                                    : 'bg-slate-900/50 text-slate-400 hover:bg-slate-800 border border-slate-800'
+                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-foreground'
+                                    : 'bg-card/50 text-muted-foreground hover:bg-muted border border-border'
                                     }`}
                             >
                                 {status === 'all' ? 'الكل' :
@@ -406,7 +406,7 @@ export default function AdminInvoicesPage() {
                     <div className="text-center py-20">
                         <Receipt className="w-16 h-16 text-slate-600 mx-auto mb-4" />
                         <h3 className="text-xl font-bold mb-2">لا توجد فواتير</h3>
-                        <p className="text-slate-400">اضغط على "إنشاء فاتورة" لإضافة فاتورة جديدة</p>
+                        <p className="text-muted-foreground">اضغط على "إنشاء فاتورة" لإضافة فاتورة جديدة</p>
                     </div>
                 ) : (
                     <div className="space-y-4">
@@ -420,7 +420,7 @@ export default function AdminInvoicesPage() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors"
+                                    className="bg-card/50 border border-border rounded-xl p-6 hover:border-border transition-colors"
                                 >
                                     <div className="flex items-start justify-between gap-4">
                                         <div className="flex-1">
@@ -439,26 +439,26 @@ export default function AdminInvoicesPage() {
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
-                                                <div className="flex items-center gap-2 text-slate-400">
+                                                <div className="flex items-center gap-2 text-muted-foreground">
                                                     <User className="w-4 h-4" />
                                                     <span>{invoice.clientName}</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 text-slate-400">
+                                                <div className="flex items-center gap-2 text-muted-foreground">
                                                     <Mail className="w-4 h-4" />
                                                     <span>{invoice.clientEmail}</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 text-slate-400">
+                                                <div className="flex items-center gap-2 text-muted-foreground">
                                                     <DollarSign className="w-4 h-4" />
-                                                    <span className="font-bold text-white">{formatCurrency(invoice.amount, invoice.currency)}</span>
+                                                    <span className="font-bold text-foreground">{formatCurrency(invoice.amount, invoice.currency)}</span>
                                                 </div>
-                                                <div className="flex items-center gap-2 text-slate-400">
+                                                <div className="flex items-center gap-2 text-muted-foreground">
                                                     <Calendar className="w-4 h-4" />
                                                     <span>{formatDate(invoice.dueDate)}</span>
                                                 </div>
                                             </div>
 
                                             {invoice.projectTitle && (
-                                                <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                                                <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
                                                     <Building2 className="w-3 h-3" />
                                                     <span>{invoice.projectTitle}</span>
                                                 </div>
@@ -470,7 +470,7 @@ export default function AdminInvoicesPage() {
                                                 variant="ghost"
                                                 size="sm"
                                                 onClick={() => setSelectedInvoice(invoice)}
-                                                className="text-slate-400 hover:text-white"
+                                                className="text-muted-foreground hover:text-foreground"
                                             >
                                                 <Eye className="w-4 h-4" />
                                             </Button>
@@ -499,13 +499,13 @@ export default function AdminInvoicesPage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
-                            className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto"
+                            className="bg-card border border-border rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto"
                         >
-                            <div className="p-6 border-b border-slate-800 flex items-center justify-between">
+                            <div className="p-6 border-b border-border flex items-center justify-between">
                                 <h2 className="text-xl font-bold">إنشاء فاتورة جديدة</h2>
                                 <button
                                     onClick={() => setShowCreateModal(false)}
-                                    className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                                    className="p-2 hover:bg-muted rounded-lg transition-colors"
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
@@ -514,11 +514,11 @@ export default function AdminInvoicesPage() {
                             <form onSubmit={handleCreateInvoice} className="p-6 space-y-4">
                                 {/* Client Selection */}
                                 <div>
-                                    <label className="text-xs text-slate-500 block mb-1">العميل *</label>
+                                    <label className="text-xs text-muted-foreground block mb-1">العميل *</label>
                                     <select
                                         value={formData.userId}
                                         onChange={(e) => handleUserSelect(e.target.value)}
-                                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                                        className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500"
                                         required
                                     >
                                         <option value="">اختر العميل</option>
@@ -532,11 +532,11 @@ export default function AdminInvoicesPage() {
 
                                 {/* Project Selection (Optional) */}
                                 <div>
-                                    <label className="text-xs text-slate-500 block mb-1">المشروع (اختياري)</label>
+                                    <label className="text-xs text-muted-foreground block mb-1">المشروع (اختياري)</label>
                                     <select
                                         value={formData.projectId}
                                         onChange={(e) => handleProjectSelect(e.target.value)}
-                                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                                        className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500"
                                     >
                                         <option value="">بدون مشروع</option>
                                         {projects.map(project => (
@@ -550,22 +550,22 @@ export default function AdminInvoicesPage() {
                                 {/* Amount & Currency */}
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">المبلغ *</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">المبلغ *</label>
                                         <input
                                             type="number"
                                             value={formData.amount}
                                             onChange={(e) => setFormData(prev => ({ ...prev, amount: e.target.value }))}
-                                            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                                            className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500"
                                             placeholder="0.00"
                                             required
                                         />
                                     </div>
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">العملة</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">العملة</label>
                                         <select
                                             value={formData.currency}
                                             onChange={(e) => setFormData(prev => ({ ...prev, currency: e.target.value }))}
-                                            className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                                            className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500"
                                         >
                                             <option value="SAR">ريال سعودي (SAR)</option>
                                             <option value="USD">دولار أمريكي (USD)</option>
@@ -576,23 +576,23 @@ export default function AdminInvoicesPage() {
 
                                 {/* Due Date */}
                                 <div>
-                                    <label className="text-xs text-slate-500 block mb-1">تاريخ الاستحقاق *</label>
+                                    <label className="text-xs text-muted-foreground block mb-1">تاريخ الاستحقاق *</label>
                                     <input
                                         type="date"
                                         value={formData.dueDate}
                                         onChange={(e) => setFormData(prev => ({ ...prev, dueDate: e.target.value }))}
-                                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500"
+                                        className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500"
                                         required
                                     />
                                 </div>
 
                                 {/* Notes */}
                                 <div>
-                                    <label className="text-xs text-slate-500 block mb-1">ملاحظات</label>
+                                    <label className="text-xs text-muted-foreground block mb-1">ملاحظات</label>
                                     <textarea
                                         value={formData.notes}
                                         onChange={(e) => setFormData(prev => ({ ...prev, notes: e.target.value }))}
-                                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-blue-500 resize-none"
+                                        className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground focus:outline-none focus:border-blue-500 resize-none"
                                         rows={3}
                                         placeholder="ملاحظات إضافية..."
                                     />
@@ -616,7 +616,7 @@ export default function AdminInvoicesPage() {
                                         type="button"
                                         variant="ghost"
                                         onClick={() => setShowCreateModal(false)}
-                                        className="border border-slate-700"
+                                        className="border border-border"
                                     >
                                         إلغاء
                                     </Button>
@@ -635,13 +635,13 @@ export default function AdminInvoicesPage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
-                            className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+                            className="bg-card border border-border rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
                         >
-                            <div className="p-6 border-b border-slate-800 flex items-center justify-between">
+                            <div className="p-6 border-b border-border flex items-center justify-between">
                                 <h2 className="text-xl font-bold">فاتورة {selectedInvoice.invoiceNumber}</h2>
                                 <button
                                     onClick={() => setSelectedInvoice(null)}
-                                    className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
+                                    className="p-2 hover:bg-muted rounded-lg transition-colors"
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
@@ -650,24 +650,24 @@ export default function AdminInvoicesPage() {
                             <div className="p-6 space-y-6">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">العميل</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">العميل</label>
                                         <p className="font-medium">{selectedInvoice.clientName}</p>
                                     </div>
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">البريد الإلكتروني</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">البريد الإلكتروني</label>
                                         <p className="font-medium text-blue-400">{selectedInvoice.clientEmail}</p>
                                     </div>
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">المبلغ</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">المبلغ</label>
                                         <p className="font-bold text-2xl">{formatCurrency(selectedInvoice.amount, selectedInvoice.currency)}</p>
                                     </div>
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">تاريخ الاستحقاق</label>
+                                        <label className="text-xs text-muted-foreground block mb-1">تاريخ الاستحقاق</label>
                                         <p className="font-medium">{formatDate(selectedInvoice.dueDate)}</p>
                                     </div>
                                     {selectedInvoice.projectTitle && (
                                         <div className="col-span-2">
-                                            <label className="text-xs text-slate-500 block mb-1">المشروع</label>
+                                            <label className="text-xs text-muted-foreground block mb-1">المشروع</label>
                                             <p className="font-medium">{selectedInvoice.projectTitle}</p>
                                         </div>
                                     )}
@@ -675,15 +675,15 @@ export default function AdminInvoicesPage() {
 
                                 {selectedInvoice.notes && (
                                     <div>
-                                        <label className="text-xs text-slate-500 block mb-1">ملاحظات</label>
-                                        <p className="bg-slate-800/50 rounded-xl p-4 text-slate-300">
+                                        <label className="text-xs text-muted-foreground block mb-1">ملاحظات</label>
+                                        <p className="bg-muted/50 rounded-xl p-4 text-slate-300">
                                             {selectedInvoice.notes}
                                         </p>
                                     </div>
                                 )}
 
                                 <div>
-                                    <label className="text-xs text-slate-500 block mb-2">تحديث الحالة</label>
+                                    <label className="text-xs text-muted-foreground block mb-2">تحديث الحالة</label>
                                     <div className="flex flex-wrap gap-2">
                                         {(Object.keys(STATUS_CONFIG) as ('pending' | 'paid' | 'overdue')[]).map((status) => {
                                             const config = STATUS_CONFIG[status];
@@ -694,7 +694,7 @@ export default function AdminInvoicesPage() {
                                                     disabled={updating || selectedInvoice.status === status}
                                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedInvoice.status === status
                                                         ? config.color + ' border'
-                                                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                                                        : 'bg-muted text-muted-foreground hover:bg-slate-700'
                                                         }`}
                                                 >
                                                     {config.label}
@@ -704,7 +704,7 @@ export default function AdminInvoicesPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-3 pt-4 border-t border-slate-800">
+                                <div className="flex gap-3 pt-4 border-t border-border">
                                     <Button
                                         onClick={() => downloadInvoicePDF(selectedInvoice)}
                                         className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500"

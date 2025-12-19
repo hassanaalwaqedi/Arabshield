@@ -71,7 +71,7 @@ function SettingsToggle({
         >
             {loading ? (
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <Loader2 className="w-4 h-4 animate-spin text-white" />
+                    <Loader2 className="w-4 h-4 animate-spin text-foreground" />
                 </div>
             ) : (
                 <div className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform ${enabled ? 'right-1' : 'left-1'
@@ -426,7 +426,7 @@ export default function SettingsPage() {
                                 type="email"
                                 value={user?.email || ''}
                                 disabled
-                                className="flex-1 px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-500"
+                                className="flex-1 px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-muted-foreground"
                             />
                             {user?.emailVerified ? (
                                 <span className="flex items-center gap-1 px-3 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium">
@@ -454,7 +454,7 @@ export default function SettingsPage() {
                                 </div>
                             )}
                         </div>
-                        <p className="text-xs text-slate-500 mt-1">لا يمكن تغيير البريد الإلكتروني</p>
+                        <p className="text-xs text-muted-foreground mt-1">لا يمكن تغيير البريد الإلكتروني</p>
                     </div>
 
                     {/* Logout Button */}
@@ -493,13 +493,13 @@ export default function SettingsPage() {
                                     className="w-20 h-20 rounded-full object-cover ring-4 ring-blue-100"
                                 />
                             ) : (
-                                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-foreground text-2xl font-bold">
                                     {avatarInitial}
                                 </div>
                             )}
                             {uploadingAvatar && (
                                 <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center">
-                                    <Loader2 className="w-6 h-6 animate-spin text-white" />
+                                    <Loader2 className="w-6 h-6 animate-spin text-foreground" />
                                 </div>
                             )}
                         </div>
@@ -565,7 +565,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
                         <div>
                             <p className="font-medium text-slate-900">إشعارات البريد الإلكتروني</p>
-                            <p className="text-sm text-slate-500">تلقي التحديثات عبر البريد</p>
+                            <p className="text-sm text-muted-foreground">تلقي التحديثات عبر البريد</p>
                         </div>
                         <SettingsToggle
                             enabled={preferences.emailNotifications}
@@ -578,7 +578,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
                         <div>
                             <p className="font-medium text-slate-900">الإشعارات الفورية</p>
-                            <p className="text-sm text-slate-500">إشعارات المتصفح</p>
+                            <p className="text-sm text-muted-foreground">إشعارات المتصفح</p>
                         </div>
                         <SettingsToggle
                             enabled={preferences.pushNotifications}
@@ -591,7 +591,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
                         <div>
                             <p className="font-medium text-slate-900">التقرير الأسبوعي</p>
-                            <p className="text-sm text-slate-500">ملخص أسبوعي للمشاريع</p>
+                            <p className="text-sm text-muted-foreground">ملخص أسبوعي للمشاريع</p>
                         </div>
                         <SettingsToggle
                             enabled={preferences.weeklyReport}
@@ -604,7 +604,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
                         <div>
                             <p className="font-medium text-slate-900">الرسائل التسويقية</p>
-                            <p className="text-sm text-slate-500">العروض والأخبار</p>
+                            <p className="text-sm text-muted-foreground">العروض والأخبار</p>
                         </div>
                         <SettingsToggle
                             enabled={preferences.marketingEmails}
@@ -634,17 +634,17 @@ export default function SettingsPage() {
                         className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-200"
                     >
                         <div className="flex items-center gap-3">
-                            <Lock size={18} className="text-slate-500" />
+                            <Lock size={18} className="text-muted-foreground" />
                             <span>تغيير كلمة المرور</span>
                         </div>
-                        <span className="text-slate-400">←</span>
+                        <span className="text-muted-foreground">←</span>
                     </button>
 
                     {/* 2FA - Coming Soon but honest */}
                     <div className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 opacity-60">
                         <div className="flex items-center gap-3">
-                            <Shield size={18} className="text-slate-400" />
-                            <span className="text-slate-500">المصادقة الثنائية (2FA)</span>
+                            <Shield size={18} className="text-muted-foreground" />
+                            <span className="text-muted-foreground">المصادقة الثنائية (2FA)</span>
                         </div>
                         <span className="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded-full">قيد التطوير</span>
                     </div>
@@ -673,7 +673,7 @@ export default function SettingsPage() {
                 <button
                     onClick={handleSaveProfile}
                     disabled={saving || !hasChanges}
-                    className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {saving ? (
                         <Loader2 size={20} className="animate-spin" />
@@ -701,7 +701,7 @@ export default function SettingsPage() {
                             }}
                             className="absolute top-4 left-4 p-2 hover:bg-slate-100 rounded-lg transition-colors"
                         >
-                            <X size={20} className="text-slate-500" />
+                            <X size={20} className="text-muted-foreground" />
                         </button>
 
                         <div className="flex items-center gap-3 mb-6">
@@ -737,7 +737,7 @@ export default function SettingsPage() {
                                     minLength={6}
                                     className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                 />
-                                <p className="text-xs text-slate-500 mt-1">6 أحرف على الأقل</p>
+                                <p className="text-xs text-muted-foreground mt-1">6 أحرف على الأقل</p>
                             </div>
 
                             <div>
@@ -765,7 +765,7 @@ export default function SettingsPage() {
                                 <button
                                     type="submit"
                                     disabled={changingPassword}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                                 >
                                     {changingPassword ? (
                                         <>
@@ -798,7 +798,7 @@ export default function SettingsPage() {
                             }}
                             className="absolute top-4 left-4 p-2 hover:bg-slate-100 rounded-lg transition-colors"
                         >
-                            <X size={20} className="text-slate-500" />
+                            <X size={20} className="text-muted-foreground" />
                         </button>
 
                         <div className="flex items-center gap-3 mb-6">
@@ -857,7 +857,7 @@ export default function SettingsPage() {
                                 <button
                                     type="submit"
                                     disabled={deletingAccount || deleteConfirmText !== 'حذف حسابي'}
-                                    className="flex-1 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                                    className="flex-1 px-6 py-3 bg-red-600 text-foreground rounded-xl hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                                 >
                                     {deletingAccount ? (
                                         <>

@@ -77,7 +77,7 @@ function SupportCard({ icon: Icon, title, description, buttonText, buttonVariant
         <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="relative group bg-slate-900 border-2 border-slate-800 rounded-3xl p-8 text-center transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20"
+            className="relative group bg-card border-2 border-border rounded-3xl p-8 text-center transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20"
             style={{
                 transform: isHovered ? 'translateY(-12px) scale(1.02)' : 'none'
             }}
@@ -96,16 +96,16 @@ function SupportCard({ icon: Icon, title, description, buttonText, buttonVariant
                 )}
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-            <p className="text-slate-400 mb-8 leading-relaxed min-h-[48px]">{description}</p>
+            <h3 className="text-2xl font-bold text-foreground mb-3">{title}</h3>
+            <p className="text-muted-foreground mb-8 leading-relaxed min-h-[48px]">{description}</p>
 
             <button
                 onClick={onClick}
                 className={`w-full h-12 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 group/btn ${buttonVariant === 'primary'
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-500 hover:to-blue-400 shadow-lg shadow-blue-600/30'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-foreground hover:from-blue-500 hover:to-blue-400 shadow-lg shadow-blue-600/30'
                     : buttonVariant === 'secondary'
-                        ? 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
-                        : 'bg-transparent border-2 border-slate-700 text-white hover:border-blue-500'
+                        ? 'bg-muted text-foreground hover:bg-slate-700 border border-border'
+                        : 'bg-transparent border-2 border-border text-foreground hover:border-blue-500'
                     }`}
             >
                 {buttonText}
@@ -125,19 +125,19 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
     return (
-        <div className="border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/50">
+        <div className="border border-border rounded-2xl overflow-hidden bg-card/50">
             <button
                 onClick={onClick}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-800/50 transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
-                <span className="font-semibold text-white pr-4">{question}</span>
-                <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="font-semibold text-foreground pr-4">{question}</span>
+                <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
             <div
                 className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'
                     }`}
             >
-                <div className="px-6 pb-5 text-slate-400 leading-relaxed">
+                <div className="px-6 pb-5 text-muted-foreground leading-relaxed">
                     {answer}
                 </div>
             </div>
@@ -155,15 +155,15 @@ interface ResourceCardProps {
 
 function ResourceCard({ icon: Icon, title, description, count }: ResourceCardProps) {
     return (
-        <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all group cursor-pointer">
+        <div className="p-6 rounded-2xl bg-card border border-border hover:border-border transition-all group cursor-pointer">
             <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <div className="flex-1">
-                    <h3 className="text-white font-semibold mb-1">{title}</h3>
-                    <p className="text-slate-400 text-sm mb-2">{description}</p>
-                    <span className="text-xs text-slate-500">{count} مقالة</span>
+                    <h3 className="text-foreground font-semibold mb-1">{title}</h3>
+                    <p className="text-muted-foreground text-sm mb-2">{description}</p>
+                    <span className="text-xs text-muted-foreground">{count} مقالة</span>
                 </div>
                 <ArrowRight className="w-5 h-5 text-slate-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
             </div>
@@ -180,12 +180,12 @@ interface StatCardProps {
 
 function StatCard({ icon: Icon, value, label }: StatCardProps) {
     return (
-        <div className="text-center p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div className="text-center p-6 rounded-2xl bg-card/50 border border-border">
             <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <Icon className="w-6 h-6 text-blue-400" />
             </div>
-            <div className="text-3xl font-bold text-white mb-1">{value}</div>
-            <div className="text-sm text-slate-400">{label}</div>
+            <div className="text-3xl font-bold text-foreground mb-1">{value}</div>
+            <div className="text-sm text-muted-foreground">{label}</div>
         </div>
     );
 }
@@ -257,7 +257,7 @@ export default function SupportPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -273,19 +273,19 @@ export default function SupportPage() {
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         مركز الدعم
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
                         نحن ملتزمون بنجاحك. الوصول إلى مواردنا أو التواصل مع فريقنا من الخبراء للحصول على مساعدة شخصية.
                     </p>
 
                     {/* Search Bar */}
                     <div className="max-w-2xl mx-auto relative">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                         <input
                             type="text"
                             placeholder="ابحث عن مقالات المساعدة أو الأدلة أو المشاكل الشائعة..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full h-14 pl-12 pr-4 bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className="w-full h-14 pl-12 pr-4 bg-card/80 backdrop-blur-sm border border-border rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         />
                     </div>
                 </div>
@@ -329,7 +329,7 @@ export default function SupportPage() {
                 <div className="mb-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">موارد الخدمة الذاتية</h2>
-                        <p className="text-slate-400 text-lg">ابحث عن إجابات في وقتك الخاص</p>
+                        <p className="text-muted-foreground text-lg">ابحث عن إجابات في وقتك الخاص</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -343,7 +343,7 @@ export default function SupportPage() {
                 <div id="faq-section" className="mb-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة الشائعة</h2>
-                        <p className="text-slate-400 text-lg">إجابات سريعة للأسئلة الشائعة</p>
+                        <p className="text-muted-foreground text-lg">إجابات سريعة للأسئلة الشائعة</p>
                     </div>
 
                     <div className="max-w-4xl mx-auto space-y-4">
@@ -363,27 +363,27 @@ export default function SupportPage() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                         <div className="text-center md:text-left">
                             <h2 className="text-3xl font-bold mb-3">لا تزال بحاجة إلى مساعدة؟</h2>
-                            <p className="text-slate-400 text-lg">فريق الدعم المتخصص لدينا جاهز لمساعدتك.</p>
+                            <p className="text-muted-foreground text-lg">فريق الدعم المتخصص لدينا جاهز لمساعدتك.</p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-center gap-4">
+                            <div className="bg-card border border-border p-6 rounded-2xl flex items-center gap-4">
                                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center">
                                     <Mail className="w-6 h-6 text-blue-400" />
                                 </div>
                                 <div>
-                                    <span className="font-bold text-white block">hassanalwaqedi3@gmail.com</span>
-                                    <span className="text-sm text-slate-400">ردود في غضون 24 ساعة</span>
+                                    <span className="font-bold text-foreground block">hassanalwaqedi3@gmail.com</span>
+                                    <span className="text-sm text-muted-foreground">ردود في غضون 24 ساعة</span>
                                 </div>
                             </div>
 
-                            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-center gap-4">
+                            <div className="bg-card border border-border p-6 rounded-2xl flex items-center gap-4">
                                 <div className="w-12 h-12 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center">
                                     <Phone className="w-6 h-6 text-green-400" />
                                 </div>
                                 <div>
-                                    <span className="font-bold text-white block">+90 537 280 71 33</span>
-                                    <span className="text-sm text-slate-400">الإثنين-الجمعة، 9 ص-6 م</span>
+                                    <span className="font-bold text-foreground block">+90 537 280 71 33</span>
+                                    <span className="text-sm text-muted-foreground">الإثنين-الجمعة، 9 ص-6 م</span>
                                 </div>
                             </div>
                         </div>

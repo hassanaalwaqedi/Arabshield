@@ -101,7 +101,7 @@ export default function ProjectsPage() {
                 <p className="text-lg text-red-600 mb-4">{error}</p>
                 <button
                     onClick={() => window.location.reload()}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-6 py-3 bg-blue-600 text-foreground rounded-lg hover:bg-blue-700 transition-colors"
                 >
                     إعادة المحاولة
                 </button>
@@ -124,7 +124,7 @@ export default function ProjectsPage() {
 
                 <button
                     onClick={() => setShowCreateModal(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all"
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all"
                 >
                     <Plus size={20} />
                     <span>مشروع جديد</span>
@@ -161,7 +161,7 @@ export default function ProjectsPage() {
                     <p className="text-lg text-slate-600 mb-4">لا توجد مشاريع بعد</p>
                     <button
                         onClick={() => setShowCreateModal(true)}
-                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all"
+                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all"
                     >
                         إنشاء مشروع جديد
                     </button>
@@ -186,7 +186,7 @@ export default function ProjectsPage() {
                             onClick={closeModal}
                             className="absolute top-4 left-4 p-2 hover:bg-slate-100 rounded-lg transition-colors"
                         >
-                            <X size={20} className="text-slate-500" />
+                            <X size={20} className="text-muted-foreground" />
                         </button>
 
                         <h2 className="text-2xl font-bold text-slate-900 mb-6">مشروع جديد</h2>
@@ -270,7 +270,7 @@ export default function ProjectsPage() {
                                 <button
                                     type="submit"
                                     disabled={creating}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
                                     {creating ? (
                                         <>

@@ -63,7 +63,7 @@ export default function AdminCareersPage() {
                 </p>
                 <button
                     onClick={() => router.push('/careers')}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-colors"
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-foreground rounded-xl font-semibold transition-colors"
                 >
                     تصفح الوظائف المتاحة
                 </button>
@@ -117,7 +117,7 @@ export default function AdminCareersPage() {
                 </div>
                 <button
                     onClick={handleCreateNew}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-xl font-semibold shadow-lg shadow-blue-600/30 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-foreground rounded-xl font-semibold shadow-lg shadow-blue-600/30 transition-all"
                 >
                     <Plus className="w-5 h-5" />
                     إضافة وظيفة
@@ -177,7 +177,7 @@ export default function AdminCareersPage() {
                     <p className="text-slate-600 mb-6">ابدأ بإضافة وظيفة جديدة</p>
                     <button
                         onClick={handleCreateNew}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-foreground rounded-xl font-semibold transition-colors"
                     >
                         <Plus className="w-5 h-5" />
                         إضافة وظيفة
@@ -202,7 +202,7 @@ export default function AdminCareersPage() {
                                         <td className="px-6 py-4">
                                             <div>
                                                 <p className="font-semibold text-slate-900">{job.title}</p>
-                                                <p className="text-sm text-slate-500">{job.location}</p>
+                                                <p className="text-sm text-muted-foreground">{job.location}</p>
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-slate-600">
@@ -467,7 +467,7 @@ function JobFormModal({ job, onClose, onSave }: { job: Job | null; onClose: () =
                         <button
                             type="submit"
                             disabled={loading}
-                            className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                            className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-foreground rounded-xl font-semibold transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                         >
                             {loading ? (
                                 <>

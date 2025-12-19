@@ -16,8 +16,8 @@ import { Badge } from '@/components/ui/Badge';
 
 // Partner/Tech Data
 const partners = [
-    { name: "Next.js", icon: Globe, color: "text-white" },
-    { name: "Vercel", icon: Zap, color: "text-white" },
+    { name: "Next.js", icon: Globe, color: "text-foreground" },
+    { name: "Vercel", icon: Zap, color: "text-foreground" },
     { name: "AWS", icon: Cloud, color: "text-orange-500" },
     { name: "Google Cloud", icon: Server, color: "text-blue-500" },
     { name: "Meta LLaMA", icon: BrainIcon, color: "text-blue-400" },
@@ -67,7 +67,7 @@ const itemVariants: Variants = {
 
 export default function PartnersPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
 
             {/* Hero Section */}
             <div className="relative pt-32 pb-20 overflow-hidden">
@@ -85,7 +85,7 @@ export default function PartnersPage() {
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-l from-white via-blue-100 to-slate-400 bg-clip-text text-transparent leading-tight">
                             نبني المستقبل مع العمالقة
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                             نؤمن بأن النجاح الحقيقي يأتي من خلال التعاون مع الأفضل. لذلك نقوم ببناء حلولنا باستخدام تقنيات ومنصات شركائنا العالميين لضمان أعلى معايير الأداء والأمان.
                         </p>
                     </motion.div>
@@ -105,12 +105,12 @@ export default function PartnersPage() {
                             key={index}
                             variants={itemVariants}
                             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                            className="group relative flex flex-col items-center justify-center p-8 bg-slate-900/40 border border-slate-800 rounded-2xl hover:bg-slate-900 hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
+                            className="group relative flex flex-col items-center justify-center p-8 bg-card/40 border border-border rounded-2xl hover:bg-card hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
                         >
-                            <div className={`p-4 rounded-full bg-slate-950/50 mb-4 group-hover:bg-slate-950 transition-colors ${partner.color}`}>
+                            <div className={`p-4 rounded-full bg-background/50 mb-4 group-hover:bg-background transition-colors ${partner.color}`}>
                                 <partner.icon className="w-10 h-10" />
                             </div>
-                            <span className="font-semibold text-lg text-slate-300 group-hover:text-white transition-colors">
+                            <span className="font-semibold text-lg text-slate-300 group-hover:text-foreground transition-colors">
                                 {partner.name}
                             </span>
                         </motion.div>
@@ -119,7 +119,7 @@ export default function PartnersPage() {
                     {/* "More" Card */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-800 rounded-2xl text-slate-500"
+                        className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-border rounded-2xl text-muted-foreground"
                     >
                         <Code2 className="w-10 h-10 mb-4 opacity-50" />
                         <span className="font-medium">وغيرهم الكثير...</span>
@@ -129,12 +129,12 @@ export default function PartnersPage() {
 
             {/* Benefits Text Section */}
             <div className="container mx-auto px-4 pb-24">
-                <div className="max-w-4xl mx-auto bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900/20 rounded-3xl p-8 md:p-12 border border-slate-800 relative overflow-hidden">
+                <div className="max-w-4xl mx-auto bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900/20 rounded-3xl p-8 md:p-12 border border-border relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
 
                     <div className="relative z-10 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">قوة الشراكات التقنية</h2>
-                        <p className="text-slate-400 text-lg leading-relaxed mb-0">
+                        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">قوة الشراكات التقنية</h2>
+                        <p className="text-muted-foreground text-lg leading-relaxed mb-0">
                             من خلال شراكاتنا مع رواد التكنولوجيا، نمكن عملاءنا من الوصول إلى أحدث الأدوات والتقنيات فور صدورها. هذا يضمن أن مشاريعكم ليست فقط حديثة اليوم، بل جاهزة للمستقبل وقابلة للتوسع بلا حدود.
                         </p>
                     </div>
@@ -142,9 +142,9 @@ export default function PartnersPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="container mx-auto px-4 py-20 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">
                         هل أنت مقدم خدمات تقنية؟
                     </h2>
                     <div className="flex justify-center">

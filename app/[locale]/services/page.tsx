@@ -21,7 +21,7 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
             onMouseLeave={() => setIsHovered(false)}
             className={`group relative p-8 rounded-3xl border-2 transition-all duration-500 cursor-pointer ${popular
                 ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 shadow-2xl shadow-blue-600/30 scale-105'
-                : 'bg-slate-900 border-slate-800 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10'
+                : 'bg-card border-border hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10'
                 }`}
             style={{
                 transform: isHovered && !popular ? 'translateY(-8px)' : popular ? 'scale(1.05)' : 'none'
@@ -41,7 +41,7 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
                 ? 'bg-white/20 backdrop-blur-sm'
                 : 'bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 group-hover:scale-110'
                 }`}>
-                <Icon className={`w-8 h-8 transition-all duration-500 ${popular ? 'text-white' : 'text-blue-400 group-hover:scale-110'
+                <Icon className={`w-8 h-8 transition-all duration-500 ${popular ? 'text-foreground' : 'text-blue-400 group-hover:scale-110'
                     }`} />
 
                 {/* Animated Ring */}
@@ -51,10 +51,10 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
             </div>
 
             {/* Content */}
-            <h3 className={`text-2xl font-bold mb-3 ${popular ? 'text-white' : 'text-white'}`}>
+            <h3 className={`text-2xl font-bold mb-3 ${popular ? 'text-foreground' : 'text-foreground'}`}>
                 {title}
             </h3>
-            <p className={`text-sm leading-relaxed mb-6 ${popular ? 'text-blue-100' : 'text-slate-400'
+            <p className={`text-sm leading-relaxed mb-6 ${popular ? 'text-blue-100' : 'text-muted-foreground'
                 }`}>
                 {description}
             </p>
@@ -63,9 +63,9 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
             <ul className="space-y-3 mb-6">
                 {features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${popular ? 'text-white' : 'text-blue-400'
+                        <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${popular ? 'text-foreground' : 'text-blue-400'
                             }`} />
-                        <span className={`text-xs ${popular ? 'text-blue-50' : 'text-slate-400'}`}>
+                        <span className={`text-xs ${popular ? 'text-blue-50' : 'text-muted-foreground'}`}>
                             {feature}
                         </span>
                     </li>
@@ -75,7 +75,7 @@ function ServiceCard({ icon: Icon, title, description, features, popular }: Serv
             {/* CTA Button */}
             <button className={`group/btn w-full h-12 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${popular
                 ? 'bg-white text-blue-600 hover:bg-blue-50'
-                : 'bg-blue-600 text-white hover:bg-blue-500'
+                : 'bg-blue-600 text-foreground hover:bg-blue-500'
                 }`}>
                 ابدأ الآن
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -94,11 +94,11 @@ interface ProcessStepProps {
 function ProcessStep({ number, title, description }: ProcessStepProps) {
     return (
         <div className="relative flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-blue-500/30 mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-foreground text-2xl font-bold shadow-lg shadow-blue-500/30 mb-4">
                 {number}
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-            <p className="text-slate-400 text-sm">{description}</p>
+            <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+            <p className="text-muted-foreground text-sm">{description}</p>
         </div>
     );
 }
@@ -112,12 +112,12 @@ interface BenefitCardProps {
 
 function BenefitCard({ icon: Icon, title, description }: BenefitCardProps) {
     return (
-        <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all group">
+        <div className="p-6 rounded-2xl bg-card/50 border border-border hover:border-border transition-all group">
             <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-white font-semibold mb-2">{title}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+            <h3 className="text-foreground font-semibold mb-2">{title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
         </div>
     );
 }
@@ -131,8 +131,8 @@ interface ButtonProps {
 
 function Button({ children, variant = "primary", className = "" }: ButtonProps) {
     const variants = {
-        primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30",
-        outline: "bg-transparent border-2 border-slate-700 hover:border-slate-600 text-white"
+        primary: "bg-blue-600 hover:bg-blue-500 text-foreground shadow-lg shadow-blue-600/30",
+        outline: "bg-transparent border-2 border-border hover:border-slate-600 text-foreground"
     };
 
     return (
@@ -236,7 +236,7 @@ export default function ServicesPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -255,7 +255,7 @@ export default function ServicesPage() {
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         خدماتنا
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                         حلول تقنية شاملة مصممة لدفع أعمالك إلى الأمام في العصر الرقمي. من الفكرة إلى النشر وما بعده.
                     </p>
                 </div>
@@ -271,11 +271,11 @@ export default function ServicesPage() {
             </div>
 
             {/* Benefits Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">لماذا تختارنا</h2>
-                        <p className="text-slate-400 text-lg">نقدم التميز في كل خطوة</p>
+                        <p className="text-muted-foreground text-lg">نقدم التميز في كل خطوة</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -287,11 +287,11 @@ export default function ServicesPage() {
             </div>
 
             {/* Process Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">عمليتنا</h2>
-                        <p className="text-slate-400 text-lg">كيف نحوّل رؤيتك إلى واقع</p>
+                        <p className="text-muted-foreground text-lg">كيف نحوّل رؤيتك إلى واقع</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -306,16 +306,16 @@ export default function ServicesPage() {
             </div>
 
             {/* Technologies Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">التقنيات التي نستخدمها</h2>
-                        <p className="text-slate-400 text-lg">أدوات وإطارات عمل متطورة</p>
+                        <p className="text-muted-foreground text-lg">أدوات وإطارات عمل متطورة</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         {['React', 'Next.js', 'Flutter', 'Node.js', 'Python', 'AWS', 'Docker', 'MongoDB', 'PostgreSQL', 'TensorFlow', 'TypeScript', 'Kubernetes'].map((tech, idx) => (
-                            <div key={idx} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-blue-500/50 transition-all text-center group cursor-pointer">
+                            <div key={idx} className="p-6 rounded-2xl bg-card/50 border border-border hover:border-blue-500/50 transition-all text-center group cursor-pointer">
                                 <div className="w-12 h-12 mx-auto mb-3 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <Database className="w-6 h-6 text-blue-400" />
                                 </div>
@@ -327,11 +327,11 @@ export default function ServicesPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد لبدء مشروعك؟</h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+                        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                             دعنا نناقش كيف يمكن لخدماتنا تحويل عملك ومساعدتك في تحقيق أهدافك.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -50,7 +50,7 @@ export default function MarketplacePage() {
     }, [services, searchQuery, selectedCategory]);
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white" dir="rtl">
+        <div className="min-h-screen bg-background text-foreground" dir="rtl">
             {/* Hero Section */}
             <div className="relative pt-24 pb-12 overflow-hidden">
                 {/* Background effects */}
@@ -65,7 +65,7 @@ export default function MarketplacePage() {
                         className="text-center"
                     >
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl mb-6 shadow-lg shadow-blue-500/25">
-                            <ShoppingBag size={40} className="text-white" />
+                            <ShoppingBag size={40} className="text-foreground" />
                         </div>
                         <Badge variant="electric" className="mb-4 px-4 py-1.5 text-sm">
                             خدمات احترافية
@@ -73,7 +73,7 @@ export default function MarketplacePage() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-l from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             سوق الخدمات
                         </h1>
-                        <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                             اكتشف واشتري أفضل الخدمات من الشركات الموثوقة
                         </p>
                     </motion.div>
@@ -86,24 +86,24 @@ export default function MarketplacePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-slate-800"
+                    className="bg-card/50 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-border"
                 >
                     {/* Search */}
                     <div className="relative mb-6">
-                        <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" size={20} />
+                        <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
                         <input
                             type="text"
                             placeholder="ابحث عن خدمة..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pr-12 pl-4 py-3.5 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className="w-full pr-12 pl-4 py-3.5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         />
                     </div>
 
                     {/* Category Filter */}
                     <div className="flex items-center gap-2 mb-3">
-                        <Filter size={16} className="text-slate-500" />
-                        <span className="text-sm font-medium text-slate-400">الفئات:</span>
+                        <Filter size={16} className="text-muted-foreground" />
+                        <span className="text-sm font-medium text-muted-foreground">الفئات:</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                         {CATEGORIES.map((category) => (
@@ -111,8 +111,8 @@ export default function MarketplacePage() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${selectedCategory === category
-                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
-                                    : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white border border-slate-700'
+                                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-foreground shadow-lg shadow-blue-500/25'
+                                    : 'bg-muted text-muted-foreground hover:bg-slate-700 hover:text-foreground border border-border'
                                     }`}
                             >
                                 {category}
@@ -128,8 +128,8 @@ export default function MarketplacePage() {
                         animate={{ opacity: 1 }}
                         className="mb-6"
                     >
-                        <p className="text-slate-400">
-                            <span className="text-white font-semibold">{filteredServices.length}</span>{' '}
+                        <p className="text-muted-foreground">
+                            <span className="text-foreground font-semibold">{filteredServices.length}</span>{' '}
                             {filteredServices.length === 1 ? 'خدمة' : 'خدمات'} متاحة
                         </p>
                     </motion.div>
@@ -142,13 +142,13 @@ export default function MarketplacePage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center py-20"
                     >
-                        <div className="inline-flex items-center justify-center w-24 h-24 bg-slate-900 border border-slate-800 rounded-full mb-6">
+                        <div className="inline-flex items-center justify-center w-24 h-24 bg-card border border-border rounded-full mb-6">
                             <Package size={48} className="text-slate-600" />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">
+                        <h3 className="text-xl font-bold text-foreground mb-2">
                             لا توجد خدمات متاحة
                         </h3>
-                        <p className="text-slate-400 max-w-md mx-auto">
+                        <p className="text-muted-foreground max-w-md mx-auto">
                             {searchQuery || selectedCategory !== 'الكل'
                                 ? 'لم يتم العثور على خدمات تطابق معايير البحث. جرب تغيير الفلتر.'
                                 : 'سيتم إضافة الخدمات قريباً. تابعنا للتحديثات.'}

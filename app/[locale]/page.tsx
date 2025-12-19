@@ -100,7 +100,7 @@ export default function Home() {
               {t('hero.title')}
             </span>
             <br />
-            <span className="text-white">{t('hero.titleHighlight')}</span>
+            <span className="text-foreground">{t('hero.titleHighlight')}</span>
           </motion.h1>
 
           <motion.p
@@ -125,7 +125,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/services">
-              <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40">
+              <Button variant="outline" size="lg" className="border-white/20 text-foreground hover:bg-white/10 hover:border-white/40">
                 {t('hero.exploreServices')}
               </Button>
             </Link>
@@ -145,7 +145,7 @@ export default function Home() {
                 className="glass-dark p-6 rounded-2xl backdrop-blur-2xl border border-white/10 hover:border-electric-500/50 transition-all duration-300 group"
               >
                 <stat.icon className="h-8 w-8 text-electric-400 mb-3 mx-auto group-hover:scale-110 transition-transform" />
-                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
                 <div className="text-sm text-abyss-400">{stat.label}</div>
               </motion.div>
             ))}
@@ -182,7 +182,7 @@ export default function Home() {
               <Brain className="w-4 h-4" />
               <span>{locale === 'ar' ? 'جديد: حلول الذكاء الاصطناعي للمؤسسات' : 'New: Enterprise AI Solutions'}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               {locale === 'ar' ? 'أطلق العنان لقوة الذكاء الاصطناعي' : 'Unleash the Power of AI'}
             </h2>
             <p className="text-indigo-200 text-lg max-w-xl">
@@ -214,7 +214,7 @@ export default function Home() {
             <Badge variant="outline" className="mb-6 border-electric-500/30 text-electric-400">
               {locale === 'ar' ? 'خبرتنا' : 'Our Expertise'}
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               {t('services.title')}
             </h2>
             <p className="text-xl text-abyss-400 max-w-2xl mx-auto">
@@ -234,9 +234,9 @@ export default function Home() {
                 <Card hover glow="electric" className="h-full bg-abyss-900/50 backdrop-blur-xl border-white/10 group">
                   <CardHeader>
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} p-3 mb-6 shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                      <service.icon className="h-full w-full text-white" />
+                      <service.icon className="h-full w-full text-foreground" />
                     </div>
-                    <CardTitle className="text-2xl text-white mb-3">{service.title}</CardTitle>
+                    <CardTitle className="text-2xl text-foreground mb-3">{service.title}</CardTitle>
                     <CardDescription className="text-abyss-400 text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
@@ -270,7 +270,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               {t('whyUs.title')}
             </h2>
             <p className="text-xl text-abyss-400 max-w-2xl mx-auto">
@@ -290,9 +290,9 @@ export default function Home() {
                 className="glass-dark p-8 rounded-3xl backdrop-blur-2xl border border-white/10 hover:border-electric-500/50 transition-all duration-300 group text-center"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-electric-500 to-neon-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-glow group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <feature.icon className="h-8 w-8 text-white" />
+                  <feature.icon className="h-8 w-8 text-foreground" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
                 <p className="text-abyss-400">{feature.description}</p>
               </motion.div>
             ))}
@@ -314,7 +314,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="relative z-10 max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
             {t('cta.title')}
           </h2>
           <p className="text-xl text-abyss-300 mb-12 max-w-2xl mx-auto">
@@ -328,7 +328,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+              <Button variant="outline" size="lg" className="border-white/20 text-foreground hover:bg-white/10">
                 {t('cta.talkToExpert')}
               </Button>
             </Link>

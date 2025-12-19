@@ -79,14 +79,14 @@ export default function VerifyEmailPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div className="min-h-screen bg-background flex items-center justify-center">
                 <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/20 via-slate-950 to-slate-950"></div>
@@ -97,7 +97,7 @@ export default function VerifyEmailPage() {
                     {/* Logo */}
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg shadow-blue-600/50 mb-4">
-                            <Shield className="w-8 h-8 text-white" />
+                            <Shield className="w-8 h-8 text-foreground" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                             NovaArab
@@ -108,7 +108,7 @@ export default function VerifyEmailPage() {
                     <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12">
                         {/* Email Icon */}
                         <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/50 relative">
-                            <Mail className="w-10 h-10 text-white" />
+                            <Mail className="w-10 h-10 text-foreground" />
                             <div className="absolute -top-1 -right-1 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse">
                                 <span className="text-xs">!</span>
                             </div>
@@ -168,7 +168,7 @@ export default function VerifyEmailPage() {
                             {/* Check Status Button */}
                             <button
                                 onClick={checkStatus}
-                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-foreground py-4 px-6 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
                             >
                                 <span>تحقق من الحالة | Check Status</span>
                             </button>

@@ -176,7 +176,7 @@ export default function AdminUsersPage() {
                 className="flex items-center gap-4"
             >
                 <div className="p-3 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl">
-                    <Users className="w-6 h-6 text-white" />
+                    <Users className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
                     <h1 className="text-3xl font-bold text-slate-900">إدارة المستخدمين</h1>
@@ -215,7 +215,7 @@ export default function AdminUsersPage() {
 
             {/* Search */}
             <div className="relative max-w-md">
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
                 <input
                     type="text"
                     placeholder="البحث عن مستخدم..."
@@ -245,7 +245,7 @@ export default function AdminUsersPage() {
                         <tbody className="divide-y divide-slate-100">
                             {filteredUsers.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5} className="px-6 py-12 text-center text-slate-500">
+                                    <td colSpan={5} className="px-6 py-12 text-center text-muted-foreground">
                                         {searchQuery ? 'لا توجد نتائج للبحث' : 'لا يوجد مستخدمين'}
                                     </td>
                                 </tr>
@@ -254,12 +254,12 @@ export default function AdminUsersPage() {
                                     <tr key={userItem.uid} className="hover:bg-slate-50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                                                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-foreground font-bold">
                                                     {userItem.name.charAt(0).toUpperCase()}
                                                 </div>
                                                 <div>
                                                     <p className="font-medium text-slate-900">{userItem.name}</p>
-                                                    <p className="text-xs text-slate-500">{userItem.uid.slice(0, 8)}...</p>
+                                                    <p className="text-xs text-muted-foreground">{userItem.uid.slice(0, 8)}...</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -280,12 +280,12 @@ export default function AdminUsersPage() {
                                                 getRoleBadge(userItem.role)
                                             )}
                                         </td>
-                                        <td className="px-6 py-4 text-slate-500 text-sm">
+                                        <td className="px-6 py-4 text-muted-foreground text-sm">
                                             {new Date(userItem.createdAt).toLocaleDateString('ar-SA')}
                                         </td>
                                         <td className="px-6 py-4">
                                             {userItem.uid === user?.uid ? (
-                                                <span className="text-xs text-slate-400">أنت</span>
+                                                <span className="text-xs text-muted-foreground">أنت</span>
                                             ) : editingUser === userItem.uid ? (
                                                 <div className="flex items-center gap-2">
                                                     <button

@@ -69,7 +69,7 @@ export default function DashboardPage() {
                             <Bell className="h-5 w-5 text-abyss-600 group-hover:text-electric-600 transition-colors group-hover:animate-pulse" />
                             {/* Real-time notification count from Firestore */}
                             {unreadCount > 0 && (
-                                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-rose-600 text-white text-xs font-bold min-w-[20px] h-5 flex items-center justify-center rounded-full shadow-lg animate-bounce">
+                                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-rose-600 text-foreground text-xs font-bold min-w-[20px] h-5 flex items-center justify-center rounded-full shadow-lg animate-bounce">
                                     {unreadCount > 9 ? '9+' : unreadCount}
                                 </span>
                             )}
@@ -86,7 +86,7 @@ export default function DashboardPage() {
                             <div className="flex items-center justify-between mb-5">
                                 <h3 className="font-semibold text-abyss-600 text-sm uppercase tracking-wide">المشاريع النشطة</h3>
                                 <div className="bg-gradient-to-br from-electric-500 to-cyan-600 p-3.5 rounded-2xl shadow-lg shadow-electric-500/40 group-hover:shadow-2xl group-hover:shadow-electric-500/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                    <FileText className="text-white h-5 w-5" />
+                                    <FileText className="text-foreground h-5 w-5" />
                                 </div>
                             </div>
                             <div className="flex items-end justify-between">
@@ -109,7 +109,7 @@ export default function DashboardPage() {
                             <div className="flex items-center justify-between mb-5">
                                 <h3 className="font-semibold text-abyss-600 text-sm uppercase tracking-wide">الفواتير المعلقة</h3>
                                 <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3.5 rounded-2xl shadow-lg shadow-orange-500/40 group-hover:shadow-2xl group-hover:shadow-orange-500/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                    <CreditCard className="text-white h-5 w-5" />
+                                    <CreditCard className="text-foreground h-5 w-5" />
                                 </div>
                             </div>
                             <div className="flex items-end justify-between">
@@ -141,7 +141,7 @@ export default function DashboardPage() {
                             <div className="flex items-center justify-between mb-5">
                                 <h3 className="font-semibold text-abyss-600 text-sm uppercase tracking-wide">التذاكر المفتوحة</h3>
                                 <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-3.5 rounded-2xl shadow-lg shadow-purple-500/40 group-hover:shadow-2xl group-hover:shadow-purple-500/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                    <MessageSquare className="text-white h-5 w-5" />
+                                    <MessageSquare className="text-foreground h-5 w-5" />
                                 </div>
                             </div>
                             <div className="flex items-end justify-between">
@@ -181,7 +181,7 @@ export default function DashboardPage() {
                             <div className="flex items-center justify-between mb-5">
                                 <h3 className="font-semibold text-abyss-600 text-sm uppercase tracking-wide">صحة النظام</h3>
                                 <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-3.5 rounded-2xl shadow-lg shadow-green-500/40 group-hover:shadow-2xl group-hover:shadow-green-500/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                    <Activity className="text-white h-5 w-5" />
+                                    <Activity className="text-foreground h-5 w-5" />
                                 </div>
                             </div>
                             <div className="flex items-end justify-between">
@@ -262,7 +262,7 @@ export default function DashboardPage() {
                                     return (
                                         <div key={activity.id} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-gradient-to-r hover:from-slate-50/50 hover:to-electric-50/30 transition-all duration-300 group cursor-pointer border border-transparent hover:border-abyss-200/50 hover:shadow-lg">
                                             <div className={`bg-gradient-to-br ${style.gradient} p-3 rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                                                <IconComponent className="h-5 w-5 text-white" />
+                                                <IconComponent className="h-5 w-5 text-foreground" />
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="font-semibold text-abyss-900 mb-1 group-hover:text-electric-700 transition-colors">
@@ -295,7 +295,7 @@ export default function DashboardPage() {
                             <div className="space-y-2.5">
                                 <button
                                     onClick={() => router.push('/dashboard/support/new')}
-                                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-electric-500 via-electric-600 to-cyan-600 text-white hover:shadow-2xl hover:shadow-electric-500/50 transition-all group relative overflow-hidden hover:scale-[1.02]"
+                                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-electric-500 via-electric-600 to-cyan-600 text-foreground hover:shadow-2xl hover:shadow-electric-500/50 transition-all group relative overflow-hidden hover:scale-[1.02]"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                                     <span className="font-semibold text-sm relative z-10">تذكرة دعم جديدة</span>
@@ -319,7 +319,7 @@ export default function DashboardPage() {
                                         <Download size={16} className="text-abyss-400" />
                                     </button>
                                     {showDownloadTooltip && (
-                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-abyss-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap">
+                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-abyss-900 text-foreground text-xs rounded-lg shadow-lg whitespace-nowrap">
                                             قريباً
                                         </div>
                                     )}
@@ -356,7 +356,7 @@ export default function DashboardPage() {
                                         ];
                                         return (
                                             <div key={activity.id} className="flex items-center gap-3 p-3 rounded-xl hover:bg-abyss-50/50 transition-all cursor-pointer group">
-                                                <div className={`h-10 w-10 rounded-xl bg-gradient-to-br ${colors[i % 3]} flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform`}>
+                                                <div className={`h-10 w-10 rounded-xl bg-gradient-to-br ${colors[i % 3]} flex items-center justify-center text-foreground font-bold text-sm shadow-lg group-hover:scale-110 transition-transform`}>
                                                     {activity.type.slice(0, 2).toUpperCase()}
                                                 </div>
                                                 <div className="flex-1 min-w-0">
@@ -376,7 +376,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* Project Progress - Using real projects from Firestore */}
-                        <div className="bg-gradient-to-br from-slate-900 via-abyss-800 to-electric-900 rounded-3xl shadow-2xl p-6 text-white relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-slate-900 via-abyss-800 to-electric-900 rounded-3xl shadow-2xl p-6 text-foreground relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-electric-500/20 rounded-full blur-3xl animate-pulse"></div>
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl"></div>
                             <div className="relative z-10">

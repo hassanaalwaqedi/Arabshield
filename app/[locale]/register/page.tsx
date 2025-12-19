@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/20 via-slate-950 to-slate-950"></div>
@@ -20,7 +20,7 @@ export default function RegisterPage() {
                     {/* Logo/Brand */}
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-lg shadow-blue-600/50 mb-4">
-                            <Shield className="w-8 h-8 text-white" />
+                            <Shield className="w-8 h-8 text-foreground" />
                         </div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
                             NovaArab
@@ -35,7 +35,7 @@ export default function RegisterPage() {
                     <RegisterForm />
 
                     {/* Footer Note */}
-                    <p className="text-center text-sm text-slate-500 mt-8">
+                    <p className="text-center text-sm text-muted-foreground mt-8">
                         بالتسجيل، أنت توافق على{' '}
                         <a href="/terms" className="text-blue-400 hover:text-blue-300 transition-colors">
                             شروط الاستخدام
