@@ -31,6 +31,7 @@ import {
     Briefcase
 } from 'lucide-react';
 import { SimpleThemeToggle } from '@/components/ThemeToggle';
+import { SimpleLanguageToggle } from '@/components/LanguageSwitcher';
 import { useAuth } from '@/contexts/AuthContext';
 import { isAdminRole } from '@/lib/admin';
 
@@ -158,20 +159,20 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
     return (
         <div className="flex min-h-screen w-full bg-background">
-            {/* Mobile Menu Button - Left side for left sidebar */}
+            {/* Mobile Menu Button - Optimized for touch (44x44px minimum) */}
             <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
                 aria-expanded={sidebarOpen}
                 aria-label={sidebarOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
-                className="lg:hidden fixed top-4 start-4 z-50 p-2.5 bg-card rounded-xl shadow-lg border border-border hover:bg-accent transition-colors"
+                className="md:hidden fixed top-4 start-4 z-50 p-3 bg-card rounded-xl shadow-lg border border-border hover:bg-accent transition-all active:scale-95"
             >
-                {sidebarOpen ? <X size={22} /> : <Menu size={22} />}
+                {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
             {/* Overlay - Only on mobile when sidebar is open */}
             {sidebarOpen && (
                 <div
-                    className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity"
+                    className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
                     onClick={() => setSidebarOpen(false)}
                     aria-hidden="true"
                 />
@@ -180,39 +181,44 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             {/* Sidebar - Fixed on desktop LEFT side, drawer on mobile */}
             <aside
                 className={`
-                    fixed lg:sticky top-0 h-screen
+                    fixed md:sticky top-0 h-screen
                     w-64 flex-shrink-0
-                    bg-card/95 backdrop-blur-xl border-e border-border shadow-xl lg:shadow-none
-                    z-50 lg:z-auto
+                    bg-card/95 backdrop-blur-xl border-e border-border shadow-xl md:shadow-none
+                    z-50 md:z-auto
                     transition-transform duration-300 ease-out
-                    ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+                    ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
                     start-0
                 `}
                 style={{ width: SIDEBAR_WIDTH }}
+                role="navigation"
+                aria-label="Dashboard navigation"
             >
                 <div className="p-6 h-full overflow-y-auto">
                     {/* Close button - Mobile only, on right side */}
                     <button
                         onClick={() => setSidebarOpen(false)}
-                        className="lg:hidden absolute top-4 end-4 p-2 rounded-lg hover:bg-accent transition-colors"
+                        className="md:hidden absolute top-4 end-4 p-2 rounded-lg hover:bg-accent transition-colors"
                         aria-label="إغلاق القائمة"
                     >
                         <X size={20} className="text-muted-foreground" />
                     </button>
 
-                    {/* Header with Role Badge and Theme Toggle */}
-                    <div className="flex items-center justify-between mb-6 mt-2 lg:mt-0">
-                        <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            NovaArab
-                        </h2>
-                        <div className="flex items-center gap-2">
-                            <SimpleThemeToggle />
+                    {/* Header with Role Badge, Theme Toggle, and Language Switcher */}
+                    <div className="mb-6 mt-2 md:mt-0">
+                        <div className="flex items-center justify-between mb-3">
+                            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                NovaArab
+                            </h2>
                             {hasAdmin && (
                                 <span className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-900/30 dark:to-yellow-900/30 text-amber-700 dark:text-amber-400 text-xs font-medium rounded-full border border-amber-200 dark:border-amber-700">
                                     <Crown size={12} />
                                     {role === 'owner' ? 'مالك' : 'مدير'}
                                 </span>
                             )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <SimpleLanguageToggle />
+                            <SimpleThemeToggle />
                         </div>
                     </div>
 

@@ -60,6 +60,12 @@ export function Sidebar() {
     const tCommon = useTranslations('common');
     const tAdmin = useTranslations('admin');
 
+    // Hide sidebar completely on dashboard pages to prevent double-sidebar issue
+    const isDashboardPage = pathname.includes('/dashboard');
+    if (isDashboardPage) {
+        return null;
+    }
+
     const menuItems: MenuItem[] = [
         { name: t('home'), icon: Home, path: '/' },
         { name: t('about'), icon: Info, path: '/about' },
@@ -113,13 +119,14 @@ export function Sidebar() {
 
     return (
         <>
-            {/* Mobile Toggle Button - Left side for RTL */}
+            {/* Mobile Toggle Button - Top-left, optimized for touch */}
             <button
                 onClick={toggleMobile}
-                className="md:hidden fixed top-4 left-4 z-50 p-2.5 rounded-xl bg-abyss-900/95 backdrop-blur-sm border border-slate-700/50 text-white shadow-lg hover:bg-abyss-800 transition-colors"
-                aria-label="Toggle menu"
+                className="md:hidden fixed top-4 start-4 z-50 p-3 rounded-xl bg-abyss-900/95 backdrop-blur-sm border border-slate-700/50 text-white shadow-lg hover:bg-abyss-800 transition-all active:scale-95"
+                aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileOpen}
             >
-                {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
             {/* Mobile Backdrop */}
@@ -136,17 +143,19 @@ export function Sidebar() {
                 )}
             </AnimatePresence>
 
-            {/* Sidebar - RIGHT side for RTL */}
+            {/* Sidebar - RIGHT side (logical end in RTL) */}
             <aside
                 style={{ width: sidebarWidth }}
                 className={`
-                    fixed top-0 right-0 h-screen z-50
+                    fixed top-0 end-0 h-screen z-50
                     bg-abyss-950/95 backdrop-blur-xl
-                    border-l border-slate-800/50
+                    border-s border-slate-800/50
                     flex flex-col
                     transition-all duration-300 ease-out
                     ${isMobileOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
                 `}
+                role="navigation"
+                aria-label="Main navigation"
             >
                 {/* Logo Area */}
                 <div className={`

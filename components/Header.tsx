@@ -2,16 +2,23 @@
 
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
     const locale = useLocale();
+    const pathname = usePathname();
     const isRTL = locale === 'ar';
+
+    // Hide language switcher on dashboard pages (it's in the dashboard sidebar)
+    const isDashboardPage = pathname.includes('/dashboard');
+    if (isDashboardPage) {
+        return null;
+    }
 
     return (
         <header className={`
             w-full py-4 px-6 mb-4
-            flex items-center
-            ${isRTL ? 'justify-end' : 'justify-end'}
+            flex items-center justify-end
         `}>
             {/* 
                User requested: 
