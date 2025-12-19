@@ -66,18 +66,25 @@ export const departmentLabels: Record<string, string> = {
 // Get all jobs (public - only open jobs)
 export async function getOpenJobs(): Promise<Job[]> {
     try {
-        // Try query with composite index (status + createdAt)
-        const q = query(
-            collection(db, 'careers_jobs'),
-            where('status', '==', 'open'),
-            orderBy('createdAt', 'desc')
-        );
-        const snapshot = await getDocs(q);
-        console.log(`[Careers] Fetched ${snapshot.docs.length} open jobs`);
-        return snapshot.docs.map(doc => ({
+        // First try: Get all jobs and filter client-side (handles missing status field)
+        const snapshot = await getDocs(collection(db, 'careers_jobs'));
+        const jobs = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         } as Job));
+
+        // Filter for open jobs (treat missing status as 'open')
+        const openJobs = jobs.filter(job => !job.status || job.status === 'open');
+
+        // Sort by createdAt descending
+        openJobs.sort((a, b) => {
+            const aTime = a.createdAt?.toMillis?.() || 0;
+            const bTime = b.createdAt?.toMillis?.() || 0;
+            return bTime - aTime;
+        });
+
+        console.log(`[Careers] Fetched ${openJobs.length} open jobs (of ${jobs.length} total)`);
+        return openJobs;
     } catch (error: unknown) {
         // Check if it's an index error
         const errorMessage = error instanceof Error ? error.message : String(error);
