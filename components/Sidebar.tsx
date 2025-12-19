@@ -120,10 +120,10 @@ export function Sidebar() {
 
     return (
         <>
-            {/* Mobile Toggle Button - Top-left, optimized for touch */}
+            {/* Mobile Toggle Button - Top-right for left sidebar */}
             <button
                 onClick={toggleMobile}
-                className="md:hidden fixed top-4 start-4 z-50 p-3 rounded-xl bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-lg hover:bg-accent transition-all active:scale-95"
+                className="md:hidden fixed top-4 end-4 z-50 p-3 rounded-xl bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-lg hover:bg-accent transition-all active:scale-95"
                 aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileOpen}
             >
@@ -144,16 +144,16 @@ export function Sidebar() {
                 )}
             </AnimatePresence>
 
-            {/* Sidebar - RIGHT side (logical end in RTL) */}
+            {/* Sidebar - LEFT side */}
             <aside
                 style={{ width: sidebarWidth }}
                 className={`
-                    fixed top-0 end-0 h-screen z-50
+                    fixed top-0 start-0 h-screen z-50
                     bg-card/95 backdrop-blur-xl
-                    border-s border-border
+                    border-e border-border
                     flex flex-col
                     transition-all duration-300 ease-out
-                    ${isMobileOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
+                    ${isMobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
                 `}
                 role="navigation"
                 aria-label="Main navigation"
