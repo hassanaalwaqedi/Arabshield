@@ -164,7 +164,7 @@ export function Sidebar() {
                 `}>
                     <Link href="/" className="flex items-center gap-2.5" onClick={closeMobile}>
                         <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-electric-500 to-neon-600 flex items-center justify-center shadow-lg shadow-electric-500/20 flex-shrink-0">
-                            <BrainCircuit className="w-5 h-5 text-white" />
+                            <BrainCircuit className="w-5 h-5 text-foreground" />
                         </div>
                         {!isCollapsed && (
                             <span className="font-bold text-lg text-foreground tracking-tight whitespace-nowrap">

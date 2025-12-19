@@ -52,7 +52,7 @@ export default function FilePreviewModal({ document, onClose }: FilePreviewModal
                     <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-white">
                         <div className="flex-1 min-w-0">
                             <h3 className="font-bold text-slate-900 truncate">{document.filename}</h3>
-                            <p className="text-sm text-slate-500">{document.fileType}</p>
+                            <p className="text-sm text-muted-foreground">{document.fileType}</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <button
@@ -105,12 +105,12 @@ export default function FilePreviewModal({ document, onClose }: FilePreviewModal
                             <div className="flex flex-col items-center justify-center p-12 text-center">
                                 <div className="text-6xl mb-4">📎</div>
                                 <p className="text-lg text-slate-900 mb-2">لا يمكن معاينة هذا الملف</p>
-                                <p className="text-sm text-slate-500 mb-6">
+                                <p className="text-sm text-muted-foreground mb-6">
                                     نوع الملف {document.fileType} غير مدعوم للمعاينة
                                 </p>
                                 <button
                                     onClick={handleDownload}
-                                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+                                    className="px-6 py-3 bg-blue-600 text-foreground rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
                                 >
                                     <Download size={18} />
                                     <span>تحميل الملف</span>

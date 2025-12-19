@@ -81,27 +81,27 @@ export default function TaskList({
             {/* Search and View Toggle */}
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
                 <div className="relative flex-1 max-w-md">
-                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                     <input
                         type="text"
                         placeholder="بحث في المهام..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pr-10 pl-4 py-2.5 bg-white/70 backdrop-blur-xl border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full pr-10 pl-4 py-2.5 bg-white/70 backdrop-blur-xl border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                     />
                 </div>
 
                 <div className="flex items-center gap-2 bg-white/70 backdrop-blur-xl rounded-xl p-1 border border-slate-200">
                     <button
                         onClick={() => setViewMode('grid')}
-                        className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-100'
+                        className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-blue-600 text-foreground' : 'text-slate-600 hover:bg-slate-100'
                             }`}
                     >
                         <LayoutGrid size={18} />
                     </button>
                     <button
                         onClick={() => setViewMode('list')}
-                        className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-100'
+                        className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-blue-600 text-foreground' : 'text-slate-600 hover:bg-slate-100'
                             }`}
                     >
                         <List size={18} />
@@ -116,12 +116,12 @@ export default function TaskList({
                         key={tab.key}
                         onClick={() => setFilterStatus(tab.key)}
                         className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${filterStatus === tab.key
-                                ? 'bg-blue-600 text-white shadow-lg'
+                                ? 'bg-blue-600 text-foreground shadow-lg'
                                 : 'bg-white/70 text-slate-600 hover:bg-slate-100 border border-slate-200'
                             }`}
                     >
                         {tab.label}
-                        <span className={`mr-2 px-1.5 py-0.5 rounded-full text-xs ${filterStatus === tab.key ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                        <span className={`mr-2 px-1.5 py-0.5 rounded-full text-xs ${filterStatus === tab.key ? 'bg-white/20 text-foreground' : 'bg-slate-100 text-muted-foreground'
                             }`}>
                             {tab.count}
                         </span>
@@ -136,9 +136,9 @@ export default function TaskList({
                     animate={{ opacity: 1 }}
                     className="flex flex-col items-center justify-center min-h-[200px] bg-white/70 backdrop-blur-xl rounded-2xl border-2 border-dashed border-slate-300 p-8"
                 >
-                    <Inbox size={48} className="text-slate-400 mb-4" />
+                    <Inbox size={48} className="text-muted-foreground mb-4" />
                     <p className="text-lg text-slate-600 mb-2">لا توجد مهام</p>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-muted-foreground">
                         {searchQuery ? 'جرب البحث بكلمات مختلفة' : 'ابدأ بإضافة مهمة جديدة'}
                     </p>
                 </motion.div>

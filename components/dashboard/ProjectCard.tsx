@@ -101,7 +101,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </span>
                             <span className="font-bold text-slate-900">
                                 {completedTasks}/{totalTasks}
-                                <span className="text-slate-400 font-normal mr-1">({taskProgress}%)</span>
+                                <span className="text-muted-foreground font-normal mr-1">({taskProgress}%)</span>
                             </span>
                         </div>
                         <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -133,7 +133,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 )}
 
                 {/* Footer */}
-                <div className="flex items-center justify-between text-xs text-slate-500 pt-4 border-t border-slate-200">
+                <div className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-slate-200">
                     <div className="flex items-center gap-1">
                         <Clock size={14} />
                         <span>{new Date(project.createdAt).toLocaleDateString('ar-SA')}</span>

@@ -53,7 +53,7 @@ export default function DocumentCard({ document, currentUserId, onDelete, onPrev
                     <h4 className="font-medium text-slate-900 truncate mb-1">
                         {document.filename}
                     </h4>
-                    <div className="flex items-center gap-3 text-xs text-slate-500">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
                         <span>{formatFileSize(document.fileSize)}</span>
                         <span>•</span>
                         <div className="flex items-center gap-1">
@@ -61,7 +61,7 @@ export default function DocumentCard({ document, currentUserId, onDelete, onPrev
                             <span>{formatDate(document.uploadedAt)}</span>
                         </div>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-slate-400 mt-1">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
                         <User size={12} />
                         <span>{document.uploadedBy}</span>
                     </div>

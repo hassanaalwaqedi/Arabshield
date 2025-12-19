@@ -85,7 +85,7 @@ export function ChatWidget() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={toggleChat}
-                        className="fixed bottom-6 left-6 z-50 w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center text-white hover:shadow-xl hover:shadow-blue-600/40 transition-shadow"
+                        className="fixed bottom-6 left-6 z-50 w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center text-foreground hover:shadow-xl hover:shadow-blue-600/40 transition-shadow"
                         aria-label="فتح المحادثة"
                     >
                         <MessageCircle className="w-6 h-6" />
@@ -104,20 +104,20 @@ export function ChatWidget() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed bottom-6 left-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[550px] max-h-[calc(100vh-100px)] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+                        className="fixed bottom-6 left-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[550px] max-h-[calc(100vh-100px)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden"
                         dir="rtl"
                     >
                         {/* Header */}
                         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                                    <Bot className="w-5 h-5 text-white" />
+                                    <Bot className="w-5 h-5 text-foreground" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold">مساعد NovaArab</h3>
+                                    <h3 className="text-foreground font-bold">مساعد NovaArab</h3>
                                     <div className="flex items-center gap-1.5">
                                         <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                                        <span className="text-white/80 text-xs">متصل الآن</span>
+                                        <span className="text-foreground/80 text-xs">متصل الآن</span>
                                     </div>
                                 </div>
                             </div>
@@ -127,20 +127,20 @@ export function ChatWidget() {
                                     className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                                     aria-label="مسح المحادثة"
                                 >
-                                    <RotateCcw className="w-4 h-4 text-white/80" />
+                                    <RotateCcw className="w-4 h-4 text-foreground/80" />
                                 </button>
                                 <button
                                     onClick={closeChat}
                                     className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                                     aria-label="إغلاق المحادثة"
                                 >
-                                    <X className="w-5 h-5 text-white" />
+                                    <X className="w-5 h-5 text-foreground" />
                                 </button>
                             </div>
                         </div>
 
                         {/* Messages Area */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-950">
+                        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-background">
                             <AnimatePresence mode="popLayout">
                                 {messages.map((message) => (
                                     <motion.div
@@ -157,15 +157,15 @@ export function ChatWidget() {
                                                 : 'bg-gradient-to-br from-purple-500 to-blue-500'
                                                 }`}>
                                                 {message.type === 'user'
-                                                    ? <User className="w-4 h-4 text-white" />
-                                                    : <Sparkles className="w-4 h-4 text-white" />
+                                                    ? <User className="w-4 h-4 text-foreground" />
+                                                    : <Sparkles className="w-4 h-4 text-foreground" />
                                                 }
                                             </div>
 
                                             {/* Message Bubble */}
                                             <div className={`rounded-2xl px-4 py-3 ${message.type === 'user'
-                                                ? 'bg-blue-600 text-white rounded-br-md'
-                                                : 'bg-slate-800 text-slate-200 rounded-bl-md'
+                                                ? 'bg-blue-600 text-foreground rounded-br-md'
+                                                : 'bg-muted text-slate-200 rounded-bl-md'
                                                 }`}>
                                                 <p className="text-sm whitespace-pre-line leading-relaxed">
                                                     {message.text}
@@ -204,9 +204,9 @@ export function ChatWidget() {
                                     >
                                         <div className="flex gap-2 items-center">
                                             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                                                <Sparkles className="w-4 h-4 text-white" />
+                                                <Sparkles className="w-4 h-4 text-foreground" />
                                             </div>
-                                            <div className="bg-slate-800 rounded-2xl rounded-bl-md px-4 py-3 flex gap-1">
+                                            <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-3 flex gap-1">
                                                 <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                                                 <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                                                 <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -221,14 +221,14 @@ export function ChatWidget() {
 
                         {/* Suggested Questions */}
                         {messages.length <= 1 && (
-                            <div className="px-4 py-2 bg-slate-900 border-t border-slate-800">
-                                <p className="text-xs text-slate-500 mb-2">اقتراحات:</p>
+                            <div className="px-4 py-2 bg-card border-t border-border">
+                                <p className="text-xs text-muted-foreground mb-2">اقتراحات:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {suggestedQuestions.map((question, idx) => (
                                         <button
                                             key={idx}
                                             onClick={() => handleSuggestion(question)}
-                                            className="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-full border border-slate-700 transition-colors"
+                                            className="px-3 py-1.5 text-xs bg-muted hover:bg-slate-700 text-slate-300 rounded-full border border-border transition-colors"
                                         >
                                             {question}
                                         </button>
@@ -238,7 +238,7 @@ export function ChatWidget() {
                         )}
 
                         {/* Input Area */}
-                        <form onSubmit={handleSubmit} className="p-4 bg-slate-900 border-t border-slate-800">
+                        <form onSubmit={handleSubmit} className="p-4 bg-card border-t border-border">
                             <div className="flex gap-2">
                                 <input
                                     ref={inputRef}
@@ -246,12 +246,12 @@ export function ChatWidget() {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="اكتب رسالتك..."
-                                    className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="flex-1 bg-muted border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 transition-colors"
                                 />
                                 <button
                                     type="submit"
                                     disabled={!input.trim()}
-                                    className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-500 hover:to-purple-500 transition-all"
+                                    className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-foreground disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-500 hover:to-purple-500 transition-all"
                                 >
                                     <Send className="w-5 h-5" />
                                 </button>

@@ -51,12 +51,12 @@ export function Navbar() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-                ? 'bg-slate-950/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-blue-500/5'
+                ? 'bg-background/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-blue-500/5'
                 : 'bg-transparent'
                 }`}
         >
             {/* Top Bar - Promotional */}
-            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white text-center py-2 text-sm font-medium">
+            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-foreground text-center py-2 text-sm font-medium">
                 <div className="flex items-center justify-center gap-2">
                     <Sparkles className="w-4 h-4 animate-pulse" />
                     <span>عرض محدود: احصل على خصم 20% على جميع المشاريع هذا الشهر!</span>
@@ -77,14 +77,14 @@ export function Navbar() {
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
                             <div className="relative bg-gradient-to-br from-blue-600 to-purple-500 p-2 rounded-xl shadow-lg shadow-blue-500/50">
-                                <Shield className="h-6 w-6 text-white" />
+                                <Shield className="h-6 w-6 text-foreground" />
                             </div>
                         </motion.div>
                         <div className="flex flex-col">
                             <span className="text-2xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
                                 عرب شيلد
                             </span>
-                            <span className="text-xs text-slate-400 -mt-1">حلول تقنية</span>
+                            <span className="text-xs text-muted-foreground -mt-1">حلول تقنية</span>
                         </div>
                     </Link>
 
@@ -98,7 +98,7 @@ export function Navbar() {
                                             e.stopPropagation();
                                             setActiveDropdown(activeDropdown === item.name ? null : item.name);
                                         }}
-                                        className="flex items-center gap-1 px-4 py-2 text-slate-300 hover:text-white font-medium transition-colors group"
+                                        className="flex items-center gap-1 px-4 py-2 text-slate-300 hover:text-foreground font-medium transition-colors group"
                                     >
                                         {item.name}
                                         <ChevronDown
@@ -110,7 +110,7 @@ export function Navbar() {
                                 ) : (
                                     <Link
                                         href={item.href}
-                                        className="relative px-4 py-2 text-slate-300 hover:text-white font-medium transition-colors group"
+                                        className="relative px-4 py-2 text-slate-300 hover:text-foreground font-medium transition-colors group"
                                     >
                                         {item.name}
                                         <span className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
@@ -125,7 +125,7 @@ export function Navbar() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-blue-500/10 overflow-hidden"
+                                            className="absolute top-full left-0 mt-2 w-64 bg-card/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-blue-500/10 overflow-hidden"
                                         >
                                             <div className="p-2">
                                                 {item.dropdownItems?.map((dropItem, idx) => (
@@ -133,7 +133,7 @@ export function Navbar() {
                                                         key={idx}
                                                         href={dropItem.href}
                                                         onClick={() => setActiveDropdown(null)}
-                                                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all group"
+                                                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-foreground hover:bg-white/5 rounded-xl transition-all group"
                                                     >
                                                         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-colors">
                                                             <dropItem.icon className="w-5 h-5 text-blue-400" />
@@ -162,7 +162,7 @@ export function Navbar() {
                     {/* Desktop CTA */}
                     <div className="hidden lg:flex items-center space-x-3">
                         <Link href="/login">
-                            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white hover:bg-white/5">تسجيل الدخول</Button>
+                            <Button variant="ghost" size="sm" className="text-slate-300 hover:text-foreground hover:bg-white/5">تسجيل الدخول</Button>
                         </Link>
                         <Link href="/order">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -194,7 +194,7 @@ export function Navbar() {
                                     exit={{ rotate: 90, opacity: 0 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <X size={24} className="text-white" />
+                                    <X size={24} className="text-foreground" />
                                 </motion.div>
                             ) : (
                                 <motion.div
@@ -204,7 +204,7 @@ export function Navbar() {
                                     exit={{ rotate: -90, opacity: 0 }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <Menu size={24} className="text-white" />
+                                    <Menu size={24} className="text-foreground" />
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -220,7 +220,7 @@ export function Navbar() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="lg:hidden bg-slate-900/98 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+                        className="lg:hidden bg-card/98 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
                     >
                         <div className="px-4 pt-2 pb-6 space-y-1">
                             {navItems.map((item, index) => (
@@ -234,7 +234,7 @@ export function Navbar() {
                                         <div className="space-y-1">
                                             <button
                                                 onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                                                className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                                                className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-slate-300 hover:text-foreground hover:bg-white/5 rounded-xl transition-all"
                                             >
                                                 {item.name}
                                                 <ChevronDown
@@ -254,7 +254,7 @@ export function Navbar() {
                                                             <Link
                                                                 key={idx}
                                                                 href={dropItem.href}
-                                                                className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                                                                className="flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-lg transition-all"
                                                                 onClick={() => {
                                                                     setIsOpen(false);
                                                                     setActiveDropdown(null);
@@ -271,7 +271,7 @@ export function Navbar() {
                                     ) : (
                                         <Link
                                             href={item.href}
-                                            className="block px-4 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                                            className="block px-4 py-3 text-base font-medium text-slate-300 hover:text-foreground hover:bg-white/5 rounded-xl transition-all"
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {item.name}
@@ -283,7 +283,7 @@ export function Navbar() {
                             {/* Mobile CTA Buttons */}
                             <div className="pt-4 space-y-3 px-4">
                                 <Link href="/login" onClick={() => setIsOpen(false)} className="block">
-                                    <Button variant="outline" size="md" className="w-full border-white/20 text-white hover:bg-white/5">تسجيل الدخول للوحة التحكم</Button>
+                                    <Button variant="outline" size="md" className="w-full border-white/20 text-foreground hover:bg-white/5">تسجيل الدخول للوحة التحكم</Button>
                                 </Link>
                                 <Link href="/order" onClick={() => setIsOpen(false)} className="block">
                                     <Button variant="primary" size="md" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 shadow-lg shadow-blue-500/25">
@@ -295,7 +295,7 @@ export function Navbar() {
 
                             {/* Mobile Quick Links */}
                             <div className="pt-6 mt-6 border-t border-white/10">
-                                <div className="px-4 flex items-center justify-between text-xs text-slate-500">
+                                <div className="px-4 flex items-center justify-between text-xs text-muted-foreground">
                                     <span>Need help?</span>
                                     <Link
                                         href="/contact"

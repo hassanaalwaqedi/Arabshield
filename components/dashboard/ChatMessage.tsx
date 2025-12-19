@@ -46,7 +46,7 @@ export default function ChatMessage({
                     ? 'bg-gradient-to-br from-blue-600 to-purple-600'
                     : 'bg-slate-200'
                 }`}>
-                <User size={16} className={isOwnMessage ? 'text-white' : 'text-slate-600'} />
+                <User size={16} className={isOwnMessage ? 'text-foreground' : 'text-slate-600'} />
             </div>
 
             {/* Message Bubble */}
@@ -59,7 +59,7 @@ export default function ChatMessage({
 
                 <div className={`relative group flex items-center gap-2 ${isOwnMessage ? 'flex-row-reverse' : ''}`}>
                     <div className={`px-4 py-2.5 rounded-2xl ${isOwnMessage
-                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-br-sm'
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-br-sm'
                             : 'bg-white border border-slate-200 text-slate-900 rounded-bl-sm'
                         }`}>
                         <p className="text-sm whitespace-pre-wrap break-words">
@@ -78,7 +78,7 @@ export default function ChatMessage({
                     )}
                 </div>
 
-                <span className={`text-xs text-slate-400 mt-1 ${isOwnMessage ? 'text-left' : 'text-right'}`}>
+                <span className={`text-xs text-muted-foreground mt-1 ${isOwnMessage ? 'text-left' : 'text-right'}`}>
                     {formatTime(message.timestamp)}
                 </span>
             </div>

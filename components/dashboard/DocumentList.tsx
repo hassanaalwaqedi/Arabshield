@@ -109,13 +109,13 @@ export default function DocumentList({
             <div className="flex flex-col sm:flex-row gap-3">
                 {/* Search */}
                 <div className="flex-1 relative">
-                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
                     <input
                         type="text"
                         placeholder="ابحث عن ملف..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pr-10 pl-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full pr-10 pl-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     />
                 </div>
 
@@ -149,7 +149,7 @@ export default function DocumentList({
 
             {/* Results count */}
             {(searchQuery || filterOption !== 'all') && (
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                     {filteredAndSortedDocuments.length} {filteredAndSortedDocuments.length === 1 ? 'ملف' : 'ملفات'}
                 </p>
             )}
@@ -165,7 +165,7 @@ export default function DocumentList({
                     <p className="text-slate-600 text-lg mb-2">
                         {searchQuery || filterOption !== 'all' ? 'لم يتم العثور على ملفات' : 'لا توجد مستندات'}
                     </p>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-muted-foreground">
                         {searchQuery || filterOption !== 'all' ? 'جرب تغيير البحث أو الفلتر' : 'ارفع ملفاتك لبدء مشاركة المستندات'}
                     </p>
                 </motion.div>

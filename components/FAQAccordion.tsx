@@ -42,7 +42,7 @@ export function FAQAccordion() {
                         {activeIndex === index ? (
                             <Minus className="h-5 w-5 text-tech-blue" />
                         ) : (
-                            <Plus className="h-5 w-5 text-slate-400" />
+                            <Plus className="h-5 w-5 text-muted-foreground" />
                         )}
                     </button>
                     <AnimatePresence>

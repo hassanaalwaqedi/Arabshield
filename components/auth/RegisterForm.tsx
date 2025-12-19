@@ -128,7 +128,7 @@ export default function RegisterForm() {
         return (
             <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12 text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/50">
-                    <XCircle className="w-10 h-10 text-white" />
+                    <XCircle className="w-10 h-10 text-foreground" />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-900 mb-4">التسجيل مغلق حالياً</h2>
                 <p className="text-lg text-slate-600 mb-6">
@@ -159,7 +159,7 @@ export default function RegisterForm() {
         return (
             <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-8 md:p-12 text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/50">
-                    <CheckCircle className="w-10 h-10 text-white" />
+                    <CheckCircle className="w-10 h-10 text-foreground" />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-900 mb-4">تم إنشاء الحساب بنجاح!</h2>
                 <p className="text-lg text-slate-600 mb-6">
@@ -170,7 +170,7 @@ export default function RegisterForm() {
                         الرجاء التحقق من بريدك الإلكتروني <span className="font-semibold text-blue-600">{formData.email}</span> وانقر على الرابط لتفعيل حسابك.
                     </p>
                 </div>
-                <p className="text-sm text-slate-500 mt-6">جاري التحويل إلى صفحة التحقق...</p>
+                <p className="text-sm text-muted-foreground mt-6">جاري التحويل إلى صفحة التحقق...</p>
             </div>
         );
     }
@@ -198,7 +198,7 @@ export default function RegisterForm() {
                     </label>
                     <div className="relative">
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                            <User className="h-5 w-5 text-slate-400" />
+                            <User className="h-5 w-5 text-muted-foreground" />
                         </div>
                         <input
                             type="text"
@@ -227,7 +227,7 @@ export default function RegisterForm() {
                     </label>
                     <div className="relative">
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                            <Mail className="h-5 w-5 text-slate-400" />
+                            <Mail className="h-5 w-5 text-muted-foreground" />
                         </div>
                         <input
                             type="email"
@@ -256,7 +256,7 @@ export default function RegisterForm() {
                     </label>
                     <div className="relative">
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                            <Lock className="h-5 w-5 text-slate-400" />
+                            <Lock className="h-5 w-5 text-muted-foreground" />
                         </div>
                         <input
                             type="password"
@@ -276,7 +276,7 @@ export default function RegisterForm() {
                             {errors.password}
                         </p>
                     )}
-                    <p className="mt-2 text-xs text-slate-500">
+                    <p className="mt-2 text-xs text-muted-foreground">
                         يجب أن تكون كلمة المرور 6 أحرف على الأقل | Minimum 6 characters
                     </p>
                 </div>
@@ -285,7 +285,7 @@ export default function RegisterForm() {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-foreground py-4 px-6 rounded-xl font-semibold hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                     {loading ? (
                         <>

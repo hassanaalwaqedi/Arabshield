@@ -69,7 +69,7 @@ export default function PurchaseModal({ service, onClose }: PurchaseModalProps) 
                                     <h4 className="font-bold text-slate-900 mb-2">{service.title}</h4>
                                     <p className="text-sm text-slate-600 mb-3">{service.description}</p>
                                     <div className="flex items-center justify-between pt-3 border-t border-slate-200">
-                                        <span className="text-sm text-slate-500">السعر</span>
+                                        <span className="text-sm text-muted-foreground">السعر</span>
                                         <span className="text-xl font-bold text-slate-900">
                                             {formatPrice(service.price, service.currency)}
                                         </span>
@@ -102,7 +102,7 @@ export default function PurchaseModal({ service, onClose }: PurchaseModalProps) 
                                 </button>
                                 <button
                                     onClick={handlePurchase}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all"
+                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all"
                                 >
                                     تأكيد الشراء
                                 </button>

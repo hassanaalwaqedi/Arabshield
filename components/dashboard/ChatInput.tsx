@@ -47,13 +47,13 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
                 placeholder="اكتب رسالتك هنا..."
                 disabled={disabled || sending}
                 rows={1}
-                className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none max-h-32"
+                className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none max-h-32"
                 style={{ minHeight: '48px' }}
             />
             <button
                 onClick={handleSend}
                 disabled={!message.trim() || sending || disabled}
-                className="px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                className="px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
             >
                 {sending ? (
                     <>

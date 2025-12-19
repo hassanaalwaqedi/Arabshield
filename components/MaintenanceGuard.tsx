@@ -41,7 +41,7 @@ export function MaintenanceGuard({ children }: MaintenanceGuardProps) {
         <>
             {/* Admin notice when maintenance mode is on */}
             {settings.maintenanceMode && isAdminRole(role) && (
-                <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center py-2 text-sm font-medium">
+                <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-orange-500 to-red-500 text-foreground text-center py-2 text-sm font-medium">
                     <Shield className="inline-block h-4 w-4 mr-2" />
                     وضع الصيانة مفعّل - أنت تشاهد كمسؤول
                 </div>
@@ -66,7 +66,7 @@ function MaintenanceScreen() {
             >
                 {/* Icon */}
                 <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/30">
-                    <Wrench className="h-12 w-12 text-white" />
+                    <Wrench className="h-12 w-12 text-foreground" />
                 </div>
 
                 {/* Title */}

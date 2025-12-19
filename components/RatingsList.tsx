@@ -65,7 +65,7 @@ export default function RatingsList({
             <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 text-white"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 text-foreground"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col items-center justify-center">
@@ -76,7 +76,7 @@ export default function RatingsList({
                             rating={averageRating}
                             size={24}
                         />
-                        <p className="text-white/80 text-sm mt-2">
+                        <p className="text-foreground/80 text-sm mt-2">
                             متوسط التقييم
                         </p>
                     </div>
@@ -85,7 +85,7 @@ export default function RatingsList({
                             <MessageSquare size={32} />
                             <span className="text-4xl font-bold">{ratings.length}</span>
                         </div>
-                        <p className="text-white/80 text-sm">
+                        <p className="text-foreground/80 text-sm">
                             {ratings.length === 1 ? 'تقييم واحد' : 'تقييمات'}
                         </p>
                     </div>
@@ -117,7 +117,7 @@ export default function RatingsList({
                 >
                     <Star size={48} className="text-slate-300 mb-4" />
                     <p className="text-slate-600 text-lg mb-2">لا توجد تقييمات بعد</p>
-                    <p className="text-sm text-slate-400">كن أول من يقيم هذا المشروع</p>
+                    <p className="text-sm text-muted-foreground">كن أول من يقيم هذا المشروع</p>
                 </motion.div>
             ) : (
                 <div className="space-y-4">

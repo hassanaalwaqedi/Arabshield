@@ -79,7 +79,7 @@ export default function RatingForm({
                     onRatingChange={setScore}
                 />
                 {score > 0 && (
-                    <p className="text-sm text-slate-500 mt-2">
+                    <p className="text-sm text-muted-foreground mt-2">
                         {score} من 5 نجوم
                     </p>
                 )}
@@ -96,10 +96,10 @@ export default function RatingForm({
                     placeholder="اكتب تعليقك هنا..."
                     maxLength={500}
                     rows={4}
-                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 resize-none"
                 />
                 <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-muted-foreground">
                         {comment.length}/500
                     </span>
                 </div>
@@ -117,7 +117,7 @@ export default function RatingForm({
                 <button
                     type="submit"
                     disabled={submitting}
-                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                 >
                     <Send size={18} />
                     <span>{submitting ? 'جاري الإرسال...' : submitLabel}</span>

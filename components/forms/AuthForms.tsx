@@ -149,7 +149,7 @@ function Input({ icon: Icon, label, type = "text", placeholder, value, onChange,
         <div className="space-y-2">
             <label className="text-sm font-medium text-slate-300">{label}</label>
             <div className="relative">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                     <Icon className="w-5 h-5" />
                 </div>
                 <input
@@ -158,13 +158,13 @@ function Input({ icon: Icon, label, type = "text", placeholder, value, onChange,
                     value={value}
                     onChange={onChange}
                     required={required}
-                    className="w-full h-12 pl-12 pr-12 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full h-12 pl-12 pr-12 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 />
                 {type === 'password' && (
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-slate-300 transition-colors"
                     >
                         {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -186,8 +186,8 @@ interface ButtonProps {
 
 function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false }: ButtonProps) {
     const variants = {
-        primary: "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/30",
-        secondary: "bg-slate-700 hover:bg-slate-600 text-white"
+        primary: "bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-foreground shadow-lg shadow-blue-600/30",
+        secondary: "bg-slate-700 hover:bg-slate-600 text-foreground"
     };
 
     return (
@@ -252,13 +252,13 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
 
     return (
         <div className="w-full max-w-md animate-fade-in">
-            <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
+            <div className="bg-card/80 backdrop-blur-xl border border-border rounded-3xl p-8 shadow-2xl">
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 mb-4 shadow-lg shadow-blue-500/30">
-                        <Shield className="w-8 h-8 text-white" />
+                        <Shield className="w-8 h-8 text-foreground" />
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-2">مرحباً بعودتك</h2>
-                    <p className="text-slate-400">سجل الدخول للوصول إلى لوحة التحكم</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">مرحباً بعودتك</h2>
+                    <p className="text-muted-foreground">سجل الدخول للوصول إلى لوحة التحكم</p>
                 </div>
 
                 <div className="space-y-5">
@@ -287,7 +287,7 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                             </button>
                         </div>
                         <div className="relative">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">
                                 <Lock className="w-5 h-5" />
                             </div>
                             <input
@@ -296,7 +296,7 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                                 value={formData.password}
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                 required
-                                className="w-full h-12 pl-12 pr-4 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                                className="w-full h-12 pl-12 pr-4 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                             />
                         </div>
                     </div>
@@ -307,18 +307,18 @@ function LoginForm({ onSwitchToRegister }: LoginFormProps) {
                 </div>
 
                 <div className="mt-6 grid grid-cols-2 gap-3">
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check className="w-4 h-4 text-green-400" />
                         <span>تسجيل دخول آمن</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Check className="w-4 h-4 text-green-400" />
                         <span>بيانات مشفرة</span>
                     </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-slate-400 text-sm">
+                <div className="mt-8 pt-6 border-t border-border text-center">
+                    <p className="text-muted-foreground text-sm">
                         ليس لديك حساب؟{' '}
                         <button onClick={onSwitchToRegister} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
                             أنشئ واحداً
@@ -392,13 +392,13 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
     return (
         <div className="w-full max-w-md animate-fade-in">
-            <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
+            <div className="bg-card/80 backdrop-blur-xl border border-border rounded-3xl p-8 shadow-2xl">
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 mb-4 shadow-lg shadow-purple-500/30">
-                        <Sparkles className="w-8 h-8 text-white" />
+                        <Sparkles className="w-8 h-8 text-foreground" />
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-2">إنشاء حساب</h2>
-                    <p className="text-slate-400">ابدأ رحلتك مع NovaArab</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">إنشاء حساب</h2>
+                    <p className="text-muted-foreground">ابدأ رحلتك مع NovaArab</p>
                 </div>
 
                 {error && (
@@ -448,7 +448,7 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
                         required
                     />
 
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-muted-foreground">
                         كلمة المرور يجب أن تكون 6 أحرف على الأقل
                     </p>
 
@@ -459,15 +459,15 @@ function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
 
                 <div className="mt-6 space-y-2">
                     {['لا حاجة لبطاقة ائتمان', 'ابدأ بالفئة المجانية', 'إلغاء في أي وقت'].map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
+                        <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
                             <Check className="w-4 h-4 text-green-400" />
                             <span>{feature}</span>
                         </div>
                     ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-800 text-center">
-                    <p className="text-slate-400 text-sm">
+                <div className="mt-8 pt-6 border-t border-border text-center">
+                    <p className="text-muted-foreground text-sm">
                         لديك حساب بالفعل؟{' '}
                         <button onClick={onSwitchToLogin} className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">
                             سجل الدخول
@@ -494,7 +494,7 @@ export default function AuthPage() {
     const [activeForm, setActiveForm] = useState('login');
 
     return (
-        <div className="min-h-screen bg-slate-950 relative overflow-hidden flex items-center justify-center p-4">
+        <div className="min-h-screen bg-background relative overflow-hidden flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-slate-950 to-purple-950/20"></div>
             <AnimatedCodeBackground />
             <FloatingParticles />
@@ -511,7 +511,7 @@ export default function AuthPage() {
             </div>
 
             <div className="absolute bottom-8 left-0 right-0 text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 backdrop-blur-sm border border-slate-800 text-slate-400 text-xs">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground text-xs">
                     <Code className="w-4 h-4 text-blue-400" />
                     <span>محمي بتشفير على مستوى المؤسسات</span>
                 </div>

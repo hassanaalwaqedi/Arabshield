@@ -40,7 +40,7 @@ export default function ActivitiesList({ limit = 10 }: ActivitiesListProps) {
     // Empty state
     if (activities.length === 0) {
         return (
-            <div className="flex flex-col items-center justify-center py-12 text-slate-500">
+            <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
                 <Clock className="w-12 h-12 mb-3 opacity-50" />
                 <p>لا توجد أنشطة حديثة</p>
             </div>
@@ -63,13 +63,13 @@ export default function ActivitiesList({ limit = 10 }: ActivitiesListProps) {
                     >
                         {/* Icon */}
                         <div className={`p-3 rounded-xl bg-gradient-to-br ${style.gradient} shadow-lg group-hover:scale-110 transition-transform`}>
-                            <Icon className="w-5 h-5 text-white" />
+                            <Icon className="w-5 h-5 text-foreground" />
                         </div>
 
                         {/* Content */}
                         <div className="flex-1 min-w-0">
                             <p className="font-semibold text-slate-900 mb-1">{activity.description}</p>
-                            <p className="text-xs text-slate-500 flex items-center gap-1">
+                            <p className="text-xs text-muted-foreground flex items-center gap-1">
                                 <Clock size={12} />
                                 {formatRelativeTime(activity.timestamp)}
                             </p>

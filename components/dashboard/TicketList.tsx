@@ -91,7 +91,7 @@ export default function TicketList() {
                         key={status}
                         onClick={() => setFilter(status)}
                         className={`px-4 py-2 rounded-xl font-medium transition-all ${filter === status
-                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-foreground shadow-lg'
                             : 'bg-white/70 text-slate-700 hover:bg-slate-100 border border-slate-200'
                             }`}
                     >
@@ -131,7 +131,7 @@ export default function TicketList() {
 
                                 <p className="text-sm text-slate-600 mb-3 line-clamp-2">{ticket.message}</p>
 
-                                <div className="flex items-center gap-4 text-xs text-slate-500">
+                                <div className="flex items-center gap-4 text-xs text-muted-foreground">
                                     <span className={`font-medium ${getPriorityColor(ticket.priority)}`}>
                                         الأولوية: {ticket.priority === 'high' ? 'عالية' : ticket.priority === 'medium' ? 'متوسطة' : 'منخفضة'}
                                     </span>

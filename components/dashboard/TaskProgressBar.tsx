@@ -37,8 +37,8 @@ export default function TaskProgressBar({
             <div className={`${className}`}>
                 {showLabel && (
                     <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-slate-500">المهام</span>
-                        <span className="text-slate-400">لا توجد مهام</span>
+                        <span className="text-muted-foreground">المهام</span>
+                        <span className="text-muted-foreground">لا توجد مهام</span>
                     </div>
                 )}
                 <div className={`${heights[size]} bg-slate-100 rounded-full overflow-hidden`}>
@@ -58,7 +58,7 @@ export default function TaskProgressBar({
                     </span>
                     <span className="font-bold text-slate-900">
                         {completedTasks}/{totalTasks}
-                        <span className="text-slate-400 font-normal mr-1">({progress}%)</span>
+                        <span className="text-muted-foreground font-normal mr-1">({progress}%)</span>
                     </span>
                 </div>
             )}
@@ -74,7 +74,7 @@ export default function TaskProgressBar({
                 />
             </div>
             {showLabel && (
-                <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
+                <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
                         <span className="w-2 h-2 rounded-full bg-slate-300" />
                         <span>قيد الانتظار: {tasks.filter(t => t.status === 'todo').length}</span>

@@ -144,24 +144,24 @@ export function Footer() {
                                     <span className="text-sm font-medium text-blue-400">انضم لأكثر من 1,000 مشترك</span>
                                 </motion.div>
 
-                                <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                                <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
                                     ابقَ في المقدمة
                                 </h3>
-                                <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                                     احصل على رؤى حصرية، اتجاهات السوق، وحلول مبتكرة مباشرة إلى بريدك الإلكتروني.
                                 </p>
 
                                 {!isSubscribed ? (
                                     <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                                         <div className="relative flex-1 group">
-                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-blue-400 transition-colors" />
+                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-blue-400 transition-colors" />
                                             <Input
                                                 type="email"
                                                 placeholder="أدخل بريدك الإلكتروني"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 required
-                                                className="pl-12 h-14 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500/20 rounded-xl"
+                                                className="pl-12 h-14 bg-white/5 border-white/10 text-foreground placeholder:text-muted-foreground focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500/20 rounded-xl"
                                             />
                                         </div>
                                         <Button
@@ -202,7 +202,7 @@ export function Footer() {
                                     </motion.div>
                                 )}
 
-                                <p className="text-xs text-slate-500 mt-4">
+                                <p className="text-xs text-muted-foreground mt-4">
                                     بالاشتراك، أنت توافق على سياسة الخصوصية الخاصة بنا وتوافق على تلقي التحديثات.
                                 </p>
                             </div>
@@ -224,7 +224,7 @@ export function Footer() {
                             <div className="relative">
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
                                 <div className="relative bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-xl shadow-lg">
-                                    <Shield className="h-7 w-7 text-white" />
+                                    <Shield className="h-7 w-7 text-foreground" />
                                 </div>
                             </div>
                             <span className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
@@ -232,29 +232,29 @@ export function Footer() {
                             </span>
                         </Link>
 
-                        <p className="text-sm leading-relaxed text-slate-400 max-w-sm">
+                        <p className="text-sm leading-relaxed text-muted-foreground max-w-sm">
                             نمكّن الشركات بحلول رقمية متطورة. من البرمجيات المخصصة إلى تطبيقات الجوال، نبني مستقبل التكنولوجيا في العالم العربي.
                         </p>
 
                         {/* Stats */}
                         <div className="grid grid-cols-3 gap-4 pt-2">
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
-                                <div className="text-2xl font-bold text-white">100+</div>
-                                <div className="text-xs text-slate-400">مشاريع</div>
+                                <div className="text-2xl font-bold text-foreground">100+</div>
+                                <div className="text-xs text-muted-foreground">مشاريع</div>
                             </div>
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
-                                <div className="text-2xl font-bold text-white">98%</div>
-                                <div className="text-xs text-slate-400">رضا العملاء</div>
+                                <div className="text-2xl font-bold text-foreground">98%</div>
+                                <div className="text-xs text-muted-foreground">رضا العملاء</div>
                             </div>
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
-                                <div className="text-2xl font-bold text-white">24/7</div>
-                                <div className="text-xs text-slate-400">دعم</div>
+                                <div className="text-2xl font-bold text-foreground">24/7</div>
+                                <div className="text-xs text-muted-foreground">دعم</div>
                             </div>
                         </div>
 
                         {/* Social Links - Enhanced */}
                         <div className="pt-4">
-                            <p className="text-sm font-semibold text-white mb-3">تابعنا</p>
+                            <p className="text-sm font-semibold text-foreground mb-3">تابعنا</p>
                             <div className="flex gap-3">
                                 {socialLinks.map((social, i) => (
                                     <motion.a
@@ -263,7 +263,7 @@ export function Footer() {
                                         aria-label={social.label}
                                         whileHover={{ scale: 1.1, y: -2 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className={`w-11 h-11 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-slate-400 transition-all ${social.color}`}
+                                        className={`w-11 h-11 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-muted-foreground transition-all ${social.color}`}
                                     >
                                         <social.icon size={18} />
                                     </motion.a>
@@ -280,7 +280,7 @@ export function Footer() {
                         transition={{ delay: 0.2 }}
                         className="lg:col-span-2"
                     >
-                        <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
                             الشركة
                         </h3>
@@ -288,7 +288,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/about"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>من نحن</span>
@@ -297,7 +297,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/services"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>خدماتنا</span>
@@ -306,7 +306,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/pricing"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>خطط الأسعار</span>
@@ -315,7 +315,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/careers"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>الوظائف</span>
@@ -335,7 +335,7 @@ export function Footer() {
                         transition={{ delay: 0.3 }}
                         className="lg:col-span-2"
                     >
-                        <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full" />
                             الموارد
                         </h3>
@@ -343,7 +343,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/support"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>مركز الدعم</span>
@@ -352,7 +352,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/faq"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>الأسئلة الشائعة</span>
@@ -361,7 +361,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/privacy-policy"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>سياسة الخصوصية</span>
@@ -370,7 +370,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/terms"
-                                    className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                                    className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                     <span>شروط الخدمة</span>
@@ -387,7 +387,7 @@ export function Footer() {
                         transition={{ delay: 0.4 }}
                         className="lg:col-span-4"
                     >
-                        <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full" />
                             تواصل معنا
                         </h3>
@@ -403,7 +403,7 @@ export function Footer() {
                                     <MapPin size={18} className="text-blue-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-slate-500 mb-1">موقع المكتب</div>
+                                    <div className="text-xs text-muted-foreground mb-1">موقع المكتب</div>
                                     <div className="text-sm text-slate-300">Burhaniye, General Kazım Sk., 81010 Düzce</div>
                                 </div>
                             </motion.a>
@@ -417,7 +417,7 @@ export function Footer() {
                                     <Mail size={18} className="text-purple-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-slate-500 mb-1">راسلنا عبر البريد الإلكتروني</div>
+                                    <div className="text-xs text-muted-foreground mb-1">راسلنا عبر البريد الإلكتروني</div>
                                     <div className="text-sm text-slate-300">NovaArabd@gmail.com</div>
                                 </div>
                             </motion.a>
@@ -430,7 +430,7 @@ export function Footer() {
                                     <Phone size={18} className="text-cyan-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-slate-500 mb-1">اتصل بنا</div>
+                                    <div className="text-xs text-muted-foreground mb-1">اتصل بنا</div>
                                     <div className="text-sm text-slate-300">90 537 280 71 33</div>
                                 </div>
                             </motion.div>
@@ -441,7 +441,7 @@ export function Footer() {
                 {/* Enhanced Bottom Bar */}
                 <div className="border-t border-white/5 pt-10">
                     <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-                        <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-slate-500">
+                        <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-muted-foreground">
                             <p className="flex items-center gap-2">
                                 <span>&copy; {new Date().getFullYear()} NovaArab Technologies.</span>
                                 <span className="hidden sm:inline">•</span>
@@ -456,21 +456,21 @@ export function Footer() {
                         <div className="flex items-center gap-6 text-sm">
                             <Link
                                 href="/privacy-policy"
-                                className="text-slate-500 hover:text-white transition-colors relative group"
+                                className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
                                 الخصوصية
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />
                             </Link>
                             <Link
                                 href="/terms"
-                                className="text-slate-500 hover:text-white transition-colors relative group"
+                                className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
                                 الشروط
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />
                             </Link>
                             <Link
                                 href="/sitemap"
-                                className="text-slate-500 hover:text-white transition-colors relative group"
+                                className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
                                 خريطة الموقع
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />

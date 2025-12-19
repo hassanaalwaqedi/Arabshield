@@ -53,7 +53,7 @@ export default function FolderSelector({ folders, selectedFolder, onSelect }: Fo
             ) : (
                 <div className="flex gap-2">
                     <div className="flex-1 relative">
-                        <Folder className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                        <Folder className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                         <input
                             type="text"
                             value={newFolderName}
@@ -61,13 +61,13 @@ export default function FolderSelector({ folders, selectedFolder, onSelect }: Fo
                             onKeyDown={(e) => e.key === 'Enter' && handleCreateFolder()}
                             placeholder="اسم المجلد الجديد..."
                             autoFocus
-                            className="w-full pr-10 pl-4 py-2.5 bg-white border border-blue-500 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                            className="w-full pr-10 pl-4 py-2.5 bg-white border border-blue-500 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                         />
                     </div>
                     <button
                         onClick={handleCreateFolder}
                         disabled={!newFolderName.trim()}
-                        className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-foreground rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         إنشاء
                     </button>

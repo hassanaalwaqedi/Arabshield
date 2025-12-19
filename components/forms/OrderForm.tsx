@@ -21,18 +21,18 @@ function ServiceCard({ icon: Icon, title, description, features, selected, onCli
             onClick={onClick}
             className={`group relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${selected
                 ? 'border-blue-500 bg-blue-500/10 shadow-xl shadow-blue-500/20'
-                : 'border-slate-700 bg-slate-800/50 hover:border-slate-600 hover:shadow-lg hover:shadow-slate-900/50'
+                : 'border-border bg-muted/50 hover:border-border hover:shadow-lg hover:shadow-slate-900/50'
                 }`}
         >
             <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${selected ? 'bg-blue-500 shadow-lg shadow-blue-500/50' : 'bg-slate-700 group-hover:bg-slate-600'
                 }`}>
-                <Icon className="w-7 h-7 text-white" />
+                <Icon className="w-7 h-7 text-foreground" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-            <p className="text-slate-400 text-sm mb-4">{description}</p>
+            <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+            <p className="text-muted-foreground text-sm mb-4">{description}</p>
             <ul className="space-y-2">
                 {features.map((feature, idx) => (
-                    <li key={idx} className="text-xs text-slate-500 flex items-center">
+                    <li key={idx} className="text-xs text-muted-foreground flex items-center">
                         <div className="w-1 h-1 rounded-full bg-slate-600 mr-2"></div>
                         {feature}
                     </li>
@@ -57,19 +57,19 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
     return (
-        <div className="border border-slate-700 rounded-xl overflow-hidden bg-slate-800/30">
+        <div className="border border-border rounded-xl overflow-hidden bg-muted/30">
             <button
                 onClick={onClick}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-800/50 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
             >
-                <span className="font-semibold text-white">{question}</span>
-                <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="font-semibold text-foreground">{question}</span>
+                <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
             <div
                 className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96' : 'max-h-0'
                     }`}
             >
-                <div className="px-6 pb-4 text-slate-400 text-sm leading-relaxed">
+                <div className="px-6 pb-4 text-muted-foreground text-sm leading-relaxed">
                     {answer}
                 </div>
             </div>
@@ -100,7 +100,7 @@ function Input({ label, type = "text", placeholder, required = false, value, onC
                 required={required}
                 value={value}
                 onChange={onChange}
-                className={`w-full h-12 px-4 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all ${className}`}
+                className={`w-full h-12 px-4 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all ${className}`}
             />
         </div>
     );
@@ -127,14 +127,14 @@ function Select({ label, required = false, value, onChange, options, placeholder
                     required={required}
                     value={value}
                     onChange={onChange}
-                    className="w-full h-12 px-4 bg-slate-800/50 border border-slate-700 rounded-xl text-white appearance-none focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full h-12 px-4 bg-muted/50 border border-border rounded-xl text-foreground appearance-none focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 >
                     <option value="">{placeholder}</option>
                     {options.map((opt) => (
                         <option key={opt.value} value={opt.value}>{opt.label}</option>
                     ))}
                 </select>
-                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
             </div>
         </div>
     );
@@ -152,8 +152,8 @@ interface ButtonProps {
 
 function Button({ children, onClick, variant = "primary", className = "", isLoading = false, disabled = false }: ButtonProps) {
     const variants = {
-        primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30",
-        secondary: "bg-slate-700 hover:bg-slate-600 text-white"
+        primary: "bg-blue-600 hover:bg-blue-500 text-foreground shadow-lg shadow-blue-600/30",
+        secondary: "bg-slate-700 hover:bg-slate-600 text-foreground"
     };
 
     return (
@@ -304,24 +304,24 @@ export default function OrderPage() {
 
     if (submitted) {
         return (
-            <div className="min-h-screen bg-slate-950 text-white">
+            <div className="min-h-screen bg-background text-foreground">
                 <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-                    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-12 shadow-2xl">
+                    <div className="bg-card border border-border rounded-3xl p-12 shadow-2xl">
                         <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
-                            <CheckCircle className="w-12 h-12 text-white" />
+                            <CheckCircle className="w-12 h-12 text-foreground" />
                         </div>
                         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
                             تم استلام الطلب بنجاح
                         </h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-md mx-auto">
+                        <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
                             شكراً لاختيارك NovaArab. سيقوم فريق المؤسسات لدينا بمراجعة متطلباتك والاتصال بك خلال 24 ساعة مع عرض تفصيلي.
                         </p>
                         <div className="flex items-center justify-center gap-4 mb-8">
-                            <div className="flex items-center gap-2 text-slate-500 text-sm">
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
                                 <Clock className="w-4 h-4" />
                                 <span>رد في 24 ساعة</span>
                             </div>
-                            <div className="flex items-center gap-2 text-slate-500 text-sm">
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
                                 <FileCheck className="w-4 h-4" />
                                 <span>عرض تفصيلي</span>
                             </div>
@@ -336,7 +336,7 @@ export default function OrderPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -351,7 +351,7 @@ export default function OrderPage() {
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         طلب خدمة
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                         حوّل عملك بحلول تقنية متطورة. من تطوير الويب إلى الأتمتة المدعومة بالذكاء الاصطناعي، نقدم أنظمة على مستوى المؤسسات قابلة للتوسع.
                     </p>
                 </div>
@@ -361,7 +361,7 @@ export default function OrderPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">اختر خدمتك</h2>
-                    <p className="text-slate-400 text-lg">اختر الخدمة التي تناسب احتياجاتك بشكل أفضل</p>
+                    <p className="text-muted-foreground text-lg">اختر الخدمة التي تناسب احتياجاتك بشكل أفضل</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
@@ -377,14 +377,14 @@ export default function OrderPage() {
 
                 {/* Order Form */}
                 <div className="max-w-3xl mx-auto">
-                    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl">
+                    <div className="bg-card border border-border rounded-3xl p-8 md:p-12 shadow-2xl">
                         <div className="flex items-center gap-3 mb-8">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
                                 <FileCheck className="w-5 h-5 text-blue-400" />
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold">تفاصيل المشروع</h3>
-                                <p className="text-slate-400 text-sm">أخبرنا عن متطلباتك</p>
+                                <p className="text-muted-foreground text-sm">أخبرنا عن متطلباتك</p>
                             </div>
                         </div>
 
@@ -450,7 +450,7 @@ export default function OrderPage() {
                                     placeholder="اشرح أهداف مشروعك والميزات الرئيسية وتوقعات الجدول الزمني وأي متطلبات محددة..."
                                     value={formData.details}
                                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                                    className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                                 />
                             </div>
 
@@ -475,11 +475,11 @@ export default function OrderPage() {
             </div>
 
             {/* Trust Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
                         <h2 className="text-2xl font-bold mb-4">موثوق به من فرق حول العالم</h2>
-                        <p className="text-slate-400">نقدم التميّز عبر الصناعات</p>
+                        <p className="text-muted-foreground">نقدم التميّز عبر الصناعات</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
@@ -489,10 +489,10 @@ export default function OrderPage() {
                             { icon: Lock, label: 'معتمد SOC 2', desc: 'معايير الأمان' },
                             { icon: Clock, label: 'دعم 24/7', desc: 'متاح دائماً' }
                         ].map((stat, idx) => (
-                            <div key={idx} className="text-center p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                            <div key={idx} className="text-center p-6 rounded-2xl bg-card/50 border border-border">
                                 <stat.icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                                <div className="text-2xl font-bold text-white mb-1">{stat.label}</div>
-                                <div className="text-sm text-slate-500">{stat.desc}</div>
+                                <div className="text-2xl font-bold text-foreground mb-1">{stat.label}</div>
+                                <div className="text-sm text-muted-foreground">{stat.desc}</div>
                             </div>
                         ))}
                     </div>
@@ -500,11 +500,11 @@ export default function OrderPage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة المتكررة</h2>
-                        <p className="text-slate-400 text-lg">كل ما تحتاج لمعرفته</p>
+                        <p className="text-muted-foreground text-lg">كل ما تحتاج لمعرفته</p>
                     </div>
 
                     <div className="space-y-4">
@@ -521,11 +521,11 @@ export default function OrderPage() {
             </div>
 
             {/* Final CTA */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للبدء؟</h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+                        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                             انضم إلى مئات الشركات التي تثق بنا في مشاريعها التقنية الأكثر أهمية.
                         </p>
                         <Button
@@ -541,3 +541,4 @@ export default function OrderPage() {
         </div>
     );
 }
+

@@ -37,7 +37,7 @@ export default function StatsCard({
             <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-medium text-slate-600">{title}</h3>
                 <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} shadow-lg`}>
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-5 h-5 text-foreground" />
                 </div>
             </div>
 

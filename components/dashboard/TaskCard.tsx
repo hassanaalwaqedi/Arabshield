@@ -50,7 +50,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleComplete }: T
 
     const getStatusIcon = (status: string) => {
         switch (status) {
-            case 'todo': return <Circle size={16} className="text-slate-500" />;
+            case 'todo': return <Circle size={16} className="text-muted-foreground" />;
             case 'in-progress': return <Loader2 size={16} className="text-blue-500 animate-spin" />;
             case 'completed': return <CheckCircle size={16} className="text-green-500" />;
             default: return <Circle size={16} />;
@@ -88,7 +88,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleComplete }: T
                         {getStatusIcon(task.status)}
                     </button>
                     <div className="flex-1">
-                        <h3 className={`text-base font-bold mb-1 ${task.status === 'completed' ? 'text-slate-400 line-through' : 'text-slate-900'
+                        <h3 className={`text-base font-bold mb-1 ${task.status === 'completed' ? 'text-muted-foreground line-through' : 'text-slate-900'
                             }`}>
                             {task.title}
                         </h3>
@@ -103,7 +103,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleComplete }: T
                         onClick={() => setShowMenu(!showMenu)}
                         className="p-1.5 hover:bg-slate-100 rounded-lg transition-colors"
                     >
-                        <MoreVertical size={18} className="text-slate-500" />
+                        <MoreVertical size={18} className="text-muted-foreground" />
                     </button>
 
                     {showMenu && (
@@ -143,7 +143,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleComplete }: T
                 </p>
             )}
 
-            <div className="flex items-center gap-4 text-xs text-slate-500 mr-7">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground mr-7">
                 {task.deadline && (
                     <div className={`flex items-center gap-1 ${isOverdue() ? 'text-red-600' : ''}`}>
                         <Calendar size={12} />

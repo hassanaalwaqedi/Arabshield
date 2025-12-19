@@ -65,7 +65,7 @@ export default function QuickActions() {
 
                     <div className="relative z-10">
                         <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${action.gradient} shadow-lg mb-4`}>
-                            <action.icon className="w-6 h-6 text-white" />
+                            <action.icon className="w-6 h-6 text-foreground" />
                         </div>
 
                         <h3 className="text-lg font-bold text-slate-900 mb-1">{action.label}</h3>

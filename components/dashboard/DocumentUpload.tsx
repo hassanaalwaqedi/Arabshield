@@ -129,7 +129,7 @@ export default function DocumentUpload({ projectId, currentUserId, onUploadCompl
                         <p className="text-lg font-medium text-slate-900 mb-1">
                             اسحب وأفلت الملفات هنا
                         </p>
-                        <p className="text-sm text-slate-500">
+                        <p className="text-sm text-muted-foreground">
                             أو انقر للاختيار (الحد الأقصى 10 ميجابايت)
                         </p>
                     </div>

@@ -35,7 +35,7 @@ export default function ServiceGrid({ services, loading }: ServiceGridProps) {
             >
                 <Package size={64} className="text-slate-300 mb-4" />
                 <p className="text-slate-600 text-xl mb-2">لا توجد خدمات</p>
-                <p className="text-sm text-slate-400">جرب تغيير الفلاتر أو البحث</p>
+                <p className="text-sm text-muted-foreground">جرب تغيير الفلاتر أو البحث</p>
             </motion.div>
         );
     }

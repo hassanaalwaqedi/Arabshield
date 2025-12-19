@@ -73,7 +73,7 @@ export default function ChatPanel({ projectId, currentUserId, currentUserName }:
                 </div>
                 <div>
                     <h3 className="font-bold text-slate-900">محادثة المشروع</h3>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-muted-foreground">
                         {messages.length} {messages.length === 1 ? 'رسالة' : 'رسائل'}
                     </p>
                 </div>
@@ -95,8 +95,8 @@ export default function ChatPanel({ projectId, currentUserId, currentUserName }:
                         className="flex flex-col items-center justify-center h-full py-12"
                     >
                         <MessageCircle size={48} className="text-slate-300 mb-4" />
-                        <p className="text-slate-500">لا توجد رسائل بعد</p>
-                        <p className="text-sm text-slate-400 mt-2">ابدأ المحادثة بإرسال رسالة</p>
+                        <p className="text-muted-foreground">لا توجد رسائل بعد</p>
+                        <p className="text-sm text-muted-foreground mt-2">ابدأ المحادثة بإرسال رسالة</p>
                     </motion.div>
                 ) : (
                     <>

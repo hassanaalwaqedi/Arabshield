@@ -32,7 +32,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                         className="w-full h-full object-cover"
                     />
                 ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white text-6xl">
+                    <div className="w-full h-full flex items-center justify-center text-foreground text-6xl">
                         {service.title[0]}
                     </div>
                 )}
@@ -81,7 +81,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                     </div>
                     <Link
                         href={`/marketplace/${service.id}`}
-                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all flex items-center gap-2"
+                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl hover:shadow-lg transition-all flex items-center gap-2"
                     >
                         <span>التفاصيل</span>
                         <ArrowRight size={16} />

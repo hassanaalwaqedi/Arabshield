@@ -81,7 +81,7 @@ export function WelcomeCard() {
                                     {/* Dismiss button */}
                                     <button
                                         onClick={handleDismiss}
-                                        className="absolute top-4 left-4 p-2 rounded-full text-abyss-400 hover:text-white hover:bg-white/10 transition-all duration-200"
+                                        className="absolute top-4 left-4 p-2 rounded-full text-abyss-400 hover:text-foreground hover:bg-white/10 transition-all duration-200"
                                         aria-label="إغلاق"
                                     >
                                         <X className="w-5 h-5" />
@@ -94,7 +94,7 @@ export function WelcomeCard() {
                                         transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
                                         className="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br from-electric-500 to-neon-600 shadow-lg shadow-electric-500/30"
                                     >
-                                        <Shield className="w-10 h-10 text-white" />
+                                        <Shield className="w-10 h-10 text-foreground" />
                                     </motion.div>
 
                                     {/* Title */}
@@ -102,7 +102,7 @@ export function WelcomeCard() {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.4 }}
-                                        className="text-2xl md:text-3xl font-bold text-white mb-4"
+                                        className="text-2xl md:text-3xl font-bold text-foreground mb-4"
                                     >
                                         مرحبًا بك في{' '}
                                         <span className="bg-gradient-to-r from-electric-400 to-neon-400 bg-clip-text text-transparent">
@@ -126,7 +126,7 @@ export function WelcomeCard() {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.6 }}
                                         onClick={handleDismiss}
-                                        className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-electric-500 to-neon-600 text-white font-semibold shadow-lg shadow-electric-500/30 hover:shadow-electric-500/50 hover:scale-105 transition-all duration-300"
+                                        className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-electric-500 to-neon-600 text-foreground font-semibold shadow-lg shadow-electric-500/30 hover:shadow-electric-500/50 hover:scale-105 transition-all duration-300"
                                     >
                                         <span>ابدأ الآن</span>
                                         <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />

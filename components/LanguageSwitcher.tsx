@@ -63,10 +63,10 @@ export function LanguageSwitcher({ compact = false, showLabel = true }: Language
         return (
             <button
                 onClick={() => switchLocale(currentLocale === 'ar' ? 'en' : 'ar')}
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700/50 hover:border-electric-500/30 transition-all duration-200"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted/50 hover:bg-slate-700/50 border border-border/50 hover:border-electric-500/30 transition-all duration-200"
                 title={currentLocale === 'ar' ? 'Switch to English' : 'التبديل للعربية'}
             >
-                <span className="text-sm font-medium text-white">
+                <span className="text-sm font-medium text-foreground">
                     {currentLocale === 'ar' ? 'EN' : 'AR'}
                 </span>
             </button>
@@ -79,23 +79,23 @@ export function LanguageSwitcher({ compact = false, showLabel = true }: Language
                 onClick={() => setIsOpen(!isOpen)}
                 className={`
                     flex items-center gap-2 px-3 py-2 rounded-xl
-                    bg-slate-800/50 hover:bg-slate-700/50
-                    border border-slate-700/50 hover:border-electric-500/30
+                    bg-muted/50 hover:bg-slate-700/50
+                    border border-border/50 hover:border-electric-500/30
                     transition-all duration-200
                     ${showLabel ? 'min-w-[120px]' : ''}
                 `}
             >
                 <Globe className="w-4 h-4 text-electric-400" />
                 {showLabel && (
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm font-medium text-foreground">
                         {currentConfig.name}
                     </span>
                 )}
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isOpen && (
-                <div className="absolute top-full mt-2 end-0 w-40 py-2 bg-slate-800 border border-slate-700 rounded-xl shadow-xl z-50">
+                <div className="absolute top-full mt-2 end-0 w-40 py-2 bg-muted border border-border rounded-xl shadow-xl z-50">
                     {routing.locales.map((locale: Locale) => {
                         const config = localeConfig[locale];
                         const isActive = locale === currentLocale;
@@ -109,7 +109,7 @@ export function LanguageSwitcher({ compact = false, showLabel = true }: Language
                                     transition-colors duration-150
                                     ${isActive
                                         ? 'bg-electric-500/20 text-electric-400'
-                                        : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+                                        : 'text-slate-300 hover:bg-slate-700/50 hover:text-foreground'
                                     }
                                 `}
                             >

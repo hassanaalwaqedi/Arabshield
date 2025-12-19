@@ -29,7 +29,7 @@ function Input({ label, type = "text", placeholder, required = false, value, onC
                 required={required}
                 value={value}
                 onChange={onChange}
-                className={`w-full h-12 px-4 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all ${className}`}
+                className={`w-full h-12 px-4 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all ${className}`}
             />
         </div>
     );
@@ -47,8 +47,8 @@ interface ButtonProps {
 
 function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false }: ButtonProps) {
     const variants = {
-        primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30",
-        secondary: "bg-slate-700 hover:bg-slate-600 text-white"
+        primary: "bg-blue-600 hover:bg-blue-500 text-foreground shadow-lg shadow-blue-600/30",
+        secondary: "bg-slate-700 hover:bg-slate-600 text-foreground"
     };
 
     return (
@@ -81,13 +81,13 @@ interface ContactInfoCardProps {
 
 function ContactInfoCard({ icon: Icon, title, info, subInfo }: ContactInfoCardProps) {
     return (
-        <div className="group p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300">
+        <div className="group p-6 rounded-2xl bg-card/50 border border-border hover:border-border transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-white font-semibold mb-2">{title}</h3>
-            <p className="text-slate-400 text-sm mb-1">{info}</p>
-            {subInfo && <p className="text-slate-500 text-xs">{subInfo}</p>}
+            <h3 className="text-foreground font-semibold mb-2">{title}</h3>
+            <p className="text-muted-foreground text-sm mb-1">{info}</p>
+            {subInfo && <p className="text-muted-foreground text-xs">{subInfo}</p>}
         </div>
     );
 }
@@ -149,10 +149,10 @@ function ContactForm() {
             <div className="h-full flex items-center justify-center p-8">
                 <div className="text-center max-w-md">
                     <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
-                        <CheckCircle className="w-10 h-10 text-white" />
+                        <CheckCircle className="w-10 h-10 text-foreground" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-3">تم إرسال الرسالة بنجاح!</h3>
-                    <p className="text-slate-400 mb-8 leading-relaxed">
+                    <h3 className="text-3xl font-bold text-foreground mb-3">تم إرسال الرسالة بنجاح!</h3>
+                    <p className="text-muted-foreground mb-8 leading-relaxed">
                         شكراً لتواصلك معنا. سيقوم فريقنا بمراجعة رسالتك والرد عليك خلال 24 ساعة.
                     </p>
                     <Button onClick={handleReset} variant="secondary">
@@ -199,7 +199,7 @@ function ContactForm() {
                     placeholder="أخبرنا عن استفسارك أو مشروعك أو كيف يمكننا مساعدتك..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                    className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                 />
             </div>
 
@@ -225,7 +225,7 @@ function ContactForm() {
 // Main Contact Page Component
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -240,7 +240,7 @@ export default function ContactPage() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         اتصل بنا
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         لديك سؤال أو مستعد لبدء مشروعك؟ نحن هنا لمساعدتك في تحقيق رؤيتك.
                     </p>
                 </div>
@@ -253,7 +253,7 @@ export default function ContactPage() {
                     <div className="space-y-8">
                         <div>
                             <h2 className="text-3xl font-bold mb-4">لنتحدث</h2>
-                            <p className="text-slate-400 text-lg leading-relaxed">
+                            <p className="text-muted-foreground text-lg leading-relaxed">
                                 سواء كنت تتطلع لبناء منتج جديد أو تحسين أنظمتك الحالية أو تحتاج إلى استشارة متخصصة، نحن مستعدون لمساعدتك على النجاح.
                             </p>
                         </div>
@@ -309,14 +309,14 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10 shadow-2xl">
+                    <div className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-2xl">
                         <div className="flex items-center gap-3 mb-8">
                             <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
                                 <Send className="w-5 h-5 text-blue-400" />
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold">أرسل لنا رسالة</h3>
-                                <p className="text-slate-400 text-sm">سنرد في أقرب وقت ممكن</p>
+                                <p className="text-muted-foreground text-sm">سنرد في أقرب وقت ممكن</p>
                             </div>
                         </div>
 
@@ -326,13 +326,13 @@ export default function ContactPage() {
             </div>
 
             {/* Map Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-8">
                         <h2 className="text-3xl font-bold mb-2">موقعنا</h2>
-                        <p className="text-slate-400">الرياض، المملكة العربية السعودية</p>
+                        <p className="text-muted-foreground">الرياض، المملكة العربية السعودية</p>
                     </div>
-                    <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden h-96">
+                    <div className="bg-card border border-border rounded-3xl overflow-hidden h-96">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.7392665913313!2d46.6752957!3d24.7135517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1702743000000!5m2!1sen!2s"
                             width="100%"
@@ -348,23 +348,23 @@ export default function ContactPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد لبدء مشروعك؟</h2>
-                    <p className="text-slate-400 text-lg mb-8">
+                    <p className="text-muted-foreground text-lg mb-8">
                         دعنا نناقش كيف يمكننا مساعدتك في تحويل أعمالك بالتكنولوجيا.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/order"
-                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/30 transition-all"
+                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-foreground shadow-lg shadow-blue-600/30 transition-all"
                         >
                             ابدأ مشروعك
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                         <Link
                             href="/portfolio"
-                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-slate-700 hover:bg-slate-600 text-white transition-all"
+                            className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-slate-700 hover:bg-slate-600 text-foreground transition-all"
                         >
                             عرض أعمالنا
                         </Link>

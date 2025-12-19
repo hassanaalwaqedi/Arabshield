@@ -12,9 +12,9 @@ interface ButtonProps {
 
 function Button({ children, onClick, variant = "primary", className = "" }: ButtonProps) {
     const variants = {
-        primary: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30",
+        primary: "bg-blue-600 hover:bg-blue-500 text-foreground shadow-lg shadow-blue-600/30",
         secondary: "bg-white hover:bg-slate-50 text-slate-900 shadow-lg",
-        outline: "bg-transparent border-2 border-slate-700 hover:border-slate-600 text-white"
+        outline: "bg-transparent border-2 border-border hover:border-border text-foreground"
     };
 
     return (
@@ -42,7 +42,7 @@ function PricingCard({ title, price, description, features, popular, recommended
     return (
         <div className={`relative rounded-3xl transition-all duration-300 h-full flex flex-col ${popular
             ? 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-2xl shadow-blue-600/30 scale-105 border-2 border-blue-400'
-            : 'bg-slate-900 border-2 border-slate-800 hover:border-slate-700 shadow-xl'
+            : 'bg-card border-2 border-border hover:border-border shadow-xl'
             }`}>
             {/* Popular Badge */}
             {popular && (
@@ -57,7 +57,7 @@ function PricingCard({ title, price, description, features, popular, recommended
             {/* Recommended Badge */}
             {recommended && !popular && (
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-foreground px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
                         <Sparkles className="w-4 h-4" />
                         موصى به
                     </div>
@@ -70,15 +70,15 @@ function PricingCard({ title, price, description, features, popular, recommended
                     ? 'bg-white/20 backdrop-blur-sm'
                     : 'bg-blue-500/10 border border-blue-500/20'
                     }`}>
-                    <Icon className={`w-7 h-7 ${popular ? 'text-white' : 'text-blue-400'}`} />
+                    <Icon className={`w-7 h-7 ${popular ? 'text-foreground' : 'text-blue-400'}`} />
                 </div>
 
                 {/* Header */}
                 <div className="mb-8">
-                    <h3 className={`text-2xl font-bold mb-2 ${popular ? 'text-white' : 'text-white'}`}>
+                    <h3 className={`text-2xl font-bold mb-2 ${popular ? 'text-foreground' : 'text-foreground'}`}>
                         {title}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${popular ? 'text-blue-100' : 'text-slate-400'}`}>
+                    <p className={`text-sm leading-relaxed ${popular ? 'text-blue-100' : 'text-muted-foreground'}`}>
                         {description}
                     </p>
                 </div>
@@ -87,22 +87,22 @@ function PricingCard({ title, price, description, features, popular, recommended
                 <div className="mb-8">
                     <div className="flex items-baseline gap-2">
                         {price === 'Custom' ? (
-                            <span className={`text-4xl font-bold ${popular ? 'text-white' : 'text-white'}`}>
+                            <span className={`text-4xl font-bold ${popular ? 'text-foreground' : 'text-foreground'}`}>
                                 مخصص
                             </span>
                         ) : (
                             <>
-                                <span className={`text-5xl font-bold ${popular ? 'text-white' : 'text-white'}`}>
+                                <span className={`text-5xl font-bold ${popular ? 'text-foreground' : 'text-foreground'}`}>
                                     {price}
                                 </span>
-                                <span className={`text-lg ${popular ? 'text-blue-200' : 'text-slate-500'}`}>
+                                <span className={`text-lg ${popular ? 'text-blue-200' : 'text-muted-foreground'}`}>
                                     /مشروع
                                 </span>
                             </>
                         )}
                     </div>
                     {price === 'Custom' && (
-                        <p className={`text-sm mt-2 ${popular ? 'text-blue-200' : 'text-slate-500'}`}>
+                        <p className={`text-sm mt-2 ${popular ? 'text-blue-200' : 'text-muted-foreground'}`}>
                             مخصص وفق احتياجاتك
                         </p>
                     )}
@@ -116,7 +116,7 @@ function PricingCard({ title, price, description, features, popular, recommended
                                 ? 'bg-white/20'
                                 : 'bg-blue-500/10'
                                 }`}>
-                                <Check className={`w-4 h-4 ${popular ? 'text-white' : 'text-blue-400'}`} />
+                                <Check className={`w-4 h-4 ${popular ? 'text-foreground' : 'text-blue-400'}`} />
                             </div>
                             <span className={`text-sm leading-relaxed ${popular ? 'text-blue-50' : 'text-slate-300'}`}>
                                 {feature}
@@ -199,7 +199,7 @@ export default function PricingPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/5 to-slate-950"></div>
@@ -214,7 +214,7 @@ export default function PricingPage() {
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                         اختر خطتك
                     </h1>
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                         حزم تسعير مرنة مصممة لتتناسب مع نطاق مشروعك وأهداف عملك. لا رسوم خفية، فقط قيمة شفافة.
                     </p>
                 </div>
@@ -230,11 +230,11 @@ export default function PricingPage() {
             </div>
 
             {/* Comparison Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">جميع الخطط تشمل</h2>
-                        <p className="text-slate-400 text-lg">ميزات أساسية في كل حزمة</p>
+                        <p className="text-muted-foreground text-lg">ميزات أساسية في كل حزمة</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -244,12 +244,12 @@ export default function PricingPage() {
                             { icon: Zap, title: 'سريع', desc: 'محسّن للأداء' },
                             { icon: Star, title: 'دعم', desc: 'دعم فني مخصص' }
                         ].map((item, idx) => (
-                            <div key={idx} className="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                            <div key={idx} className="p-6 rounded-2xl bg-card border border-border text-center">
                                 <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                                     <item.icon className="w-6 h-6 text-blue-400" />
                                 </div>
-                                <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                                <p className="text-slate-400 text-sm">{item.desc}</p>
+                                <h3 className="text-foreground font-semibold mb-2">{item.title}</h3>
+                                <p className="text-muted-foreground text-sm">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -257,11 +257,11 @@ export default function PricingPage() {
             </div>
 
             {/* FAQ Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">الأسئلة الشائعة عن الأسعار</h2>
-                        <p className="text-slate-400 text-lg">أسئلة شائعة حول الأسعار</p>
+                        <p className="text-muted-foreground text-lg">أسئلة شائعة حول الأسعار</p>
                     </div>
 
                     <div className="space-y-6">
@@ -283,9 +283,9 @@ export default function PricingPage() {
                                 a: 'نعم! خطة المؤسسات قابلة للتخصيص بالكامل. اتصل بنا لمناقشة متطلباتك المحددة والحصول على عرض أسعار مخصص.'
                             }
                         ].map((faq, idx) => (
-                            <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                                <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                            <div key={idx} className="bg-card border border-border rounded-2xl p-6">
+                                <h3 className="text-foreground font-semibold mb-2">{faq.q}</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                             </div>
                         ))}
                     </div>
@@ -293,11 +293,11 @@ export default function PricingPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="border-t border-slate-800">
+            <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl p-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد للبدء؟</h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+                        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                             اختر خطة تناسب احتياجاتك أو اتصل بنا لحل مؤسسي مخصص.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -314,3 +314,4 @@ export default function PricingPage() {
         </div>
     );
 }
+

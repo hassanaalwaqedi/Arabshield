@@ -46,13 +46,13 @@ export function Breadcrumb() {
 
     return (
         <nav
-            className="flex items-center gap-2 text-sm text-slate-400 mb-6"
+            className="flex items-center gap-2 text-sm text-muted-foreground mb-6"
             dir="rtl"
             aria-label="Breadcrumb"
         >
             <Link
                 href="/"
-                className="flex items-center gap-1 hover:text-white transition-colors"
+                className="flex items-center gap-1 hover:text-foreground transition-colors"
             >
                 <Home className="w-4 h-4" />
                 <span className="sr-only">الرئيسية</span>
@@ -62,11 +62,11 @@ export function Breadcrumb() {
                 <div key={item.href} className="flex items-center gap-2">
                     <ChevronLeft className="w-4 h-4 text-slate-600" />
                     {item.isLast ? (
-                        <span className="text-white font-medium">{item.label}</span>
+                        <span className="text-foreground font-medium">{item.label}</span>
                     ) : (
                         <Link
                             href={item.href}
-                            className="hover:text-white transition-colors"
+                            className="hover:text-foreground transition-colors"
                         >
                             {item.label}
                         </Link>

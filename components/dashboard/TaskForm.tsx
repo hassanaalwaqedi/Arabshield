@@ -135,7 +135,7 @@ export default function TaskForm({ isOpen, onClose, onSubmit, editTask }: TaskFo
                                 onClick={onClose}
                                 className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
                             >
-                                <X size={20} className="text-slate-500" />
+                                <X size={20} className="text-muted-foreground" />
                             </button>
                         </div>
 
@@ -152,7 +152,7 @@ export default function TaskForm({ isOpen, onClose, onSubmit, editTask }: TaskFo
                                     value={formData.title}
                                     onChange={(e) => handleChange('title', e.target.value)}
                                     placeholder="أدخل عنوان المهمة"
-                                    className={`w-full px-4 py-3 bg-slate-50 border rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 transition-all ${errors.title
+                                    className={`w-full px-4 py-3 bg-slate-50 border rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:bg-white focus:ring-2 transition-all ${errors.title
                                         ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20'
                                         : 'border-slate-200 focus:border-blue-500 focus:ring-blue-500/20'
                                         }`}
@@ -173,7 +173,7 @@ export default function TaskForm({ isOpen, onClose, onSubmit, editTask }: TaskFo
                                     onChange={(e) => handleChange('description', e.target.value)}
                                     placeholder="أدخل وصف المهمة (اختياري)"
                                     rows={3}
-                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                                 />
                             </div>
 
@@ -254,7 +254,7 @@ export default function TaskForm({ isOpen, onClose, onSubmit, editTask }: TaskFo
                                     value={formData.assignedTo}
                                     onChange={(e) => handleChange('assignedTo', e.target.value)}
                                     placeholder="اسم الشخص المسؤول (اختياري)"
-                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-muted-foreground focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                                 />
                             </div>
 
@@ -270,7 +270,7 @@ export default function TaskForm({ isOpen, onClose, onSubmit, editTask }: TaskFo
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-xl font-medium hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                                 >
                                     {loading ? (
                                         <>

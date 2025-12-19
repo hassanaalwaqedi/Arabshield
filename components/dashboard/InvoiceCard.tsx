@@ -68,7 +68,7 @@ export default function InvoiceCard({ invoice }: InvoiceCardProps) {
                 )}
             </div>
 
-            <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all">
+            <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-foreground rounded-lg hover:shadow-lg transition-all">
                 <Download size={16} />
                 <span>تحميل الفاتورة</span>
             </button>
