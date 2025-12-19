@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
     Briefcase, MapPin, Clock, Building2, ArrowRight, ArrowLeft,
-    CheckCircle, Upload, X, Loader2, Send, FileText
+    CheckCircle, Upload, X, Loader2, Send, FileText, Copy, Check
 } from 'lucide-react';
 import { getJobById, submitApplication, Job, jobTypeLabels, departmentLabels } from '@/lib/careersService';
 
@@ -17,6 +17,7 @@ export default function JobDetailsPage() {
     const [job, setJob] = useState<Job | null>(null);
     const [loading, setLoading] = useState(true);
     const [showApplicationModal, setShowApplicationModal] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     useEffect(() => {
         async function fetchJob() {
@@ -28,6 +29,25 @@ export default function JobDetailsPage() {
         }
         fetchJob();
     }, [jobId]);
+
+    const handleCopyLink = async () => {
+        const url = window.location.href;
+        try {
+            await navigator.clipboard.writeText(url);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = url;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        }
+    };
 
     if (loading) {
         return (
@@ -73,8 +93,8 @@ export default function JobDetailsPage() {
                         <div className="flex-1">
                             <div className="flex flex-wrap gap-3 mb-3">
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${job.type === 'remote'
-                                        ? 'bg-green-500/10 text-green-400 border border-green-500/20'
-                                        : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                                    ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                                    : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                                     }`}>
                                     {jobTypeLabels[job.type] || job.type}
                                 </span>
@@ -165,8 +185,24 @@ export default function JobDetailsPage() {
                             <div className="mt-6 pt-6 border-t border-border">
                                 <h4 className="text-sm font-medium text-muted-foreground mb-3">شارك هذه الوظيفة</h4>
                                 <div className="flex gap-2">
-                                    <button className="flex-1 py-2 bg-muted hover:bg-slate-700 rounded-lg text-sm transition-colors">
-                                        نسخ الرابط
+                                    <button
+                                        onClick={handleCopyLink}
+                                        className={`flex-1 py-2 flex items-center justify-center gap-2 rounded-lg text-sm transition-colors ${copied
+                                                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                                                : 'bg-muted hover:bg-slate-700'
+                                            }`}
+                                    >
+                                        {copied ? (
+                                            <>
+                                                <Check className="w-4 h-4" />
+                                                تم النسخ!
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="w-4 h-4" />
+                                                نسخ الرابط
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </div>
@@ -348,8 +384,8 @@ function ApplicationModal({ job, onClose }: { job: Job; onClose: () => void }) {
                             <label
                                 htmlFor="cv-upload"
                                 className={`flex items-center justify-center gap-3 w-full h-24 border-2 border-dashed rounded-xl cursor-pointer transition-all ${cvFile
-                                        ? 'border-green-500/50 bg-green-500/5'
-                                        : 'border-border hover:border-blue-500/50 hover:bg-muted/50'
+                                    ? 'border-green-500/50 bg-green-500/5'
+                                    : 'border-border hover:border-blue-500/50 hover:bg-muted/50'
                                     }`}
                             >
                                 {cvFile ? (
