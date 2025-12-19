@@ -122,7 +122,7 @@ export function Sidebar() {
             {/* Mobile Toggle Button - Top-left, optimized for touch */}
             <button
                 onClick={toggleMobile}
-                className="md:hidden fixed top-4 start-4 z-50 p-3 rounded-xl bg-abyss-900/95 backdrop-blur-sm border border-slate-700/50 text-white shadow-lg hover:bg-abyss-800 transition-all active:scale-95"
+                className="md:hidden fixed top-4 start-4 z-50 p-3 rounded-xl bg-card/95 backdrop-blur-sm border border-border text-foreground shadow-lg hover:bg-accent transition-all active:scale-95"
                 aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileOpen}
             >
@@ -148,8 +148,8 @@ export function Sidebar() {
                 style={{ width: sidebarWidth }}
                 className={`
                     fixed top-0 end-0 h-screen z-50
-                    bg-abyss-950/95 backdrop-blur-xl
-                    border-s border-slate-800/50
+                    bg-card/95 backdrop-blur-xl
+                    border-s border-border
                     flex flex-col
                     transition-all duration-300 ease-out
                     ${isMobileOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
@@ -159,7 +159,7 @@ export function Sidebar() {
             >
                 {/* Logo Area */}
                 <div className={`
-                    flex items-center h-16 border-b border-slate-800/50
+                    flex items-center h-16 border-b border-border
                     ${isCollapsed ? 'justify-center px-2' : 'justify-between px-4'}
                 `}>
                     <Link href="/" className="flex items-center gap-2.5" onClick={closeMobile}>
@@ -167,7 +167,7 @@ export function Sidebar() {
                             <BrainCircuit className="w-5 h-5 text-white" />
                         </div>
                         {!isCollapsed && (
-                            <span className="font-bold text-lg text-white tracking-tight whitespace-nowrap">
+                            <span className="font-bold text-lg text-foreground tracking-tight whitespace-nowrap">
                                 NovaArab
                             </span>
                         )}
@@ -177,7 +177,7 @@ export function Sidebar() {
                     {!isCollapsed && (
                         <button
                             onClick={toggleCollapse}
-                            className="hidden md:flex p-1.5 rounded-lg hover:bg-slate-800/50 text-slate-400 hover:text-white transition-colors"
+                            className="hidden md:flex p-1.5 rounded-lg hover:bg-accent text-muted-foreground hover:text-foreground transition-colors"
                             aria-label="Collapse sidebar"
                         >
                             <ChevronRight className="w-4 h-4 rotate-180" />
@@ -189,7 +189,7 @@ export function Sidebar() {
                 {isCollapsed && (
                     <button
                         onClick={toggleCollapse}
-                        className="hidden md:flex mx-auto mt-3 p-1.5 rounded-lg hover:bg-slate-800/50 text-slate-400 hover:text-white transition-colors"
+                        className="hidden md:flex mx-auto mt-3 p-1.5 rounded-lg hover:bg-accent text-muted-foreground hover:text-foreground transition-colors"
                         aria-label="Expand sidebar"
                     >
                         <ChevronRight className="w-4 h-4" />
@@ -218,7 +218,7 @@ export function Sidebar() {
                                     >
                                         <item.icon className={`
                                             w-5 h-5 flex-shrink-0 transition-colors
-                                            ${isActive ? 'text-electric-400' : 'text-slate-500 group-hover:text-white'}
+                                            ${isActive ? 'text-electric-400' : 'text-muted-foreground group-hover:text-foreground'}
                                         `} />
 
                                         {!isCollapsed && (
@@ -238,8 +238,8 @@ export function Sidebar() {
                                         {isCollapsed && (
                                             <div className="
                                                 absolute left-full mr-2 px-2.5 py-1.5
-                                                bg-abyss-900 text-white text-xs font-medium
-                                                rounded-lg shadow-xl border border-slate-700/50
+                                                bg-popover text-popover-foreground text-xs font-medium
+                                                rounded-lg shadow-xl border border-border
                                                 opacity-0 group-hover:opacity-100
                                                 pointer-events-none whitespace-nowrap
                                                 transition-opacity duration-200
@@ -256,9 +256,9 @@ export function Sidebar() {
 
                     {/* Divider */}
                     <div className="my-4 mx-2">
-                        <div className="border-t border-slate-800/50" />
+                        <div className="border-t border-border" />
                         {!isCollapsed && (
-                            <p className="text-xs text-slate-600 mt-3 px-1 font-medium">{tCommon('brand')}</p>
+                            <p className="text-xs text-muted-foreground mt-3 px-1 font-medium">{tCommon('brand')}</p>
                         )}
                     </div>
 
@@ -282,7 +282,7 @@ export function Sidebar() {
                                     >
                                         <item.icon className={`
                                             w-5 h-5 flex-shrink-0 transition-colors
-                                            ${isActive ? 'text-electric-400' : 'text-slate-500 group-hover:text-white'}
+                                            ${isActive ? 'text-electric-400' : 'text-muted-foreground group-hover:text-foreground'}
                                         `} />
 
                                         {!isCollapsed && (
@@ -293,8 +293,8 @@ export function Sidebar() {
                                         {isCollapsed && (
                                             <div className="
                                                 absolute left-full mr-2 px-2.5 py-1.5
-                                                bg-abyss-900 text-white text-xs font-medium
-                                                rounded-lg shadow-xl border border-slate-700/50
+                                                bg-popover text-popover-foreground text-xs font-medium
+                                                rounded-lg shadow-xl border border-border
                                                 opacity-0 group-hover:opacity-100
                                                 pointer-events-none whitespace-nowrap
                                                 transition-opacity duration-200
@@ -363,7 +363,7 @@ export function Sidebar() {
                                                 {isCollapsed && (
                                                     <div className="
                                                         absolute left-full mr-2 px-2.5 py-1.5
-                                                        bg-abyss-900 text-amber-300 text-xs font-medium
+                                                        bg-popover text-amber-400 dark:text-amber-300 text-xs font-medium
                                                         rounded-lg shadow-xl border border-amber-500/30
                                                         opacity-0 group-hover:opacity-100
                                                         pointer-events-none whitespace-nowrap
@@ -383,7 +383,7 @@ export function Sidebar() {
                 </nav>
 
                 {/* Language Switcher & Theme Toggle */}
-                <div className="px-3 py-2 border-t border-slate-800/50 space-y-2">
+                <div className="px-3 py-2 border-t border-border space-y-2">
                     <LanguageSwitcher
                         compact={isCollapsed}
                         showLabel={!isCollapsed}
@@ -399,7 +399,7 @@ export function Sidebar() {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="p-3 border-t border-slate-800/50">
+                <div className="p-3 border-t border-border">
                     <Link href="/order" onClick={closeMobile}>
                         <Button
                             variant="glow"
