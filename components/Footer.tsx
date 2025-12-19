@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Shield, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight, Sparkles, Zap, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -8,6 +9,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export function Footer() {
+    const t = useTranslations('footer');
     const [email, setEmail] = useState('');
     const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -21,20 +23,6 @@ export function Footer() {
             }, 3000);
         }
     };
-
-    const quickLinks = [
-        { href: '/about', label: 'About Us' },
-        { href: '/services', label: 'Our Services' },
-        { href: '/pricing', label: 'Pricing Plans' },
-        { href: '/careers', label: 'Careers', badge: 'Hiring' },
-    ];
-
-    const resources = [
-        { href: '/support', label: 'Support Center' },
-        { href: '/faq', label: 'FAQs' },
-        { href: '/privacy-policy', label: 'Privacy Policy' },
-        { href: '/terms', label: 'Terms of Service' },
-    ];
 
     const socialLinks = [
         { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:bg-blue-500/20 hover:text-blue-400' },
@@ -77,7 +65,7 @@ export function Footer() {
                 {/* Grid Pattern */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:72px_72px]" />
 
-                {/* Floating Particles - Using deterministic positions to avoid hydration mismatch */}
+                {/* Floating Particles */}
                 <div className="absolute inset-0">
                     {[
                         { left: 15, top: 20, delay: 0.1, duration: 3.5 },
@@ -141,14 +129,14 @@ export function Footer() {
                                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6"
                                 >
                                     <Sparkles className="w-4 h-4 text-blue-400" />
-                                    <span className="text-sm font-medium text-blue-400">انضم لأكثر من 1,000 مشترك</span>
+                                    <span className="text-sm font-medium text-blue-400">{t('newsletter.subscribers')}</span>
                                 </motion.div>
 
                                 <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                                    ابقَ في المقدمة
+                                    {t('newsletter.stayAhead')}
                                 </h3>
                                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                                    احصل على رؤى حصرية، اتجاهات السوق، وحلول مبتكرة مباشرة إلى بريدك الإلكتروني.
+                                    {t('newsletter.description')}
                                 </p>
 
                                 {!isSubscribed ? (
@@ -157,7 +145,7 @@ export function Footer() {
                                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-blue-400 transition-colors" />
                                             <Input
                                                 type="email"
-                                                placeholder="أدخل بريدك الإلكتروني"
+                                                placeholder={t('newsletter.placeholder')}
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 required
@@ -170,7 +158,7 @@ export function Footer() {
                                             size="lg"
                                             className="sm:w-auto h-14 px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 transition-all"
                                         >
-                                            اشترك <Zap className="mr-2 h-4 w-4" />
+                                            {t('newsletter.subscribe')} <Zap className="mr-2 h-4 w-4" />
                                         </Button>
                                     </form>
                                 ) : (
@@ -198,12 +186,12 @@ export function Footer() {
                                                 </svg>
                                             </motion.div>
                                         </div>
-                                        <span className="text-green-400 font-medium">تم الاشتراك بنجاح! تحقق من بريدك الإلكتروني.</span>
+                                        <span className="text-green-400 font-medium">{t('newsletter.success')}</span>
                                     </motion.div>
                                 )}
 
                                 <p className="text-xs text-muted-foreground mt-4">
-                                    بالاشتراك، أنت توافق على سياسة الخصوصية الخاصة بنا وتوافق على تلقي التحديثات.
+                                    {t('newsletter.consent')}
                                 </p>
                             </div>
                         </div>
@@ -233,28 +221,28 @@ export function Footer() {
                         </Link>
 
                         <p className="text-sm leading-relaxed text-muted-foreground max-w-sm">
-                            نمكّن الشركات بحلول رقمية متطورة. من البرمجيات المخصصة إلى تطبيقات الجوال، نبني مستقبل التكنولوجيا في العالم العربي.
+                            {t('description')}
                         </p>
 
                         {/* Stats */}
                         <div className="grid grid-cols-3 gap-4 pt-2">
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
                                 <div className="text-2xl font-bold text-foreground">100+</div>
-                                <div className="text-xs text-muted-foreground">مشاريع</div>
+                                <div className="text-xs text-muted-foreground">{t('stats.projects')}</div>
                             </div>
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
                                 <div className="text-2xl font-bold text-foreground">98%</div>
-                                <div className="text-xs text-muted-foreground">رضا العملاء</div>
+                                <div className="text-xs text-muted-foreground">{t('stats.satisfaction')}</div>
                             </div>
                             <div className="text-center p-3 bg-white/5 rounded-xl border border-white/10">
                                 <div className="text-2xl font-bold text-foreground">24/7</div>
-                                <div className="text-xs text-muted-foreground">دعم</div>
+                                <div className="text-xs text-muted-foreground">{t('stats.support')}</div>
                             </div>
                         </div>
 
-                        {/* Social Links - Enhanced */}
+                        {/* Social Links */}
                         <div className="pt-4">
-                            <p className="text-sm font-semibold text-foreground mb-3">تابعنا</p>
+                            <p className="text-sm font-semibold text-foreground mb-3">{t('followUs')}</p>
                             <div className="flex gap-3">
                                 {socialLinks.map((social, i) => (
                                     <motion.a
@@ -282,7 +270,7 @@ export function Footer() {
                     >
                         <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-                            الشركة
+                            {t('company.title')}
                         </h3>
                         <ul className="space-y-3">
                             <li>
@@ -291,7 +279,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>من نحن</span>
+                                    <span>{t('company.about')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -300,7 +288,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>خدماتنا</span>
+                                    <span>{t('company.services')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -309,7 +297,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>خطط الأسعار</span>
+                                    <span>{t('company.pricing')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -318,9 +306,9 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>الوظائف</span>
+                                    <span>{t('company.careers')}</span>
                                     <span className="px-2 py-0.5 text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20 rounded-full">
-                                        توظيف
+                                        {t('company.hiring')}
                                     </span>
                                 </Link>
                             </li>
@@ -337,7 +325,7 @@ export function Footer() {
                     >
                         <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full" />
-                            الموارد
+                            {t('resources.title')}
                         </h3>
                         <ul className="space-y-3">
                             <li>
@@ -346,7 +334,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>مركز الدعم</span>
+                                    <span>{t('resources.support')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -355,7 +343,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>الأسئلة الشائعة</span>
+                                    <span>{t('resources.faq')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -364,7 +352,7 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>سياسة الخصوصية</span>
+                                    <span>{t('resources.privacy')}</span>
                                 </Link>
                             </li>
                             <li>
@@ -373,13 +361,13 @@ export function Footer() {
                                     className="group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     <ArrowRight className="h-3 w-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                                    <span>شروط الخدمة</span>
+                                    <span>{t('resources.terms')}</span>
                                 </Link>
                             </li>
                         </ul>
                     </motion.div>
 
-                    {/* Contact - Enhanced */}
+                    {/* Contact */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -389,7 +377,7 @@ export function Footer() {
                     >
                         <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full" />
-                            تواصل معنا
+                            {t('contact.title')}
                         </h3>
                         <div className="space-y-4">
                             <motion.a
@@ -403,7 +391,7 @@ export function Footer() {
                                     <MapPin size={18} className="text-blue-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-muted-foreground mb-1">موقع المكتب</div>
+                                    <div className="text-xs text-muted-foreground mb-1">{t('contact.office')}</div>
                                     <div className="text-sm text-slate-300">Burhaniye, General Kazım Sk., 81010 Düzce</div>
                                 </div>
                             </motion.a>
@@ -417,7 +405,7 @@ export function Footer() {
                                     <Mail size={18} className="text-purple-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-muted-foreground mb-1">راسلنا عبر البريد الإلكتروني</div>
+                                    <div className="text-xs text-muted-foreground mb-1">{t('contact.email')}</div>
                                     <div className="text-sm text-slate-300">NovaArabd@gmail.com</div>
                                 </div>
                             </motion.a>
@@ -430,7 +418,7 @@ export function Footer() {
                                     <Phone size={18} className="text-cyan-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="text-xs text-muted-foreground mb-1">اتصل بنا</div>
+                                    <div className="text-xs text-muted-foreground mb-1">{t('contact.call')}</div>
                                     <div className="text-sm text-slate-300">90 537 280 71 33</div>
                                 </div>
                             </motion.div>
@@ -445,11 +433,11 @@ export function Footer() {
                             <p className="flex items-center gap-2">
                                 <span>&copy; {new Date().getFullYear()} NovaArab Technologies.</span>
                                 <span className="hidden sm:inline">•</span>
-                                <span>جميع الحقوق محفوظة.</span>
+                                <span>{t('copyright')}</span>
                             </p>
                             <div className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full">
                                 <Globe className="w-3 h-3 text-blue-400" />
-                                <span className="text-xs">Turkey </span>
+                                <span className="text-xs">Turkey</span>
                             </div>
                         </div>
 
@@ -458,21 +446,21 @@ export function Footer() {
                                 href="/privacy-policy"
                                 className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
-                                الخصوصية
+                                {t('privacy')}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />
                             </Link>
                             <Link
                                 href="/terms"
                                 className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
-                                الشروط
+                                {t('terms')}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />
                             </Link>
                             <Link
                                 href="/sitemap"
                                 className="text-muted-foreground hover:text-foreground transition-colors relative group"
                             >
-                                خريطة الموقع
+                                {t('sitemap')}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all" />
                             </Link>
                         </div>
@@ -488,15 +476,15 @@ export function Footer() {
                         <div className="flex flex-wrap justify-center items-center gap-8 opacity-40">
                             <div className="text-xs text-slate-600 flex items-center gap-2">
                                 <Shield className="w-4 h-4" />
-                                محمي بـ SSL
+                                {t('badges.ssl')}
                             </div>
                             <div className="text-xs text-slate-600 flex items-center gap-2">
                                 <Shield className="w-4 h-4" />
-                                متوافق مع GDPR
+                                {t('badges.gdpr')}
                             </div>
                             <div className="text-xs text-slate-600 flex items-center gap-2">
                                 <Shield className="w-4 h-4" />
-                                معتمد ISO 27001
+                                {t('badges.iso')}
                             </div>
                         </div>
                     </motion.div>
