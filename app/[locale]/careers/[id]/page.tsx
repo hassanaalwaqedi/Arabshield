@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getJobById, jobTypeLabels, departmentLabels } from '@/lib/careersService';
+import { getJobByIdServer, serverJobTypeLabels, serverDepartmentLabels } from '@/lib/firebase/server';
 import JobDetailsClient from './JobDetailsClient';
 
 interface PageProps {
@@ -9,7 +9,7 @@ interface PageProps {
 // Generate dynamic metadata for each job
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { id, locale } = await params;
-    const job = await getJobById(id);
+    const job = await getJobByIdServer(id);
     const siteUrl = 'https://arabshield.vercel.app';
 
     if (!job) {
@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     const isArabic = locale === 'ar';
-    const jobType = jobTypeLabels[job.type] || job.type;
-    const department = departmentLabels[job.department] || job.department;
+    const jobType = serverJobTypeLabels[job.type] || job.type;
+    const department = serverDepartmentLabels[job.department] || job.department;
 
     const title = `${job.title} | وظائف NovaArab`;
     const description = isArabic
