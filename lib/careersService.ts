@@ -269,16 +269,25 @@ export async function submitApplication(
 // Get applications for a specific job (admin only)
 export async function getApplicationsByJob(jobId: string): Promise<JobApplication[]> {
     try {
-        const q = query(
-            collection(db, 'job_applications'),
-            where('jobId', '==', jobId),
-            orderBy('createdAt', 'desc')
-        );
-        const snapshot = await getDocs(q);
-        return snapshot.docs.map(doc => ({
+        // Fetch all applications and filter client-side (avoids composite index requirement)
+        const snapshot = await getDocs(collection(db, 'job_applications'));
+        const applications = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         } as JobApplication));
+
+        // Filter by jobId
+        const filtered = applications.filter(app => app.jobId === jobId);
+
+        // Sort by createdAt descending
+        filtered.sort((a, b) => {
+            const aTime = a.createdAt?.toMillis?.() || 0;
+            const bTime = b.createdAt?.toMillis?.() || 0;
+            return bTime - aTime;
+        });
+
+        console.log(`[Careers] Found ${filtered.length} applications for job ${jobId}`);
+        return filtered;
     } catch (error) {
         console.error('Error fetching applications:', error);
         return [];
