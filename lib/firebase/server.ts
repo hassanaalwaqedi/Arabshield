@@ -68,16 +68,23 @@ export async function getJobByIdServer(jobId: string): Promise<ServerJob | null>
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            console.log('[Server Firebase] Job found:', jobId);
+            if (process.env.NODE_ENV !== 'production') {
+                console.log('[Server Firebase] Job found:', jobId);
+            }
             return {
                 id: docSnap.id,
                 ...docSnap.data()
             } as ServerJob;
         }
-        console.log('[Server Firebase] Job not found:', jobId);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('[Server Firebase] Job not found:', jobId);
+        }
         return null;
     } catch (error) {
-        console.error('[Server Firebase] Error fetching job:', error);
+        // Keep error logging but only in development
+        if (process.env.NODE_ENV !== 'production') {
+            console.error('[Server Firebase] Error fetching job:', error);
+        }
         return null;
     }
 }

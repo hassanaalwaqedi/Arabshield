@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import {
     Book,
@@ -43,17 +44,18 @@ const CodeBlock = ({ language, code }: { language: string, code: string }) => {
     );
 };
 
-// Navigation Items
-const sections = [
-    { id: 'intro', title: 'مقدمة', icon: Book },
-    { id: 'api', title: 'كيفية استخدام واجهات API', icon: Code },
-    { id: 'examples', title: 'أمثلة طلبات الذكاء الاصطناعي', icon: Terminal },
-    { id: 'setup', title: 'إعداد النماذج Model Setup', icon: Settings },
-    { id: 'debug', title: 'التصحيح Debugging', icon: Bug },
-];
-
 export default function AIDocsPage() {
+    const t = useTranslations('aiDocs');
     const [activeSection, setActiveSection] = useState('intro');
+
+    // Navigation Items with translations
+    const sections = [
+        { id: 'intro', title: t('sections.intro'), icon: Book },
+        { id: 'api', title: t('sections.api'), icon: Code },
+        { id: 'examples', title: t('sections.examples'), icon: Terminal },
+        { id: 'setup', title: t('sections.setup'), icon: Settings },
+        { id: 'debug', title: t('sections.debug'), icon: Bug },
+    ];
 
     // Scroll Spy Effect
     useEffect(() => {
@@ -70,7 +72,7 @@ export default function AIDocsPage() {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [sections]);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -83,7 +85,7 @@ export default function AIDocsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-background text-slate-200" dir="rtl">
+        <div className="min-h-screen bg-background text-slate-200">
             <div className="container mx-auto px-4 py-24 md:flex gap-12">
 
                 {/* Sidebar Navigation */}
@@ -91,7 +93,7 @@ export default function AIDocsPage() {
                     <div className="sticky top-24">
                         <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
                             <Book className="w-5 h-5 text-blue-500" />
-                            التوثيق
+                            {t('documentation')}
                         </h3>
                         <nav className="space-y-1">
                             {sections.map((section) => (
@@ -99,8 +101,8 @@ export default function AIDocsPage() {
                                     key={section.id}
                                     onClick={() => scrollToSection(section.id)}
                                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${activeSection === section.id
-                                            ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                                            : 'text-muted-foreground hover:bg-card hover:text-foreground'
+                                        ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                                        : 'text-muted-foreground hover:bg-card hover:text-foreground'
                                         }`}
                                 >
                                     <section.icon className={`w-4 h-4 ${activeSection === section.id ? 'text-blue-500' : 'text-muted-foreground'}`} />
@@ -111,9 +113,9 @@ export default function AIDocsPage() {
                         </nav>
 
                         <div className="mt-8 p-4 rounded-xl bg-gradient-to-br from-slate-900 to-slate-900 border border-border">
-                            <p className="text-xs text-muted-foreground mb-3">هل تحتاج لمساعدة تقنية؟</p>
+                            <p className="text-xs text-muted-foreground mb-3">{t('needHelp')}</p>
                             <Button variant="outline" size="sm" className="w-full text-xs">
-                                تواصل مع الدعم
+                                {t('contactSupport')}
                             </Button>
                         </div>
                     </div>
@@ -126,19 +128,19 @@ export default function AIDocsPage() {
                     <section id="intro" className="mb-20 scroll-mt-24">
                         <div className="mb-6">
                             <Badge variant="electric" className="mb-4">v2.0.0</Badge>
-                            <h1 className="text-4xl font-bold text-foreground mb-4">توثيق أنظمة الذكاء الاصطناعي</h1>
+                            <h1 className="text-4xl font-bold text-foreground mb-4">{t('title')}</h1>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                مرحبًا بك في وثائق NovaArab AI. توفر هذه المنصة مجموعة شاملة من الأدوات وواجهات برمجة التطبيقات (APIs) التي تمكّنك من دمج قدرات الذكاء الاصطناعي المتقدمة في تطبيقاتك ومشاريعك بسهولة.
+                                {t('subtitle')}
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                             <div className="p-6 rounded-2xl bg-card/50 border border-border">
-                                <h3 className="text-lg font-semibold text-foreground mb-2">السرعة والأداء</h3>
-                                <p className="text-muted-foreground text-sm">استجابات فائقة السرعة معززة بشبكة CDN عالمية.</p>
+                                <h3 className="text-lg font-semibold text-foreground mb-2">{t('intro.speed')}</h3>
+                                <p className="text-muted-foreground text-sm">{t('intro.speedDesc')}</p>
                             </div>
                             <div className="p-6 rounded-2xl bg-card/50 border border-border">
-                                <h3 className="text-lg font-semibold text-foreground mb-2">الأمان والخصوصية</h3>
-                                <p className="text-muted-foreground text-sm">تشفير كامل للبيانات متوافق مع معايير SOC2.</p>
+                                <h3 className="text-lg font-semibold text-foreground mb-2">{t('intro.security')}</h3>
+                                <p className="text-muted-foreground text-sm">{t('intro.securityDesc')}</p>
                             </div>
                         </div>
                     </section>
@@ -147,10 +149,10 @@ export default function AIDocsPage() {
                     <section id="api" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
                         <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Code className="w-6 h-6 text-purple-500" />
-                            كيفية استخدام واجهات API
+                            {t('sections.api')}
                         </h2>
                         <p className="text-muted-foreground mb-6">
-                            تعتمد جميع واجهات API الخاصة بنا على بروتوكول HTTP REST وتدعم تنسيق JSON في الطلبات والاستجابات. يجب إدراج مفتاح API الخاص بك في ترويسة الطلب `Authorization`.
+                            {t('api.description')}
                         </p>
 
                         <div className="space-y-4">
@@ -169,7 +171,7 @@ export default function AIDocsPage() {
                     <section id="examples" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
                         <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Terminal className="w-6 h-6 text-green-500" />
-                            أمثلة طلبات الذكاء الاصطناعي
+                            {t('sections.examples')}
                         </h2>
 
                         <div className="mb-8">
@@ -181,7 +183,7 @@ export default function AIDocsPage() {
     "model": "as-gpt-4",
     "messages": [
       {"role": "system", "content": "You are a helpful assistant."},
-      {"role": "user", "content": "مرحبًا، كيف يمكنك مساعدتي اليوم؟"} 
+      {"role": "user", "content": "Hello, how can you help me today?"} 
     ]
   }'`} />
                         </div>
@@ -210,35 +212,35 @@ main();`} />
                     <section id="setup" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
                         <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Settings className="w-6 h-6 text-orange-500" />
-                            إعداد النماذج Model Setup
+                            {t('sections.setup')}
                         </h2>
                         <p className="text-muted-foreground mb-6">
-                            يمكنك تخصيص معلمات النموذج للتحكم في الإبداع وطول الاستجابة. هذه الإعدادات اختيارية ولكنها مفيدة لتحسين النتائج.
+                            {t('setup.description')}
                         </p>
 
                         <div className="overflow-hidden rounded-xl border border-border">
                             <table className="w-full text-right">
                                 <thead className="bg-card text-slate-300">
                                     <tr>
-                                        <th className="px-6 py-4 font-semibold text-sm">المعلمة (Parameter)</th>
-                                        <th className="px-6 py-4 font-semibold text-sm">الوصف</th>
-                                        <th className="px-6 py-4 font-semibold text-sm">القيمة الافتراضية</th>
+                                        <th className="px-6 py-4 font-semibold text-sm">{t('setup.parameter')}</th>
+                                        <th className="px-6 py-4 font-semibold text-sm">{t('setup.paramDescription')}</th>
+                                        <th className="px-6 py-4 font-semibold text-sm">{t('setup.defaultValue')}</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-800 bg-card/30">
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">temperature</td>
-                                        <td className="px-6 py-4 text-sm text-muted-foreground">يتحكم في العشوائية. القيم الأعلى تجعل الناتج أكثر تنوعًا.</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">{t('setup.temperature')}</td>
                                         <td className="px-6 py-4 text-sm font-mono text-muted-foreground">0.7</td>
                                     </tr>
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">max_tokens</td>
-                                        <td className="px-6 py-4 text-sm text-muted-foreground">الحد الأقصى لعدد الرموز المميزة التي سيتم إنشاؤها.</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">{t('setup.maxTokens')}</td>
                                         <td className="px-6 py-4 text-sm font-mono text-muted-foreground">inf</td>
                                     </tr>
                                     <tr>
                                         <td className="px-6 py-4 text-sm font-mono text-blue-400">top_p</td>
-                                        <td className="px-6 py-4 text-sm text-muted-foreground">بديل لـ Temperature، يقتصر على الرموز ذات الاحتمالية الأعلى.</td>
+                                        <td className="px-6 py-4 text-sm text-muted-foreground">{t('setup.topP')}</td>
                                         <td className="px-6 py-4 text-sm font-mono text-muted-foreground">1.0</td>
                                     </tr>
                                 </tbody>
@@ -250,10 +252,10 @@ main();`} />
                     <section id="debug" className="mb-20 scroll-mt-24 pt-10 border-t border-border">
                         <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                             <Bug className="w-6 h-6 text-red-500" />
-                            التصحيح Debugging
+                            {t('sections.debug')}
                         </h2>
                         <p className="text-muted-foreground mb-6">
-                            في حال واجهت أخطاء، ستعيد واجهة برمجة التطبيقات كائن خطأ JSON قياسيًا يحتوي على رمز الخطأ ورسالة وصفية.
+                            {t('debug.description')}
                         </p>
 
                         <CodeBlock language="json" code={`{
@@ -268,10 +270,10 @@ main();`} />
                         <div className="mt-8 p-6 rounded-xl bg-yellow-500/5 border border-yellow-500/20">
                             <h4 className="flex items-center gap-2 text-yellow-400 font-bold mb-2">
                                 <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
-                                ملاحظة هامة
+                                {t('debug.importantNote')}
                             </h4>
                             <p className="text-sm text-yellow-500/80">
-                                لا تقم أبدًا بمشاركة مفاتيح API الخاصة بك في كود الواجهة الأمامية (client-side) أو مستودعات الكود العامة.
+                                {t('debug.securityWarning')}
                             </p>
                         </div>
                     </section>

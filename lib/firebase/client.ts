@@ -25,8 +25,8 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// Validate config only on client
-if (typeof window !== 'undefined') {
+// Validate config only on client and in development
+if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
     console.log('[Firebase Config]', {
         apiKey: firebaseConfig.apiKey ? '✓ SET' : '✗ MISSING',
         projectId: firebaseConfig.projectId ? '✓ SET' : '✗ MISSING',

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Send, CheckCircle, Mail, MessageSquare, MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
@@ -43,9 +44,10 @@ interface ButtonProps {
     variant?: "primary" | "secondary";
     className?: string;
     isLoading?: boolean;
+    loadingText?: string;
 }
 
-function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false }: ButtonProps) {
+function Button({ children, onClick, type = "button", variant = "primary", className = "", isLoading = false, loadingText }: ButtonProps) {
     const variants = {
         primary: "bg-blue-600 hover:bg-blue-500 text-foreground shadow-lg shadow-blue-600/30",
         secondary: "bg-slate-700 hover:bg-slate-600 text-foreground"
@@ -64,7 +66,7 @@ function Button({ children, onClick, type = "button", variant = "primary", class
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    جارٍ الإرسال...
+                    {loadingText}
                 </>
             ) : children}
         </button>
@@ -93,7 +95,7 @@ function ContactInfoCard({ icon: Icon, title, info, subInfo }: ContactInfoCardPr
 }
 
 // Contact Form Component
-function ContactForm() {
+function ContactForm({ t }: { t: ReturnType<typeof useTranslations> }) {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -106,7 +108,7 @@ function ContactForm() {
 
     const handleSubmit = async () => {
         if (!formData.name || !formData.email || !formData.message) {
-            setError('يرجى ملء جميع الحقول المطلوبة');
+            setError(t('form.errorRequired'));
             return;
         }
 
@@ -127,7 +129,7 @@ function ContactForm() {
             setSubmitted(true);
         } catch (err) {
             console.error('Error submitting contact form:', err);
-            setError('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+            setError(t('form.errorSubmit'));
         } finally {
             setLoading(false);
         }
@@ -151,12 +153,12 @@ function ContactForm() {
                     <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
                         <CheckCircle className="w-10 h-10 text-foreground" />
                     </div>
-                    <h3 className="text-3xl font-bold text-foreground mb-3">تم إرسال الرسالة بنجاح!</h3>
+                    <h3 className="text-3xl font-bold text-foreground mb-3">{t('form.successTitle')}</h3>
                     <p className="text-muted-foreground mb-8 leading-relaxed">
-                        شكراً لتواصلك معنا. سيقوم فريقنا بمراجعة رسالتك والرد عليك خلال 24 ساعة.
+                        {t('form.successMessage')}
                     </p>
                     <Button onClick={handleReset} variant="secondary">
-                        إرسال رسالة أخرى
+                        {t('form.sendAnother')}
                     </Button>
                 </div>
             </div>
@@ -166,7 +168,7 @@ function ContactForm() {
     return (
         <div className="space-y-6">
             <Input
-                label="اسمك"
+                label={t('form.nameLabel')}
                 required
                 placeholder="John Doe"
                 value={formData.name}
@@ -174,7 +176,7 @@ function ContactForm() {
             />
 
             <Input
-                label="عنوان البريد الإلكتروني"
+                label={t('form.emailLabel')}
                 type="email"
                 required
                 placeholder="john@company.com"
@@ -183,20 +185,20 @@ function ContactForm() {
             />
 
             <Input
-                label="الموضوع"
-                placeholder="كيف يمكننا المساعدة؟"
+                label={t('form.subjectLabel')}
+                placeholder={t('form.subjectPlaceholder')}
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             />
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-300">
-                    الرسالة <span className="text-blue-400">*</span>
+                    {t('form.messageLabel')} <span className="text-blue-400">*</span>
                 </label>
                 <textarea
                     required
                     rows={6}
-                    placeholder="أخبرنا عن استفسارك أو مشروعك أو كيف يمكننا مساعدتك..."
+                    placeholder={t('form.messagePlaceholder')}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 bg-muted/50 border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
@@ -215,8 +217,9 @@ function ContactForm() {
                 variant="primary"
                 className="w-full"
                 isLoading={loading}
+                loadingText={t('form.sending')}
             >
-                إرسال الرسالة <Send className="ml-2 w-5 h-5" />
+                {t('form.submit')} <Send className="ml-2 w-5 h-5" />
             </Button>
         </div>
     );
@@ -224,6 +227,8 @@ function ContactForm() {
 
 // Main Contact Page Component
 export default function ContactPage() {
+    const t = useTranslations('contact');
+
     return (
         <div className="min-h-screen bg-background text-foreground">
             {/* Hero Section */}
@@ -234,14 +239,14 @@ export default function ContactPage() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
                         <MessageSquare className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-medium">تواصل معنا</span>
+                        <span className="text-sm text-blue-300 font-medium">{t('badge')}</span>
                     </div>
 
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                        اتصل بنا
+                        {t('title')}
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        لديك سؤال أو مستعد لبدء مشروعك؟ نحن هنا لمساعدتك في تحقيق رؤيتك.
+                        {t('subtitle')}
                     </p>
                 </div>
             </div>
@@ -252,57 +257,57 @@ export default function ContactPage() {
                     {/* Contact Information */}
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">لنتحدث</h2>
+                            <h2 className="text-3xl font-bold mb-4">{t('letsTalk')}</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
-                                سواء كنت تتطلع لبناء منتج جديد أو تحسين أنظمتك الحالية أو تحتاج إلى استشارة متخصصة، نحن مستعدون لمساعدتك على النجاح.
+                                {t('description')}
                             </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <ContactInfoCard
                                 icon={Mail}
-                                title="راسلنا بريدياً"
+                                title={t('info.email.title')}
                                 info="hello@NovaArab.com"
-                                subInfo="رد خلال 24 ساعة"
+                                subInfo={t('info.email.subInfo')}
                             />
                             <ContactInfoCard
                                 icon={Phone}
-                                title="اتصل بنا"
+                                title={t('info.phone.title')}
                                 info="+90 537 280 71 33"
-                                subInfo="الأحد-الخميس، 9ص-6م"
+                                subInfo={t('info.phone.subInfo')}
                             />
                             <ContactInfoCard
                                 icon={MapPin}
-                                title="زرنا"
-                                info="الرياض، المملكة العربية السعودية"
-                                subInfo="حي التقنية، شارع الابتكار"
+                                title={t('info.location.title')}
+                                info={t('info.location.address')}
+                                subInfo={t('info.location.subInfo')}
                             />
                             <ContactInfoCard
                                 icon={Clock}
-                                title="ساعات العمل"
-                                info="الأحد-الخميس: 9ص-6م"
-                                subInfo="الجمعة-السبت: مغلق"
+                                title={t('info.hours.title')}
+                                info={t('info.hours.weekdays')}
+                                subInfo={t('info.hours.weekend')}
                             />
                         </div>
 
                         {/* Additional Info */}
                         <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-2xl p-8">
-                            <h3 className="text-xl font-bold mb-4">لماذا تختار NovaArab؟</h3>
+                            <h3 className="text-xl font-bold mb-4">{t('whyChooseUs.title')}</h3>
                             <ul className="space-y-3 text-slate-300">
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>أمن وامتثال على مستوى المؤسسات</span>
+                                    <span>{t('whyChooseUs.security')}</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>دعم مخصص 24/7 للأنظمة الحرجة</span>
+                                    <span>{t('whyChooseUs.support')}</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>سجل حافل مثبت بأكثر من 100 مشروع ناجح</span>
+                                    <span>{t('whyChooseUs.projects')}</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                    <span>تكنولوجيا متطورة وأفضل الممارسات</span>
+                                    <span>{t('whyChooseUs.technology')}</span>
                                 </li>
                             </ul>
                         </div>
@@ -315,12 +320,12 @@ export default function ContactPage() {
                                 <Send className="w-5 h-5 text-blue-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold">أرسل لنا رسالة</h3>
-                                <p className="text-muted-foreground text-sm">سنرد في أقرب وقت ممكن</p>
+                                <h3 className="text-2xl font-bold">{t('form.title')}</h3>
+                                <p className="text-muted-foreground text-sm">{t('form.subtitle')}</p>
                             </div>
                         </div>
 
-                        <ContactForm />
+                        <ContactForm t={t} />
                     </div>
                 </div>
             </div>
@@ -329,8 +334,8 @@ export default function ContactPage() {
             <div className="border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <div className="text-center mb-8">
-                        <h2 className="text-3xl font-bold mb-2">موقعنا</h2>
-                        <p className="text-muted-foreground">الرياض، المملكة العربية السعودية</p>
+                        <h2 className="text-3xl font-bold mb-2">{t('map.title')}</h2>
+                        <p className="text-muted-foreground">{t('map.location')}</p>
                     </div>
                     <div className="bg-card border border-border rounded-3xl overflow-hidden h-96">
                         <iframe
@@ -350,23 +355,23 @@ export default function ContactPage() {
             {/* CTA Section */}
             <div className="border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">هل أنت مستعد لبدء مشروعك؟</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('cta.title')}</h2>
                     <p className="text-muted-foreground text-lg mb-8">
-                        دعنا نناقش كيف يمكننا مساعدتك في تحويل أعمالك بالتكنولوجيا.
+                        {t('cta.description')}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/order"
                             className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-foreground shadow-lg shadow-blue-600/30 transition-all"
                         >
-                            ابدأ مشروعك
+                            {t('cta.startProject')}
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                         <Link
                             href="/portfolio"
                             className="inline-flex items-center justify-center gap-2 px-8 h-14 rounded-xl font-semibold text-lg bg-slate-700 hover:bg-slate-600 text-foreground transition-all"
                         >
-                            عرض أعمالنا
+                            {t('cta.viewWork')}
                         </Link>
                     </div>
                 </div>

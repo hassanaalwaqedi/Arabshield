@@ -77,8 +77,8 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6 mb-8 animate-fade-in">
+                {/* Stats Grid - Single column on mobile */}
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-6 md:mb-8 animate-fade-in">
                     {/* Active Projects Card */}
                     <div className="bg-white/70 backdrop-blur-xl p-6 rounded-3xl shadow-xl border border-abyss-200/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-electric-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -223,7 +223,7 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 animate-fade-in-up">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 animate-fade-in-up">
                     {/* Recent Activity */}
                     <div className="xl:col-span-2 bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl border border-abyss-200/50 p-7">
                         <div className="flex items-center justify-between mb-6">

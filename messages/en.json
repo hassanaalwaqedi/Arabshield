@@ -46,14 +46,6 @@
         "invoices": "Invoices",
         "docs": "Documentation"
     },
-    "admin": {
-        "title": "Admin Area",
-        "orders": "Incoming Orders",
-        "messages": "Messages",
-        "invoices": "Invoice Management",
-        "users": "User Management",
-        "settings": "System Settings"
-    },
     "hero": {
         "title": "Build the Future",
         "titleHighlight": "with NovaArab",
@@ -67,26 +59,6 @@
         "satisfaction": "Client Satisfaction",
         "support": "Available Support",
         "uptime": "Uptime Guarantee"
-    },
-    "services": {
-        "title": "Comprehensive Tech Solutions",
-        "subtitle": "From concept to deployment, we deliver excellence across the entire tech stack.",
-        "webDev": {
-            "title": "Web Development",
-            "description": "Enterprise-grade web platforms built with cutting-edge technology for maximum performance and scalability."
-        },
-        "mobileDev": {
-            "title": "Mobile Apps",
-            "description": "Native and cross-platform mobile applications delivering exceptional user experiences on iOS and Android."
-        },
-        "security": {
-            "title": "Cybersecurity",
-            "description": "Advanced security solutions to protect your digital assets from evolving cyber threats."
-        },
-        "ai": {
-            "title": "AI Solutions",
-            "description": "Intelligent automation and AI-powered applications that transform your business operations."
-        }
     },
     "whyUs": {
         "title": "Why Choose NovaArab?",
@@ -215,18 +187,6 @@
         "startToday": "Start Today",
         "talkToExpert": "Talk to an Expert"
     },
-    "footer": {
-        "description": "Empowering businesses with cutting-edge digital solutions. From custom software to mobile apps, we're building the future of technology in the Arab world.",
-        "quickLinks": "Quick Links",
-        "services": "Our Services",
-        "support": "Support",
-        "legal": "Legal",
-        "newsletter": "Newsletter",
-        "newsletterDesc": "Subscribe for the latest news and offers",
-        "subscribe": "Subscribe",
-        "emailPlaceholder": "Your email",
-        "copyright": "© 2024 NovaArab. All rights reserved."
-    },
     "language": {
         "ar": "العربية",
         "en": "English",
@@ -303,19 +263,6 @@
             "resolved": "Resolved",
             "closed": "Closed"
         }
-    },
-    "contact": {
-        "title": "Contact Us",
-        "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
-        "name": "Your Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "subject": "Subject",
-        "message": "Your Message",
-        "send": "Send Message",
-        "sending": "Sending...",
-        "success": "Message sent successfully!",
-        "error": "Failed to send message. Please try again."
     },
     "jobTypes": {
         "full-time": "Full-time",
@@ -664,6 +611,11 @@
         }
     },
     "admin": {
+        "title": "Admin Area",
+        "orders": "Incoming Orders",
+        "messages": "Messages",
+        "invoices": "Invoice Management",
+        "settings": "System Settings",
         "users": {
             "title": "User Management",
             "searchPlaceholder": "Search users...",
@@ -679,6 +631,419 @@
             "delete": "Delete",
             "noUsers": "No users found",
             "loading": "Loading users..."
+        }
+    },
+    "aiDocs": {
+        "documentation": "Documentation",
+        "title": "AI Systems Documentation",
+        "subtitle": "Welcome to the NovaArab AI documentation. This platform provides a comprehensive set of tools and APIs that enable you to easily integrate advanced AI capabilities into your applications and projects.",
+        "needHelp": "Need technical help?",
+        "contactSupport": "Contact Support",
+        "sections": {
+            "intro": "Introduction",
+            "api": "How to Use APIs",
+            "examples": "AI Request Examples",
+            "setup": "Model Setup",
+            "debug": "Debugging"
+        },
+        "intro": {
+            "speed": "Speed & Performance",
+            "speedDesc": "Ultra-fast responses powered by global CDN.",
+            "security": "Security & Privacy",
+            "securityDesc": "Full data encryption compliant with SOC2 standards."
+        },
+        "api": {
+            "description": "All our APIs are based on HTTP REST protocol and support JSON format in requests and responses. You must include your API key in the Authorization header."
+        },
+        "setup": {
+            "description": "You can customize model parameters to control creativity and response length. These settings are optional but useful for optimizing results.",
+            "parameter": "Parameter",
+            "paramDescription": "Description",
+            "defaultValue": "Default Value",
+            "temperature": "Controls randomness. Higher values make output more diverse.",
+            "maxTokens": "Maximum number of tokens to be generated.",
+            "topP": "Alternative to Temperature, limits to highest probability tokens."
+        },
+        "debug": {
+            "description": "If you encounter errors, the API will return a standard JSON error object containing the error code and descriptive message.",
+            "importantNote": "Important Note",
+            "securityWarning": "Never share your API keys in client-side code or public repositories."
+        }
+    },
+    "caseStudyDetail": {
+        "notFound": "Case Study Not Found",
+        "notFoundDesc": "Sorry, we could not find the requested case study.",
+        "backToCaseStudies": "Back to Case Studies",
+        "viewAllCaseStudies": "View All Case Studies",
+        "resultsAchieved": "Results Achieved",
+        "challenge": "The Challenge",
+        "solution": "The Solution",
+        "keyFeatures": "Key Features",
+        "technologiesUsed": "Technologies Used",
+        "haveSimilarProject": "Have a Similar Project?",
+        "readyToHelp": "We're ready to help you turn your idea into reality. Contact us today to get started.",
+        "contactUs": "Contact Us",
+        "orderService": "Order Service",
+        "client": "Client",
+        "duration": "Duration",
+        "year": "Year"
+    },
+    "pricing": {
+        "title": "Choose Your Plan",
+        "subtitle": "Flexible pricing packages designed to match your project scope and business goals. No hidden fees, just transparent value.",
+        "badge": "Transparent Pricing",
+        "popular": "Most Popular",
+        "recommended": "Recommended",
+        "perProject": "/project",
+        "customPrice": "Custom",
+        "customNeeds": "Tailored to your needs",
+        "choosePlan": "Choose Plan",
+        "allPlansInclude": "All Plans Include",
+        "coreFeatures": "Core features in every package",
+        "faqTitle": "Pricing FAQ",
+        "faqSubtitle": "Common questions about pricing",
+        "ctaTitle": "Ready to Get Started?",
+        "ctaDescription": "Choose a plan that fits your needs or contact us for a custom enterprise solution.",
+        "startProject": "Start Your Project",
+        "talkToSales": "Talk to Sales",
+        "plans": {
+            "starter": {
+                "name": "Starter",
+                "description": "Perfect for small businesses and startups looking to establish their digital presence.",
+                "features": [
+                    "Custom website or landing page",
+                    "Mobile responsive design",
+                    "Basic SEO optimization",
+                    "Contact form integration",
+                    "30 days support",
+                    "Fast delivery (2-4 weeks)",
+                    "Source code included",
+                    "One revision round"
+                ]
+            },
+            "professional": {
+                "name": "Professional",
+                "description": "Ideal for growing companies that need advanced features and scalability.",
+                "features": [
+                    "Everything in Starter",
+                    "Advanced web application",
+                    "Custom backend & business logic",
+                    "Database integration",
+                    "User authentication",
+                    "90 days support",
+                    "Performance optimization",
+                    "Security best practices",
+                    "Analytics & monitoring",
+                    "3 revision rounds"
+                ]
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Comprehensive solutions for large organizations with complex requirements.",
+                "features": [
+                    "Everything in Professional",
+                    "AI & ML integration",
+                    "Cybersecurity review & protection",
+                    "Microservices architecture",
+                    "Cloud infrastructure setup",
+                    "Dedicated project manager",
+                    "1 year premium support",
+                    "Training & documentation",
+                    "Priority 24/7 support",
+                    "Unlimited revisions",
+                    "SLA guarantees"
+                ]
+            }
+        },
+        "included": {
+            "cleanCode": {
+                "title": "Clean Code",
+                "desc": "Production-ready, maintainable code"
+            },
+            "secure": {
+                "title": "Secure",
+                "desc": "Industry-standard security practices"
+            },
+            "fast": {
+                "title": "Fast",
+                "desc": "Optimized for performance"
+            },
+            "support": {
+                "title": "Support",
+                "desc": "Dedicated technical support"
+            }
+        },
+        "faq": {
+            "upgrade": {
+                "q": "Can I upgrade to another plan later?",
+                "a": "Absolutely! You can start with any plan and upgrade as your needs grow. We make the transition seamless."
+            },
+            "payment": {
+                "q": "What payment methods do you accept?",
+                "a": "We accept all major credit cards, bank transfers, and can accommodate custom payment terms for enterprise clients."
+            },
+            "refund": {
+                "q": "Is there a money-back guarantee?",
+                "a": "Yes, we offer a satisfaction guarantee. If you're not happy with the initial deliverables, we'll work with you until you are."
+            },
+            "custom": {
+                "q": "Do you offer custom packages?",
+                "a": "Yes! The Enterprise plan is fully customizable. Contact us to discuss your specific requirements and get a custom quote."
+            }
+        }
+    },
+    "contact": {
+        "badge": "Get in Touch",
+        "title": "Contact Us",
+        "subtitle": "Have a question or ready to start your project? We're here to help you bring your vision to life.",
+        "letsTalk": "Let's Talk",
+        "description": "Whether you're looking to build a new product, improve your existing systems, or need specialized consulting, we're ready to help you succeed.",
+        "info": {
+            "email": {
+                "title": "Email Us",
+                "subInfo": "Response within 24 hours"
+            },
+            "phone": {
+                "title": "Call Us",
+                "subInfo": "Sun-Thu, 9AM-6PM"
+            },
+            "location": {
+                "title": "Visit Us",
+                "address": "Riyadh, Saudi Arabia",
+                "subInfo": "Tech District, Innovation Street"
+            },
+            "hours": {
+                "title": "Working Hours",
+                "weekdays": "Sun-Thu: 9AM-6PM",
+                "weekend": "Fri-Sat: Closed"
+            }
+        },
+        "whyChooseUs": {
+            "title": "Why Choose NovaArab?",
+            "security": "Enterprise-level security and compliance",
+            "support": "24/7 dedicated support for critical systems",
+            "projects": "Proven track record with 100+ successful projects",
+            "technology": "Cutting-edge technology and best practices"
+        },
+        "form": {
+            "title": "Send Us a Message",
+            "subtitle": "We'll respond as soon as possible",
+            "nameLabel": "Your Name",
+            "emailLabel": "Email Address",
+            "subjectLabel": "Subject",
+            "subjectPlaceholder": "How can we help?",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Tell us about your inquiry, project, or how we can help you...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "successTitle": "Message Sent Successfully!",
+            "successMessage": "Thank you for contacting us. Our team will review your message and respond within 24 hours.",
+            "sendAnother": "Send Another Message",
+            "errorRequired": "Please fill in all required fields",
+            "errorSubmit": "An error occurred while sending. Please try again."
+        },
+        "map": {
+            "title": "Our Location",
+            "location": "Riyadh, Saudi Arabia"
+        },
+        "cta": {
+            "title": "Ready to Start Your Project?",
+            "description": "Let's discuss how we can help transform your business with technology.",
+            "startProject": "Start Your Project",
+            "viewWork": "View Our Work"
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "welcomeBack": "Welcome Back! 👋",
+        "todayUpdate": "Here's what's happening with your projects today.",
+        "nav": {
+            "overview": "Overview",
+            "projects": "Projects",
+            "tasks": "Tasks",
+            "invoices": "Invoices",
+            "careers": "Available Jobs",
+            "support": "Support",
+            "settings": "Settings",
+            "adminSection": "System Management",
+            "manageJobs": "Manage Jobs",
+            "manageInvoices": "Manage Invoices",
+            "manageUsers": "Manage Users",
+            "systemSettings": "System Settings",
+            "logout": "Logout",
+            "owner": "Owner",
+            "admin": "Admin"
+        },
+        "stats": {
+            "activeProjects": "Active Projects",
+            "inProgress": "In Progress",
+            "pendingInvoices": "Pending Invoices",
+            "unpaidInvoices": "Unpaid Invoices",
+            "openTickets": "Open Tickets",
+            "noOpenTickets": "No open tickets",
+            "ticketsNeedAttention": "Tickets need attention",
+            "resolved": "resolved",
+            "systemHealth": "System Health",
+            "optimal": "Optimal",
+            "good": "Good",
+            "needsAttention": "Needs Attention",
+            "unavailable": "Unavailable",
+            "uptime": "Uptime"
+        },
+        "activities": {
+            "title": "Recent Activities",
+            "subtitle": "Track latest updates and changes",
+            "viewAll": "View All",
+            "filter": "Filter Activities",
+            "noActivities": "No recent activities",
+            "teamActivity": "Team Activity",
+            "myActivity": "My Recent Activity"
+        },
+        "actions": {
+            "title": "Quick Actions",
+            "subtitle": "Common tasks and shortcuts",
+            "newTicket": "New Support Ticket",
+            "viewInvoices": "View Invoices",
+            "downloadReports": "Download Reports",
+            "payNow": "Pay Now",
+            "comingSoon": "Coming Soon"
+        },
+        "progress": {
+            "title": "Overall Progress",
+            "projectProgress": "Project Progress"
+        },
+        "tasks": {
+            "title": "Tasks",
+            "taskTitle": "Task Title *",
+            "description": "Description",
+            "project": "Project *",
+            "selectProject": "Select Project",
+            "dueDate": "Due Date",
+            "assignee": "Assignee",
+            "saving": "Saving...",
+            "save": "Save",
+            "cancel": "Cancel",
+            "edit": "Edit",
+            "delete": "Delete",
+            "noTasks": "No tasks",
+            "pending": "Pending",
+            "inProgress": "In Progress",
+            "completed": "Completed"
+        },
+        "projects": {
+            "title": "Projects",
+            "projectProgress": "Project Progress",
+            "tasks": "Tasks",
+            "completed": "Completed",
+            "noProjects": "No projects"
+        },
+        "invoices": {
+            "title": "Invoices",
+            "dueDate": "Due Date",
+            "paidDate": "Paid Date",
+            "download": "Download Invoice",
+            "noInvoices": "No invoices"
+        },
+        "documents": {
+            "title": "Documents",
+            "folder": "Folder",
+            "noFolder": "No Folder",
+            "new": "New",
+            "allFiles": "All Files",
+            "images": "Images",
+            "documents": "Documents",
+            "archives": "Archives",
+            "other": "Other",
+            "sortNewest": "Newest First",
+            "sortOldest": "Oldest First",
+            "sortNameAsc": "Name (A-Z)",
+            "sortNameDesc": "Name (Z-A)",
+            "sortLargest": "Largest First",
+            "sortSmallest": "Smallest First",
+            "uploading": "Uploading...",
+            "cannotPreview": "Cannot preview this file",
+            "downloadFile": "Download File"
+        },
+        "chat": {
+            "title": "Project Chat",
+            "noMessages": "No messages yet",
+            "startConversation": "Start the conversation by sending a message",
+            "sending": "Sending...",
+            "send": "Send"
+        },
+        "tickets": {
+            "noTickets": "No tickets"
+        },
+        "emptyStates": {
+            "noData": "No data available",
+            "noResults": "No results",
+            "tryDifferent": "Try searching with different terms"
+        }
+    },
+    "pages": {
+        "support": {
+            "available247": "24/7 Support Available",
+            "selfService": "Self-Service Resources",
+            "findAnswers": "Find answers at your own pace",
+            "faqTitle": "Frequently Asked Questions",
+            "faqSubtitle": "Quick answers to common questions",
+            "stillNeedHelp": "Still Need Help?",
+            "teamReady": "Our dedicated support team is ready to help you.",
+            "emailResponse": "Response within 24 hours",
+            "phoneHours": "Mon-Fri, 9AM-6PM"
+        },
+        "faq": {
+            "helpCenter": "Help Center",
+            "liveChat": "Live Chat",
+            "callUs": "Call Us",
+            "mostCommon": "Most Common Questions",
+            "stillHaveQuestions": "Still have questions?",
+            "supportAvailable": "Our support team is available 24/7 to help you"
+        },
+        "terms": {
+            "tableOfContents": "Table of Contents",
+            "legalAgreement": "Legal Agreement",
+            "email": "Email",
+            "legalDepartment": "Legal Department",
+            "mailingAddress": "Mailing Address"
+        },
+        "privacy": {
+            "tableOfContents": "Table of Contents",
+            "legalDocument": "Legal Document",
+            "importantNotice": "Important Notice"
+        },
+        "docs": {
+            "exploreByCategory": "Explore by Category",
+            "popularArticles": "Popular Articles",
+            "notFound": "Didn't find what you're looking for?",
+            "supportReady": "Our support team is ready to help"
+        },
+        "tutorials": {
+            "noResults": "No results",
+            "wantMore": "Want more?",
+            "subscribeChannel": "Subscribe to our channel for the latest tutorials"
+        },
+        "issues": {
+            "noResults": "No results",
+            "tryDifferent": "Try searching with different terms",
+            "noSolution": "Didn't find a solution?",
+            "supportReady": "Our technical support team is ready to help",
+            "possibleCauses": "Possible Causes:",
+            "solution": "Solution:",
+            "wasHelpful": "Was this helpful?"
+        },
+        "partners": {
+            "andMore": "And many more...",
+            "powerOfPartnerships": "The Power of Tech Partnerships"
+        },
+        "marketplace": {
+            "categories": "Categories:"
+        },
+        "register": {
+            "joinUs": "Join Us Today"
+        },
+        "verifySuccess": {
+            "nextSteps": "Next Steps:"
         }
     }
 }

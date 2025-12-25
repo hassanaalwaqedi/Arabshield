@@ -1,179 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NovaArab (ArabShield)
 
-## Getting Started
+A production-ready B2B technology services client portal built with Next.js 16 and Firebase.
 
-First, run the development server:
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
- NovaArabia - Tech Company Website
-
-A modern, professional website for NovaArabia built with Next.js 14, TypeScript, and Tailwind CSS with full multilingual support (English/Arabic).
+NovaArab is a comprehensive client portal for a technology services company, targeting Arabic-speaking businesses in the Middle East (primarily Saudi Arabia). It provides clients with a dashboard to manage projects, invoices, support tickets, and documents.
 
 ## Features
 
-- 🚀 Next.js 14 with App Router
-- 💻 TypeScript for type safety
-- 🎨 Tailwind CSS for styling
-- ✨ Framer Motion for animations
-- 📱 Fully responsive design
-- 🔒 SEO optimized pages
-- 🎯 Modern UI/UX design
-- 🌍 Full multilingual support (English/Arabic) with RTL support
-- 🗄️ Prisma ORM with PostgreSQL/SQLite support
-- 🔐 JWT-based authentication
-- 📧 Contact and order forms
-- 💼 Client dashboard
+| Feature | Description |
+|---------|-------------|
+| **Authentication** | Email/password with email verification |
+| **Client Dashboard** | Projects, tasks, invoices, documents management |
+| **Support Tickets** | Full CRUD with real-time updates |
+| **Careers Portal** | Job listings with CV upload |
+| **Invoice Management** | PDF generation and download |
+| **Ratings System** | Client service ratings |
+| **Marketplace** | Service listings and ordering |
+| **i18n** | English, Arabic, and Turkish support |
+| **Live Chat** | Integrated chat widget |
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 16.0.8 |
+| Frontend | React 19.2.1 |
+| Styling | Tailwind CSS 3.4.17 |
+| Animation | Framer Motion 12.x |
+| Backend | Firebase (Firestore, Auth, Storage) |
+| Hosting | Vercel |
+| i18n | next-intl 4.6.1 |
+| State | React Context API |
+| PDF | jsPDF |
+| Icons | Lucide React |
+
+## Architecture
+
+```
+📁 NovaArab
+├── 📁 app/[locale]/        # Next.js App Router with i18n
+│   ├── dashboard/          # 20 dashboard pages
+│   ├── careers/            # Public careers portal
+│   └── ...                 # 25+ route groups
+├── 📁 components/          # 53 reusable components
+│   ├── dashboard/          # Dashboard-specific components
+│   └── ui/                 # Base UI components
+├── 📁 contexts/            # 6 React Context providers
+├── 📁 lib/                 # 23 service/utility files
+│   ├── dashboard/          # Hooks + types
+│   └── firebase/           # Client/server separation
+├── 📁 messages/            # Translation files (en/ar/tr)
+└── 📁 firestore.rules      # Security rules (488 lines)
+```
+
+## Environment Setup
+
+1. Copy the environment template:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Fill in your Firebase project values in `.env.local`:
+   - Go to [Firebase Console](https://console.firebase.google.com)
+   - Select your project
+   - Go to Project Settings > General
+   - Copy the config values
+
+3. Required environment variables:
+   - `NEXT_PUBLIC_FIREBASE_API_KEY`
+   - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+   - `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+   - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+   - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+   - `NEXT_PUBLIC_FIREBASE_APP_ID`
+   - `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` (optional)
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn package manager
-- (Optional) PostgreSQL for production, or SQLite for development
-
-### Quick Setup
-
-1. **Install dependencies:**
 ```bash
+# Install dependencies
 npm install
-```
 
-2. **Create `.env.local` file:**
-```env
-DATABASE_URL="file:./dev.db"
-NEXTAUTH_SECRET="your-secret-key-minimum-32-characters"
-JWT_SECRET="your-jwt-secret-minimum-32-characters"
-```
-
-3. **For SQLite (easiest):**
-   - Update `prisma/schema.prisma` - Change `provider = "postgresql"` to `provider = "sqlite"`
-   - Run: `npm run prisma:generate && npm run prisma:migrate && npm run prisma:seed`
-
-4. **Run the development server:**
-```bash
+# Run development server
 npm run dev
+
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-5. **Open in browser:**
-   - English: [http://localhost:3000/en](http://localhost:3000/en)
-   - Arabic: [http://localhost:3000/ar](http://localhost:3000/ar)
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-### Detailed Setup
+## Testing
 
-For complete setup instructions, see:
-- **`SETUP_CHECKLIST.md`** - Quick checklist of what you need to do
-- **`MANUAL_SETUP_GUIDE.md`** - Detailed step-by-step guide
-
-## Project Structure
-
-```
-NovaArabia/
-├── app/                    # Next.js app directory
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Home page
-│   ├── about/             # About page
-│   ├── services/          # Services page
-│   ├── pricing/           # Pricing page
-│   ├── order/             # Order form page
-│   ├── contact/           # Contact page
-│   ├── support/           # Support center
-│   ├── faq/               # FAQ page
-│   ├── login/             # Login page
-│   ├── register/          # Register page
-│   ├── dashboard/         # Client dashboard
-│   ├── privacy-policy/    # Privacy policy
-│   └── terms/             # Terms of service
-├── components/            # Reusable components
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── Button.tsx
-│   ├── Input.tsx
-│   ├── ServiceCard.tsx
-│   └── PricingCard.tsx
-├── lib/                   # Utility functions
-└── styles/                # Global styles
-```
-
-## Available Pages
-
-All pages support both English (`/en`) and Arabic (`/ar`) and Turkish (/tr) locales:
-
-- `/` or `/en` or `/ar` - Home page
-- `/about` - About NovaArabia
-- `/services` - All services
-- `/pricing` - Pricing packages
-- `/order` - Order form
-- `/contact` - Contact page
-- `/support` - Support center
-- `/faq` - FAQ page
-- `/login` - Login page
-- `/register` - Register page
-- `/dashboard` - Client dashboard (protected)
-- `/portfolio` - Portfolio showcase
-- `/privacy-policy` - Privacy policy
-- `/terms` - Terms of service
-
-## Available Scripts
+The project uses Jest with React Testing Library for unit tests:
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run format       # Format code with Prettier
-npm run prisma:generate  # Generate Prisma Client
-npm run prisma:migrate   # Run database migrations
-npm run prisma:seed      # Seed database with initial data
-npm run prisma:studio   # Open Prisma Studio (database GUI)
+# Run all tests
+npm test
+
+# Watch mode
+npm run test:watch
 ```
 
-## Technologies Used
+Test files are located in `__tests__/` directory.
 
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **next-intl** - Internationalization
-- **Prisma** - Next-generation ORM
-- **Zod** - Schema validation
-- **React Hook Form** - Form management
-- **SWR** - Data fetching
-- **JWT** - Authentication
+## Deployment
+
+The application is deployed on Vercel. See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed instructions.
+
+## Security
+
+- **Firestore Security Rules**: 488 lines of comprehensive rules
+- **Role-based Access Control**: Owner/Member/Client roles
+- **Email Verification**: Required for dashboard access
+- **Invoice Deletion Protection**: Hard blocked for compliance
+
+See [FIREBASE_SECURITY_RULES.md](./FIREBASE_SECURITY_RULES.md) for details.
 
 ## License
 
-© 2024 NovaArabia. All rights reserved.
-
-
-
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private - All rights reserved.

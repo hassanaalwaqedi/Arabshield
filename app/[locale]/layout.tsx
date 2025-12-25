@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ClientProviders } from '@/components/ClientProviders';
 import { MainContent } from '@/components/MainContent';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -119,17 +120,19 @@ export default async function LocaleLayout({
             <body className="flex flex-col md:flex-row-reverse min-h-screen bg-background font-sans text-foreground selection:bg-blue-500/30">
                 <NextIntlClientProvider messages={messages} locale={locale}>
                     <ClientProviders>
-                        {/* Sidebar - Left on desktop (via row-reverse), stacked on mobile */}
-                        <Sidebar />
+                        <ErrorBoundary>
+                            {/* Sidebar - Left on desktop (via row-reverse), stacked on mobile */}
+                            <Sidebar />
 
-                        {/* Main Content Area - adjusts based on sidebar state */}
-                        <MainContent>
-                            <Header />
-                            <main className="flex-grow max-w-full px-0">
-                                {children}
-                            </main>
-                            <Footer />
-                        </MainContent>
+                            {/* Main Content Area - adjusts based on sidebar state */}
+                            <MainContent>
+                                <Header />
+                                <main className="flex-grow max-w-full px-0">
+                                    {children}
+                                </main>
+                                <Footer />
+                            </MainContent>
+                        </ErrorBoundary>
                     </ClientProviders>
                 </NextIntlClientProvider>
                 <SpeedInsights />

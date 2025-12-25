@@ -46,14 +46,6 @@
         "invoices": "Faturalar",
         "docs": "Dokümantasyon"
     },
-    "admin": {
-        "title": "Yönetici Alanı",
-        "orders": "Gelen Siparişler",
-        "messages": "Mesajlar",
-        "invoices": "Fatura Yönetimi",
-        "users": "Kullanıcı Yönetimi",
-        "settings": "Sistem Ayarları"
-    },
     "hero": {
         "title": "Geleceği İnşa Et",
         "titleHighlight": "NovaArab ile",
@@ -67,26 +59,6 @@
         "satisfaction": "Müşteri Memnuniyeti",
         "support": "Mevcut Destek",
         "uptime": "Çalışma Süresi Garantisi"
-    },
-    "services": {
-        "title": "Kapsamlı Teknoloji Çözümleri",
-        "subtitle": "Konseptten kuruluma kadar, tüm teknoloji yığını genelinde mükemmellik sunuyoruz.",
-        "webDev": {
-            "title": "Web Geliştirme",
-            "description": "Maksimum performans ve ölçeklenebilirlik için en son teknolojiyle oluşturulmuş kurumsal web platformları."
-        },
-        "mobileDev": {
-            "title": "Mobil Uygulamalar",
-            "description": "iOS ve Android'de olağanüstü kullanıcı deneyimleri sunan yerel ve çapraz platform mobil uygulamalar."
-        },
-        "security": {
-            "title": "Siber Güvenlik",
-            "description": "Dijital varlıklarınızı gelişen siber tehditlerden korumak için gelişmiş güvenlik çözümleri."
-        },
-        "ai": {
-            "title": "Yapay Zeka Çözümleri",
-            "description": "İş operasyonlarınızı dönüştüren akıllı otomasyon ve yapay zeka destekli uygulamalar."
-        }
     },
     "whyUs": {
         "title": "Neden NovaArab?",
@@ -215,18 +187,6 @@
         "startToday": "Bugün Başlayın",
         "talkToExpert": "Bir Uzmanla Konuşun"
     },
-    "footer": {
-        "description": "İşletmeleri en son dijital çözümlerle güçlendiriyoruz. Özel yazılımlardan mobil uygulamalara kadar, Arap dünyasında teknolojinin geleceğini inşa ediyoruz.",
-        "quickLinks": "Hızlı Bağlantılar",
-        "services": "Hizmetlerimiz",
-        "support": "Destek",
-        "legal": "Yasal",
-        "newsletter": "Bülten",
-        "newsletterDesc": "En son haberler ve teklifler için abone olun",
-        "subscribe": "Abone Ol",
-        "emailPlaceholder": "E-postanız",
-        "copyright": "© 2024 NovaArab. Tüm hakları saklıdır."
-    },
     "language": {
         "ar": "العربية",
         "en": "English",
@@ -304,19 +264,6 @@
             "resolved": "Çözüldü",
             "closed": "Kapalı"
         }
-    },
-    "contact": {
-        "title": "Bize Ulaşın",
-        "subtitle": "Sizden haber almak isteriz. Bize bir mesaj gönderin, en kısa sürede yanıt vereceğiz.",
-        "name": "Adınız",
-        "email": "E-posta Adresi",
-        "phone": "Telefon Numarası",
-        "subject": "Konu",
-        "message": "Mesajınız",
-        "send": "Mesaj Gönder",
-        "sending": "Gönderiliyor...",
-        "success": "Mesaj başarıyla gönderildi!",
-        "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
     },
     "jobTypes": {
         "full-time": "Tam Zamanlı",
@@ -665,6 +612,11 @@
         }
     },
     "admin": {
+        "title": "Yönetici Alanı",
+        "orders": "Gelen Siparişler",
+        "messages": "Mesajlar",
+        "invoices": "Fatura Yönetimi",
+        "settings": "Sistem Ayarları",
         "users": {
             "title": "Kullanıcı Yönetimi",
             "searchPlaceholder": "Kullanıcı ara...",
@@ -680,6 +632,419 @@
             "delete": "Sil",
             "noUsers": "Kullanıcı bulunamadı",
             "loading": "Kullanıcılar yükleniyor..."
+        }
+    },
+    "aiDocs": {
+        "documentation": "Dokümantasyon",
+        "title": "Yapay Zeka Sistemleri Dokümantasyonu",
+        "subtitle": "NovaArab AI dokümantasyonuna hoş geldiniz. Bu platform, gelişmiş yapay zeka yeteneklerini uygulamalarınıza ve projelerinize kolayca entegre etmenizi sağlayan kapsamlı bir araç ve API seti sunar.",
+        "needHelp": "Teknik yardıma mı ihtiyacınız var?",
+        "contactSupport": "Destek ile İletişime Geçin",
+        "sections": {
+            "intro": "Giriş",
+            "api": "API'leri Nasıl Kullanılır",
+            "examples": "AI İstek Örnekleri",
+            "setup": "Model Kurulumu",
+            "debug": "Hata Ayıklama"
+        },
+        "intro": {
+            "speed": "Hız ve Performans",
+            "speedDesc": "Küresel CDN tarafından desteklenen ultra hızlı yanıtlar.",
+            "security": "Güvenlik ve Gizlilik",
+            "securityDesc": "SOC2 standartlarına uygun tam veri şifreleme."
+        },
+        "api": {
+            "description": "Tüm API'lerimiz HTTP REST protokolüne dayalıdır ve isteklerde ve yanıtlarda JSON formatını destekler. API anahtarınızı Authorization başlığına eklemeniz gerekir."
+        },
+        "setup": {
+            "description": "Yaratıcılığı ve yanıt uzunluğunu kontrol etmek için model parametrelerini özelleştirebilirsiniz. Bu ayarlar isteğe bağlıdır ancak sonuçları optimize etmek için kullanışlıdır.",
+            "parameter": "Parametre",
+            "paramDescription": "Açıklama",
+            "defaultValue": "Varsayılan Değer",
+            "temperature": "Rastgeleliği kontrol eder. Daha yüksek değerler çıktıyı daha çeşitli yapar.",
+            "maxTokens": "Oluşturulacak maksimum token sayısı.",
+            "topP": "Temperature'a alternatif, en yüksek olasılıklı tokenlere sınırlar."
+        },
+        "debug": {
+            "description": "Hatalarla karşılaşırsanız, API hata kodunu ve açıklayıcı mesajı içeren standart bir JSON hata nesnesi döndürür.",
+            "importantNote": "Önemli Not",
+            "securityWarning": "API anahtarlarınızı asla client-side kodda veya genel depolarda paylaşmayın."
+        }
+    },
+    "caseStudyDetail": {
+        "notFound": "Vaka Çalışması Bulunamadı",
+        "notFoundDesc": "Üzgünüz, istenen vaka çalışmasını bulamadık.",
+        "backToCaseStudies": "Vaka Çalışmalarına Dön",
+        "viewAllCaseStudies": "Tüm Vaka Çalışmalarını Görüntüle",
+        "resultsAchieved": "Elde Edilen Sonuçlar",
+        "challenge": "Zorluk",
+        "solution": "Çözüm",
+        "keyFeatures": "Temel Özellikler",
+        "technologiesUsed": "Kullanılan Teknolojiler",
+        "haveSimilarProject": "Benzer Bir Projeniz mi Var?",
+        "readyToHelp": "Fikrinizi gerçeğe dönüştürmenize yardımcı olmaya hazırız. Başlamak için bugün bizimle iletişime geçin.",
+        "contactUs": "Bize Ulaşın",
+        "orderService": "Hizmet Sipariş Et",
+        "client": "Müşteri",
+        "duration": "Süre",
+        "year": "Yıl"
+    },
+    "pricing": {
+        "title": "Planınızı Seçin",
+        "subtitle": "Proje kapsamınız ve iş hedeflerinize uygun esnek fiyatlandırma paketleri. Gizli ücret yok, sadece şeffaf değer.",
+        "badge": "Şeffaf Fiyatlandırma",
+        "popular": "En Popüler",
+        "recommended": "Önerilen",
+        "perProject": "/proje",
+        "customPrice": "Özel",
+        "customNeeds": "İhtiyaçlarınıza göre özelleştirilmiş",
+        "choosePlan": "Plan Seç",
+        "allPlansInclude": "Tüm Planlar Şunları İçerir",
+        "coreFeatures": "Her paketteki temel özellikler",
+        "faqTitle": "Fiyatlandırma SSS",
+        "faqSubtitle": "Fiyatlandırma hakkında sık sorulan sorular",
+        "ctaTitle": "Başlamaya Hazır mısınız?",
+        "ctaDescription": "İhtiyaçlarınıza uygun bir plan seçin veya özel kurumsal çözüm için bizimle iletişime geçin.",
+        "startProject": "Projenizi Başlatın",
+        "talkToSales": "Satışla Konuşun",
+        "plans": {
+            "starter": {
+                "name": "Başlangıç",
+                "description": "Dijital varlığını oluşturmak isteyen küçük işletmeler ve startuplar için mükemmel.",
+                "features": [
+                    "Özel web sitesi veya landing page",
+                    "Mobil uyumlu tasarım",
+                    "Temel SEO optimizasyonu",
+                    "İletişim formu entegrasyonu",
+                    "30 gün destek",
+                    "Hızlı teslimat (2-4 hafta)",
+                    "Kaynak kodu dahil",
+                    "Bir revizyon turu"
+                ]
+            },
+            "professional": {
+                "name": "Profesyonel",
+                "description": "Gelişmiş özellikler ve ölçeklenebilirlik gerektiren büyüyen şirketler için ideal.",
+                "features": [
+                    "Başlangıç'taki her şey",
+                    "Gelişmiş web uygulaması",
+                    "Özel backend ve iş mantığı",
+                    "Veritabanı entegrasyonu",
+                    "Kullanıcı kimlik doğrulama",
+                    "90 gün destek",
+                    "Performans optimizasyonu",
+                    "Güvenlik en iyi uygulamaları",
+                    "Analitik ve izleme",
+                    "3 revizyon turu"
+                ]
+            },
+            "enterprise": {
+                "name": "Kurumsal",
+                "description": "Karmaşık gereksinimleri olan büyük kuruluşlar için kapsamlı çözümler.",
+                "features": [
+                    "Profesyonel'deki her şey",
+                    "AI ve ML entegrasyonu",
+                    "Siber güvenlik incelemesi ve koruma",
+                    "Microservices mimarisi",
+                    "Bulut altyapı kurulumu",
+                    "Özel proje yöneticisi",
+                    "1 yıl premium destek",
+                    "Eğitim ve dokümantasyon",
+                    "Öncelikli 7/24 destek",
+                    "Sınırsız revizyon",
+                    "SLA garantileri"
+                ]
+            }
+        },
+        "included": {
+            "cleanCode": {
+                "title": "Temiz Kod",
+                "desc": "Üretime hazır, bakımı kolay kod"
+            },
+            "secure": {
+                "title": "Güvenli",
+                "desc": "Endüstri standardı güvenlik uygulamaları"
+            },
+            "fast": {
+                "title": "Hızlı",
+                "desc": "Performans için optimize edilmiş"
+            },
+            "support": {
+                "title": "Destek",
+                "desc": "Özel teknik destek"
+            }
+        },
+        "faq": {
+            "upgrade": {
+                "q": "Daha sonra başka bir plana yükseltebilir miyim?",
+                "a": "Kesinlikle! Herhangi bir planla başlayabilir ve ihtiyaçlarınız büyüdükçe yükseltebilirsiniz. Geçişi sorunsuz hale getiriyoruz."
+            },
+            "payment": {
+                "q": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+                "a": "Tüm büyük kredi kartlarını, banka havalelerini kabul ediyoruz ve kurumsal müşteriler için özel ödeme koşulları sunabiliyoruz."
+            },
+            "refund": {
+                "q": "Para iade garantisi var mı?",
+                "a": "Evet, memnuniyet garantisi sunuyoruz. İlk teslimattan memnun kalmazsanız, memnun kalana kadar sizinle çalışacağız."
+            },
+            "custom": {
+                "q": "Özel paketler sunuyor musunuz?",
+                "a": "Evet! Kurumsal plan tamamen özelleştirilebilir. Özel gereksinimlerinizi görüşmek ve özel teklif almak için bizimle iletişime geçin."
+            }
+        }
+    },
+    "contact": {
+        "badge": "Bize Ulaşın",
+        "title": "İletişim",
+        "subtitle": "Sorunuz mu var veya projenizi başlatmaya hazır mısınız? Vizyonunuzu hayata geçirmenize yardımcı olmak için buradayız.",
+        "letsTalk": "Konuşalım",
+        "description": "Yeni bir ürün oluşturmak, mevcut sistemlerinizi iyileştirmek veya uzman danışmanlığa ihtiyaç duyuyorsanız, başarmanıza yardımcı olmaya hazırız.",
+        "info": {
+            "email": {
+                "title": "E-posta Gönderin",
+                "subInfo": "24 saat içinde yanıt"
+            },
+            "phone": {
+                "title": "Bizi Arayın",
+                "subInfo": "Paz-Per, 09:00-18:00"
+            },
+            "location": {
+                "title": "Ziyaret Edin",
+                "address": "Riyad, Suudi Arabistan",
+                "subInfo": "Teknoloji Bölgesi, İnovasyon Caddesi"
+            },
+            "hours": {
+                "title": "Çalışma Saatleri",
+                "weekdays": "Paz-Per: 09:00-18:00",
+                "weekend": "Cum-Cmt: Kapalı"
+            }
+        },
+        "whyChooseUs": {
+            "title": "Neden NovaArab?",
+            "security": "Kurumsal düzeyde güvenlik ve uyumluluk",
+            "support": "Kritik sistemler için 7/24 özel destek",
+            "projects": "100+ başarılı proje ile kanıtlanmış başarı",
+            "technology": "En son teknoloji ve en iyi uygulamalar"
+        },
+        "form": {
+            "title": "Bize Mesaj Gönderin",
+            "subtitle": "En kısa sürede yanıt vereceğiz",
+            "nameLabel": "Adınız",
+            "emailLabel": "E-posta Adresi",
+            "subjectLabel": "Konu",
+            "subjectPlaceholder": "Size nasıl yardımcı olabiliriz?",
+            "messageLabel": "Mesaj",
+            "messagePlaceholder": "Sorgunuz, projeniz veya size nasıl yardımcı olabileceğimiz hakkında bize bildirin...",
+            "submit": "Mesaj Gönder",
+            "sending": "Gönderiliyor...",
+            "successTitle": "Mesaj Başarıyla Gönderildi!",
+            "successMessage": "Bizimle iletişime geçtiğiniz için teşekkürler. Ekibimiz mesajınızı inceleyecek ve 24 saat içinde yanıt verecek.",
+            "sendAnother": "Başka Mesaj Gönder",
+            "errorRequired": "Lütfen tüm gerekli alanları doldurun",
+            "errorSubmit": "Gönderirken bir hata oluştu. Lütfen tekrar deneyin."
+        },
+        "map": {
+            "title": "Konumumuz",
+            "location": "Riyad, Suudi Arabistan"
+        },
+        "cta": {
+            "title": "Projenizi Başlatmaya Hazır mısınız?",
+            "description": "İşinizi teknolojiyle nasıl dönüştürebileceğimizi tartışalım.",
+            "startProject": "Projenizi Başlatın",
+            "viewWork": "Çalışmalarımızı Görün"
+        }
+    },
+    "dashboard": {
+        "title": "Kontrol Paneli",
+        "welcomeBack": "Tekrar Hoş Geldiniz! 👋",
+        "todayUpdate": "Bugün projelerinizde neler oluyor.",
+        "nav": {
+            "overview": "Genel Bakış",
+            "projects": "Projeler",
+            "tasks": "Görevler",
+            "invoices": "Faturalar",
+            "careers": "Açık Pozisyonlar",
+            "support": "Destek",
+            "settings": "Ayarlar",
+            "adminSection": "Sistem Yönetimi",
+            "manageJobs": "İş İlanlarını Yönet",
+            "manageInvoices": "Faturaları Yönet",
+            "manageUsers": "Kullanıcıları Yönet",
+            "systemSettings": "Sistem Ayarları",
+            "logout": "Çıkış Yap",
+            "owner": "Sahibi",
+            "admin": "Yönetici"
+        },
+        "stats": {
+            "activeProjects": "Aktif Projeler",
+            "inProgress": "Devam Ediyor",
+            "pendingInvoices": "Bekleyen Faturalar",
+            "unpaidInvoices": "Ödenmemiş faturalar",
+            "openTickets": "Açık Destek Talepleri",
+            "noOpenTickets": "Açık destek talebi yok",
+            "ticketsNeedAttention": "İlgi bekleyen talepler",
+            "resolved": "çözüldü",
+            "systemHealth": "Sistem Sağlığı",
+            "optimal": "Optimal",
+            "good": "İyi",
+            "needsAttention": "İlgi Gerekiyor",
+            "unavailable": "Kullanılamıyor",
+            "uptime": "Çalışma Süresi"
+        },
+        "activities": {
+            "title": "Son Etkinlikler",
+            "subtitle": "Son güncellemeleri ve değişiklikleri takip edin",
+            "viewAll": "Tümünü Gör",
+            "filter": "Etkinlikleri Filtrele",
+            "noActivities": "Son etkinlik yok",
+            "teamActivity": "Ekip Etkinliği",
+            "myActivity": "Son Etkinliğim"
+        },
+        "actions": {
+            "title": "Hızlı İşlemler",
+            "subtitle": "Yaygın görevler ve kısayollar",
+            "newTicket": "Yeni Destek Talebi",
+            "viewInvoices": "Faturaları Görüntüle",
+            "downloadReports": "Raporları İndir",
+            "payNow": "Şimdi Öde",
+            "comingSoon": "Yakında"
+        },
+        "progress": {
+            "title": "Genel İlerleme",
+            "projectProgress": "Proje İlerlemesi"
+        },
+        "tasks": {
+            "title": "Görevler",
+            "taskTitle": "Görev Başlığı *",
+            "description": "Açıklama",
+            "project": "Proje *",
+            "selectProject": "Proje Seçin",
+            "dueDate": "Son Tarih",
+            "assignee": "Atanan Kişi",
+            "saving": "Kaydediliyor...",
+            "save": "Kaydet",
+            "cancel": "İptal",
+            "edit": "Düzenle",
+            "delete": "Sil",
+            "noTasks": "Görev yok",
+            "pending": "Beklemede",
+            "inProgress": "Devam Ediyor",
+            "completed": "Tamamlandı"
+        },
+        "projects": {
+            "title": "Projeler",
+            "projectProgress": "Proje İlerlemesi",
+            "tasks": "Görevler",
+            "completed": "Tamamlandı",
+            "noProjects": "Proje yok"
+        },
+        "invoices": {
+            "title": "Faturalar",
+            "dueDate": "Son Ödeme Tarihi",
+            "paidDate": "Ödeme Tarihi",
+            "download": "Faturayı İndir",
+            "noInvoices": "Fatura yok"
+        },
+        "documents": {
+            "title": "Belgeler",
+            "folder": "Klasör",
+            "noFolder": "Klasör Yok",
+            "new": "Yeni",
+            "allFiles": "Tüm Dosyalar",
+            "images": "Resimler",
+            "documents": "Belgeler",
+            "archives": "Arşivler",
+            "other": "Diğer",
+            "sortNewest": "En Yeni",
+            "sortOldest": "En Eski",
+            "sortNameAsc": "İsim (A-Z)",
+            "sortNameDesc": "İsim (Z-A)",
+            "sortLargest": "En Büyük",
+            "sortSmallest": "En Küçük",
+            "uploading": "Yükleniyor...",
+            "cannotPreview": "Bu dosya önizlenemiyor",
+            "downloadFile": "Dosyayı İndir"
+        },
+        "chat": {
+            "title": "Proje Sohbeti",
+            "noMessages": "Henüz mesaj yok",
+            "startConversation": "Mesaj göndererek sohbeti başlatın",
+            "sending": "Gönderiliyor...",
+            "send": "Gönder"
+        },
+        "tickets": {
+            "noTickets": "Destek talebi yok"
+        },
+        "emptyStates": {
+            "noData": "Veri yok",
+            "noResults": "Sonuç yok",
+            "tryDifferent": "Farklı terimlerle arama yapın"
+        }
+    },
+    "pages": {
+        "support": {
+            "available247": "7/24 Destek Mevcut",
+            "selfService": "Self-Servis Kaynakları",
+            "findAnswers": "Kendi hızınızda cevap bulun",
+            "faqTitle": "Sık Sorulan Sorular",
+            "faqSubtitle": "Yaygın sorulara hızlı cevaplar",
+            "stillNeedHelp": "Hâlâ Yardıma mı İhtiyacınız Var?",
+            "teamReady": "Özel destek ekibimiz size yardımcı olmaya hazır.",
+            "emailResponse": "24 saat içinde yanıt",
+            "phoneHours": "Pazartesi-Cuma, 09:00-18:00"
+        },
+        "faq": {
+            "helpCenter": "Yardım Merkezi",
+            "liveChat": "Canlı Sohbet",
+            "callUs": "Bizi Arayın",
+            "mostCommon": "En Çok Sorulan Sorular",
+            "stillHaveQuestions": "Hâlâ sorularınız mı var?",
+            "supportAvailable": "Destek ekibimiz size yardımcı olmak için 7/24 hazır"
+        },
+        "terms": {
+            "tableOfContents": "İçindekiler",
+            "legalAgreement": "Yasal Sözleşme",
+            "email": "E-posta",
+            "legalDepartment": "Hukuk Departmanı",
+            "mailingAddress": "Posta Adresi"
+        },
+        "privacy": {
+            "tableOfContents": "İçindekiler",
+            "legalDocument": "Yasal Belge",
+            "importantNotice": "Önemli Uyarı"
+        },
+        "docs": {
+            "exploreByCategory": "Kategoriye Göre Keşfet",
+            "popularArticles": "Popüler Makaleler",
+            "notFound": "Aradığınızı bulamadınız mı?",
+            "supportReady": "Destek ekibimiz yardıma hazır"
+        },
+        "tutorials": {
+            "noResults": "Sonuç yok",
+            "wantMore": "Daha fazlasını mı istiyorsunuz?",
+            "subscribeChannel": "En son dersler için kanalımıza abone olun"
+        },
+        "issues": {
+            "noResults": "Sonuç yok",
+            "tryDifferent": "Farklı terimlerle arama yapın",
+            "noSolution": "Çözüm bulamadınız mı?",
+            "supportReady": "Teknik destek ekibimiz yardıma hazır",
+            "possibleCauses": "Olası Nedenler:",
+            "solution": "Çözüm:",
+            "wasHelpful": "Bu yardımcı oldu mu?"
+        },
+        "partners": {
+            "andMore": "Ve daha fazlası...",
+            "powerOfPartnerships": "Teknoloji Ortaklıklarının Gücü"
+        },
+        "marketplace": {
+            "categories": "Kategoriler:"
+        },
+        "register": {
+            "joinUs": "Bugün Bize Katılın"
+        },
+        "verifySuccess": {
+            "nextSteps": "Sonraki Adımlar:"
         }
     }
 }

@@ -1,59 +1,84 @@
 /**
  * Dashboard Hooks Tests
  * 
- * Basic test placeholders for Firebase hooks
+ * Smoke tests to verify hooks can be imported without errors.
  * 
- * Note: Full Jest testing requires additional setup:
- * 1. Configure Jest: create jest.config.js
- * 2. Install: npm install --save-dev jest ts-jest
- * 3. Mock Firebase Firestore properly
- * 
- * To run: npm test (after Jest config)
+ * Note: Full integration testing requires:
+ * 1. Jest configuration with ts-jest
+ * 2. Firebase/Firestore mocking
+ * 3. React Testing Library for hook testing
  */
 
-/**
- * Placeholder test suite
- * These tests will pass but don't actually test functionality yet
- */
+import type {
+    DashboardStats,
+    Project,
+    Invoice,
+    SupportTicket,
+    Task,
+    Activity,
+    Service,
+} from '../lib/dashboard/types';
 
-// Simple placeholder - no Jest required for now
-describe('Dashboard Hooks - Placeholder Tests', () => {
-    test('useDashboardStats hook exists', () => {
-        expect(true).toBe(true);
+// Smoke test: Verify type imports work correctly
+describe('Dashboard Types', () => {
+    test('DashboardStats type exists', () => {
+        const stats: DashboardStats = {
+            totalProjects: 0,
+            activeProjects: 0,
+            completedProjects: 0,
+            totalRevenue: 0,
+            pendingInvoices: 0,
+            openTickets: 0,
+            resolvedTickets: 0,
+            systemHealth: null,
+        };
+        expect(stats.totalProjects).toBeDefined();
     });
 
-    test('useProjects hook exists', () => {
-        expect(true).toBe(true);
+    test('Project type exists', () => {
+        const project: Project = {
+            id: 'test',
+            title: 'Test Project',
+            ownerId: 'user123',
+            status: 'active',
+            progress: 50,
+            createdAt: new Date().toISOString(),
+        };
+        expect(project.id).toBe('test');
     });
 
-    test('useInvoices hook exists', () => {
-        expect(true).toBe(true);
-    });
-
-    test('useSupportTickets hook exists', () => {
-        expect(true).toBe(true);
-    });
-
-    test('useMonthlyStats hook exists', () => {
-        expect(true).toBe(true);
-    });
-
-    test('useRecentActivities hook exists', () => {
-        expect(true).toBe(true);
+    test('Invoice type exists', () => {
+        const invoice: Invoice = {
+            id: 'inv-1',
+            projectId: 'proj-1',
+            amount: 1000,
+            status: 'pending',
+            dueDate: new Date().toISOString(),
+            createdAt: new Date().toISOString(),
+        };
+        expect(invoice.amount).toBe(1000);
     });
 });
 
-describe('Hook Behavior - Placeholders', () => {
-    test('hooks should return loading state', () => {
-        expect(true).toBe(true);
+// Smoke test: Verify helper functions
+describe('Dashboard Helpers', () => {
+    test('formatRelativeTime exists and returns string', async () => {
+        const { formatRelativeTime } = await import('../lib/dashboard/helpers');
+        const result = formatRelativeTime(new Date().toISOString());
+        expect(typeof result).toBe('string');
     });
 
-    test('hooks should return error state', () => {
-        expect(true).toBe(true);
+    test('getActivityStyle returns style object', async () => {
+        const { getActivityStyle } = await import('../lib/dashboard/helpers');
+        const style = getActivityStyle('order_created');
+        expect(style.color).toBe('blue');
+        expect(style.gradient).toBeDefined();
     });
 
-    test('hooks should unsubscribe on cleanup', () => {
-        expect(true).toBe(true);
+    test('getActivityStyle returns default for unknown type', async () => {
+        const { getActivityStyle } = await import('../lib/dashboard/helpers');
+        const style = getActivityStyle('unknown_type');
+        expect(style.color).toBe('purple');
     });
 });
 

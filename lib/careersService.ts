@@ -83,7 +83,9 @@ export async function getOpenJobs(): Promise<Job[]> {
             return bTime - aTime;
         });
 
-        console.log(`[Careers] Fetched ${openJobs.length} open jobs (of ${jobs.length} total)`);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`[Careers] Fetched ${openJobs.length} open jobs (of ${jobs.length} total)`);
+        }
         return openJobs;
     } catch (error: unknown) {
         // Check if it's an index error
@@ -92,7 +94,9 @@ export async function getOpenJobs(): Promise<Job[]> {
 
         // If index is missing, try a simpler query without orderBy
         if (errorMessage.includes('index') || errorMessage.includes('FAILED_PRECONDITION')) {
-            console.log('[Careers] Composite index missing, trying fallback query...');
+            if (process.env.NODE_ENV !== 'production') {
+                console.log('[Careers] Composite index missing, trying fallback query...');
+            }
             try {
                 const fallbackQuery = query(
                     collection(db, 'careers_jobs'),
@@ -109,7 +113,9 @@ export async function getOpenJobs(): Promise<Job[]> {
                     const bTime = b.createdAt?.toMillis?.() || 0;
                     return bTime - aTime;
                 });
-                console.log(`[Careers] Fallback: Fetched ${jobs.length} open jobs`);
+                if (process.env.NODE_ENV !== 'production') {
+                    console.log(`[Careers] Fallback: Fetched ${jobs.length} open jobs`);
+                }
                 return jobs;
             } catch (fallbackError) {
                 console.error('[Careers] Fallback query also failed:', fallbackError);
@@ -127,7 +133,9 @@ export async function getAllJobs(): Promise<Job[]> {
             orderBy('createdAt', 'desc')
         );
         const snapshot = await getDocs(q);
-        console.log(`[Careers Admin] Fetched ${snapshot.docs.length} total jobs`);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`[Careers Admin] Fetched ${snapshot.docs.length} total jobs`);
+        }
         return snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
@@ -149,7 +157,9 @@ export async function getAllJobs(): Promise<Job[]> {
                     const bTime = b.createdAt?.toMillis?.() || 0;
                     return bTime - aTime;
                 });
-                console.log(`[Careers Admin] Fallback: Fetched ${jobs.length} total jobs`);
+                if (process.env.NODE_ENV !== 'production') {
+                    console.log(`[Careers Admin] Fallback: Fetched ${jobs.length} total jobs`);
+                }
                 return jobs;
             } catch (fallbackError) {
                 console.error('[Careers Admin] Fallback also failed:', fallbackError);
@@ -286,7 +296,9 @@ export async function getApplicationsByJob(jobId: string): Promise<JobApplicatio
             return bTime - aTime;
         });
 
-        console.log(`[Careers] Found ${filtered.length} applications for job ${jobId}`);
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`[Careers] Found ${filtered.length} applications for job ${jobId}`);
+        }
         return filtered;
     } catch (error) {
         console.error('Error fetching applications:', error);

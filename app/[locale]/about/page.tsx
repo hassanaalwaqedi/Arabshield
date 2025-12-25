@@ -251,7 +251,7 @@ export default function AboutPage() {
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
                                     <Image
-                                        src="/NovaArab/public/hassan.jpeg"
+                                        src="/hassan.jpeg"
                                         width={200}
                                         height={200}
                                         alt={t('founder.name')}
